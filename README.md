@@ -83,6 +83,13 @@ operator-library/
 - **Pandoc** ≥ 3.0 — [pandoc.org](https://pandoc.org/)
 - **LaTeX** (for PDF) — MiKTeX on Windows, TeX Live on Linux/macOS
 - **Bash** (Git Bash on Windows, native on Linux/macOS)
+- **Premium fonts** (recommended) — Sora, Source Serif Pro, IBM Plex Mono.
+  Without them the build still works but uses wider fallback fonts and the
+  page count inflates. Install in one command:
+
+  ```bash
+  ./scripts/install-fonts.sh
+  ```
 
 ### Quick compile (current book, all formats)
 
