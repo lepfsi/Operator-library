@@ -71,6 +71,8 @@ epub-cover-image: "../../../design/couverture-livre-01.svg"
 # First page of the PDF: full-page cover (used by template.latex).
 # The SVG is converted to PDF by build-book.sh when a converter is available.
 cover-image: "../../../design/couverture-livre-01.svg"
+# Last page of the PDF: full-page back cover generated from vector source.
+back-cover-image: "../../../design/quatrieme-couverture-livre-01.svg"
 
 # --- DOCX -------------------------------------------------------------------
 # Reference doc applied by build-book.sh via --reference-doc.

@@ -261,3 +261,29 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | Operator’s Rule | Bloc sombre différenciant, trois actions lisibles, aucune coupure entre folios. | Validé |
 | Field Note | Bloc clair stable, preuve terrain visible, aucune surcharge. | Validé |
 | Transition | `Next Chapter` respire correctement après la phrase mémorable et introduit le chapitre 5 sans vide excessif. | Validé |
+
+## Validation de la quatrième de couverture
+
+### Source
+
+- Première de couverture : `design/couverture-livre-01.svg`
+- Quatrième de couverture : `design/quatrieme-couverture-livre-01.svg`
+- Aperçu rendu : `/tmp/quatrieme-couverture-livre-01-preview.png`
+
+### Constats
+
+| Critère | Observation | Verdict |
+|---|---|---|
+| Palette | Bone, Ink, Saffron, Forest et Slate sont repris sans dérive. | Validé |
+| Métaphore | La frontière Ink et la couture Saffron passent sur le côté opposé, ce qui prolonge le concept de périmètre traversé. | Validé |
+| Texte | Le résumé, le public et la signature restent lisibles dans une largeur de lecture confortable. | Validé |
+| Zone technique | Un espace bas sobre est conservé pour un éventuel ISBN ou code-barres, sans information factice. | Validé |
+
+### Intégration PDF de la quatrième de couverture
+
+| Critère | Observation | Verdict |
+|---|---|---|
+| Position | La quatrième de couverture apparaît au dernier folio du PDF, après la transition du chapitre 4. | Validé |
+| Pagination | Aucun folio blanc supplémentaire n’est introduit. | Validé |
+| Format | La page est rendue en plein format 6 × 9 pouces, sans marge ni header. | Validé |
+| Lisibilité | Résumé, marque de collection, signature auteur et zone réservée ISBN restent lisibles. | Validé |

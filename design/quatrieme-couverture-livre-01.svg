@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Beyond the Firewall — Back cover
+  The Operator's Library · Book 01
+  Direction: Saffron / Ink / Bone — Operational Ideas
+  6 × 9 in ratio — vector source, print-ready
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xml:lang="en"
+     width="152.4mm" height="228.6mm"
+     viewBox="0 0 1200 1800" role="img"
+     aria-labelledby="back-cover-title back-cover-description">
+  <title id="back-cover-title">Beyond the Firewall — Back Cover</title>
+  <desc id="back-cover-description">A premium ivory and black back cover with saffron boundary detail and operational book description.</desc>
+
+  <defs>
+    <pattern id="paper-grain" width="110" height="110" patternUnits="userSpaceOnUse">
+      <path d="M0 22H110M0 88H110M28 0V110M82 0V110" fill="none" stroke="#948E84" stroke-width="0.55" opacity="0.13"/>
+      <circle cx="14" cy="13" r="0.9" fill="#948E84" opacity="0.26"/>
+      <circle cx="95" cy="73" r="0.8" fill="#948E84" opacity="0.18"/>
+    </pattern>
+    <filter id="saffron-soft" x="-80%" y="-30%" width="260%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Same warm editorial paper as the first cover. -->
+  <rect width="1200" height="1800" fill="#F2EDE3"/>
+  <rect width="1200" height="1800" fill="url(#paper-grain)"/>
+
+  <!-- The boundary moves to the left: the same system seen from the other side. -->
+  <path d="M0 0 H326 L307 176 L330 325 L302 475 L326 628 L300 785
+           L323 940 L298 1095 L322 1250 L296 1410 L319 1580 L298 1800 H0 Z"
+        fill="#161616"/>
+  <path d="M326 0 L344 0 L325 176 L348 325 L320 475 L344 628 L318 785
+           L341 940 L316 1095 L340 1250 L314 1410 L337 1580 L316 1800 H298
+           L319 1580 L296 1410 L322 1250 L298 1095 L323 940 L300 785 L326 628
+           L302 475 L330 325 L307 176 Z"
+        fill="#F2A900"/>
+
+  <!-- Collection register. -->
+  <text x="72" y="91" fill="#F2EDE3" font-family="Arial, Helvetica, sans-serif"
+        font-size="17" font-weight="700" letter-spacing="3.1">THE OPERATOR’S LIBRARY</text>
+  <text x="72" y="128" fill="#F2A900" font-family="Arial, Helvetica, sans-serif"
+        font-size="15" font-weight="700" letter-spacing="3">BOOK 01</text>
+  <line x1="72" y1="158" x2="262" y2="158" stroke="#F2A900" stroke-width="3"/>
+
+  <!-- Quiet visual continuation of the targeting mark. -->
+  <g fill="none" stroke="#948E84" stroke-width="1.1" opacity="0.48">
+    <circle cx="844" cy="405" r="170"/>
+    <path d="M570 405H1080"/>
+    <path d="M844 180V650"/>
+  </g>
+  <circle cx="844" cy="405" r="17" fill="#F2EDE3" stroke="#161616" stroke-width="2.4"/>
+  <circle cx="844" cy="405" r="6" fill="#1C6B5A"/>
+
+  <!-- Reader promise. -->
+  <g transform="translate(420,200)">
+    <text x="0" y="0" fill="#1C6B5A" font-family="Arial, Helvetica, sans-serif"
+          font-size="16" font-weight="700" letter-spacing="4">BEYOND THE FIREWALL</text>
+    <line x1="0" y1="32" x2="450" y2="32" stroke="#F2A900" stroke-width="7"/>
+
+    <text x="0" y="112" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="31" font-style="italic">The systems you can see are not always</text>
+    <text x="0" y="151" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="31" font-style="italic">the systems your users depend on.</text>
+
+    <text x="0" y="258" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">Most operational failures do not begin with a</text>
+    <text x="0" y="296" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">spectacular outage. They begin with a signal that</text>
+    <text x="0" y="334" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">looked safe: a firewall rule, a green dashboard,</text>
+    <text x="0" y="372" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">a system that still answered but no longer served</text>
+    <text x="0" y="410" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">the people who depended on it.</text>
+
+    <text x="0" y="505" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">Beyond the Firewall is a practical field guide to</text>
+    <text x="0" y="543" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">the gaps between infrastructure health and</text>
+    <text x="0" y="581" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">operational reality. Through incidents, concepts,</text>
+    <text x="0" y="619" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">and decisions you can apply this week, Steve</text>
+    <text x="0" y="657" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">BA-NDOUWE shows how to find failure paths that</text>
+    <text x="0" y="695" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+          font-size="27">dashboards, thresholds, and good intentions miss.</text>
+
+    <line x1="0" y1="770" x2="450" y2="770" stroke="#948E84" stroke-width="1.2"/>
+    <text x="0" y="821" fill="#948E84" font-family="Arial, Helvetica, sans-serif"
+          font-size="15" font-weight="700" letter-spacing="2.2">FOR ENGINEERS · OPERATORS · SECURITY LEADERS</text>
+    <text x="0" y="853" fill="#948E84" font-family="Arial, Helvetica, sans-serif"
+          font-size="15" font-weight="700" letter-spacing="2.2">AND TEAMS BUILDING DEPENDABLE SYSTEMS</text>
+  </g>
+
+  <!-- Author signature and reserved quiet footer. -->
+  <line x1="420" y1="1480" x2="1128" y2="1480" stroke="#161616" stroke-width="1.4"/>
+  <text x="420" y="1554" fill="#161616" font-family="Arial, Helvetica, sans-serif"
+        font-size="27" font-weight="700" letter-spacing="5">STEVE BA-NDOUWE</text>
+  <text x="420" y="1599" fill="#948E84" font-family="Georgia, 'Times New Roman', serif"
+        font-size="25" font-style="italic">Cybersecurity Engineer</text>
+  <text x="1128" y="1554" text-anchor="end" fill="#F2A900" font-family="Arial, Helvetica, sans-serif"
+        font-size="16" font-weight="700" letter-spacing="3">OPERATIONAL IDEAS</text>
+
+  <!-- Deliberately empty, print-safe area for a future ISBN or barcode. -->
+  <rect x="740" y="1650" width="388" height="82" fill="none" stroke="#948E84" stroke-width="1" opacity="0.45"/>
+</svg>

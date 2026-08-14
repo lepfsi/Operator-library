@@ -451,4 +451,12 @@ $endif$
 
 $body$
 
+$if(book-back-cover)$
+\clearpage
+\newgeometry{margin=0pt}
+\thispagestyle{empty}
+\vbox to \paperheight{\vfill\noindent\makebox[\paperwidth]{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{$book-back-cover$}}\vfill}
+\restoregeometry
+$endif$
+
 \end{document}

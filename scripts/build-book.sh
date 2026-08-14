@@ -197,6 +197,7 @@ PDF_TEMPLATE=$(resolve_path "$(get_yaml_value "template")")
 EPUB_CSS=$(resolve_path "$(get_yaml_value "epub-css")")
 EPUB_COVER=$(resolve_path "$(get_yaml_value "epub-cover-image")")
 COVER_IMAGE=$(resolve_path "$(get_yaml_value "cover-image")")
+BACK_COVER_IMAGE=$(resolve_path "$(get_yaml_value "back-cover-image")")
 DOCX_REF=$(resolve_path "$(get_yaml_value "reference-doc")")
 
 # ---- Cover conversion (SVG -> PDF/PNG) -------------------------------------
@@ -229,6 +230,28 @@ if [[ -n "$COVER_IMAGE" && -f "$COVER_IMAGE" ]]; then
     esac
 fi
 
+# ---- Back-cover conversion (SVG -> PDF) ------------------------------------
+# The back cover is intentionally PDF-only; EPUB uses the front cover as its cover image.
+BACK_COVER_PDF=""
+if [[ -n "$BACK_COVER_IMAGE" && -f "$BACK_COVER_IMAGE" ]]; then
+    case "${BACK_COVER_IMAGE##*.}" in
+        svg)
+            if command -v rsvg-convert >/dev/null 2>&1; then
+                BACK_COVER_PDF="$EXPORTS_DIR/back-cover.pdf"
+                rsvg-convert -f pdf -o "$BACK_COVER_PDF" "$BACK_COVER_IMAGE" >/dev/null 2>&1 && echo "   back cover: SVG -> PDF (rsvg-convert)" || BACK_COVER_PDF=""
+            elif command -v inkscape >/dev/null 2>&1; then
+                BACK_COVER_PDF="$EXPORTS_DIR/back-cover.pdf"
+                inkscape --export-type=pdf --export-filename="$BACK_COVER_PDF" "$BACK_COVER_IMAGE" >/dev/null 2>&1 && echo "   back cover: SVG -> PDF (inkscape)" || BACK_COVER_PDF=""
+            else
+                echo "   back cover: SVG found but rsvg-convert / inkscape missing — PDF back cover will be skipped."
+            fi
+            ;;
+        pdf)
+            BACK_COVER_PDF="$BACK_COVER_IMAGE"
+            ;;
+    esac
+fi
+
 # ---- Build functions --------------------------------------------------------
 # The collection-level ToC is intentionally compact. Per-chapter guides carry
 # the finer navigation inside each chapter.
@@ -249,6 +272,10 @@ build_pdf() {
     if [[ -n "$COVER_PDF" && -f "$COVER_PDF" ]]; then
         pdf_args+=(--variable="book-cover:$COVER_PDF")
         echo "   cover page: $COVER_PDF"
+    fi
+    if [[ -n "$BACK_COVER_PDF" && -f "$BACK_COVER_PDF" ]]; then
+        pdf_args+=(--variable="book-back-cover:$BACK_COVER_PDF")
+        echo "   back cover page: $BACK_COVER_PDF"
     fi
     pandoc "${pdf_args[@]}" \
         --to=pdf \
