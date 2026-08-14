@@ -133,9 +133,9 @@ check_font() {
     echo "   (warn) premium font not found: $label"
     return 1
 }
-check_font "Sora" "Sora"
-check_font "Source Serif" "Source Serif Pro" "Source Serif 4" "SourceSerif4"
-check_font "IBM Plex Mono" "IBM Plex Mono" "IBMPlexMono"
+check_font "Sora" "Sora"            || true
+check_font "Source Serif" "Source Serif Pro" "Source Serif 4" "SourceSerif4" || true
+check_font "IBM Plex Mono" "IBM Plex Mono" "IBMPlexMono" || true
 if [[ "$MISSING_FONTS" -gt 0 ]]; then
     echo "   (warn) $MISSING_FONTS premium font(s) missing — build will use wider fallbacks."
     echo "          Page count and typography will differ from design. Run:"
