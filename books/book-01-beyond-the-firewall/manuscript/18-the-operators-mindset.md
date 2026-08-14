@@ -23,9 +23,11 @@ incidents_referenced:
 - [01. The change nobody saw](#the-change-nobody-saw)
 - [02. Routine can hide drift](#routine-can-hide-drift)
 - [03. Operational drift](#operational-drift)
-- [04. Questions before commands](#questions-before-commands)
-- [05. The weekly assumption review](#the-weekly-assumption-review)
-- [06. Beyond the firewall](#beyond-the-firewall)
+- [04. Five disciplines of the operator](#five-disciplines-of-the-operator)
+- [05. Questions before commands](#questions-before-commands)
+- [06. The weekly assumption review](#the-weekly-assumption-review)
+- [07. A working cadence](#a-working-cadence)
+- [08. Beyond the firewall](#beyond-the-firewall)
 :::
 
 ## The change nobody saw
@@ -86,6 +88,24 @@ Operational drift appears in configuration, access, dependencies, ownership, doc
 The system you operate is the system that exists now, not the one the last diagram described.
 :::
 
+## Five disciplines of the operator
+
+An operator’s mindset is visible in what the team does repeatedly, not in the principles it agrees with after an incident.
+
+**Trace the outcome.** Begin with the result a user or business process needs, then follow the path that produces it.
+
+**Separate evidence from conclusion.** A dashboard, ticket, or runbook is an input. State what it proves, what it cannot prove, and what assumption connects it to the current decision.
+
+**Notice material change.** Treat new access, configuration, dependency ownership, exception, and traffic pattern as possible changes to the operating model.
+
+**Test the smallest useful assumption.** Choose a safe verification that can change the next decision instead of collecting more information without a purpose.
+
+**Leave a stronger path.** After a change, incident, or rehearsal, return the learning to the runbook, owner, control, map, or decision boundary where the next operator will need it.
+
+::: operating-fact
+The operator’s mindset is not permanent vigilance. It is a repeatable cadence for keeping the team’s model close to the system that exists.
+:::
+
 ## Questions before commands
 
 The quickest command is not always the first useful action.
@@ -123,6 +143,20 @@ Over time, the review becomes an early-warning practice. It surfaces drift while
 **Run an assumption review.** Choose one operational boundary that matters to a customer outcome. Write the assumption the team currently relies on. Find one fresh signal that tests it. Name the change that could invalidate it. Assign one safe verification step and record what the team learned. Repeat next week with a new boundary or with the same boundary after a meaningful change.
 :::
 
+## A working cadence
+
+The habits become practical when they have a place in the week.
+
+::: tip
+**Operator cadence**
+
+1. **Daily:** Trace one meaningful outcome or handoff. Ask which current signal could be misleading if its meaning changed.
+2. **Weekly:** Run one Assumption Review. Record the boundary, assumption, fresh evidence, safe check, owner, and decision.
+3. **Monthly:** Select one drift surface such as access, configuration, dependency, exception, or recovery path. Compare the operating record with the running reality, then assign one correction or proof.
+
+The cadence is deliberately small. Its purpose is to surface one useful mismatch before a large incident turns it into a forced investigation.
+:::
+
 ## Beyond the firewall
 
 The firewall was never the whole system.
@@ -136,15 +170,15 @@ That is the work beyond the firewall.
 It asks for technical skill. It also asks for judgment, attention, and the courage to say that a green signal is not enough evidence yet.
 
 ::: operator-rule
-1. **Treat every signal as evidence, not a verdict.** Ask what the signal proves, what it cannot prove, and whether its meaning has changed.
+1. **Each day, treat one signal as evidence, not a verdict.** Ask what it proves, what it cannot prove, and whether its meaning has changed.
 
-2. **Inspect the current system.** Use diagrams, runbooks, and dashboards as starting points, then verify them against the running path.
+2. **Each week, inspect one operational boundary.** Use diagrams, runbooks, and dashboards as starting points, then verify them against the running path.
 
-3. **Ask before acting.** Name the assumption, the customer outcome, and the evidence that should guide the next command.
+3. **Before acting, name the assumption.** State the customer outcome and the evidence that should guide the next command.
 
-4. **Make drift discussable.** Create a recurring place to review changes in configuration, access, dependencies, ownership, and operating practice.
+4. **Each month, make drift discussable.** Review one change in configuration, access, dependency, ownership, exception, or operating practice.
 
-5. **Leave the model open to correction.** Good operators update their understanding when evidence changes. That is how a team stays capable as the system evolves.
+5. **Leave the model open to correction.** Return one learning to the operating path so the next operator starts with a stronger current model.
 :::
 
 ::: {.memorable-phrase}

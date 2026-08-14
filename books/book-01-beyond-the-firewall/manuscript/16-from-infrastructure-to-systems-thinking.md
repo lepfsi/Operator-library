@@ -24,8 +24,9 @@ incidents_referenced:
 - [02. The part is not the system](#the-part-is-not-the-system)
 - [03. System boundary](#system-boundary)
 - [04. The invisible handoff](#the-invisible-handoff)
-- [05. Measure the path](#measure-the-path)
-- [06. Draw the smallest useful map](#draw-the-smallest-useful-map)
+- [05. A causal path map](#a-causal-path-map)
+- [06. Measure the path](#measure-the-path)
+- [07. Draw the smallest useful map](#draw-the-smallest-useful-map)
 :::
 
 ## The upgrade that changed nothing
@@ -102,6 +103,14 @@ If no team owns the end-to-end path, no team can reliably improve it.
 
 Ownership of the whole path does not mean one team must operate every component. It means someone has the explicit responsibility to assemble evidence across boundaries, name the constraint, and coordinate the decision that changes the outcome.
 
+## A causal path map
+
+The smallest useful system map shows where the outcome moves, where it waits, and where evidence or ownership becomes weak.
+
+![](books/book-01-beyond-the-firewall/assets/system-boundary-path.png){ width=45% }
+
+The portal map made one condition visible: the repeated integration call returned work to the application before the receiving service could record the case. The relevant constraint was not “the platform.” It was a specific handoff, its evidence, and the decision boundary around it.
+
 ## Measure the path
 
 The first systems question is not “Which metric is red?”
@@ -139,15 +148,15 @@ Then ask four questions.
 :::
 
 ::: operator-rule
-1. **Start with an outcome.** Define what the user or business must receive before selecting a component to improve.
+1. **This week, define one outcome.** State what the user or business must receive before selecting a component to improve.
 
 2. **Follow work across boundaries.** Include integrations, queues, identity, manual approvals, vendors, and decision points when they shape the outcome.
 
-3. **Use evidence from the path.** A component metric is useful when it explains a step in the end-to-end result.
+3. **Draw one causal path.** Mark each meaningful handoff, its owner, its proof signal, and the condition that could delay or alter the result.
 
 4. **Assign path ownership.** One accountable operator or group must coordinate the condition even when many teams own the parts.
 
-5. **Map for a decision.** The smallest useful system map is better than a complete diagram that does not change what the team does next.
+5. **Run one safe test.** Choose the smallest change that can confirm or challenge the map before the team commits to an expensive local improvement.
 :::
 
 ::: {.memorable-phrase}

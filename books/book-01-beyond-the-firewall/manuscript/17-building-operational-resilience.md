@@ -25,7 +25,8 @@ incidents_referenced:
 - [03. Recovery muscle](#recovery-muscle)
 - [04. The rehearsal loop](#the-rehearsal-loop)
 - [05. Choose a recoverable unit](#choose-a-recoverable-unit)
-- [06. Give small failure a place](#give-small-failure-a-place)
+- [06. The reverse test](#the-reverse-test)
+- [07. Give small failure a place](#give-small-failure-a-place)
 :::
 
 ## The failover that had never happened
@@ -113,6 +114,16 @@ The unit must have a clear success condition. “We talked through it” is not 
 
 Small units lower the cost of starting. They also reveal the same types of failure that make larger recoveries difficult: missing access, unclear ownership, stale assumptions, weak signals, and decisions that cannot be made without one person.
 
+## The reverse test
+
+An exercise proves only that the team encountered a path. Improvement is proven when the same path is run again after the highest-risk friction has been repaired.
+
+The reverse test is deliberately modest. Repeat the recoverable unit with the same success condition. Compare the evidence: could the operator find the authority, detect the condition, complete the path, and verify the outcome with fewer unsafe assumptions? If not, the repair was a promise, not a capability change.
+
+::: operating-fact
+A rehearsal becomes resilience only when a repaired path can be demonstrated again.
+:::
+
 ## Give small failure a place
 
 A system that never experiences safe, intentional stress reserves every lesson for a real emergency.
@@ -124,19 +135,29 @@ The goal is not to make systems fail for its own sake. The goal is to make recov
 A team can begin with an exercise calendar that names one recoverable unit, the owner of the exercise, the success condition, and the date when the improved path will be rerun. The calendar should be modest enough to keep. A small repeated practice is more valuable than an ambitious annual event that becomes a slide deck.
 
 ::: tip
-**Build a recovery rehearsal.** Choose one recoverable unit that does not require a production emergency. Define the disruption, the success condition, the operator who will run it, the evidence to collect, and the condition that stops the exercise. Afterward, list the three biggest frictions. Repair the highest-risk one, then schedule the same exercise again while the lesson is still fresh.
+**Use a Recovery Exercise Card.**
+
+1. **Recoverable unit:** Which outcome will the team restore or verify?
+2. **Disruption:** What bounded loss, delay, or failure condition will be introduced?
+3. **Success condition:** What evidence proves acceptable service returned?
+4. **Owner and authority:** Who leads the exercise and who can stop it?
+5. **Evidence to collect:** Which access, signal, decision, and handoff must be observed?
+6. **Highest-risk friction:** Which blocker will be repaired first?
+7. **Reverse test date:** When will the same unit run again to prove the repair?
+
+Keep the card with the service’s operating record. The value is not the scenario itself. The value is the demonstrated improvement on the next run.
 :::
 
 ::: operator-rule
-1. **Treat recovery as a team skill.** A redundant design is incomplete until people have practised the operating path around it.
+1. **This week, choose one recoverable unit.** A redundant design is incomplete until people have practised the operating path around it.
 
 2. **Exercise a real unit of work.** Test an outcome that can be verified, not only a scenario that can be discussed.
 
 3. **Record friction as evidence.** Delays, missing permissions, unclear signals, and hesitation identify the next capability to build.
 
-4. **Repair before repeating.** An exercise earns its value when it changes an access path, runbook, control, ownership boundary, or automation.
+4. **Repair before repeating.** Change the access path, runbook, control, ownership boundary, or automation that created the highest-risk friction.
 
-5. **Keep the practice small and regular.** Consistent rehearsal builds more resilience than an annual event that tries to simulate everything.
+5. **Run the reverse test.** Repeat the same unit and compare the evidence before claiming the recovery path improved.
 :::
 
 ::: {.memorable-phrase}
