@@ -293,7 +293,7 @@ $endif$
 \fancyhead[RO]{\sffamily\scriptsize\scshape\color{steelgray}\thepage}
 % Pied : gauche = auteur, centre = carré turquoise discret
 \fancyfoot[LE]{\sffamily\scriptsize\scshape\color{steelgray}$if(book-author)$$book-author$$else$BA-NDOUWE STEVE$endif$}
-\fancyfoot[RO]{\sffamily\scriptsize\color{turquoise}\blacksquare}
+\fancyfoot[RO]{\sffamily\scriptsize\color{turquoise}\rule{6pt}{6pt}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -441,7 +441,7 @@ $endif$
   \end{flushright}
   \vfill
   \begin{flushright}
-    {\sffamily\fontsize{30pt}{36pt}\selectfont\color{white}\bfseries\MakeUppercase{\thechaptertitle}}%
+    {\sffamily\fontsize{30pt}{36pt}\selectfont\color{white}\bfseries\MakeUppercase{$if(book-title)$$book-title$$else$Beyond the Firewall$endif$}}%
   \end{flushright}
   \vspace*{2cm}
 }{\clearpage}
@@ -539,7 +539,7 @@ $endif$
 \setlist[enumerate]{leftmargin=18pt, topsep=4pt, parsep=2pt, itemsep=2pt}
 
 % Bullet color: turquoise
-\renewcommand{\labelitemi}{\color{turquoise}\textbullet}
+\renewcommand{\labelitemi}{\color{turquoise}\textendash}
 
 % ---- Body -----------------------------------------------------------------
 \begin{document}
