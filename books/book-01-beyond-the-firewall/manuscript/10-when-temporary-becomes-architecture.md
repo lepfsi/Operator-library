@@ -45,13 +45,11 @@ The useful review did not begin with the diagram. It began with the running syst
 The system that constrains the next change is the system expressed in live decisions, not the system remembered in the last diagram.
 :::
 
-The lesson from Chapter 2 remains true: temporary choices can become permanent. This chapter begins after that realization. Once an exception has stayed, the team must govern it as operating architecture.
+Once an exception has stayed, the team must govern it as operating architecture.
 
 ## The exception ledger
 
-An exception ledger is a short record of the unusual rules, overrides, scripts, access grants, routes, feature flags, and vendor settings that materially affect a critical path.
-
-It is not a catalogue of technical debt for blaming people. It is a way to decide what the organisation is actually willing to operate.
+An Exception Ledger is a short record of the unusual rules, overrides, scripts, access grants, routes, feature flags, and vendor settings that materially affect a critical path. Its purpose is to decide what the organisation is actually willing to operate.
 
 ::: concept
 **EXCEPTION LEDGER**
@@ -61,7 +59,7 @@ It is not a catalogue of technical debt for blaming people. It is a way to decid
 The ledger makes an exception visible before an incident forces the team to rediscover why it exists.
 :::
 
-A useful entry is compact enough to survive in the work stream. It belongs close to the infrastructure definition, change record, service ownership record, or configuration repository where the exception lives.
+Keep the entry beside the infrastructure definition, change record, service ownership record, or configuration repository where the exception lives.
 
 ::: tip
 **Create one exception entry this week.**
@@ -80,11 +78,9 @@ Choose the element that makes experienced operators say, â€œdo not touch that.â€
 
 ## The cognitive cost of hidden structure
 
-Long-lived exceptions do more than create a possible incident. They change how a team thinks and acts.
+Long-lived exceptions change how a team thinks and acts. An unowned firewall rule slows review because nobody can explain its traffic. A copied script makes deployment fragile because operators avoid its host. A feature flag without a removal decision turns each release into a question about an old path.
 
-An unowned firewall rule makes a security review slower because nobody can explain the traffic it permits. A copied script makes a deployment fragile because operators avoid changing the host where it runs. A feature flag with no removal decision turns every new release into a question about an old path. An access grant that nobody reviews becomes part of the security model by default.
-
-Over time, the team learns to avoid areas it no longer understands. Changes are delayed. Reviews become performative. The people who remember the exception gain informal decision power. The organisation stops designing and starts negotiating with its own accumulated history.
+Over time, teams avoid areas they no longer understand. Changes slow down, reviews become performative, and the people who remember the exception gain informal decision power.
 
 ::: warning
 **Hidden structure increases the cost of every future decision.**
@@ -98,11 +94,11 @@ This is architectural accretion in its operational form. The issue is not that t
 
 An audit should end with a decision, not a longer list.
 
-**Retain** an exception when it remains necessary, is understood, has an accountable owner, and can be tested. Retention is a design decision. It requires controls, documentation where the work happens, and a condition that will trigger the next review.
+**Retain** an exception when it remains necessary, understood, owned, and testable. Keep the controls, operating record, and review trigger with it.
 
-**Replace** an exception when the current path still serves a real need but its mechanism is too fragile, opaque, or manual. A temporary endpoint override may become a supported integration. A copied script may become an owned workflow. A one-off access rule may become a role with a defined purpose.
+**Replace** it when the need remains but the mechanism is fragile, opaque, or manual. Make the replacement an owned integration, workflow, or role.
 
-**Retire** an exception when its original condition no longer exists or when another control now performs its function. Retirement is not deletion by assumption. The team must trace the dependency, remove the element safely, and verify the outcome it once protected.
+**Retire** it when the original condition has ended or another control performs its function. Trace the dependency, remove it safely, and verify the outcome it once protected.
 
 ::: operating-fact
 Silence is not a decision. Every long-lived exception is being retained, replaced, or retired by the way the team behaves around it.
@@ -112,11 +108,9 @@ The point is not purity. Some production exceptions are justified and durable. T
 
 ## Design for reversibility
 
-Chapter 7 addressed the return from a recent change. Reversibility here is broader. It asks whether the team has an intelligible path away from a long-lived exception when the system, vendor, risk posture, or business need changes.
+Reversibility here asks whether the team has an intelligible path away from a long-lived exception when the system, vendor, risk posture, or business need changes.
 
-For a firewall exception, the exit may be a replacement control and a verified removal. For an endpoint override, it may be a supported routing path and a test of account recovery. For a scheduled script, it may be an owned service with an observable result. For a feature flag, it may be a removal task created at the same moment as the flag.
-
-A reversible operating model does not promise that every decision can be undone easily. It makes the exit path explicit while the team still has time to understand it.
+The exit may be a replacement control, a supported routing path, an owned service, or a removal task. A reversible model does not promise an easy undo. It makes the exit explicit while the team still has time to understand it.
 
 ::: operator-rule
 1. **This week, inspect one critical path outside the diagram.** Compare the intended design with live routes, identities, configuration, scheduled work, and vendor settings.

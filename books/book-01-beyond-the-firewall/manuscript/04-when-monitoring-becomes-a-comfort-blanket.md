@@ -45,13 +45,11 @@ When a team requires unfamiliar evidence to prove itself before familiar evidenc
 
 ## Familiar evidence wins by default
 
-Operations needs standard views because no team can investigate every possibility at once. Familiar signals reduce the number of paths to inspect. They make handovers faster and routine work calmer.
+Operations needs standard views because no team can investigate every possibility at once. Familiar signals make handovers faster and routine work calmer.
 
-The risk is not familiarity itself. The risk is the order of trust it creates.
+The risk lies in the order of trust. A panel that has solved ten incidents can become more persuasive than a user report not yet translated into a metric. The team asks whether the report is credible instead of asking what condition could make both sources true.
 
-A panel that has helped solve ten incidents becomes more persuasive than a user report that has not yet been translated into a metric. A team begins to ask whether the report is credible instead of asking what condition could make both the report and the current evidence true.
-
-This is not a flaw in one person’s judgment. It is a predictable effect of working with a shared model for a long time. The model makes decisions faster. It can also make contradictory evidence feel expensive, because accepting it requires the team to reopen a path it thought was understood.
+This is not one person’s judgment failure. A shared model speeds decisions, but can make contradictory evidence feel expensive because accepting it reopens a path the team thought it understood.
 
 ::: concept
 **COMFORT BLANKET MONITORING**
@@ -84,11 +82,7 @@ When a support report conflicts with the standard view, open the incident with f
 
 ## The cost of delayed recognition
 
-Delayed recognition is not measured only in minutes. It changes what the team does with the next hour.
-
-A team that dismisses a customer outcome will often collect more evidence from the view it already trusts. It will compare normal ranges, inspect historical values, and wait for an alert threshold that may never cross. The work feels responsible because it is observable and repeatable.
-
-But it is not directed by the failure.
+Delayed recognition changes what the team does with the next hour. It collects more evidence from the view it already trusts, compares normal ranges, and waits for a threshold that may never cross.
 
 In the Black Friday incident, the conversion drop and support queue were treated as business context rather than production evidence. By the time the session-validation delay was measured, the team had spent most of the incident proving that its first view was incomplete.
 
@@ -98,17 +92,15 @@ In the Black Friday incident, the conversion drop and support queue were treated
 If the team spends its opening minutes defending a familiar view, it loses the time needed to test the condition the user has already described.
 :::
 
-The recovery begins earlier when the team accepts a simple rule: a contradiction is not a distraction from the incident. It is often the best description of the incident’s current boundary.
+A contradiction is not a distraction from the incident. It often describes the incident’s current boundary.
 
 ## Run a contradiction drill
 
 Teams rehearse system failure. They should also rehearse the moment their evidence disagrees.
 
-Choose a scenario where standard component indicators remain ordinary while a user outcome, support queue, abandonment pattern, or business event reveals a problem. Keep the first ten minutes focused on decision order rather than root cause.
+Choose a scenario where ordinary component indicators conflict with a user outcome, support pattern, or business event. Keep the first ten minutes focused on decision order: who speaks for the reported outcome, who records the untested condition, and what evidence would change the team’s mind?
 
-Who speaks for the reported outcome? Who records the untested condition? Who is authorised to pause a familiar investigation and request a replay of the user path? What evidence would make the team change its mind?
-
-The exercise is small, but it exposes a habit that real incidents punish: the tendency to seek certainty from the evidence that requires the least revision of the team’s existing model.
+The exercise exposes the habit real incidents punish: seeking certainty from evidence that requires the least revision of the existing model.
 
 ::: operator-rule
 1. **This week, define one contradiction trigger.** Choose a customer outcome, support pattern, or business signal that must open investigation even when no familiar alert has fired.
