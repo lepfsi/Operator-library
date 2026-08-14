@@ -107,7 +107,7 @@ Ownership of the whole path does not mean one team must operate every component.
 
 The smallest useful system map shows where the outcome moves, where it waits, and where evidence or ownership becomes weak.
 
-![](books/book-01-beyond-the-firewall/assets/system-boundary-path.png){ width=45% }
+**Citizen request → portal accepts → integration handoff → receiving service → case acknowledged.**
 
 The portal map made one condition visible: the repeated integration call returned work to the application before the receiving service could record the case. The relevant constraint was not “the platform.” It was a specific handoff, its evidence, and the decision boundary around it.
 

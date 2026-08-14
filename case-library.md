@@ -122,7 +122,7 @@
 ---
 
 ### Backup_Job_Silently_Failing
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : education software firm, ~60 employees
 - **Period** : March 2021
 - **Context** : nightly backup job to a NAS, unchanged for years, monitored only by "SUCCESS" logs

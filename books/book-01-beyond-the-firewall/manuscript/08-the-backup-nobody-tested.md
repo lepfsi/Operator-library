@@ -21,7 +21,7 @@ incidents_referenced:
 **Inside Chapter 08**
 
 - [01. The security blanket](#the-security-blanket)
-- [02. The 14-hour restore](#the-14-hour-restore)
+- [02. The restore that stopped at the archive](#the-restore-that-stopped-at-the-archive)
 - [03. The anatomy of backup failure](#the-anatomy-of-backup-failure)
 - [04. The restore is the truth](#the-restore-is-the-truth)
 - [05. The cost of confidence](#the-cost-of-confidence)
@@ -42,17 +42,17 @@ A backup job proves that a process wrote data somewhere. It does not prove that 
 
 The backup is not the safety net. The restore is the safety net.
 
-## The 14-hour restore
+## The restore that stopped at the archive
 
-A logistics company lost its primary database after a storage failure. The backup service had run every night for years. The jobs were green, the retention policy was satisfied, and the operations manager expected a straightforward recovery.
+An education software company lost a file service during a ransomware event. Its backup job had run every night for years. Completion records looked ordinary, retention appeared correct, and the operations manager expected a straightforward recovery.
 
-The first restore completed far beyond the recovery target the business had agreed. It did not fail at a single command. It exposed a chain of overlooked conditions.
+The first restore did not reach the service. It exposed a condition the job had never been designed to report.
 
-The backup repository could supply the data, but the new target volume wrote more slowly than the environment used when the recovery objective was chosen. Network throughput between the repository and the target had never been measured under restoration load. The application configuration was not included with the database backup. The team also needed to rebuild identities and verify that the restored service could process a shipment update.
+The network-attached storage that held the recovery sets had been out of capacity for weeks. Each job still produced a familiar completion record, but each set had been truncated before the full file service was preserved. The team could retrieve fragments. It could not reconstruct a usable service or open the records that authorised staff needed.
 
-The backup data was present. The business outcome was not.
+The backup record existed. The recovery set did not.
 
-A recovery target is not met because a file has been copied. It is met when the service returns to an acceptable state inside the time the business can tolerate.
+A recovery target is not met because a job reports completion. It is met when the service returns to an acceptable state inside the time the business can tolerate.
 
 ::: risk
 **The cost of a non-restorable backup**
@@ -96,7 +96,7 @@ This distinction changes the questions an operator asks. Instead of asking, “D
 
 A partial restore can be useful for testing a narrow technical point. It is not enough to demonstrate recovery of a critical service. The exercise must reach the decision that matters: can a user complete the journey that the system exists to support?
 
-For a payment service, that means a protected transaction can complete. For a logistics platform, it may mean a shipment update can be accepted and propagated. For a records system, it may mean the restored data is accurate, authorised, and usable by the person who depends on it.
+For a payment service, that means a protected transaction can complete. For an education records service, it may mean an authorised staff member can open and update the record the work depends on. For a records system, it may mean the restored data is accurate, authorised, and usable by the person who depends on it.
 
 The restore is the truth because it turns a promise into observable evidence.
 
@@ -145,19 +145,19 @@ A backup is stored data. Recovery begins only when that data returns a user jour
 ::: field-note
 **Context**
 
-A logistics platform lost its primary database after a storage incident. Nightly backups had completed successfully and the recovery target was documented.
+An education software company lost a file service during a ransomware event. Nightly backup jobs had produced familiar completion records and the recovery target was documented.
 
 **What We Expected**
 
-The team would restore the database, restart the service, and return shipment processing within the agreed recovery window.
+The team would restore the file service and return authorised access to the required records within the agreed recovery window.
 
 **What Happened**
 
-The data was available, but the recovery stretched beyond the target. The target storage performed differently, network throughput was lower than assumed, and application configuration had to be reconstructed around the restored database.
+The recovery set was incomplete. The network-attached storage had been out of capacity for weeks, and each apparently completed job had preserved only a truncated portion of the file service.
 
 **What We Missed**
 
-No full restore had been measured against a representative environment. The backup job proved that data was written, not that the service could return to useful work.
+No restore had validated the full backup set or tested capacity failure in the archive. The completion record proved that the job followed its routine, not that a usable recovery set existed.
 
 **What It Taught Us**
 
