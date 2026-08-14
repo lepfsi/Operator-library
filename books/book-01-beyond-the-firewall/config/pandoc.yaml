@@ -1,15 +1,15 @@
 ---
 title: "Beyond the Firewall"
 subtitle: "The Reality of Modern IT Operations"
-author: "Ba-Ndouwe Steve"
+author: "Steve BA-NDOUWE"
 date: "2026"
 lang: "en-US"
-publisher: "DailyOps"
-rights: "© 2026 Ba-Ndouwe Steve. Published by The Operator's Library, a DailyOps brand."
+publisher: "The Operator's Library"
+rights: "© 2026 Steve BA-NDOUWE. Published by The Operator's Library."
 
 description: >
   A book about the technical, human, and organizational realities of
-  operating modern IT systems — and the invisible factors that decide
+  operating modern IT systems and the invisible factors that decide
   whether they remain reliable, secure, and governable.
 
 subject:
@@ -40,23 +40,27 @@ documentclass: book
 classoption:
   - 11pt
   - twoside
-  - openright
+  - openany
 template: "../../../templates/render/template.latex"
 
 # Format: A5 (148x210) or 6x9 (152.4x228.6). Default: 6x9.
 bookformat-a5: false
+book-year: "2026"
 
 # --- Metadata consumed by template.latex (title page, headers, accents) ----
 book-title: "Beyond the Firewall"
 book-subtitle: "The Reality of Modern IT Operations"
-book-author: "Ba-Ndouwe Steve"
-book-brand: "DAILYOPS"
+book-author: "Steve BA-NDOUWE"
+book-author-role: "Cybersecurity Engineer"
+book-brand: "THE OPERATOR'S LIBRARY"
 book-number: 1
 book-head: "BEYOND THE FIREWALL"
-book-pdftitle: "Beyond the Firewall — The Reality of Modern IT Operations"
+book-pdftitle: "Beyond the Firewall: The Reality of Modern IT Operations"
 
-# Accent color for this book (hex, sans #): 2C5F8A = Bleu acier (Book 1)
-book-accent: "2C5F8A"
+# Operational action colour used by the interior system (hex, without #).
+book-accent: "F2A900"
+# Sommaire de collection : seulement les chapitres et éléments liminaires, pas les sections.
+toc-depth: 1
 
 # --- EPUB -------------------------------------------------------------------
 # CSS applied by build-book.sh via --css when building EPUB.
@@ -77,4 +81,5 @@ variables:
   bookTitle: "Beyond the Firewall"
   bookSubtitle: "The Reality of Modern IT Operations"
   bookNumber: 1
+  bookAuthor: "Steve BA-NDOUWE"
   collectionName: "The Operator's Library"

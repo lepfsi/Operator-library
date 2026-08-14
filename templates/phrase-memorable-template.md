@@ -2,7 +2,7 @@
 
 > **Usage** : une fiche par phrase mémorable candidate.
 > Chaque chapitre doit produire **au moins une phrase mémorable** validée.
-> Ces phrases vivent aussi sur LinkedIn, X, DailyOps.Tech.
+> Ces phrases peuvent vivre sur une page de lancement, un extrait social, une conférence ou un autre livre de la collection.
 
 ---
 
@@ -32,7 +32,7 @@ La phrase doit passer **tous** les critères ci-dessous :
 - [ ] **Difficile à oublier** — rythme, contraste, ou image mentale forte.
 - [ ] **Suffisamment générique** pour s'appliquer à d'autres contextes que l'incident du chapitre.
 - [ ] **Pas de jargon** — aucun acronyme non explicité.
-- [ ] **Pas de nom de produit** dans la phrase (DailyOps ou concurrent).
+- [ ] **Pas de nom de produit ou de marque** dans la phrase.
 
 ---
 
@@ -44,7 +44,7 @@ Avant de valider, tester la phrase dans ces contextes :
 |----------|------------------------|
 | Sur LinkedIn, seule, sans légende | ☐ |
 | En citation dans un autre chapitre | ☐ |
-| En titre d'un article de blog DailyOps | ☐ |
+| En titre d’un essai, d’une conférence ou d’un extrait éditorial | ☐ |
 | Imprimée sur un mug | ☐ (optionnel, mais bon test) |
 
 Si une case est non, la phrase n'est pas prête.

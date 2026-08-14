@@ -1,29 +1,11 @@
-% ============================================================
-%  template.latex — The Operator's Library
-%  Premium book template for Pandoc + XeLaTeX
-%  Direction: Technical Editorial / Dark Precision
-%  Format: A5 (148 x 210 mm) or 6" x 9" (152.4 x 228.6 mm)
-% ============================================================
-%
-%  Usage:
-%    pandoc manuscript/*.md
-%      --pdf-engine=xelatex
-%      --template=templates/render/template.latex
-%      --metadata-file=books/book-.../config/pandoc.yaml
-%
-%  Custom environments (callouts via Pandoc fenced divs):
-%    ::: field-note        ::: concept        ::: lesson
-%    ::: warning           ::: remember       ::: pullquote
-%    ::: keytakeaways      ::: diagram
-% ============================================================
+% ============================================================================
+% template.latex — The Operator's Library
+% Print system: Technical Editorial / Operational Clarity
+% ============================================================================
 
-% ---- Document class & geometry ---------------------------------------------
-% openright (default) = chapters start on odd pages → blank verso pages.
-% openany             = chapters start on the next page, no forced blanks.
-\documentclass[11pt,twoside,openany]{book}
+\documentclass[10pt,twoside,openany]{book}
 
-% Choose format via metadata: bookformat = "a5" | "6x9" (default: 6x9)
-\newcommand{\bookformat}{6x9}
+% ---- Page geometry -----------------------------------------------------------
 \usepackage[
   $if(bookformat-a5)$
   papersize={148mm,210mm},
@@ -31,551 +13,440 @@
   papersize={152.4mm,228.6mm},
   $endif$
   layoutsize={152.4mm,228.6mm},
-  layoutoffset=0pt,
   twoside,
   inner=22mm,
   outer=18mm,
-  top=25mm,
+  top=21mm,
   bottom=22mm,
-  marginparwidth=30mm,
-  marginparsep=4mm,
-  headheight=12pt,
-  headsep=8mm,
-  footskip=12mm,
-  showframe=false
+  headheight=10pt,
+  headsep=7mm,
+  footskip=11mm
 ]{geometry}
 
-% ---- Encoding & input ------------------------------------------------------
+% ---- Font stack --------------------------------------------------------------
 \usepackage{fontspec}
-% Note: xunicode/polyglossia are intentionally omitted — fontspec handles
-% Unicode in XeLaTeX, and no language-specific commands are used in this
-% template. (polyglossia is not part of minimal TeX Live installs.)
+% TeX Gyre is the deterministic baseline and compiles on a clean TeX Live
+% installation. The production font trio can be selected after its static files
+% have been installed and verified locally; this avoids XeLaTeX font probes
+% that can trigger a blocking mktextfm fallback in clean environments.
+% Prototype B: a warm, high-x-height reading face plus a neutral humanist sans.
+% Both are locally available, so the rendered proof reflects the intended choice.
+\setsansfont{Noto Sans}
+\setmainfont{TeX Gyre Schola}
+\setmonofont{TeX Gyre Cursor}
+% Alternative production stack (static fonts only):
+% \setsansfont{Source Sans 3}
+% \setmainfont{Source Serif 4}
+% \setmonofont{IBM Plex Mono}
 
-% ---- Fonts -----------------------------------------------------------------
-% Premium fonts: Sora (headings), Source Serif Pro (body), IBM Plex Mono (code).
-% Each has a TeX-Live fallback so the build always succeeds even when the
-% premium fonts are not installed. We detect availability with \IfFontExistsTF
-% BEFORE calling \setsansfont, which avoids the kpathsea "Running mktextfm"
-% noise. Named variants (UprightFont=*-Light ...) are only added when the
-% font is present, because requesting a missing variant triggers mktextfm.
-%
-% To get the premium rendering (and eliminate fallback warnings), install:
-%   Sora, Source Serif Pro, IBM Plex Mono  (Google Fonts)
-% then run: fc-cache -fv
-%
-% Fonts: use TeX Gyre (shipped with every TeX Live) as the BASE.
-% TeX Gyre Heros (sans), Pagella (serif), Cursor (mono) are metric-compatible
-% with Helvetica/Palatino/Courier and embed cleanly in PDF via xdvipdfmx.
-%
-% Premium fonts (Sora, Source Serif Pro/4, IBM Plex Mono) from Google Fonts
-% ship as VARIABLE fonts which xdvipdfmx cannot embed. To use them, install
-% STATIC (non-variable) TTF versions and uncomment the blocks below.
-%
-\setsansfont{TeX Gyre Heros}%  headings, callouts (Helvetica clone)
-\setmainfont{TeX Gyre Pagella}% body (Palatino clone)
-\setmonofont{TeX Gyre Cursor}% code (Courier clone)
-% --- Optional: premium fonts (uncomment after installing STATIC versions) ---
-% \IfFontExistsTF{Sora}{\setsansfont{Sora}}{\setsansfont{TeX Gyre Heros}}
-% \IfFontExistsTF{Source Serif Pro}{\setmainfont{Source Serif Pro}}{%
-%   \IfFontExistsTF{Source Serif 4}{\setmainfont{Source Serif 4}}{\setmainfont{TeX Gyre Pagella}}}
-% \IfFontExistsTF{IBM Plex Mono}{\setmonofont{IBM Plex Mono}}{\setmonofont{TeX Gyre Cursor}}
-
-% Default font: serif for body (premium editorial)
-\setlength{\baselineskip}{13.5pt}
-
-% ---- Colors (charte graphique) ---------------------------------------------
+% ---- Packages ----------------------------------------------------------------
 \usepackage[x11names,dvipsnames]{xcolor}
-\definecolor{deepnavy}{HTML}{0A1A2F}
-\definecolor{offwhite}{HTML}{F7F5F0}
-\definecolor{textblack}{HTML}{111111}
-\definecolor{steelgray}{HTML}{5A6B7A}
-\definecolor{turquoise}{HTML}{1CB5A0}
-\definecolor{accentfirewall}{HTML}{2C5F8A}      % Book 1
-\definecolor{accenthumansspof}{HTML}{C76B2B}    % Book 2
-\definecolor{accentcomplexity}{HTML}{5B3E7D}    % Book 3
-\definecolor{accentoperationalai}{HTML}{1F7A5A} % Book 4
-\definecolor{accentlastjob}{HTML}{A83A3A}       % Book 5
-% Book accent: consumed from pandoc.yaml (book-accent, hex without #).
-% When provided, the callouts / chapter numbers / key-takeaways bars use
-% the book's own color; otherwise we fall back to Book 1 (Bleu acier).
-$if(book-accent)$\definecolor{accent}{HTML}{$book-accent$}
-$else$\definecolor{accent}{HTML}{2C5F8A}
-$endif$
-
-% Body text color
-\color{textblack}
-
-% ---- Typography ------------------------------------------------------------
 \usepackage{microtype}
-\usepackage{setspace}
-\setstretch{1.35}  % interligne ~1.35 pour A5/6x9
-
-% ---- Layout packages -------------------------------------------------------
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{titletoc}
 \usepackage{enumitem}
 \usepackage{graphicx}
-\usepackage{amssymb}
-
-% ---- tcolorbox for callouts (premium) -------------------------------------
+\usepackage{tikz}
 \usepackage{tcolorbox}
+\usepackage{xparse}
+\usepackage[hidelinks,bookmarksnumbered]{hyperref}
 \tcbuselibrary{breakable,skins}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Common callout style — generous padding, editorial feel
-\newtcolorbox{calloutbase}{
-  enhanced,
-  colback=offwhite,
-  colframe=steelgray,
-  boxrule=0pt,
-  arc=2pt,
-  left=14pt, right=14pt, top=12pt, bottom=12pt,
-  before skip=18pt, after skip=18pt,
-  breakable,
-  drop fuzzy shadow=black!30
-}
 
-% =====================================================================
-% FIELD NOTE — Bandeau supérieur fin (accent) + barre gauche
-% "Note de terrain" : ancrage visuel horizontal + vertical
-% =====================================================================
-\newtcolorbox{fieldnote}{
-  enhanced,
-  colback=white,
-  colframe=accent!10,
-  boxrule=0pt,
-  arc=0pt,
-  borderline north={1.5pt}{0pt}{accent},
-  borderline west={3pt}{0pt}{accent},
-  left=16pt, right=14pt, top=10pt, bottom=14pt,
-  before skip=20pt, after skip=20pt,
-  breakable,
-  drop fuzzy shadow=black!15
-}
+% ---- Palette -----------------------------------------------------------------
+\definecolor{charcoal}{HTML}{262626}
+\definecolor{paper}{HTML}{F2EDE3}
+\definecolor{ink}{HTML}{161616}
+\definecolor{mist}{HTML}{D8D1C5}
+\definecolor{slate}{HTML}{948E84}
+\definecolor{saffron}{HTML}{F2A900}
+\definecolor{forest}{HTML}{1C6B5A}
+\definecolor{vermilion}{HTML}{D95332}
+\colorlet{actionblue}{saffron}
+\colorlet{warningcoral}{vermilion}
+\definecolor{chalk}{HTML}{FBF7EF}
+$if(book-accent)$\definecolor{bookaccent}{HTML}{$book-accent$}
+$else$\definecolor{bookaccent}{HTML}{F2A900}
+$endif$
+\pagecolor{paper}\color{ink}
 
-% =====================================================================
-% DAILYOPS CONCEPT — Signature de la collection
-% Icône géométrique (carré turquoise) dans la marge + barre turquoise
-% Fond off-white distinctif
-% =====================================================================
-\newtcolorbox{dailyopsconcept}{
-  enhanced,
-  colback=offwhite,
-  colframe=turquoise!15,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={4pt}{0pt}{turquoise},
-  left=16pt, right=14pt, top=12pt, bottom=14pt,
-  before skip=22pt, after skip=22pt,
-  breakable,
-  drop fuzzy shadow=black!15,
-  underlay={
-    \node[anchor=north west, xshift=-12pt, yshift=4pt]
-      at (frame.north west) {
-        \tikz\fill[turquoise] (0,0) rectangle (6pt,6pt);
-      };
-  }
-}
+% ---- Core type and spacing ---------------------------------------------------
+\raggedbottom
+\AtBeginDocument{\fontsize{10.3pt}{15.4pt}\selectfont}
+% Open paragraphs improve the reading rhythm of this short-form operational essay.
+% No first-line indents: spacing, not tabs, separates units of thought.
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{1.25em}
+\widowpenalty=10000
+\clubpenalty=10000
+\setlist[itemize]{leftmargin=18pt,topsep=6pt,parsep=0pt,itemsep=3pt}
+\setlist[enumerate]{leftmargin=21pt,topsep=6pt,parsep=0pt,itemsep=4pt}
+\renewcommand{\labelitemi}{\color{saffron}\textendash}
 
-% =====================================================================
-% LESSON — Double barre (gauche + droite turquoise) = vérité encadrée
-% Fond blanc, symétrie visuelle forte
-% =====================================================================
-\newtcolorbox{lesson}{
-  enhanced,
-  colback=white,
-  colframe=turquoise!10,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={3pt}{0pt}{turquoise},
-  borderline east={3pt}{0pt}{turquoise},
-  left=16pt, right=16pt, top=12pt, bottom=14pt,
-  before skip=20pt, after skip=20pt,
-  breakable,
-  drop fuzzy shadow=black!15
-}
-
-% =====================================================================
-% WARNING / PITFALL — Triangle d'alerte dans la marge + fond brique
-% Forme pointue = danger, fond tinté = urgence
-% =====================================================================
-\newtcolorbox{warningpifall}{
-  enhanced,
-  colback=accentlastjob!6,
-  colframe=accentlastjob!40,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={4pt}{0pt}{accentlastjob},
-  left=16pt, right=14pt, top=12pt, bottom=14pt,
-  before skip=20pt, after skip=20pt,
-  breakable,
-  drop fuzzy shadow=black!20,
-  underlay={
-    \node[anchor=north west, xshift=-10pt, yshift=2pt]
-      at (frame.north west) {
-        \tikz[scale=0.7]\fill[accentlastjob]
-          (0,0) -- (4pt,7pt) -- (8pt,0) -- cycle;
-      };
-  }
-}
-
-% =====================================================================
-% REMEMBER — Trait de soulignement épais sous le titre + barre acier
-% "Rappel = souligné" : minimaliste, signature
-% =====================================================================
-\newtcolorbox{remember}{
-  enhanced,
-  colback=steelgray!5,
-  colframe=steelgray!20,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={3pt}{0pt}{steelgray},
-  borderline south={1.5pt}{0pt}{steelgray},
-  left=16pt, right=14pt, top=12pt, bottom=10pt,
-  before skip=20pt, after skip=20pt,
-  breakable,
-  drop fuzzy shadow=black!10
-}
-
-% =====================================================================
-% PULL QUOTE — Guillemets géométriques (coins) + règles horizontales
-% Citation = encadrement raffiné, large espace blanc
-% =====================================================================
-\newtcolorbox{pullquote}{
-  enhanced,
-  colback=white,
-  colframe=white,
-  boxrule=0pt,
-  arc=0pt,
-  borderline north={0.8pt}{0pt}{turquoise},
-  borderline south={0.8pt}{0pt}{turquoise},
-  left=24pt, right=24pt, top=30pt, bottom=30pt,
-  before skip=36pt, after skip=36pt,
-  breakable,
-  fontupper=\itshape\Large\color{deepnavy}\centering,
-  underlay={
-    % Guillemet ouvrant (coin sup-gauche)
-    \node[anchor=north west, xshift=8pt, yshift=-8pt]
-      at (frame.north west) {
-        \fontsize{24pt}{24pt}\selectfont\color{turquoise!40}\guillemotleft
-      };
-    % Guillemet fermant (coin inf-droit)
-    \node[anchor=south east, xshift=-8pt, yshift=8pt]
-      at (frame.south east) {
-        \fontsize{24pt}{24pt}\selectfont\color{turquoise!40}\guillemotright
-      };
-  }
-}
-
-% =====================================================================
-% KEY TAKEAWAYS — Barre accent épaisse (4pt) + liste à puces stylisée
-% Synthèse = liste + barre forte, fond off-white
-% =====================================================================
-\newtcolorbox{keytakeawaysbox}{
-  enhanced,
-  colback=offwhite,
-  colframe=steelgray!20,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={4pt}{0pt}{accent},
-  left=16pt, right=14pt, top=14pt, bottom=14pt,
-  before skip=22pt, after skip=22pt,
-  breakable,
-  drop fuzzy shadow=black!15,
-  fonttitle=\bfseries\sffamily\large\scshape\color{accent}
-}
-
-% ---- Headers & footers -----------------------------------------------------
+% ---- Running furniture -------------------------------------------------------
+% Normal pages carry navigation only. Display, part and chapter opening pages
+% use the plain style defined below and remain deliberately free of furniture.
 \pagestyle{fancy}
 \fancyhf{}
-% En-tête : gauche = titre du livre, droite = numéro de page
-\fancyhead[LE]{\sffamily\scriptsize\scshape\color{steelgray}$if(book-head)$$book-head$$else$BEYOND THE FIREWALL$endif$}
-\fancyhead[RO]{\sffamily\scriptsize\scshape\color{steelgray}\thepage}
-% Pied : gauche = auteur, centre = carré turquoise discret
-\fancyfoot[LE]{\sffamily\scriptsize\scshape\color{steelgray}$if(book-author)$$book-author$$else$BA-NDOUWE STEVE$endif$}
-\fancyfoot[RO]{\sffamily\scriptsize\color{turquoise}\rule{6pt}{6pt}}
-\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhead[LE]{\sffamily\footnotesize\scshape\color{slate}$if(book-head)$$book-head$$else$THE OPERATOR'S LIBRARY$endif$}
+\fancyhead[RO]{\sffamily\footnotesize\scshape\color{slate}\nouppercase{\leftmark}}
+\fancyfoot[LE,RO]{\sffamily\footnotesize\color{ink}\thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{mist}\leaders\hrule height \headrulewidth\hfill}}
 \renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
 
-% Plain pages (part openers, chapter openers): no running heads/footers
-\fancypagestyle{plain}{
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
-}
-
-% ---- Sectioning styles -----------------------------------------------------
-% Part pages: numbered turquoise, title deep navy, intro phrase steel italic
+% ---- Headings ----------------------------------------------------------------
 \titleclass{\part}{top}
 \titleformat{\part}[display]
   {\centering\sffamily}
-  {\color{turquoise}\fontsize{24pt}{28pt}\selectfont\bfseries PART\ \thepart}
-  {20pt}
-  {\color{deepnavy}\fontsize{20pt}{24pt}\selectfont\bfseries\scshape}
-\titleformat{name=\part,numberless}[display]
-  {\centering\sffamily}
-  {}{0pt}
-  {\color{deepnavy}\fontsize{20pt}{24pt}\selectfont\bfseries\scshape}
-\titlespacing*{\part}{0pt}{40pt}{40pt}
+  {\color{actionblue}\fontsize{24pt}{28pt}\selectfont\bfseries PART\ \thepart}
+  {18pt}
+  {\color{ink}\fontsize{20pt}{24pt}\selectfont\bfseries\scshape}
+\titlespacing*{\part}{0pt}{48pt}{42pt}
 
-% Chapter: number big turquoise above, title deep navy bold, opening phrase italic gray
 \titleclass{\chapter}{top}
 \titleformat{\chapter}[display]
-  {\sffamily}
-  {\color{turquoise}\fontsize{30pt}{34pt}\selectfont\bfseries\thechapter}
-  {10pt}
-  {\color{deepnavy}\fontsize{22pt}{26pt}\selectfont\bfseries\scshape}
-\titlespacing*{\chapter}{0pt}{28pt}{24pt}
+  {\thispagestyle{plain}\sffamily}
+  {\color{saffron}\footnotesize\scshape\bfseries Chapter\enspace\thechapter}
+  {13pt}
+  {\color{ink}\fontsize{28pt}{33pt}\selectfont\bfseries}
+\titlespacing*{\chapter}{0pt}{44pt}{28pt}
+\titleformat{name=\chapter,numberless}[display]
+  {\thispagestyle{plain}\sffamily}
+  {}
+  {0pt}
+  {\color{ink}\fontsize{26pt}{31pt}\selectfont\bfseries}
+\titlespacing*{name=\chapter,numberless}{0pt}{44pt}{26pt}
 
-% Section/subsection: sans-serif, deep navy
 \titleformat{\section}
-  {\sffamily\bfseries\large\color{deepnavy}}{\thesection}{6pt}{}
+  {\sffamily\bfseries\color{saffron}\fontsize{16pt}{20pt}\selectfont}
+  {}{0pt}{}
 \titleformat{\subsection}
-  {\sffamily\bfseries\normalsize\color{deepnavy}}{\thesubsection}{6pt}{}
-\titlespacing*{\section}{0pt}{16pt}{6pt}
-\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+  {\sffamily\bfseries\color{ink}\fontsize{11pt}{14pt}\selectfont}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{28pt}{10pt}
+\titlespacing*{\subsection}{0pt}{18pt}{6pt}
 
-% Hook phrase (first paragraph of chapter): small italic gray
-\newenvironment{hook}{\par\begin{itshape}\small\color{steelgray}}{\end{itshape}\par}
-
-% ---- Pandoc fenced divs → custom environments -----------------------------
-% Pandoc maps fenced divs :::callout to custom-environment "callout"
-% We declare them via \newenvironment with the same names tcolorbox above.
-\newenvironment{field-note}{\begin{fieldnote}}{\end{fieldnote}}
-\newenvironment{field-note-title}[1]{\begin{fieldnote}\textsc{\textbf{\color{accent}#1}}\\[4pt]}{\end{fieldnote}}
-\newenvironment{concept}{\begin{dailyopsconcept}}{\end{dailyopsconcept}}
-\newenvironment{warning}{\begin{warningpifall}}{\end{warningpifall}}
-\newenvironment{pitfall}{\begin{warningpifall}}{\end{warningpifall}}
-% remember / pullquote / lesson are defined directly by tcolorbox above —
-% pandoc fenced divs of the same name map to them automatically.
-\newenvironment{keytakeaways}{\begin{keytakeawaysbox}\textsc{\large\color{accent}Key Takeaways}\\[8pt]}{\end{keytakeawaysbox}}
-
-% Hook fenced div for the opening italic phrase
-\newenvironment{hookphrase}{\begin{hook}}{\end{hook}}
-
-% Diagram fenced div — a captioned figure for conceptual diagrams.
-% Renders as a centered, captioned image block (uses figure/caption).
-\newenvironment{diagram}{\par\begin{center}}{\end{center}\par}
-
-% =====================================================================
-% SITE-STYLE CALLOUTS (aligned with DailyOps.tech)
-% Each: pictogram (Unicode symbol) + label in small caps + thin rule
-% + tinted background. Tint matches the callout's semantic color.
-% Used for: note, tip, important, caution, warning.
-% =====================================================================
-
-% NOTE — general information, light steel tint
-\newtcolorbox{note}{
-  enhanced,
-  colback=steelgray!5,
-  colframe=steelgray!30,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={3pt}{0pt}{steelgray},
-  left=14pt, right=12pt, top=10pt, bottom=10pt,
-  before skip=16pt, after skip=16pt,
-  breakable,
-  fontupper=\small,
-  before upper={\textsc{\footnotesize\color{steelgray}Note}\par\vspace{2pt}\textcolor{steelgray!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+% ---- Front pieces -------------------------------------------------------------
+% Foreword and Introduction are quiet reading thresholds, not chapter openings.
+\NewDocumentEnvironment{frontpiece}{O{FOREWORD}}{%
+  \newpage\markboth{}{}\thispagestyle{plain}%
+  \vspace*{18mm}%
+  \begingroup\rightskip=0.18\textwidth\relax%
+  {\sffamily\scriptsize\scshape\color{slate}#1\par}%
+  \vspace{13pt}%
+  \textcolor{mist}{\rule{28mm}{0.45pt}}\par\vspace{15pt}%
+  \rmfamily\fontsize{10.5pt}{16.4pt}\selectfont\color{ink}%
+}{%
+  \par\endgroup\vfill\thispagestyle{plain}%
 }
 
-% TIP — practical advice, turquoise tint (DailyOps signature)
-\newtcolorbox{tip}{
-  enhanced,
-  colback=turquoise!6,
-  colframe=turquoise!30,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={3pt}{0pt}{turquoise},
-  left=14pt, right=12pt, top=10pt, bottom=10pt,
-  before skip=16pt, after skip=16pt,
-  breakable,
-  fontupper=\small,
-  before upper={\textsc{\footnotesize\color{turquoise}Tip}\par\vspace{2pt}\textcolor{turquoise!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
-}
-
-% IMPORTANT — must-not-miss, deep navy tint
-\newtcolorbox{important}{
-  enhanced,
-  colback=deepnavy!5,
-  colframe=deepnavy!30,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={3pt}{0pt}{deepnavy},
-  left=14pt, right=12pt, top=10pt, bottom=10pt,
-  before skip=16pt, after skip=16pt,
-  breakable,
-  fontupper=\small,
-  before upper={\textsc{\footnotesize\color{deepnavy}Important}\par\vspace{2pt}\textcolor{deepnavy!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
-}
-
-% CAUTION — proceed carefully, amber tint
-\newtcolorbox{caution}{
-  enhanced,
-  colback=accenthumansspof!6,
-  colframe=accenthumansspof!35,
-  boxrule=0pt,
-  arc=0pt,
-  borderline west={3pt}{0pt}{accenthumansspof},
-  left=14pt, right=12pt, top=10pt, bottom=10pt,
-  before skip=16pt, after skip=16pt,
-  breakable,
-  fontupper=\small,
-  before upper={\textsc{\footnotesize\color{accenthumansspof}Caution}\par\vspace{2pt}\textcolor{accenthumansspof!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
-}
-
-% =====================================================================
-% BOOK-SPECIFIC IMPACT BLOCKS (chapter rhythm)
-% =====================================================================
-
-% IMPACT OPENER — full-bleed dark page (verso): giant chapter number
-% + book title. Used as the left page of a chapter opening spread.
-\newenvironment{impact-opener}{%
-  \cleardoublepage\thispagestyle{empty}%
+% ---- Impact pages ------------------------------------------------------------
+% Attributes from Markdown: ::: {.impact-opener number="01" title="BEYOND..."}
+\NewDocumentEnvironment{impact-opener}{O{\thechapter} O{$if(book-title)$$book-title$$else$BEYOND THE FIREWALL$endif$}}{%
+  \refstepcounter{chapter}\addcontentsline{toc}{chapter}{#2}\markboth{#2}{}%
+  \clearpage\thispagestyle{empty}%
   \begin{tikzpicture}[remember picture,overlay]
-    \fill[deepnavy] (current page.south west) rectangle (current page.north east);
+    \fill[charcoal] (current page.south west) rectangle (current page.north east);
   \end{tikzpicture}%
   \vspace*{\fill}
   \begin{flushright}
-    {\sffamily\fontsize{110pt}{110pt}\selectfont\color{white!15}\bfseries \thechapter}%
+    {\sffamily\bfseries\fontsize{180pt}{180pt}\selectfont\color{saffron!30}#1}\par
   \end{flushright}
   \vfill
   \begin{flushright}
-    {\sffamily\fontsize{30pt}{36pt}\selectfont\color{white}\bfseries\MakeUppercase{$if(book-title)$$book-title$$else$Beyond the Firewall$endif$}}%
+    {\sffamily\bfseries\fontsize{42pt}{48pt}\selectfont\color{chalk}\MakeUppercase{#2}}\par
   \end{flushright}
-  \vspace*{2cm}
+  \vspace*{15mm}
 }{\clearpage}
 
-% IMPACT QUOTE — full light page, centered large italic quote, no folio.
-% Used as breathing/resonance pages inside a chapter.
+% Parts are thresholds, not oversized chapter headings. Their construction is
+% intentionally spare: a single numeral, a title, and a concise editorial cue.
+\NewDocumentEnvironment{part-opener}{O{} O{PART}}{%
+  \clearpage\phantomsection\addcontentsline{toc}{part}{Part #1: #2}\thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[charcoal] (current page.south west) rectangle (current page.north east);
+    \draw[saffron,line width=1.2pt] ([xshift=18mm,yshift=-27mm]current page.north west) -- ([xshift=72mm,yshift=-27mm]current page.north west);
+  \end{tikzpicture}%
+  \vspace*{38mm}%
+  {\sffamily\footnotesize\scshape\bfseries\color{saffron}PART\enspace #1\par}
+  \vspace{12pt}%
+  {\sffamily\fontsize{31pt}{37pt}\selectfont\bfseries\color{chalk}\MakeUppercase{#2}\par}
+  \vspace{16pt}%
+  {\color{chalk!62}\rule{34mm}{0.6pt}\par}
+  \vfill
+  {\sffamily\small\color{chalk!72}THE OPERATOR'S LIBRARY\par}
+  \vspace*{23mm}%
+}{\clearpage}
+
 \newenvironment{impact-quote}{%
   \clearpage\thispagestyle{empty}%
-  \vspace*{\fill}%
-  \begin{center}
-    \itshape\fontsize{22pt}{30pt}\selectfont\color{deepnavy}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[paper] (current page.south west) rectangle (current page.north east);
+  \end{tikzpicture}%
+  \vspace*{\fill}\begin{center}
+  \itshape\fontsize{40pt}{48pt}\selectfont\color{ink}
 }{%
-  \end{center}
-  \vspace{18pt}%
-  \begin{center}\textcolor{steelgray!50}{\rule{30mm}{0.8pt}}\end{center}%
+  \end{center}\vspace{14pt}%
+  \begin{center}\color{mist}\rule{30mm}{0.8pt}\end{center}%
   \vspace*{\fill}\clearpage
 }
 
-% OPERATOR'S RULE — numbered actionable rules, white box + accent numbers
-\newtcolorbox{operator-rule}{
-  enhanced,
-  colback=white,
-  colframe=steelgray!40,
-  boxrule=0.8pt,
-  arc=0pt,
-  left=16pt, right=14pt, top=12pt, bottom=12pt,
-  before skip=20pt, after skip=20pt,
-  breakable,
+% ---- Editorial callouts ------------------------------------------------------
+\newtcolorbox{tip}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=forest!5,colframe=forest,
+  borderline west={1.5pt}{0pt}{forest},
+  left=15pt,right=15pt,top=11pt,bottom=12pt,
+  before skip=20pt,after skip=20pt,
   fontupper=\small,
-  before upper={\textsc{\footnotesize\color{accent}Operator's Rule}\par\vspace{3pt}\textcolor{steelgray!30}{\rule{\linewidth}{0.4pt}}\par\vspace{6pt}}
+  before upper={\textsc{\footnotesize\color{forest}Field Method}\par\vspace{4pt}\textcolor{forest!35}{\rule{18mm}{0.45pt}}\par\vspace{6pt}}
 }
 
+\newtcolorbox{note}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=mist!22,colframe=slate,
+  borderline west={1.5pt}{0pt}{slate},
+  left=15pt,right=15pt,top=11pt,bottom=12pt,
+  before skip=20pt,after skip=20pt,fontupper=\small,
+  before upper={\textsc{\footnotesize\color{slate}Context}\par\vspace{4pt}\textcolor{slate!35}{\rule{18mm}{0.45pt}}\par\vspace{6pt}}
+}
 
-% ---- Hyperref (links, TOC) ------------------------------------------------
-\usepackage[hidelinks,bookmarksnumbered]{hyperref}
+\newtcolorbox{important}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=ink!4,colframe=ink,
+  borderline west={1.5pt}{0pt}{ink},
+  left=15pt,right=15pt,top=11pt,bottom=12pt,
+  before skip=20pt,after skip=20pt,fontupper=\small,
+  before upper={\textsc{\footnotesize\color{ink}Key Decision}\par\vspace{4pt}\textcolor{ink!32}{\rule{18mm}{0.45pt}}\par\vspace{6pt}}
+}
+
+\newtcolorbox{caution}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=vermilion!4,colframe=vermilion,
+  borderline west={1.5pt}{0pt}{vermilion},
+  left=15pt,right=15pt,top=11pt,bottom=12pt,
+  before skip=20pt,after skip=20pt,fontupper=\small,
+  before upper={\textsc{\footnotesize\color{vermilion}Risk}\par\vspace{4pt}\textcolor{vermilion!35}{\rule{18mm}{0.45pt}}\par\vspace{6pt}}
+}
+
+\newtcolorbox{warningbox}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=vermilion!4,colframe=vermilion,
+  borderline west={1.8pt}{0pt}{vermilion},
+  left=15pt,right=15pt,top=11pt,bottom=12pt,
+  before skip=20pt,after skip=20pt,fontupper=\small,
+  before upper={\textsc{\footnotesize\color{vermilion}Risk}\par\vspace{4pt}\textcolor{vermilion!35}{\rule{18mm}{0.45pt}}\par\vspace{6pt}}
+}
+
+% Configuration extracts are factual artefacts inside the narrative.
+\newtcolorbox{configblock}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=mist!26,colframe=ink,
+  borderline west={2.4pt}{0pt}{ink},
+  left=16pt,right=15pt,top=12pt,bottom=12pt,
+  before skip=20pt,after skip=20pt,
+  fontupper=\ttfamily\small\color{ink},
+  before upper={\sffamily\scriptsize\scshape\color{slate}Configuration extract\par\vspace{7pt}\textcolor{ink!30}{\rule{30mm}{0.4pt}}\par\vspace{8pt}}
+}
+
+\newtcolorbox{systemconcept}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=paper,colframe=forest,
+  borderline north={0.8pt}{0pt}{forest},
+  borderline south={0.8pt}{0pt}{forest},
+  left=14pt,right=14pt,top=11pt,bottom=12pt,
+  before skip=22pt,after skip=22pt,
+  before upper={\textsc{\footnotesize\color{forest}System Concept}\par\vspace{5pt}}
+}
+
+\newtcolorbox{operatorrule}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=ink,colframe=ink,
+  borderline north={3.2pt}{0pt}{saffron},
+  borderline south={0.5pt}{0pt}{saffron!45},
+  left=18pt,right=17pt,top=14pt,bottom=15pt,
+  before skip=26pt,after skip=26pt,
+  fontupper=\color{chalk},
+  before upper={\textsc{\footnotesize\color{saffron}Operator's Rule}\hfill\textcolor{saffron}{\raisebox{0.12ex}{\large\textbullet}}\par\vspace{5pt}\textcolor{chalk!42}{\rule{30mm}{0.45pt}}\par\vspace{9pt}}
+}
+
+\newtcolorbox{keytakeawaysbox}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=paper,colframe=saffron,
+  borderline west={4pt}{0pt}{saffron},
+  left=16pt,right=14pt,top=12pt,bottom=12pt,
+  before skip=22pt,after skip=22pt,
+  before upper={\textsc{\footnotesize\color{saffron}In Brief}\par\vspace{3pt}\textcolor{mist}{\rule{\linewidth}{0.4pt}}\par\vspace{7pt}}
+}
+
+\newtcolorbox{lesson}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=forest!6,colframe=forest,
+  borderline west={3pt}{0pt}{forest},borderline east={3pt}{0pt}{forest},
+  left=14pt,right=14pt,top=11pt,bottom=11pt,before skip=20pt,after skip=20pt
+}
+
+\newtcolorbox{remember}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=mist!22,colframe=slate,
+  borderline west={3pt}{0pt}{slate},
+  left=14pt,right=14pt,top=11pt,bottom=11pt,before skip=20pt,after skip=20pt
+}
+
+\newtcolorbox{pullquote}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=chalk,colframe=mist,
+  borderline north={0.8pt}{0pt}{mist},borderline south={0.8pt}{0pt}{mist},
+  left=24pt,right=24pt,top=22pt,bottom=22pt,before skip=28pt,after skip=28pt,
+  fontupper=\itshape\Large\color{ink}\centering
+}
+
+% Field Note is evidence from the work, not a dramatic full-bleed interruption.
+% It stays on one folio and uses an Ink rule with a quiet paper field.
+\newtcolorbox{fieldnote}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=chalk,colframe=ink,
+  borderline west={2.2pt}{0pt}{ink},
+  left=17pt,right=16pt,top=13pt,bottom=14pt,
+  before skip=24pt,after skip=24pt,
+  fontupper=\small,
+  before upper={\textsc{\footnotesize\color{ink}Field Note}\par\vspace{4pt}\textcolor{ink!35}{\rule{24mm}{0.45pt}}\par\vspace{8pt}}
+}
+
+% A final editorial bridge, distinct from callouts and never left to a lone italic line.
+\newtcolorbox{nextchapter}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=paper,colframe=saffron,
+  borderline north={1.1pt}{0pt}{saffron},
+  left=0pt,right=0pt,top=15pt,bottom=4pt,
+  before skip=34pt,after skip=8pt,
+  fontupper=\small,
+  before upper={\textsc{\footnotesize\color{saffron}Next Chapter}\par\vspace{5pt}}
+}
+
+% ---- Navigation cards ---------------------------------------------------------
+% These are deliberately open and typographic rather than UI-like cards.
+% Each entry is a full-width hyperlinked tab, not a rendered Markdown bullet.
+\newcommand{\partnaventry}[3]{%
+  \noindent\hyperlink{#3}{%
+    \makebox[28mm][l]{\sffamily\scriptsize\bfseries\color{saffron}CHAPTER~#1}%
+    \textcolor{saffron!70}{\raisebox{0.18ex}{\large\textbullet}}\hspace{7pt}%
+    {\sffamily\small\color{ink}#2}%
+  }\par\vspace{5pt}%
+}
+\newcommand{\guidenaventry}[3]{%
+  \noindent\hyperlink{#3}{%
+    \makebox[12mm][l]{\sffamily\scriptsize\bfseries\color{saffron}#1.}%
+    \textcolor{saffron!70}{\raisebox{0.12ex}{\normalsize\textbullet}}\hspace{6pt}%
+    {\sffamily\small\color{ink}#2}%
+  }\par\vspace{4pt}%
+}
+\newtcolorbox{partmap}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=paper,colframe=ink,
+  borderline north={0.8pt}{0pt}{ink!45},
+  borderline south={0.8pt}{0pt}{ink!20},
+  left=0pt,right=0pt,top=14pt,bottom=12pt,
+  before skip=18pt,after skip=24pt,
+  fontupper=\small,
+  before upper={\textsc{\footnotesize\color{ink}Inside this part}\par\vspace{7pt}}
+}
+
+\newtcolorbox{chapterguidebox}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=mist!16,colframe=saffron,
+  borderline west={1.8pt}{0pt}{saffron},
+  left=17pt,right=16pt,top=13pt,bottom=13pt,
+  before skip=0pt,after skip=26pt,
+  fontupper=\small,
+  before upper={\textsc{\footnotesize\color{saffron}Chapter guide}\par\vspace{4pt}\textcolor{saffron!45}{\rule{22mm}{0.45pt}}\par\vspace{8pt}}
+}
+
+% ---- Markdown environments mapped by callouts.lua --------------------------
+\newenvironment{front-piece}{\begin{frontpiece}}{\end{frontpiece}}
+\newenvironment{config-block}{\begin{configblock}}{\end{configblock}}
+\newenvironment{field-note}{\begin{fieldnote}}{\end{fieldnote}}
+\newenvironment{next-chapter}{\begin{nextchapter}}{\end{nextchapter}}
+\newenvironment{part-map}{\begin{partmap}}{\end{partmap}}
+\newenvironment{chapterguide}{\clearpage\begin{chapterguidebox}}{\end{chapterguidebox}}
+\newenvironment{chapter-guide}{\begin{chapterguide}}{\end{chapterguide}}
+\newenvironment{concept}{\begin{systemconcept}}{\end{systemconcept}}
+\newenvironment{warning}{\begin{warningbox}}{\end{warningbox}}
+\newenvironment{pitfall}{\begin{warningbox}}{\end{warningbox}}
+\newenvironment{operator-rule}{\begin{operatorrule}}{\end{operatorrule}}
+\newenvironment{keytakeaways}{\begin{keytakeawaysbox}}{\end{keytakeawaysbox}}
+\newenvironment{diagram}{\par\begin{center}\ttfamily\color{slate}\small}{\end{center}\par}
+\newenvironment{hookphrase}{\begin{itshape}\color{slate}\small}{\end{itshape}\par}
+
+% ---- Front matter and navigation --------------------------------------------
+\renewcommand{\contentsname}{Contents}
+% In the book class, chapter is level 0. No section may enter the collection ToC.
+\setcounter{tocdepth}{0}
+% The collection ToC is quiet, editorial and deliberately lighter than body headings.
+\titlecontents{part}[0pt]
+  {\addvspace{15pt}\sffamily\footnotesize\scshape\color{saffron}}
+  {}{}
+  {\hfill\sffamily\footnotesize\color{slate}\contentspage}
+\titlecontents{chapter}[12pt]
+  {\addvspace{5pt}\sffamily\small\mdseries\color{ink}}
+  {\contentslabel{2.4em}}{}
+  {\hfill\sffamily\footnotesize\color{slate}\contentspage}
+
 \hypersetup{
-  colorlinks=false,
-  pdftitle={$if(book-pdftitle)$$book-pdftitle$$else$Beyond the Firewall$endif$},
-  pdfauthor={$if(book-author)$$book-author$$else$Ba-Ndouwe Steve$endif$},
+  pdftitle={$if(book-pdftitle)$$book-pdftitle$$else$The Operator's Library$endif$},
+  pdfauthor={$if(book-author)$$book-author$$else$Author$endif$},
   pdfsubject={IT Operations, Reliability, Resilience}
 }
 
-% ---- Custom title page (override \maketitle) -------------------------------
-% Used ONLY when no SVG cover is provided. When $book-cover$ is set,
-% the cover image itself acts as the title page (no double page).
-\renewcommand{\maketitle}{
-  \begin{titlepage}
-    \thispagestyle{empty}
-    \centering
-    \vspace*{4cm}
-    {\sffamily\scriptsize\scshape\color{steelgray}\MakeUppercase{$if(book-brand)$$book-brand$$else$DAILYOPS$endif$}}\\[1cm]
-    {\sffamily\fontsize{36pt}{40pt}\selectfont\bfseries\scshape\color{deepnavy}\MakeUppercase{$if(book-title)$$book-title$$else$Beyond the Firewall$endif$}}\\[10pt]
-    {\itshape\large\color{steelgray}$if(book-subtitle)$$book-subtitle$$else$The Reality of Modern IT Operations$endif$}\\[2cm]
-    \rule{0.6\textwidth}{0.5pt}\\[1cm]
-    {\sffamily\large\color{deepnavy}$if(book-author)$$book-author$$else$Ba-Ndouwe Steve$endif$}\\[2cm]
-    \rule{0.4\textwidth}{0.5pt}\\[6pt]
-    {\sffamily\scriptsize\scshape\color{steelgray}THE OPERATOR'S LIBRARY — BOOK $if(book-number)$$book-number$$else$1$endif$}
-    \vfill
+\renewcommand{\maketitle}{%
+  \begin{titlepage}\thispagestyle{empty}\centering\vspace*{4cm}
+  {\sffamily\scriptsize\scshape\color{slate}\MakeUppercase{$if(book-brand)$$book-brand$$else$THE OPERATOR'S LIBRARY$endif$}}\\[1cm]
+  {\sffamily\fontsize{36pt}{40pt}\selectfont\bfseries\color{ink}\MakeUppercase{$if(book-title)$$book-title$$else$THE OPERATOR'S LIBRARY$endif$}}\\[10pt]
+  {\itshape\large\color{slate}$if(book-subtitle)$$book-subtitle$$else$$endif$}\\[2cm]
+  \textcolor{mist}{\rule{0.6\textwidth}{0.5pt}}\\[1cm]
+  {\sffamily\large\color{ink}$if(book-author)$$book-author$$else$AUTHOR$endif$}\par
+  $if(book-author-role)$
+  {\itshape\normalsize\color{slate}$book-author-role$}\par
+  $endif$
+  \vfill
   \end{titlepage}
 }
 
-% ---- Copyright page helper --------------------------------------------------
 \newcommand{\copyrightpage}{%
-  \thispagestyle{empty}
-  \vspace*{\fill}
-  \noindent
-  \begin{minipage}{\textwidth}
-    \sffamily\scriptsize\color{steelgray}
-    \noindent\rule{0.2\textwidth}{0.4pt}\\[6pt]
-    © $if(book-year)$$book-year$$else$2026$endif$ $if(book-author)$$book-author$$else$Ba-Ndouwe Steve$endif$.\\
-    Published by \textsc{The Operator's Library}, a \textsc{DailyOps} brand.\\
-    All rights reserved.\\[8pt]
-    \textit{No part of this book may be reproduced in any form without
-    written permission from the publisher, except for brief quotations
-    in critical articles and reviews.}\\[10pt]
-    \textsc{The Operator's Library} — Book $if(book-number)$$book-number$$else$1$endif$
-  \end{minipage}
-  \vspace*{\fill}
-  \clearpage
+  \thispagestyle{empty}\vspace*{\fill}\noindent
+  \begin{minipage}{\textwidth}\sffamily\scriptsize\color{slate}
+  \textcolor{mist}{\rule{0.2\textwidth}{0.4pt}}\\[6pt]
+  © $if(book-year)$$book-year$$else$2026$endif$ $if(book-author)$$book-author$$else$AUTHOR$endif$.\\
+  Published by \textsc{The Operator's Library}.\\[8pt]
+  All rights reserved.
+  \end{minipage}\vspace*{\fill}\clearpage
 }
 
-% ---- Table of contents -----------------------------------------------------
-\renewcommand{\contentsname}{Contents}
-\titlecontents{chapter}[0pt]
-  {\addvspace{6pt}\sffamily\bfseries\color{deepnavy}}
-  {\contentslabel{2em}\thecontentslabel\enspace}
-  {}
-  {\titlerule*[8pt]{.}\contentspage}
-
-% ---- Paragraph spacing & list styles ---------------------------------------
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt}
-
-\setlist[itemize]{leftmargin=18pt, topsep=4pt, parsep=2pt, itemsep=2pt}
-\setlist[enumerate]{leftmargin=18pt, topsep=4pt, parsep=2pt, itemsep=2pt}
-
-% Bullet color: turquoise
-\renewcommand{\labelitemi}{\color{turquoise}\textendash}
-
-% ---- Body -----------------------------------------------------------------
+% ---- Body --------------------------------------------------------------------
 \begin{document}
+\fontsize{10.3pt}{15.4pt}\selectfont
 
 $if(book-cover)$
-% ---- Full-bleed cover page ------------------------------------------------
-% Single image, full page, full bleed. No headers, no footers, no extra page.
-% keepaspectratio is CRITICAL: without it, an image whose native size differs
-% slightly from the paper size gets distorted; with it, the image fills
-% either the width OR the height and the other dimension overflows silently.
-% Since the SVG artboard is exactly paper-sized, we center it explicitly.
 \newgeometry{margin=0pt}
 \thispagestyle{empty}
-\vbox to \paperheight{%
-  \vfill
-  \noindent\makebox[\paperwidth]{%
-    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{$book-cover$}}
-  \vfill
-}
+\vbox to \paperheight{\vfill\noindent\makebox[\paperwidth]{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{$book-cover$}}\vfill}
 \restoregeometry
 \clearpage
 $else$
-% ---- LaTeX native title page (fallback when no SVG cover) ----------------
 \maketitle
 \clearpage
 $endif$
 
-% ---- Copyright page --------------------------------------------------------
-% Editorial convention: cover → short copyright page → TOC.
 \frontmatter
 \copyrightpage
-
-% ---- Table of contents -----------------------------------------------------
 \tableofcontents
-
-% ---- Main matter -----------------------------------------------------------
 \mainmatter
 
 $body$

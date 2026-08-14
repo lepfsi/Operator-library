@@ -1,99 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Couverture — Beyond the Firewall (Livre 1)
-  Design System : Technical Editorial / Dark Precision
-  Format : 6" x 9" (152 x 229 mm). Grille en pixels (viewBox 0 0 640 960), ratio 6:9.
-  Symbole : FRONTIÈRE TRAVERSÉE — ligne interrompue, point de rupture, flux de passage.
-  Accent livre 1 : Bleu acier #2C5F8A.
-  Date : 2026
+  Beyond the Firewall — First cover
+  The Operator's Library · Book 01
+  Direction: Saffron / Ink / Bone — Operational Ideas
+  6 × 9 in ratio — vector source, print-ready
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xml:lang="en"
-     width="152mm" height="229mm"
-     viewBox="0 0 640 960">
+     width="152.4mm" height="228.6mm"
+     viewBox="0 0 1200 1800" role="img"
+     aria-labelledby="cover-title cover-description">
+  <title id="cover-title">Beyond the Firewall: The Reality of Modern IT Operations</title>
+  <desc id="cover-description">A premium nonfiction cover on warm ivory paper with bold black typography and a saffron breach in an abstract vertical boundary.</desc>
 
   <defs>
-    <filter id="paper" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise"/>
-      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
-      <feComponentTransfer in="gray" result="light">
-        <feFuncA type="linear" slope="0.05"/>
-      </feComponentTransfer>
-      <feComposite in="light" in2="SourceGraphic" operator="in" result="tex"/>
-      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="tex"/></feMerge>
+    <pattern id="paper-grain" width="110" height="110" patternUnits="userSpaceOnUse">
+      <path d="M0 22H110M0 88H110M28 0V110M82 0V110" fill="none" stroke="#948E84" stroke-width="0.55" opacity="0.13"/>
+      <circle cx="14" cy="13" r="0.9" fill="#948E84" opacity="0.26"/>
+      <circle cx="95" cy="73" r="0.8" fill="#948E84" opacity="0.18"/>
+    </pattern>
+    <filter id="saffron-soft" x="-80%" y="-30%" width="260%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
-  <!-- Fond : Off-white texturé -->
-  <rect x="0" y="0" width="640" height="960" fill="#F7F5F0" filter="url(#paper)"/>
+  <!-- Surface: confident warm paper, rather than a product interface. -->
+  <rect width="1200" height="1800" fill="#F2EDE3"/>
+  <rect width="1200" height="1800" fill="url(#paper-grain)"/>
 
-  <!-- ===== BANDEAU SUPÉRIEUR ===== -->
-  <rect x="0" y="0" width="640" height="110" fill="#0A1A2F"/>
-  <text x="70" y="70" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="300" font-size="30" letter-spacing="18" fill="#1CB5A0">DAILYOPS</text>
-  <text x="570" y="70" text-anchor="end" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="300" font-size="24" letter-spacing="9" fill="#5A6B7A" opacity="0.75">THE OPERATOR'S LIBRARY — BOOK 01</text>
+  <!-- The boundary: a single dense, human-scale graphic metaphor. -->
+  <path d="M818 0 H1200 V1800 H795
+           L809 1660 L788 1518 L810 1386 L784 1240 L806 1090
+           L780 948 L805 808 L778 660 L800 510 L775 355 L797 214 Z"
+        fill="#161616"/>
+  <path d="M797 0 L818 0 L797 214 L775 355 L800 510 L778 660 L805 808
+           L780 948 L806 1090 L784 1240 L810 1386 L788 1518 L809 1660 L795 1800
+           L777 1800 L791 1660 L770 1518 L792 1386 L766 1240 L788 1090
+           L762 948 L787 808 L760 660 L782 510 L757 355 L779 214 Z"
+        fill="#F2A900"/>
 
-  <!-- ===== BLOC TITRE (x=70..570, y=200..590) ===== -->
-  <rect x="70" y="200" width="500" height="390" fill="#0A1A2F"/>
-  <rect x="70" y="200" width="500" height="9" fill="#1CB5A0"/>
-
-  <!-- BEYOND / THE / FIREWALL — tailles calibrées pour tenir dans 450px de large -->
-  <text x="120" y="320" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="800" font-size="105" letter-spacing="5" fill="#FFFFFF">BEYOND</text>
-  <text x="120" y="395" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="300" font-size="50" letter-spacing="30" fill="#1CB5A0">THE</text>
-  <text x="120" y="560" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="700" font-size="90" letter-spacing="3" fill="#FFFFFF">FIREWALL</text>
-
-  <!-- ===== SOUS-TITRE ===== -->
-  <text x="120" y="660" font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="400" font-style="italic" font-size="44" fill="#5A6B7A">The Reality of Modern</text>
-  <text x="120" y="710" font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="400" font-style="italic" font-size="44" fill="#5A6B7A">IT Operations</text>
-
-  <!-- ===== SYMBOLE : FRONTIÈRE TRAVERSÉE (x 70..570, y ~790) =====
-       Ligne acier interrompue au centre ; flux de points qui traverse la
-       rupture ; losange turquoise = point de passage critique. -->
-  <g id="symbole-frontiere">
-    <!-- Ligne de frontière acier, interrompue au centre (gap ~85px) -->
-    <line x1="70" y1="800" x2="270" y2="800"
-          stroke="#5A6B7A" stroke-width="6" stroke-linecap="round"/>
-    <line x1="370" y1="800" x2="570" y2="800"
-          stroke="#5A6B7A" stroke-width="6" stroke-linecap="round"/>
-    <!-- Marqueurs de bord -->
-    <line x1="70" y1="778" x2="70" y2="822" stroke="#5A6B7A" stroke-width="6"/>
-    <line x1="570" y1="778" x2="570" y2="822" stroke="#5A6B7A" stroke-width="6"/>
-
-    <!-- Point de rupture : losange turquoise + halo -->
-    <circle cx="320" cy="800" r="40" fill="none" stroke="#1CB5A0" stroke-width="2.5" opacity="0.35"/>
-    <polygon points="320,778 342,800 320,822 298,800" fill="#1CB5A0"/>
-
-    <!-- Flux traversant : points accent qui passent la frontière -->
-    <g fill="#2C5F8A">
-      <circle cx="160" cy="800" r="6" opacity="0.5"/>
-      <circle cx="200" cy="800" r="6" opacity="0.7"/>
-      <circle cx="240" cy="800" r="6" opacity="0.9"/>
-      <circle cx="400" cy="800" r="6" opacity="0.9"/>
-      <circle cx="440" cy="800" r="6" opacity="0.7"/>
-      <circle cx="480" cy="800" r="6" opacity="0.5"/>
-    </g>
-    <!-- Flèches directionnelles subtiles -->
-    <polygon points="285,786 305,800 285,814 293,800" fill="#5A6B7A" opacity="0.6"/>
-    <polygon points="355,786 335,800 355,814 347,800" fill="#5A6B7A" opacity="0.6"/>
+  <!-- Fine editorial construction: visible closely, secondary at thumbnail scale. -->
+  <g fill="none" stroke="#948E84" stroke-width="1.2" opacity="0.65">
+    <circle cx="626" cy="886" r="284"/>
+    <path d="M72 886H648"/>
+    <path d="M626 490V1282"/>
+  </g>
+  <g aria-label="Breach marker">
+    <circle cx="626" cy="886" r="23" fill="#F2EDE3" stroke="#161616" stroke-width="3"/>
+    <circle cx="626" cy="886" r="8" fill="#1C6B5A"/>
+    <path d="M72 886H583 M669 886H750" stroke="#161616" stroke-width="4"/>
+    <path d="M777 850V922" stroke="#F2A900" stroke-width="9" filter="url(#saffron-soft)"/>
   </g>
 
-  <!-- ===== AUTEUR ===== -->
-  <text x="70" y="895" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="400" font-size="34" letter-spacing="13" fill="#0A1A2F">BA-NDOUWE STEVE</text>
-  <text x="70" y="930" font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="300" font-style="italic" font-size="28" fill="#5A6B7A">Systems Engineer · Incident Analyst</text>
+  <!-- Collection and book register. -->
+  <text x="72" y="91" fill="#161616" font-family="Arial, Helvetica, sans-serif"
+        font-size="19" font-weight="700" letter-spacing="4.3">THE OPERATOR’S LIBRARY</text>
+  <text x="1130" y="91" text-anchor="end" fill="#F2EDE3" font-family="Arial, Helvetica, sans-serif"
+        font-size="17" font-weight="700" letter-spacing="3">BOOK 01</text>
+  <line x1="72" y1="125" x2="748" y2="125" stroke="#161616" stroke-width="2"/>
+  <line x1="818" y1="125" x2="1130" y2="125" stroke="#F2A900" stroke-width="3"/>
 
-  <!-- ===== SIGNATURE DAILYOPS ===== -->
-  <g transform="translate(515, 868)">
-    <rect x="0" y="0" width="38" height="38" fill="#1CB5A0" rx="4"/>
-    <text x="55" y="38" font-family="Sora, 'Space Grotesk', sans-serif"
-          font-weight="300" font-size="22" letter-spacing="7" fill="#5A6B7A">DAILYOPS</text>
+  <!-- Title: the primary object at both thumbnail and print scale. -->
+  <g transform="translate(72,392)">
+    <text x="0" y="0" fill="#1C6B5A" font-family="Arial, Helvetica, sans-serif"
+          font-size="17" font-weight="700" letter-spacing="4.4">AN OPERATIONS ESSAY</text>
+    <text x="0" y="188" fill="#161616" font-family="Arial, Helvetica, sans-serif"
+          font-size="156" font-weight="700" letter-spacing="-6">BEYOND</text>
+    <text x="5" y="282" fill="#F2A900" font-family="Arial, Helvetica, sans-serif"
+          font-size="48" font-weight="700" letter-spacing="24">THE</text>
+    <text x="0" y="438" fill="#161616" font-family="Arial, Helvetica, sans-serif"
+          font-size="122" font-weight="700" letter-spacing="-5">FIREWALL</text>
   </g>
 
+  <!-- Promise. -->
+  <line x1="72" y1="1053" x2="458" y2="1053" stroke="#F2A900" stroke-width="9"/>
+  <text x="72" y="1138" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+        font-size="39" font-style="italic">The Reality of Modern</text>
+  <text x="72" y="1188" fill="#161616" font-family="Georgia, 'Times New Roman', serif"
+        font-size="39" font-style="italic">IT Operations</text>
+  <text x="72" y="1264" fill="#948E84" font-family="Arial, Helvetica, sans-serif"
+        font-size="16" font-weight="700" letter-spacing="3.2">SYSTEMS · INCIDENTS · DECISIONS</text>
+
+  <!-- Author identity. -->
+  <line x1="72" y1="1608" x2="748" y2="1608" stroke="#161616" stroke-width="1.4"/>
+  <text x="72" y="1682" fill="#161616" font-family="Arial, Helvetica, sans-serif"
+        font-size="29" font-weight="700" letter-spacing="5.9">STEVE BA-NDOUWE</text>
+  <text x="72" y="1727" fill="#948E84" font-family="Georgia, 'Times New Roman', serif"
+        font-size="26" font-style="italic">Cybersecurity Engineer</text>
+  <text x="1130" y="1682" text-anchor="end" fill="#F2A900" font-family="Arial, Helvetica, sans-serif"
+        font-size="16" font-weight="700" letter-spacing="3">OPERATIONAL IDEAS</text>
 </svg>

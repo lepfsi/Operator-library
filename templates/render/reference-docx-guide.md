@@ -82,7 +82,7 @@ des styles. Voici la table de correspondance à respecter :
 ## Étape 3 — Callouts typés en DOCX
 
 Pandoc ne supporte pas de styles nommés personnalisés pour les callouts
-typés (FIELD NOTE, DAILYOPS CONCEPT, etc.) directement. Trois approches :
+typés (FIELD NOTE, SYSTEM CONCEPT, etc.) directement. Trois approches :
 
 ### Approche A — Bloc de citation stylisé (recommandée)
 
@@ -92,9 +92,9 @@ le label en premières lignes en gras + petites capitales.
 Dans le `reference.docx`, créer un style personnalisé nommé
 `CalloutFieldNote` basé sur `Block Text` :
 
-- Police : Source Serif Pro, 9,5 pt
-- Bordure : 0,5 pt, couleur accent du livre
-- Fond : blanc
+- Police : Source Serif 4, 9,5 pt
+- Bordure : 0,5 pt, couleur sémantique du bloc
+- Fond : Bone `#F2EDE3`
 - Espacement interne : 0,6 cm
 
 Répéter pour : `CalloutConcept`, `CalloutLesson`, `CalloutWarning`,

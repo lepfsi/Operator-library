@@ -114,18 +114,18 @@ echo "============================================================"
 echo
 
 # ---- Premium font check -----------------------------------------------------
-# Warn (not block) when Sora / Source Serif Pro / IBM Plex Mono are missing.
-# Without them, XeLaTeX falls back to wider TeX Gyre fonts and the page count
-# inflates significantly (e.g. 24 -> 120+ pages). Install with:
+# Warn (not block) when the active prototype B fonts are missing.
+# Without them, XeLaTeX may substitute unrelated font families and the page count
+# or hierarchy may differ from the production design. Install or select fonts with:
 #   ./scripts/install-fonts.sh
 MISSING_FONTS=0
 # Each entry: friendly name | grep pattern(s) separated by |
-# Source Serif ships as "Source Serif 4" (Google Fonts) or "Source Serif Pro".
+# Font names can vary slightly across fontconfig installations.
 check_font() {
     local label="$1"; shift
     local pat
     for pat in "$@"; do
-        if fc-list 2>/dev/null | grep -qi "$pat"; then
+        if fc-list 2>/dev/null | grep -i "$pat" >/dev/null; then
             return 0
         fi
     done
@@ -133,9 +133,9 @@ check_font() {
     echo "   (warn) premium font not found: $label"
     return 1
 }
-check_font "Sora" "Sora"            || true
-check_font "Source Serif" "Source Serif Pro" "Source Serif 4" "SourceSerif4" || true
-check_font "IBM Plex Mono" "IBM Plex Mono" "IBMPlexMono" || true
+check_font "Noto Sans" "Noto Sans" || true
+check_font "TeX Gyre Schola" "TeX Gyre Schola" || true
+check_font "TeX Gyre Cursor" "TeX Gyre Cursor" || true
 if [[ "$MISSING_FONTS" -gt 0 ]]; then
     echo "   (warn) $MISSING_FONTS premium font(s) missing — build will use wider fallbacks."
     echo "          Page count and typography will differ from design. Run:"
@@ -230,6 +230,10 @@ if [[ -n "$COVER_IMAGE" && -f "$COVER_IMAGE" ]]; then
 fi
 
 # ---- Build functions --------------------------------------------------------
+# The collection-level ToC is intentionally compact. Per-chapter guides carry
+# the finer navigation inside each chapter.
+TOC_DEPTH=1
+
 build_pdf() {
     if ! command -v xelatex >/dev/null 2>&1 && ! command -v pdflatex >/dev/null 2>&1; then
         echo "Warning: no LaTeX engine detected (xelatex / pdflatex)."
@@ -251,8 +255,7 @@ build_pdf() {
         --output="$EXPORTS_DIR/book.pdf" \
         --pdf-engine=xelatex \
         --toc \
-        --toc-depth=2 \
-        --number-sections=false
+        --toc-depth="$TOC_DEPTH"
     echo "   OK $EXPORTS_DIR/book.pdf"
 }
 
@@ -274,7 +277,7 @@ build_epub() {
         --to=epub3 \
         --output="$EXPORTS_DIR/book.epub" \
         --toc \
-        --toc-depth=2
+        --toc-depth="$TOC_DEPTH"
     echo "   OK $EXPORTS_DIR/book.epub"
 }
 
@@ -290,7 +293,7 @@ build_docx() {
         --to=docx \
         --output="$EXPORTS_DIR/book.docx" \
         --toc \
-        --toc-depth=2 2>/tmp/docx-err.$$; then
+        --toc-depth="$TOC_DEPTH" 2>/tmp/docx-err.$$; then
         echo "   ERROR writing book.docx:"
         cat /tmp/docx-err.$$
         rm -f /tmp/docx-err.$$

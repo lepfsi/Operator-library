@@ -98,7 +98,7 @@ _Tableau récapitulatif des incidents (voir aussi `case-library.md`)._
 
 ## 7. Concepts de la taxonomie introduits dans ce livre
 
-_Listes des concepts officiels DailyOps introduits dans ce livre._
+_Liste les concepts système officiels introduits dans ce livre._
 
 - **Concept 1** (chap. X)
 - **Concept 2** (chap. Y)
@@ -123,5 +123,5 @@ Avant de passer le blueprint à `status: locked` :
 - [ ] Les parties sont nommées et leur rôle est explicité.
 - [ ] Chaque chapitre a : idée centrale, phrase mémorable, concept (ou « aucun »), incident(s).
 - [ ] Le total de concepts introduits est conforme à la progression prévue dans la Series Bible.
-- [ ] Aucun produit DailyOps n'apparaît dans le blueprint.
+- [ ] Aucun produit ou langage de marque externe n’apparaît dans le blueprint.
 - [ ] Au moins un incident est identifié par chapitre (ou justification explicite).

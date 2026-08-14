@@ -1,10 +1,10 @@
 ---
 title: "The Temporary Rule That Became Permanent"
-part: "Part I — The System We See"
+part: "Part I: The System We See"
 book: "Beyond the Firewall"
 book_number: 1
 chapter_number: 2
-author: "Ba-Ndouwe Steve"
+author: "Steve BA-NDOUWE"
 date: "2026"
 status: "draft"
 memorable_phrase: "A temporary exception without an expiration date is a future security incident."
@@ -14,180 +14,146 @@ incidents_referenced:
   - "Firewall_Temp_Rule"
 ---
 
-# Chapter 2 — The Temporary Rule That Became Permanent
+::: {.impact-opener #the-temporary-rule-that-became-permanent number="02" title="The Temporary Rule That Became Permanent"}
+:::
 
-## Hook
+::: {.chapter-guide}
+**Inside Chapter 02**
 
-The firewall rule had no expiration date. It was created in a hurry, during a crisis, with a note: "Temporary — remove after fix." Two years later, it was still there.
+- [01. The discovery](#the-discovery)
+- [02. The illusion of temporary](#the-illusion-of-temporary)
+- [03. Why it happens](#why-it-happens)
+- [04. Permanent Temporary](#permanent-temporary)
+- [05. The cost of forgetting](#the-cost-of-forgetting)
+- [06. Three rules for every exception](#three-rules-for-every-exception)
+- [07. Look beyond the rule](#look-beyond-the-rule)
+:::
 
----
+## The discovery
 
-## The Discovery
+The firewall rule had no expiration date. It had been created during a crisis with one instruction attached to it: *Temporary. Remove after the fix.* Twenty-three months later, it was still there.
 
-I remember the afternoon clearly. A financial services company asked me to review their firewall configuration as part of a security audit. They were confident. Their perimeter was solid. The firewall was the crown jewel of their defense.
+I remember the afternoon clearly. A financial services company had asked for a review of its firewall configuration before a security audit. The team was confident. Their perimeter was well funded, carefully maintained, and central to the way they described their security posture.
 
-We sat in a small conference room, a projector humming, the firewall rules scrolling on the screen. Hundreds of lines. Most were clean, well-documented, and logically grouped. But then, near the bottom, I saw something that made me pause.
+We sat in a small conference room while the rules scrolled across a projector screen. Hundreds of lines passed by. Most were grouped, named, and easy to explain. Then, near the bottom of the list, one entry stopped the conversation.
 
-Rule 214. Source: Any. Destination: Any. Port: 22. Allow.
+::: {.config-block}
+rule 214 {\
+  source:      any\
+  destination: any\
+  service:     tcp/22 (ssh)\
+  action:      allow
+}
+:::
 
-No description. No owner. No expiration. Just a single line that allowed SSH from anywhere to anywhere.
+There was no description. No owner. No expiry date. One line gave SSH access from anywhere to anywhere.
 
-I turned to the network administrator. “What’s this rule?”
+I asked the network administrator what it was for.
 
-He frowned, squinted at the screen, and said the words I’ve heard a hundred times since:
-
-“That? Oh, that’s temporary. We opened it for a vendor last year. We’ll remove it soon.”
+He narrowed his eyes at the screen. “That? We opened it for a vendor. It was temporary. We were going to remove it soon.”
 
 I pointed to the creation date. It was twenty-three months old.
 
-He stared at it for a long moment. Then he whispered, “We forgot.”
+He looked at it for a long moment, then said the sentence that mattered most in the room: “We forgot.”
 
----
+::: warning
+A temporary rule without an owner is not temporary. It is a permanent exposure waiting to be noticed again. Forgetting is not an operational excuse. It is a gap in the process that was meant to close the exception.
+:::
 
-## The Illusion of Temporary
+## The illusion of temporary
 
-This is not a rare story. It is one of the most common patterns in IT operations. A problem appears. A firewall rule is added to solve it quickly. The team says: “We’ll remove it later.” But later never comes.
+This pattern is ordinary because the first decision is usually reasonable. A service fails. A vendor needs access. A deployment is blocked. The team needs a path through the problem now, not after a review cycle.
 
-The rule stays. The vendor contract ends, but the access remains. The developer leaves, but the exception lives on. The urgent fix becomes a permanent hole in the perimeter.
+A firewall rule is added in minutes. It works. The service returns. Everyone moves to the next incident.
 
----
+The vendor contract ends, but access remains. The engineer changes teams, but the exception lives on. A fix created under pressure becomes part of the perimeter without anyone choosing it as architecture.
 
-## The Bad Belief
+The dangerous belief is that cleanup happens naturally. It does not. Memory is not a control. Good intentions are not a review mechanism. An exception with no date, no owner, and no reason has no force pulling it back out of the system.
 
-We believe that a temporary exception is harmless. We believe that once the crisis passes, the exception will be cleaned up naturally — by memory, by review, or by good intentions. This belief ignores the mechanism of neglect. Without an expiration date, a temporary exception becomes architecture not by decision, but by default.
+## Why it happens
 
----
+Pressure is the first mechanism. During an outage, process feels slower than risk. The fastest available change is often the one that bypasses the normal design. That choice can be right for the moment. The failure comes when the moment ends and nothing tells the team to return.
 
-## Why It Happens
+Forgetfulness is the second mechanism. Operations move from one urgent request to the next. A rule that does not interrupt a dashboard, a ticket queue, or a weekly report becomes invisible. It survives because no one is actively looking for it.
 
-**Pressure.** When a system is down, or a vendor needs immediate access, there is no time for process. The priority is to restore service. The firewall rule is the fastest solution. It is added in minutes, tested, and works. Everyone is relieved. The crisis is over.
+The third mechanism is the absence of an expiry path. Most platforms will preserve a rule indefinitely unless someone creates a date, a notification, and a review. Without that mechanism, the configuration treats a temporary exception as permanent by default.
 
-But the crisis leaves a trace. A rule that was born in urgency, without a plan for removal.
+::: tip
+Do not rely on collective memory to remove exceptions. Create a reminder at the moment the exception is approved, link it to a named owner, and make its expiry visible in the same queue as other operational work.
+:::
 
-**Forgetfulness.** The human brain is not designed to remember every temporary exception. We move on to the next incident, the next project, the next fire. The rule remains in the configuration, invisible and forgotten.
-
-**The absence of an expiration mechanism.** Most firewall platforms do not force an expiration date. If you don’t set one manually, the rule lives forever. And because no one thinks about it, it stays.
-
-The result is what I call the Permanent Temporary.
-
----
-
-## Evidence / Incident
-
-The discovery of Rule 214 led to a broader audit. The company believed their firewall was clean. What we found was a pattern of silent accumulation.
-
-The firewall logs showed zero blocked intrusions in the previous quarter. The security team presented this as evidence of health. Behind the firewall, the architecture was simpler than anyone admitted. A single exception — created for a vendor integration that had ended months earlier — allowed unrestricted SSH access from any source. There was no documentation linking the rule to the vendor contract. There was no expiration. There was no review process in place.
-
-When the audit revealed the rule, the team’s first reaction was not concern — it was confusion. They had genuinely forgotten it existed. The mechanism for remembering had never been built. The exception had become invisible not by design, but by neglect.
-
-The firewall saw nothing unusual. The firewall was working. The exception was permanent.
-
----
-
-## DAILYOPS CONCEPT
+## Permanent Temporary
 
 ::: concept
 **PERMANENT TEMPORARY**
 
-*A temporary exception that becomes permanent operational architecture, without a mechanism for review or removal.*
+*A temporary exception that becomes permanent operational architecture because no mechanism exists to review, renew, or remove it.*
 :::
 
----
+A Permanent Temporary is not limited to firewall rules. It can be an unused VPN profile, a shared administrator account, an IAM permission granted for one project, or a bypass added during a migration. The technology changes. The pattern does not.
 
-## The Cost of Forgetting
+The common feature is that the organisation stops seeing the exception as a decision. It becomes background configuration. That is when a short-term compromise begins to shape the system for the long term.
 
-When I showed the company how many similar rules existed — not just firewall rules, but temporary user accounts, unused VPN profiles, old IAM permissions — they were shocked. They had believed they were secure because their main systems were protected. But the perimeter was full of tiny holes, each one invisible to their monitoring dashboards.
+## The cost of forgetting
 
-This is the illusion of control. We look at the firewall and see a solid wall. But the wall is made of thousands of rules, each one a potential gap. The dashboard shows green, but the wall is already leaking.
+Rule 214 triggered a broader audit. The company believed its firewall was clean because the main rules were documented and the dashboard reported no recent intrusion activity. The audit showed something different: a quiet accumulation of exceptions that no one had revisited.
 
-The company had a firewall that was working. The business was not protected from its own exceptions.
+The vendor integration linked to Rule 214 had ended months earlier. No record connected the rule to the contract. No review task existed. The engineer who created it had left the company.
 
----
+The firewall was doing exactly what it had been told to do. It allowed the traffic. The dashboard was green because nothing in the monitoring stack had been designed to ask whether that access was still justified.
 
-## Analysis
+The team did not react with panic. They reacted with confusion. They had not deliberately accepted the risk. They had simply stopped seeing it.
 
-The Permanent Temporary is not a security problem alone. It is a symptom of organizational failure. Every exception represents a deviation from the designed state. If that deviation is not tracked, reviewed, or removed, it becomes part of the architecture. And architecture, by definition, is durable.
+::: warning
+A dashboard showing no blocked intrusion is not proof of a clean network. It may only prove that monitoring cannot see the gaps created by the organisation’s own exceptions.
+:::
 
-The mechanism that creates this failure has three parts.
+The Permanent Temporary is therefore not a security issue alone. It is evidence of an organisational failure. Every exception is a deviation from the designed state. When that deviation is not recorded, reviewed, and removed, it becomes part of the architecture.
 
-First, urgency overrides process. When a vendor needs access or a service must be restored, the exception is the fastest path. There is no time to design a permanent, secure solution. The exception is rational — at the moment.
+## Three rules for every exception
 
-Second, the absence of an expiration mechanism means the exception lives by default. If there is no date forcing a review, the exception outlasts the crisis. It survives the departure of the engineer who created it. It survives the end of the vendor contract. It survives the organizational memory.
+If you manage a firewall, an access control list, a privileged account, or any temporary resource, the rule is simple: every exception must remain accountable to the organisation that created it.
 
-Third, the lack of documentation connects the exception to nothing. There is no link to the vendor, the project, or the crisis that created it. Without this link, no one can evaluate whether the exception is still needed. It exists in isolation, invisible to everyone except the firewall itself.
+::: operator-rule
+1. **Set an expiration date.** Every exception needs a date, whether it is one week, one month, or one quarter away. When that date arrives, the exception does not renew automatically. Its continuation must be justified.
 
-This pattern is not rare. It is common. And it is dangerous because it is invisible.
+2. **Assign an owner.** Every exception needs a named person who receives the reminder, understands the original reason, and can decide whether the access should remain.
 
----
+3. **Document the reason.** Record the problem it solves, who requested it, and the condition that makes removal safe. A short explanation is enough, but no explanation means no review can be trusted.
+:::
 
-## Principle
-
-Every exception needs an expiration mechanism. Every temporary fix must have a date — a date by which it must be reviewed, renewed, or removed. Without this mechanism, temporary becomes permanent. With it, every exception remains accountable to the organization that created it.
-
----
-
-## Application
-
-If you manage or oversee any firewall, any access control list, or any temporary resource, implement three rules immediately.
-
-**One: set an expiration date.** Every exception must have a date — one week, one month, one quarter — by which it must be reviewed. When the date arrives, the exception does not renew automatically. Someone must justify its continuation.
-
-**Two: assign an owner.** Every exception must have a named person responsible for it. That person receives the notification when expiration approaches. Without an owner, no one is accountable.
-
-**Three: document the reason.** Every exception must have a brief explanation: what problem it solves, who requested it, and when it should be removed. Without documentation, no one can evaluate whether the exception is still needed.
-
-These three rules transform temporary fixes from silent risks into managed deviations. They create visibility where there was only neglect. They turn exceptions into architecture that can be reviewed, not architecture that hides.
-
----
-
-## FIELD NOTE
+These rules do not eliminate urgent work. They make urgent work visible after the urgency has passed. They turn a silent workaround into a managed deviation.
 
 ::: field-note
-**Context:** A financial services company conducted a firewall audit. A single SSH exception rule was discovered with no expiration or owner.
+**Context**
 
-**What We Expected:** Firewall rules would be documented, justified, and regularly reviewed.
+Financial services company, firewall audit. A single SSH exception was discovered with no owner and no expiry date.
 
-**What Happened:** Rule 214 allowed SSH from any source to any destination. It was 23 months old, labeled temporary, and never removed.
+**What We Expected**
 
-**Why It Happened:** The rule was added during an urgent vendor integration. No expiration was set. No review process existed. The engineer left, and the rule was forgotten.
+Firewall rules would be documented, justified, and reviewed on a regular cycle.
 
-**What It Taught Us:** Every temporary exception needs an expiration mechanism. Without one, urgency becomes architecture.
+**What Happened**
+
+Rule 214 allowed SSH from any source to any destination. It was twenty-three months old, labelled temporary, and had never been removed.
+
+**What We Missed**
+
+The rule was added during an urgent vendor integration. No expiration was set, no review process existed, and the engineer who created it had left.
+
+**What It Taught Us**
+
+Every temporary exception needs an expiration mechanism. Without one, urgency becomes architecture.
 :::
 
----
+## Look beyond the rule
 
-## Memorable Phrase
+A firewall rule reveals the boundary. It does not reveal the whole system that depends on it.
 
-> A temporary exception without an expiration date is a future security incident.
+The next chapter moves behind the rule and into the dependencies nobody documented: the hidden architecture that keeps work moving until one unseen connection fails.
 
----
+::: {.next-chapter}
+**Everything Was Green. Everything Was Broken.**
 
-## Pull Quote
-
-::: pullquote
-The firewall was working.
-The exception was permanent.
-The business was not protected.
-:::
-
----
-
-## Transition
-
-The firewall reveals the boundary. But the boundary is not the failure. In the next chapter, we go deeper behind the firewall — not just past the rules, but into the dependencies that nobody documented: the hidden architecture that holds the system together, and that can break it without anyone noticing.
-
----
-
-## KEY TAKEAWAYS
-
-::: keytakeaways
-- A temporary exception without an expiration date is a future security incident.
-
-- The Permanent Temporary is created by urgency, forgetfulness, and the absence of review mechanisms.
-
-- Every exception must have an owner, an expiration date, and a documented reason.
-
-- Trust without verification is not an operational control.
-
-- The discipline to remove temporary fixes is what separates mature operations from fragile ones.
+A dashboard can confirm that components are available while the transaction that matters has already stopped.
 :::

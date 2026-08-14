@@ -1,33 +1,26 @@
 ---
-title: "Part I — The System We See"
+title: "Part I: The System We See"
 role: "part-page"
-part: "Part I — The System We See"
+part: "Part I: The System We See"
 book: "Beyond the Firewall"
 book_number: 1
-author: "Ba-Ndouwe Steve"
+author: "Steve BA-NDOUWE"
 date: "2026"
-status: "scaffold"
+status: "draft"
 ---
 
-# Part I — The System We See
+::: {.part-opener number="I" title="THE SYSTEM WE SEE"}
+:::
 
-> This part is about the infrastructure we can see, monitor, and measure —
-> and the ways it quietly fools us.
+::: {.part-map}
+**Question.** What can a system show us while still concealing the condition that matters?
 
-## Chapters in this part
+The opening part begins at the perimeter, the screen and the metric. It follows the first visible signals of failure, then tests the assumptions that make a green dashboard, a working firewall or an available service feel safer than they are.
 
-1. Beyond the Firewall
-2. The Temporary Rule That Became Permanent
-3. Everything Was Green. Everything Was Broken.
-4. When Monitoring Becomes a Comfort Blanket
-5. The Difference Between Working and Being Reliable
-6. Availability Is Not Resilience
-
-<!--
-PART PAGE FICHE — to be drafted (150-250 words)
-Structure to follow when drafting:
-1. The part's question: Why does what we see mislead us?
-2. The arc: from the visible (the firewall, the screens) to the first
-   invisible truths (exceptions, monitoring illusions, wrong definitions)
-3. One sentence pointing to Part II: the system we don't see
--->
+- [Chapter 01 · Beyond the Firewall](#beyond-the-firewall)
+- [Chapter 02 · The Temporary Rule That Became Permanent](#the-temporary-rule-that-became-permanent)
+- [Chapter 03 · Everything Was Green. Everything Was Broken.](#everything-was-green-everything-was-broken)
+- [Chapter 04 · When Monitoring Becomes a Comfort Blanket](#when-monitoring-becomes-a-comfort-blanket)
+- [Chapter 05 · The Difference Between Working and Being Reliable](#the-difference-between-working-and-being-reliable)
+- [Chapter 06 · Availability Is Not Resilience](#availability-is-not-resilience)
+:::

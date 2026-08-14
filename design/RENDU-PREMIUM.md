@@ -1,111 +1,71 @@
-# Rendu premium — Standards visuels de la collection
+# Spécification de rendu premium — *The Operator’s Library*
 
-> **Collection** : The Operator's Library (5 livres)
-> **Direction** : Technical Editorial / Dark Precision
-> **Référence de mise en œuvre** : ce document consolide les standards visuels
-> internationaux appliqués aux couvertures, symboles et gabarits.
-
----
-
-## 1. Système de couverture
-
-Gabarit vertical identique pour les 5 livres (`design/couverture-template.svg`),
-paramétrable par couleur d'accent et symbole manifeste. Chaque livre reçoit une
-couverture full-bleed dédiée (`design/couverture-livre-NN.svg`).
-
-### Structure verticale (152 × 229 mm)
-
-1. **Bandeau marque** (haut, Deep Navy) : `DAILYOPS` à gauche (turquoise, petites
-   capitales), `THE OPERATOR'S LIBRARY — BOOK NN` à droite (gris acier).
-2. **Bloc titre** (asymétrique gauche, Deep Navy) : ligne fine turquoise en haut
-   (signature de collection), titre Sora extra-bold blanc, article/operateur en
-   couleur d'accent du livre, taille 22–30 pt.
-3. **Sous-titre** : Source Serif Pro italic, gris acier, 10.5 pt.
-4. **Symbole manifeste** : motif conceptuel du livre, trait fin, couleur d'accent
-   + marqueur turquoise (seuil / rupture).
-5. **Bloc auteur** (bas gauche) : nom en Sora petites capitales, fonction italic.
-6. **Signature DailyOps** (bas droite) : carré turquoise + label.
-
-### Fichiers
-
-| Fichier | Rôle |
-|---------|------|
-| `couverture-template.svg` | Gabarit réutilisable (placeholders `TITLE-L1`, `ACCENT`, etc.) |
-| `couverture-livre-01.svg` | Beyond the Firewall — frontière traversée (bleu acier `#2C5F8A`) |
-| `couverture-livre-02.svg` | The Human SPOF — nœud critique (ambre `#C76B2B`) |
-| `couverture-livre-03.svg` | The Complexity Trap — graphe densifiant (violet `#5B3E7D`) |
-| `couverture-livre-04.svg` | The Age of Operational AI — transition humain→agent (vert `#1F7A5A`) |
-| `couverture-livre-05.svg` | The Operator's Last Job — opérateur relayé (rouge brique `#A83A3A`) |
+> **Système** : Operational Ideas
+> **Direction** : Saffron / Ink / Bone
+> **But** : faire du livre un objet de non-fiction international, pas un support de marque produit.
 
 ---
 
-## 1b. Maquette intérieure (prototype visuel)
+## 1. Signature visuelle
 
-`design/maquette-interieure-page.svg` — double page 6" × 9" (viewBox 1280×960)
-montrant le rendu réel du système intérieur :
+La collection utilise une surface **Bone** `#F2EDE3`, une typographie **Ink** `#161616` et une seule couleur de décision, **Saffron** `#F2A900`. Un gris chaud `#948E84` construit la navigation. Un vert forêt `#1C6B5A` signale une méthode ou un concept. Un vermillon `#D95332` signale un risque.
 
-- **Page gauche** : header (titre du livre + n° page), grand numéro de chapitre
-  turquoise + titre Deep Navy, hook italic, texte courant, encadré `DAILYOPS CONCEPT`
-  (barre turquoise + fond off-white), footer auteur.
-- **Page droite** : `FIELD NOTE` (bandeau + barre d'accent, 5 champs structurés),
-  `pull quote` (lignes turquoise + guillemets, centré serif italic),
-  `KEY TAKEAWAYS` (barre d'accent + puces turquoise).
+La composition est volontairement sans interface fictive, dégradé néon, icône cyber, photographie de serveur ou logo de produit. L’autorité doit venir de la typographie, du contraste, de l’espace et d’une métaphore graphique unique.
 
-Ce prototype remplace la maquette ASCII (`maquette-page-interieure.md`) comme
-référence visuelle ; la maquette textuelle reste la spécification détaillée
-(annotations typographiques précises pour le graphiste).
+| Surface | Couleur | Texte | Accent autorisé |
+|---|---:|---:|---:|
+| Page de lecture | Bone `#F2EDE3` | Ink | Saffron, Forest ou Vermilion selon la fonction. |
+| Page de partie | Charcoal `#262626` | Chalk `#FBF7EF` | Saffron. |
+| Field Note | Charcoal `#262626` | Chalk `#FBF7EF` | Saffron discret. |
+| Couverture | Bone `#F2EDE3` | Ink | Saffron au point de rupture. |
 
 ---
 
-## 2. Symboles conceptuels
+## 2. Couverture
 
-Versions isolées et agrandies des motifs de couverture, `viewBox` 2:1
-(`0 0 200 100`), fond transparent. Voir `design/symboles/`.
+La couverture est une construction de trois masses : la collection en haut, le titre à gauche et une métaphore verticale à droite. Le symbole ne raconte pas littéralement l’informatique ; il condense la thèse du livre.
 
-Usage : page de partie (Part I/II/III/IV), exergue de section, ou illustration
-d'ouverture de chapitre pilier.
+Pour *Beyond the Firewall*, une masse d’encre verticale est déchirée par un liseré safran. Le repère central traverse cette frontière : la santé opérationnelle ne se réduit pas au périmètre observé. Le titre est très grand, en Ink, et le sous-titre explique la promesse en serif italique.
 
----
-
-## 3. Cohérence couleur par livre
-
-L'accent de chaque livre se propage automatiquement dans le PDF via
-`templates/render/template.latex` : il consomme `book-accent` du `config/pandoc.yaml`
-(hex sans `#`) et définit la couleur `accent`. Cette couleur pilote :
-
-- les barres des callouts `FIELD NOTE` et `KEY TAKEAWAYS`,
-- les numéros de chapitre (turquoise) et les barres d'accent,
-- le label des en-têtes de partie.
-
-| Livre | `book-accent` | Hex |
-|-------|---------------|-----|
-| 1 | `2C5F8A` | Bleu acier |
-| 2 | `C76B2B` | Ambre brûlé |
-| 3 | `5B3E7D` | Violet sombre |
-| 4 | `1F7A5A` | Vert émeraude |
-| 5 | `A83A3A` | Rouge brique |
-
-Repli : si `book-accent` est absent, l'accent par défaut est le bleu acier (livre 1).
+| Élément | Traitement | Finalité |
+|---|---|---|
+| Titre | Sans serif Ink, deux ou trois lignes, taille dominante. | Lisibilité à la miniature et autorité immédiate. |
+| Sous-titre | Serif Ink, deux lignes maximum. | Clarifier la promesse de non-fiction. |
+| Métaphore | Une seule forme abstraite. | Mémoriser l’idée du livre. |
+| Auteur | Sans serif Ink, visible mais secondaire au titre. | Construire la marque d’auteur. |
+| Collection | `THE OPERATOR’S LIBRARY`, sans logo de produit. | Créer une série éditoriale. |
 
 ---
 
-## 4. Palette Adobe
+## 3. Intérieur PDF
 
-`design/couleurs.ase` — fichier ASE binaire valide (signature `ASEF`, 10 swatches
-RGB) importable directement dans Illustrator, Photoshop et InDesign.
+La page de lecture conserve le même Bone. Les titres de chapitre utilisent Ink et Saffron ; les pages de partie et Field Notes inversent le champ, avec Charcoal et Chalk. Les citations d’impact respirent sur Bone avec une règle légère. Aucun bloc n’a d’ombre décorative ou de rayon important.
 
-Contient : Deep Navy, Off-white, Noir profond, Gris acier, Turquoise DailyOps,
-et les 5 accents par livre.
+| Élément | Couleur de titre | Surface | Signe de structure |
+|---|---:|---:|---:|
+| Numéro de partie / chapitre | Saffron | Bone ou Charcoal | Grandes masses typographiques. |
+| Titre de chapitre | Ink / Chalk | Bone / Charcoal | Sans serif forte. |
+| Field Method | Forest | Vert très pâle | Filet gauche Forest. |
+| System Concept | Forest | Bone | Filets haut et bas Forest. |
+| Key Decision | Ink | Gris chaud très pâle | Filet gauche Ink. |
+| Risk | Vermilion | Vermilion très pâle | Filet gauche Vermilion. |
+| Operator’s Rule | Saffron | Chalk | Cadre fin, trois actions. |
+| Field Note | Chalk | Charcoal | Page entière sans folio. |
 
 ---
 
-## 5. Standards internationaux respectés
+## 4. EPUB et miniature
 
-- **ISO 5767** (titre sens lecture) : gabarit vertical, hiérarchie titre > sous-titre > auteur.
-- **ISBN/EAN** (zone code-barres) : réserver 35 × 25 mm en bas du quatrième de couverture
-  (à ajouter sur le dos + arrière en production finale).
-- **Bleed** : 3 mm minimum recommandés en production imprimée (les SVG sont au format
-  net ; le bleed est ajouté à l'export par le prépresseur).
-- **Marges de sécurité** : éléments critiques à ≥ 6 mm du bord rogné.
-- **Contraste** : titres blancs sur Deep Navy = ratio > 12:1 (WCAG AAA, hors contexte
-  print, utile pour les déclinaisons numériques EPUB/cover web).
+L’EPUB reprend strictement les mêmes noms de blocs, couleurs sémantiques et contrastes. Les mises en page plein champ deviennent des blocs Charcoal à contraste élevé sur les lecteurs qui ne respectent pas les ruptures de page.
+
+La couverture est vérifiée à deux tailles : l’objet imprimé 6 × 9 pouces et une vignette de 120 pixels de haut. Dans les deux cas, le mot `BEYOND`, le mot `FIREWALL`, la rupture safran et le nom d’auteur doivent rester identifiables.
+
+---
+
+## 5. Contrôle avant diffusion
+
+- Vérifier qu’une page claire ne comporte qu’un accent sémantique dominant.
+- Vérifier que tous les labels visibles utilisent la grammaire Field Method, Context, Key Decision, Risk, System Concept, Operator’s Rule, Field Note ou In Brief.
+- Vérifier que le titre de couverture et le sous-titre restent lisibles après réduction.
+- Vérifier qu’aucun élément visible ne fait référence à DailyOps ou à un produit de la marque.
+- Vérifier que la couverture, le PDF et l’EPUB utilisent les mêmes sept couleurs de collection.

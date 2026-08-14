@@ -3,27 +3,21 @@ title: "Foreword"
 role: "front-matter"
 book: "Beyond the Firewall"
 book_number: 1
-author: "Ba-Ndouwe Steve"
+author: "Steve BA-NDOUWE"
 date: "2026"
-status: "scaffold"
+status: "draft"
 ---
 
-# Foreword
+::: {.front-piece label="FOREWORD"}
+**I** did not write this book because I have a theory. I wrote it after too many nights staring at a green screen that said everything was fine while the phone would not stop ringing.
 
-<!--
-FOREWORD FICHE — to be drafted (400-800 words)
-Purpose: the only part of the book where the author steps out from behind the
-incidents and speaks directly to the reader.
+The first time I understood how deceptive a system can be was during a database migration. The dashboard showed perfect availability. Network metrics were normal. The firewall was quiet. Yet users could no longer sign in.
 
-Structure to follow when drafting:
-1. The moment this book became necessary — a personal field anecdote
-2. Why the firewall metaphor matters — the visible vs the invisible
-3. Who this book is for — operators, engineers, managers, CTOs, RSSIs
-4. What the reader will not get — no product pitch, no perfect-case stories
-5. The promise, restated: errors are shown, not hidden
-6. How to use the book — parts as a progression, chapters as field notes
-7. Signature and date
+We spent six hours looking for a failure that did not exist, simply because we were looking in the wrong place. We were watching the perimeter. The problem sat inside it, in a dependency no one had mapped.
 
-Style: first person, no jargon, no technical prerequisites.
-Tone: the credibility comes from showing mistakes, not victories.
--->
+This book comes from nights like that. It is not a configuration manual. It is a guide to looking where the tools do not look. A system is not resilient because its indicators are green. It is resilient when its people can understand what lies behind them.
+
+Read well. Diagnose better.
+
+*Steve BA-NDOUWE*
+:::

@@ -1,33 +1,25 @@
 ---
-title: "Part III — Operating Reality"
+title: "Part III: Operating Reality"
 role: "part-page"
-part: "Part III — Operating Reality"
+part: "Part III: Operating Reality"
 book: "Beyond the Firewall"
 book_number: 1
-author: "Ba-Ndouwe Steve"
+author: "Steve BA-NDOUWE"
 date: "2026"
 status: "scaffold"
 ---
 
-# Part III — Operating Reality
+::: {.part-opener number="III" title="OPERATING REALITY"}
+:::
 
-> When the invisible breaks, the real work begins: decisions under pressure,
-> knowledge that lives only in heads, documentation that fails, humans who
-> misconfigure, and systems that must survive their absence.
+::: {.part-map}
+**Question.** What remains when the system is under pressure and the playbook is no longer enough?
 
-## Chapters in this part
+The focus shifts from infrastructure to judgement. These chapters follow the decisions made during an incident, the knowledge that disappears with people, the documentation that fails under stress and the human errors that shape a system long after the event is closed.
 
-11. Incident Response Is Decision Making Under Pressure
-12. The Cost of Tribal Knowledge
-13. Why Documentation Fails
-14. The Human Configuration Error
-15. Designing for the Day You Are Not There
-
-<!--
-PART PAGE FICHE — to be drafted (150-250 words)
-Structure to follow when drafting:
-1. The part's question: What does operating reality look like when it goes wrong?
-2. The arc: from the moment of the incident (decisions) to long-term design
-   (knowledge, documentation, error, absence)
-3. One sentence pointing to Part IV: leaving operations behind, into resilience
--->
+- [Chapter 11 · Incident Response Is Decision Making Under Pressure](#incident-response-is-decision-making-under-pressure)
+- [Chapter 12 · The Cost of Tribal Knowledge](#the-cost-of-tribal-knowledge)
+- [Chapter 13 · Why Documentation Fails](#why-documentation-fails)
+- [Chapter 14 · The Human Configuration Error](#the-human-configuration-error)
+- [Chapter 15 · Designing for the Day You Are Not There](#designing-for-the-day-you-are-not-there)
+:::

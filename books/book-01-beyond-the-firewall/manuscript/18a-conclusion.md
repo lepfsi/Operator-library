@@ -3,15 +3,15 @@ title: "Conclusion"
 role: "back-matter"
 book: "Beyond the Firewall"
 book_number: 1
-author: "Ba-Ndouwe Steve"
+author: "Steve BA-NDOUWE"
 date: "2026"
 status: "scaffold"
 ---
 
-# Conclusion
+# Conclusion {.unnumbered .unlisted}
 
 <!--
-CONCLUSION FICHE — to be drafted (400-700 words)
+CONCLUSION FICHE, to be drafted (400-700 words)
 Purpose: close the whole arc and send the reader back to their infrastructure.
 
 Structure to follow when drafting:

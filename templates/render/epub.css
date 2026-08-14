@@ -1,550 +1,378 @@
-/* ============================================================
- *  epub.css — The Operator's Library
- *  Premium EPUB stylesheet (Technical Editorial / Dark Precision)
- *  Format: 6" x 9" / A5 (lisible tablettes + liseuses)
- * ============================================================ */
+/* ============================================================================
+ * epub.css — The Operator's Library
+ * Reading system: Technical Editorial / Operational Clarity
+ * ========================================================================== */
 
 @charset "UTF-8";
 
-/* ---- Fonts (embedded if available; fallback grace) --------------------- */
-@font-face {
-  font-family: "Sora";
-  font-weight: 700;
-  font-style: normal;
-  src: local("Sora SemiBold"), local("Sora-Bold");
-}
-@font-face {
-  font-family: "Sora";
-  font-weight: 400;
-  font-style: normal;
-  src: local("Sora Light"), local("Sora-Regular");
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  font-weight: 400;
-  font-style: normal;
-  src: local("SourceSerifPro-Regular");
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  font-weight: 400;
-  font-style: italic;
-  src: local("SourceSerifPro-It");
-}
-@font-face {
-  font-family: "IBM Plex Mono";
-  font-weight: 400;
-  font-style: normal;
-  src: local("IBMPlexMono-Regular");
-}
-
-/* ---- Palette (charte graphique) ---------------------------------------- */
 :root {
-  --deepnavy: #0A1A2F;
-  --offwhite: #F7F5F0;
-  --textblack: #111111;
-  --steelgray: #5A6B7A;
-  --turquoise: #1CB5A0;
-  --accent: #2C5F8A;          /* Book 1 default; overridden per book if needed */
+  --charcoal: #262626;
+  --paper: #F2EDE3;
+  --ink: #161616;
+  --mist: #D8D1C5;
+  --slate: #948E84;
+  --saffron: #F2A900;
+  --forest: #1C6B5A;
+  --vermilion: #D95332;
+  --chalk: #FBF7EF;
+  --action-blue: var(--saffron);
+  --warning-coral: var(--vermilion);
+  --book-accent: #F2A900;
 }
 
-/* ---- Base typography --------------------------------------------------- */
 html, body {
-  font-family: "Source Serif Pro", Georgia, "Times New Roman", serif;
-  font-size: 11pt;
-  line-height: 1.45;
-  color: var(--textblack);
-  background: var(--offwhite);
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  font-size: 1em;
+  line-height: 1.62;
+  color: var(--ink);
+  background: var(--paper);
   margin: 0;
   padding: 0;
-  text-align: justify;
   hyphens: auto;
 }
 
-/* ---- Headings ---------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Sora", "Helvetica Neue", Arial, sans-serif;
-  color: var(--deepnavy);
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: left;
+  font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.18;
   hyphens: none;
-}
-
-/* Chapter title (h1) — Sora bold, deep navy, sans-serif */
-h1 {
-  font-size: 1.8em;
-  margin: 0 0 0.4em 0;
-  page-break-before: always;
   page-break-after: avoid;
 }
 
-/* Big chapter number — handled via ::before on h1.chapter-title.
-   Convention: chapter markdown starts with "# Chapter N — Title".
-   Pandoc outputs <h1 class="chapter"><span class="chapter-number">N</span> ... */
-h1 .chapter-number,
-h1.chapter .chapter-number {
-  display: block;
-  font-size: 2.4em;
-  color: var(--turquoise);
+h1 {
+  color: var(--ink);
+  font-size: 2em;
   font-weight: 700;
-  margin-bottom: 0.2em;
-}
-
-/* Part title */
-h1.part-title {
-  text-align: center;
-  font-size: 1.6em;
-  color: var(--deepnavy);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  margin: 2.4em 0 0.45em;
   page-break-before: always;
-}
-h1.part-title .part-number {
-  display: block;
-  font-size: 1.5em;
-  color: var(--turquoise);
-  margin-bottom: 0.3em;
 }
 
 h2 {
-  font-size: 1.25em;
-  margin: 1.6em 0 0.6em;
-  page-break-after: avoid;
+  color: var(--action-blue);
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 2em 0 0.55em;
 }
 
 h3 {
-  font-size: 1.05em;
-  margin: 1.3em 0 0.5em;
-  page-break-after: avoid;
+  color: var(--ink);
+  font-size: 1.06em;
+  font-weight: 600;
+  margin: 1.4em 0 0.45em;
 }
 
-/* ---- Opening phrase (hook) — italic, steel gray ----------------------- */
-.hookphrase, p.hook {
-  font-style: italic;
-  color: var(--steelgray);
-  font-size: 1.05em;
-  margin: 0 0 1.2em 0;
-}
-
-/* ---- Paragraph spacing ------------------------------------------------ */
 p {
-  margin: 0 0 0.7em 0;
+  margin: 0 0 0.85em;
+  text-indent: 0;
   orphans: 2;
   widows: 2;
 }
 
-/* ---- Lists ----------------------------------------------------------- */
-ul, ol {
-  margin: 0 0 0.8em 0;
-  padding-left: 1.4em;
-}
+ul, ol { margin: 0 0 1em; padding-left: 1.45em; }
+li { margin: 0.35em 0; }
+ul > li::marker, ol > li::marker { color: var(--action-blue); font-weight: 700; }
 
-li {
-  margin: 0.25em 0;
-}
-
-/* Bullets: turquoise (subtle signature) */
-ul > li::marker {
-  color: var(--turquoise);
-}
-
-/* ---- Code (inline + blocks) ------------------------------------------ */
 code, pre {
   font-family: "IBM Plex Mono", "Courier New", monospace;
-  font-size: 0.95em;
+  font-size: 0.9em;
 }
-
-code {
-  background: rgba(90, 107, 122, 0.08);
-  padding: 0.12em 0.35em;
-  border-radius: 2px;
-  color: var(--deepnavy);
-}
-
+code { background: rgba(22, 22, 22, 0.07); padding: 0.1em 0.3em; }
 pre {
-  background: #FBF9F4;
-  border-left: 3px solid var(--steelgray);
-  padding: 0.7em 0.9em;
-  margin: 0 0 1em 0;
+  background: var(--chalk);
+  border-left: 3px solid var(--slate);
+  padding: 0.85em 1em;
   white-space: pre-wrap;
   word-wrap: break-word;
-  border-radius: 2px;
-  color: var(--textblack);
 }
 
-/* ASCII-art boxes (FIELD NOTE in older drafts) — neutralized to text blocks.
-   Prefer the fenced div versions below. */
-pre code {
-  background: none;
-  padding: 0;
-  color: inherit;
-}
+a { color: var(--action-blue); }
 
-/* ============================================================
- *  CALLOUTS — fenced divs Pandoc (.field-note, .concept, etc.)
- *  Convention Pandoc: ::: field-note  ->  <div class="field-note">
- * ============================================================ */
-
-div.field-note,
-div.concept,
-div.lesson,
-div.warning,
-div.pitfall,
-div.remember,
-div.pullquote,
-div.keytakeaways,
-div.diagram {
-  margin: 1.4em 0;
-  padding: 0.8em 1em;
-  background: var(--offwhite);
-  border: 0.5pt solid var(--steelgray);
-  border-radius: 3px;
+/* Shared callout geometry: flat, narrow, high-contrast and screen-reader safe. */
+div.note, div.tip, div.important, div.caution, div.warning, div.pitfall,
+div.concept, div.operator-rule, div.keytakeaways, div.lesson, div.remember,
+div.pullquote, div.field-note, div.impact-quote, div.impact-opener, div.part-opener, div.part-map, div.chapter-guide, div.diagram {
+  box-sizing: border-box;
+  margin: 1.65em 0;
   page-break-inside: avoid;
 }
 
-/* FIELD NOTE — accent color border, white background */
-div.field-note {
-  background: #FFFFFF;
-  border-color: var(--accent);
-}
-div.field-note::before {
-  content: "FIELD NOTE";
+/* Small labels */
+div.note::before, div.tip::before, div.important::before, div.caution::before,
+div.warning::before, div.pitfall::before, div.concept::before,
+div.operator-rule::before, div.keytakeaways::before, div.field-note::before {
   display: block;
-  font-family: "Sora", sans-serif;
+  font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72em;
   font-weight: 700;
-  font-size: 0.75em;
   letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 0.55em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid currentColor;
 }
 
-/* DAILYOPS CONCEPT — steel gray border, off-white background */
+/* Diagnostic and caution blocks */
+div.tip, div.note, div.important, div.caution, div.warning, div.pitfall {
+  padding: 0.9em 1em;
+  border-left: 3px solid var(--slate);
+  background: #fff;
+}
+div.tip { background: #EAF3ED; border-left-width: 2px; border-left-color: var(--forest); }
+div.tip::before { content: "Field Method"; color: var(--forest); }
+div.note { background: #ECE6DA; border-left-width: 2px; border-left-color: var(--slate); }
+div.note::before { content: "Context"; color: var(--slate); }
+div.important { background: #EAE5DD; border-left-width: 2px; border-left-color: var(--ink); }
+div.important::before { content: "Key Decision"; color: var(--ink); }
+div.caution, div.warning, div.pitfall { background: #FBECE8; border-left-width: 2px; border-left-color: var(--vermilion); }
+div.caution::before, div.warning::before, div.pitfall::before { content: "Risk"; color: var(--vermilion); }
+
+/* Proprietary vocabulary */
 div.concept {
-  background: var(--offwhite);
-  border-color: var(--steelgray);
+  padding: 0.95em 1em;
+  background: var(--paper);
+  border-top: 1px solid var(--forest);
+  border-bottom: 1px solid var(--forest);
 }
-div.concept::before {
-  content: "DAILYOPS CONCEPT";
-  display: block;
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: 0.75em;
-  letter-spacing: 0.15em;
-  color: var(--steelgray);
-  margin-bottom: 0.5em;
-}
+div.concept::before { content: "System Concept"; color: var(--forest); }
 div.concept > p:first-of-type {
-  font-family: "Sora", sans-serif;
+  font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  color: var(--forest);
+  font-size: 1.16em;
   font-weight: 700;
-  color: var(--deepnavy);
-  font-size: 1.15em;
+  letter-spacing: 0.025em;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.38em;
 }
-div.concept > p:first-of-type + p {
-  font-style: italic;
-  color: var(--textblack);
-}
+div.concept > p:first-of-type + p { font-style: italic; }
 
-/* LESSON — turquoise border, white background */
-div.lesson {
-  background: #FFFFFF;
-  border-color: var(--turquoise);
-}
-div.lesson::before {
-  content: "LESSON";
-  display: block;
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: 0.75em;
-  letter-spacing: 0.15em;
-  color: var(--turquoise);
-  margin-bottom: 0.5em;
-}
-
-/* WARNING / PITFALL — brick red border, light tinted background */
-div.warning,
-div.pitfall {
-  background: #FBF3F0;
-  border-color: #A83A3A;
-}
-div.warning::before,
-div.pitfall::before {
-  content: "WARNING";
-  display: block;
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: 0.75em;
-  letter-spacing: 0.15em;
-  color: #A83A3A;
-  margin-bottom: 0.5em;
-}
-
-/* REMEMBER — light gray, steel border */
-div.remember {
-  background: #EEEDE8;
-  border-color: var(--steelgray);
-}
-div.remember::before {
-  content: "REMEMBER";
-  display: block;
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: 0.75em;
-  letter-spacing: 0.15em;
-  color: var(--steelgray);
-  margin-bottom: 0.5em;
-}
-
-/* PULL QUOTE — no border, large serif italic, centered */
-div.pullquote {
-  background: #FFFFFF;
-  border: none;
-  padding: 1.6em 2em;
-  text-align: center;
-  font-family: "Source Serif Pro", Georgia, serif;
-  font-style: italic;
-  font-size: 1.25em;
-  color: var(--deepnavy);
-  line-height: 1.4;
-}
-/* Optional thin turquoise rule above/below */
-div.pullquote::before,
-div.pullquote::after {
-  content: "";
-  display: block;
-  height: 1pt;
-  background: var(--turquoise);
-  width: 30%;
-  margin: 0.4em auto;
-}
-
-/* KEY TAKEAWAYS — header in accent color, bullet list inside */
-div.keytakeaways {
-  background: #FFFFFF;
-  border-color: var(--steelgray);
-}
-div.keytakeaways::before {
-  content: "KEY TAKEAWAYS";
-  display: block;
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: 0.95em;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 0.5em;
-}
-
-/* DIAGRAM — bordered thin, font mono-ish */
-div.diagram {
-  background: #FBF9F4;
-  border-color: var(--steelgray);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.9em;
-  white-space: pre-wrap;
-  color: var(--steelgray);
-  text-align: center;
-}
-
-/* ---- Site-style callouts (Note/Tip/Important/Caution) ----------
-   Aligned with DailyOps.tech: label in small caps + thin rule + tinted bg.
-   Each callout keeps a colored left border = its semantic color. */
-div.note,
-div.tip,
-div.important,
-div.caution {
-  margin: 1.4em 0;
-  padding: 0.7em 1em;
-  background: var(--offwhite);
-  border-left: 3px solid var(--steelgray);
-  border-radius: 0;
-  page-break-inside: avoid;
-}
-div.note::before,
-div.tip::before,
-div.important::before,
-div.caution::before {
-  display: block;
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: 0.75em;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 0.3em;
-  padding-bottom: 0.3em;
-  border-bottom: 0.4pt solid currentColor;
-}
-
-/* NOTE — general info, steel gray */
-div.note { background: #EEF0F2; border-left-color: var(--steelgray); }
-div.note::before { content: "Note"; color: var(--steelgray); }
-
-/* TIP — practical advice, turquoise (DailyOps signature) */
-div.tip { background: #E6F6F3; border-left-color: var(--turquoise); }
-div.tip::before { content: "Tip"; color: var(--turquoise); }
-
-/* IMPORTANT — must-not-miss, deep navy */
-div.important { background: #E8EBF1; border-left-color: var(--deepnavy); }
-div.important::before { content: "Important"; color: var(--deepnavy); }
-
-/* CAUTION — proceed carefully, amber */
-div.caution { background: #FBF0E6; border-left-color: #C76B2B; }
-div.caution::before { content: "Caution"; color: #C76B2B; }
-
-/* ---- Operator's Rule — numbered actionable rules ------------ */
+/* Actionable rules */
 div.operator-rule {
-  margin: 1.4em 0;
-  padding: 0.8em 1em;
-  background: #FFFFFF;
-  border: 0.6pt solid var(--steelgray);
+  padding: 1.1em 1.15em;
+  border: 0;
+  border-left: 2px solid var(--saffron);
+  background: var(--chalk);
+}
+div.operator-rule::before { content: "Operator’s Rule"; color: var(--saffron); }
+div.operator-rule ol { margin-bottom: 0; }
+div.operator-rule ol > li::marker { color: var(--action-blue); font-family: "Noto Sans", sans-serif; font-weight: 700; }
+
+/* Field Note: dark signature page. E-readers may ignore page-breaks, but the
+   contrast and the structured evidence remain intact. */
+div.field-note {
+  padding: 1.15em 1.2em;
+  background: var(--chalk);
+  color: var(--ink);
+  border: 0;
+  border-left: 2px solid var(--ink);
   page-break-inside: avoid;
 }
-div.operator-rule::before {
-  content: "Operator's Rule";
+div.field-note::before { content: "Field Note"; color: var(--ink); }
+div.field-note strong { color: var(--ink); font-family: "Noto Sans", sans-serif; font-size: 0.88em; letter-spacing: 0.03em; }
+
+div.part-map {
+  padding: 1.2em 0 1em;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--mist);
+  background: transparent;
+}
+div.part-map::before {
+  content: "Inside this part";
   display: block;
-  font-family: "Sora", sans-serif;
+  margin-bottom: 0.6em;
+  color: var(--ink);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.72em;
   font-weight: 700;
-  font-size: 0.75em;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.4em;
-  padding-bottom: 0.3em;
-  border-bottom: 0.4pt solid var(--steelgray);
+}
+div.part-map ul, div.chapter-guide ul {
+  list-style: none;
+  margin: 0.75em 0 0;
+  padding: 0;
+}
+div.part-map li, div.chapter-guide li {
+  margin: 0.42em 0;
+  padding: 0;
+}
+div.part-map a, div.chapter-guide a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--mist);
 }
 
-/* ---- Impact quote — full light page, large centered italic ---- */
-div.impact-quote {
-  text-align: center;
+div.chapter-guide {
+  padding: 1.15em 1.2em;
+  background: #ECE6DA;
+  border-left: 2px solid var(--saffron);
+  page-break-inside: avoid;
+}
+div.chapter-guide::before {
+  content: "Chapter Guide";
+  display: block;
+  margin-bottom: 0.7em;
+  color: var(--saffron);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+div.next-chapter {
+  margin: 2.5em 0 0.75em;
+  padding: 1.15em 0 0.35em;
+  border-top: 2px solid var(--saffron);
+  page-break-inside: avoid;
+}
+div.next-chapter::before {
+  content: "Next Chapter";
+  display: block;
+  margin-bottom: 0.55em;
+  color: var(--saffron);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Memory and quotation */
+div.lesson, div.remember {
+  padding: 0.95em 1em;
+  background: var(--paper);
+  border-left: 3px solid var(--forest);
+  border-right: 3px solid var(--forest);
+}
+div.remember { border-right: 0; border-left-color: var(--slate); background: #ECE6DA; }
+div.pullquote {
+  padding: 1.8em 1.4em;
+  color: var(--ink);
+  border-top: 1px solid var(--mist);
+  border-bottom: 1px solid var(--mist);
+  background: var(--chalk);
   font-family: "Source Serif Pro", Georgia, serif;
+  font-size: 1.35em;
   font-style: italic;
-  font-size: 1.6em;
-  color: var(--deepnavy);
   line-height: 1.4;
-  margin: 2em 1em;
-  padding: 2em 0;
+  text-align: center;
+}
+
+/* Takeaways */
+div.keytakeaways {
+  padding: 1em 1.1em;
+  background: var(--paper);
+  border-left: 4px solid var(--action-blue);
+}
+div.keytakeaways::before { content: "In Brief"; color: var(--saffron); }
+div.keytakeaways ul { margin-bottom: 0; }
+
+/* Full-spread equivalents for EPUB. The semantic content is preserved while
+   graceful fallbacks handle readers that refuse full-screen backgrounds. */
+div.impact-opener {
+  min-height: 70vh;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 3em 1.25em 2em;
+  color: var(--chalk);
+  background: var(--charcoal);
+  text-align: right;
+  page-break-before: always;
+  page-break-after: always;
+}
+div.impact-opener::before {
+  content: attr(number);
+  display: block;
+  color: rgba(242, 169, 0, 0.28);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 7em;
+  font-weight: 800;
+  line-height: 0.95;
+}
+div.impact-opener::after {
+  content: attr(title);
+  display: block;
+  margin-top: 2.5em;
+  color: var(--chalk);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.55em;
+  font-weight: 700;
+  line-height: 1.1;
+}
+div.part-opener {
+  min-height: 74vh;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 4em 1.5em 2.5em;
+  color: var(--chalk);
+  background: var(--charcoal);
+  page-break-before: always;
+  page-break-after: always;
+}
+div.part-opener::before {
+  content: "Part " attr(number);
+  display: block;
+  color: var(--saffron);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.2em;
+}
+div.part-opener::after {
+  content: attr(title);
+  display: block;
+  color: var(--chalk);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 2.1em;
+  font-weight: 700;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+div.impact-quote {
+  min-height: 65vh;
+  padding: 3em 1.15em;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Serif Pro", Georgia, serif;
+  font-size: 1.8em;
+  font-style: italic;
+  line-height: 1.35;
+  text-align: center;
   page-break-before: always;
   page-break-after: always;
 }
 div.impact-quote::after {
   content: "";
   display: block;
-  height: 1pt;
   width: 30%;
-  background: var(--steelgray);
-  opacity: 0.5;
-  margin: 1em auto 0;
+  height: 1px;
+  margin: 1.2em auto 0;
+  background: var(--mist);
 }
 
-/* ---- Impact opener — full dark page (chapter spread) -------- */
-div.impact-opener {
-  background: var(--deepnavy);
-  color: #FFFFFF;
-  padding: 6em 1.5em;
-  margin: 0;
-  page-break-before: always;
-  page-break-after: always;
-  text-align: right;
-}
-div.impact-opener .chapter-num {
-  font-family: "Sora", sans-serif;
-  font-weight: 800;
-  font-size: 8em;
-  color: rgba(255,255,255,0.15);
-  display: block;
-}
-div.impact-opener .book-title {
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: 2em;
-  color: #FFFFFF;
-  display: block;
-  margin-top: 0.5em;
-}
-
-/* ---- Memorable phrase standalone ---------------------------- */
-.memorable-phrase,
-p.memorable {
+div.diagram {
+  padding: 0.9em 1em;
+  color: var(--slate);
+  border: 1px solid var(--mist);
+  background: var(--chalk);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.88em;
   text-align: center;
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: 1.15em;
-  color: var(--deepnavy);
-  margin: 1.2em 0;
-  padding: 1em;
-  border-top: 1pt solid var(--turquoise);
-  border-bottom: 1pt solid var(--turquoise);
+  white-space: pre-wrap;
 }
 
-/* ---- Blockquotes (Pandoc > ...) — used as pull quote alternative ----- */
 blockquote {
   margin: 1.4em 0;
-  padding: 0.6em 1.2em;
-  border-left: 3px solid var(--turquoise);
-  background: #FBF9F4;
+  padding: 0.6em 1em;
+  color: var(--ink);
+  border-left: 3px solid var(--action-blue);
+  background: var(--chalk);
   font-style: italic;
-  color: var(--deepnavy);
 }
 
-/* ---- Tables --------------------------------------------------------- */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1em 0;
-  font-size: 0.95em;
-}
-
-th {
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  color: var(--deepnavy);
-  text-align: left;
-  padding: 0.35em 0.6em;
-  border-bottom: 1pt solid var(--steelgray);
-}
-
-td {
-  padding: 0.35em 0.6em;
-  border-bottom: 0.25pt solid #DDE0E2;
-  vertical-align: top;
-}
-
-tr:last-child td {
-  border-bottom: none;
-}
-
-/* ---- Links (subtle) ------------------------------------------------- */
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-/* ---- Images / SVG --------------------------------------------------- */
-img, svg {
-  max-width: 100%;
-  height: auto;
-}
-
-/* ---- Title page (front matter) -------------------------------------- */
-.titlepage, .title-page {
-  text-align: center;
-  margin-top: 4em;
-  page-break-after: always;
-}
-.titlepage h1,
-.title-page h1 {
-  font-size: 2.4em;
-  margin-bottom: 0.3em;
-}
-.titlepage h2,
-.title-page h2 {
-  font-style: italic;
-  color: var(--steelgray);
-  font-weight: 400;
-  margin-bottom: 3em;
-}
-
-/* ---- Page break utility -------------------------------------------- */
-.pagebreak { page-break-before: always; }
+table { width: 100%; margin: 1em 0; border-collapse: collapse; font-size: 0.92em; }
+th { color: var(--ink); border-bottom: 1px solid var(--mist); font-family: "Noto Sans", sans-serif; text-align: left; }
+th, td { padding: 0.4em 0.55em; vertical-align: top; }
+td { border-bottom: 1px solid var(--mist); }
