@@ -63,15 +63,14 @@
 %   Sora, Source Serif Pro, IBM Plex Mono  (Google Fonts)
 % then run: fc-cache -fv
 %
-Fonts: use TeX Gyre (shipped with every TeX Live) as the BASE.
-TeX Gyre Heros (sans), Pagella (serif), Cursor (mono) are metric-compatible
-with Helvetica/Palatino/Courier and embed cleanly in PDF via xdvipdfmx.
-
-Premium fonts (Sora, Source Serif Pro/4, IBM Plex Mono) from Google Fonts
-ship as VARIABLE fonts ([wght], [opsz,wght]) which xdvipdfmx cannot embed,
-causing "Invalid font: -1" errors. To use them, install STATIC (non-variable)
-TTF versions and uncomment the IfFontExistsTF blocks below.
-
+% Fonts: use TeX Gyre (shipped with every TeX Live) as the BASE.
+% TeX Gyre Heros (sans), Pagella (serif), Cursor (mono) are metric-compatible
+% with Helvetica/Palatino/Courier and embed cleanly in PDF via xdvipdfmx.
+%
+% Premium fonts (Sora, Source Serif Pro/4, IBM Plex Mono) from Google Fonts
+% ship as VARIABLE fonts which xdvipdfmx cannot embed. To use them, install
+% STATIC (non-variable) TTF versions and uncomment the blocks below.
+%
 \setsansfont{TeX Gyre Heros}%  headings, callouts (Helvetica clone)
 \setmainfont{TeX Gyre Pagella}% body (Palatino clone)
 \setmonofont{TeX Gyre Cursor}% code (Courier clone)
@@ -80,7 +79,6 @@ TTF versions and uncomment the IfFontExistsTF blocks below.
 % \IfFontExistsTF{Source Serif Pro}{\setmainfont{Source Serif Pro}}{%
 %   \IfFontExistsTF{Source Serif 4}{\setmainfont{Source Serif 4}}{\setmainfont{TeX Gyre Pagella}}}
 % \IfFontExistsTF{IBM Plex Mono}{\setmonofont{IBM Plex Mono}}{\setmonofont{TeX Gyre Cursor}}
-}
 
 % Default font: serif for body (premium editorial)
 \setlength{\baselineskip}{13.5pt}
