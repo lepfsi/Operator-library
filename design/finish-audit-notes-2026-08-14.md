@@ -516,3 +516,42 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | `Key Takeaways` et transition | La synthèse clôt proprement la Partie II et prépare efficacement la bascule vers la Partie III. | Validé |
 | Page d’ouverture Partie III | `Operating Reality` s’ouvre avec une page noire forte et cohérente, sans rupture de collection. | Validé |
 | Carte de Partie III | À revoir séparément si nécessaire lors de la rédaction des chapitres 11 à 15, mais la structure actuelle est suffisante pour la transition. | Acceptable |
+
+## Contrôle visuel — ouverture de la Partie III et début du chapitre 11
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 98 à 101
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Carte de Partie III | La page de carte de lecture reste claire et cohérente avec la bascule depuis la Partie II ; le texte pose bien le déplacement vers le jugement humain. | Validé |
+| Ouverture noire du chapitre 11 | L’impact visuel est fort et cohérent avec les autres ouvertures noires de collection. | Validé |
+| Guide de chapitre | La navigation locale est lisible, bien espacée et fidèle au système validé. | Validé |
+| Début narratif | L’incident de redémarrage automatique ouvre correctement sur la distinction entre action technique et décision sous pression. | Validé |
+| Hiérarchie des sections | Les titres et le rythme de lecture restent premium et continus. | Validé |
+| Continuité de Partie III | Le chapitre 11 prolonge logiquement la transition depuis les systèmes vers les décisions humaines. | Validé |
+
+## Contrôle visuel — fin du chapitre 11
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 103 à 107
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| `Warning` / section analytique | Le passage de la procédure au jugement fonctionne bien et prépare correctement la boucle de décision. | Validé |
+| `System Concept` | `Incident Decision Loop` est lisible, distinct et bien adapté au registre opératoire du chapitre. | Validé |
+| `Field Method` | L’exercice de décision sous pression est concret, simple à exécuter et cohérent avec la thèse du chapitre. | Validé |
+| `Operator’s Rule` | Le bloc conserve sa force visuelle et hiérarchique, sans dominer abusivement le reste du flux. | Validé |
+| `Memorable Phrase` | La phrase cible est bien restituée et correctement placée avant le `Field Note`. | Validé |
+| `Field Note` | Le nouveau design encadré reste élégant et crédible sur un chapitre centré sur la décision humaine. | Validé |
+| `Pull Quote` | La citation simple en italique conserve la discrétion souhaitée. | Validé |
+| `Key Takeaways` | La synthèse finale est claire, utile et correctement hiérarchisée avant la transition. | Validé |
+| Transition vers le chapitre 12 | Le passage vers `The Cost of Tribal Knowledge` est net et pertinent pour la Partie III. | Validé |

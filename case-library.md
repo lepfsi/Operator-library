@@ -135,7 +135,7 @@
 ---
 
 ### Autopilot_Restart_Disaster
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : bank subsidiary, ~500 employees
 - **Period** : June 2020
 - **Context** : core banking API started failing under load; the on-call engineer followed the runbook's first step — restart the service
