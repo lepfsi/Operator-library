@@ -70,7 +70,7 @@
 ---
 
 ### Solo_Engineer_Blackout
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : fintech scale-up, ~120 employees
 - **Period** : July 2020
 - **Context** : a senior engineer was the only person who knew how to deploy the payment platform
@@ -78,7 +78,7 @@
 - **Hidden assumption** : "he'll always be there — and if not, someone will figure it out"
 - **Consequence** : the engineer went on emergency leave; a critical security patch waited 9 days because nobody could run the deployment
 - **Lesson** : Knowledge that exists only in someone's head is not organizational knowledge
-- **Books used in** : Beyond the Firewall — ch. 4
+- **Books used in** : Beyond the Firewall — ch. 12
 
 ---
 

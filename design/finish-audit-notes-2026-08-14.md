@@ -555,3 +555,43 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | `Pull Quote` | La citation simple en italique conserve la discrétion souhaitée. | Validé |
 | `Key Takeaways` | La synthèse finale est claire, utile et correctement hiérarchisée avant la transition. | Validé |
 | Transition vers le chapitre 12 | Le passage vers `The Cost of Tribal Knowledge` est net et pertinent pour la Partie III. | Validé |
+
+## Contrôle visuel — début du chapitre 12
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 107 à 111
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Transition depuis le chapitre 11 | La bascule vers le chapitre 12 est nette et cohérente avec la Partie III. | Validé |
+| Ouverture noire | La page d’impact du chapitre 12 conserve la même présence éditoriale que les chapitres précédents. | Validé |
+| Guide de chapitre | La navigation locale est lisible, bien espacée et conforme au système validé. | Validé |
+| Incident d’ouverture | Le cas de la sécurité retardée par dépendance à un seul expert rend le coût de la connaissance implicite concret sans caricaturer l’expert. | Validé |
+| Développement | Le texte traite la connaissance concentrée comme une capacité collective insuffisamment distribuée, ce qui renforce la rigueur du chapitre. | Validé |
+| `Risk` implicite du début | Le risque humain est bien formulé comme absence de second chemin opérationnel plutôt que comme défaut individuel. | Validé |
+| Hiérarchie des sections | Les titres et le rythme de lecture restent premium et cohérents. | Validé |
+
+## Contrôle visuel — fin du chapitre 12
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 112 à 116
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| `Warning` / analyse | Le chapitre évite bien la caricature de l’expert et recentre le risque sur la concentration de capacité. | Validé |
+| `System Concept` | `Human SPOF` est clair, utile et cohérent avec la logique de la Partie III. | Validé |
+| `Field Method` | L’exercice de capture est concret, proportionné et directement exploitable. | Validé |
+| `Operator’s Rule` | Les règles sont fortes, pratiques et bien hiérarchisées. | Validé |
+| `Memorable Phrase` | La phrase mémorable est bien restituée, discrète et correctement placée avant le `Field Note`. | Validé |
+| `Field Note` | Le nouveau design encadré reste élégant et crédible sur un chapitre de transfert de connaissance. | Validé |
+| `Pull Quote` | La citation simple en italique conserve le niveau de sobriété souhaité. | Validé |
+| `Key Takeaways` | La synthèse finale est claire, utile et bien structurée. | Validé |
+| Transition vers le chapitre 13 | Le passage vers `Why Documentation Fails` est propre et logique. | Validé |
