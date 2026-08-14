@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  symbole-livre-01.svg — Beyond the Firewall : FRONTIÈRE TRAVERSÉE
+  Motif conceptuel du livre 1, réutilisable en page de partie.
+  viewBox 0 0 200 100 (ratio 2:1). Fond transparent (la page fournit l'off-white).
+  Palette : gris acier #5A6B7A, bleu acier #2C5F8A, turquoise #1CB5A0.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="200" height="100" viewBox="0 0 200 100">
+
+  <!-- Ligne de frontière acier, interrompue au centre -->
+  <line x1="10" y1="50" x2="82" y2="50" stroke="#5A6B7A" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="118" y1="50" x2="190" y2="50" stroke="#5A6B7A" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Marqueurs de bord -->
+  <line x1="10" y1="44" x2="10" y2="56" stroke="#5A6B7A" stroke-width="1.5"/>
+  <line x1="190" y1="44" x2="190" y2="56" stroke="#5A6B7A" stroke-width="1.5"/>
+
+  <!-- Point de rupture : losange turquoise -->
+  <circle cx="100" cy="50" r="12" fill="none" stroke="#1CB5A0" stroke-width="0.8" opacity="0.35"/>
+  <polygon points="100,44 106,50 100,56 94,50" fill="#1CB5A0"/>
+
+  <!-- Flux traversant : points accent -->
+  <g fill="#2C5F8A">
+    <circle cx="40" cy="50" r="2" opacity="0.5"/>
+    <circle cx="54" cy="50" r="2" opacity="0.7"/>
+    <circle cx="68" cy="50" r="2" opacity="0.9"/>
+    <circle cx="132" cy="50" r="2" opacity="0.9"/>
+    <circle cx="146" cy="50" r="2" opacity="0.7"/>
+    <circle cx="160" cy="50" r="2" opacity="0.5"/>
+  </g>
+  <!-- Flèches directionnelles -->
+  <polygon points="80,46 88,50 80,54 83,50" fill="#5A6B7A" opacity="0.6"/>
+  <polygon points="120,46 112,50 120,54 117,50" fill="#5A6B7A" opacity="0.6"/>
+
+  <!-- Labels (Sora) -->
+  <text x="40" y="78" font-family="Sora, sans-serif" font-size="8" letter-spacing="2"
+        fill="#5A6B7A" text-anchor="middle">OUTSIDE</text>
+  <text x="160" y="78" font-family="Sora, sans-serif" font-size="8" letter-spacing="2"
+        fill="#5A6B7A" text-anchor="middle">BEHIND</text>
+</svg>

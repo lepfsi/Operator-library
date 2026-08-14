@@ -97,8 +97,12 @@
 \definecolor{accentcomplexity}{HTML}{5B3E7D}    % Book 3
 \definecolor{accentoperationalai}{HTML}{1F7A5A} % Book 4
 \definecolor{accentlastjob}{HTML}{A83A3A}       % Book 5
-% Default accent (override per book via metadata: bookcolor)
-\providecolor{accent}{named}{accentfirewall}
+% Book accent: consumed from pandoc.yaml (book-accent, hex without #).
+% When provided, the callouts / chapter numbers / key-takeaways bars use
+% the book's own color; otherwise we fall back to Book 1 (Bleu acier).
+$if(book-accent)$\definecolor{accent}{HTML}{$book-accent$}
+$else$\definecolor{accent}{HTML}{2C5F8A}
+$endif$
 
 % Body text color
 \color{textblack}

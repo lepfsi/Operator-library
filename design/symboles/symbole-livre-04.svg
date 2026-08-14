@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  symbole-livre-04.svg — The Age of Operational AI : TRANSITION HUMAIN → SYSTÈME → AGENT
+  Motif conceptuel du livre 4. viewBox 0 0 200 100. Fond transparent.
+  Palette : gris acier #5A6B7A, vert émeraude #1F7A5A, turquoise #1CB5A0.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="200" height="100" viewBox="0 0 200 100">
+
+  <!-- Connecteurs -->
+  <line x1="40" y1="50" x2="80" y2="50" stroke="#5A6B7A" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="120" y1="50" x2="160" y2="50" stroke="#5A6B7A" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <polygon points="68,45 78,50 68,55 71,50" fill="#5A6B7A" opacity="0.6"/>
+  <polygon points="148,45 158,50 148,55 151,50" fill="#5A6B7A" opacity="0.6"/>
+
+  <!-- Humain (gauche) : grand contour acier, diminue -->
+  <circle cx="25" cy="50" r="13" fill="none" stroke="#5A6B7A" stroke-width="1.6"/>
+  <!-- Système (centre) : émeraude moyen -->
+  <circle cx="100" cy="50" r="8" fill="#1F7A5A"/>
+  <!-- Agent (droite) : grand contour vert croissant + cœur -->
+  <circle cx="175" cy="50" r="14" fill="none" stroke="#1F7A5A" stroke-width="1.8"/>
+  <circle cx="175" cy="50" r="6" fill="#1F7A5A"/>
+
+  <!-- Seuil de passage de contrôle : marqueur turquoise -->
+  <rect x="96" y="36" width="8" height="2.5" fill="#1CB5A0"/>
+
+  <text x="25" y="82" font-family="Sora, sans-serif" font-size="7" letter-spacing="2"
+        fill="#5A6B7A" text-anchor="middle">HUMAN</text>
+  <text x="100" y="82" font-family="Sora, sans-serif" font-size="7" letter-spacing="2"
+        fill="#1F7A5A" text-anchor="middle">SYSTEM</text>
+  <text x="175" y="82" font-family="Sora, sans-serif" font-size="7" letter-spacing="2"
+        fill="#1F7A5A" text-anchor="middle">AGENT</text>
+</svg>

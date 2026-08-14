@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Couverture — The Complexity Trap (Livre 3)
+  Design System : Technical Editorial / Dark Precision
+  Format : 6" x 9" (152 x 229 mm), fond pleine page.
+  Symbole : GRAPHE DENSIFIANT — un réseau qui passe d'un maillage clair à un
+            enchevêtrement inextricable. La densité augmente vers la droite.
+  Accent livre 3 : Violet sombre #5B3E7D.
+  Date : 2026
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xml:lang="en"
+     width="152mm" height="229mm"
+     viewBox="0 0 152 229">
+
+  <defs>
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
+      <feComponentTransfer in="gray" result="light">
+        <feFuncA type="linear" slope="0.06"/>
+      </feComponentTransfer>
+      <feComposite in="light" in2="SourceGraphic" operator="in" result="tex"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="tex"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="152" height="229" fill="#F7F5F0" filter="url(#paper)"/>
+
+  <!-- ===== BANDEAU SUPÉRIEUR ===== -->
+  <rect x="0" y="0" width="152" height="26" fill="#0A1A2F"/>
+  <text x="16" y="17" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="7pt" letter-spacing="4" fill="#1CB5A0">DAILYOPS</text>
+  <text x="136" y="17" text-anchor="end" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="6pt" letter-spacing="2" fill="#5A6B7A" opacity="0.75">THE OPERATOR'S LIBRARY — BOOK 03</text>
+
+  <!-- ===== BLOC TITRE ===== -->
+  <rect x="16" y="50" width="120" height="92" fill="#0A1A2F"/>
+  <rect x="16" y="50" width="120" height="2.2" fill="#1CB5A0"/>
+
+  <text x="28" y="84" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="28pt" letter-spacing="1.5" fill="#FFFFFF">THE</text>
+  <text x="28" y="116" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="28pt" letter-spacing="1.5" fill="#FFFFFF">COMPLEXITY</text>
+  <text x="28" y="138" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="22pt" letter-spacing="1" fill="#5B3E7D">TRAP</text>
+
+  <!-- ===== SOUS-TITRE ===== -->
+  <text x="28" y="158" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400" font-style="italic" font-size="10.5pt" fill="#5A6B7A">When Systems Outgrow</text>
+  <text x="28" y="170" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400" font-style="italic" font-size="10.5pt" fill="#5A6B7A">Their Owners</text>
+
+  <!-- ===== SYMBOLE : GRAPHE DENSIFIANT =====
+       Gauche : maillage clair (peu de nœuds, liaisons lâches).
+       Droite : enchevêtrement dense (nœuds multipliés, liaisons croisées).
+       Densité croissante = la complexité devient piège. -->
+  <g id="symbole-complexite">
+    <!-- Zone claire (gauche) : 3 nœuds, liaisons simples -->
+    <g stroke="#5A6B7A" stroke-width="0.9" fill="none" opacity="0.8">
+      <line x1="20" y1="182" x2="30" y2="176"/>
+      <line x1="30" y1="176" x2="42" y2="190"/>
+      <line x1="20" y1="182" x2="42" y2="190"/>
+      <line x1="30" y1="176" x2="50" y2="184"/>
+    </g>
+    <g fill="#5A6B7A">
+      <circle cx="20" cy="182" r="1.6"/>
+      <circle cx="30" cy="176" r="1.6"/>
+      <circle cx="42" cy="190" r="1.6"/>
+      <circle cx="50" cy="184" r="1.6"/>
+    </g>
+
+    <!-- Séparateur : ligne turquoise verticale = seuil de complexité -->
+    <line x1="64" y1="170" x2="64" y2="200" stroke="#1CB5A0" stroke-width="0.8"
+          stroke-dasharray="2,2" opacity="0.6"/>
+
+    <!-- Zone dense (droite) : nœuds nombreux, liaisons croisées -->
+    <g stroke="#5B3E7D" stroke-width="0.7" fill="none" opacity="0.75">
+      <line x1="74" y1="178" x2="88" y2="172"/>
+      <line x1="74" y1="178" x2="98" y2="184"/>
+      <line x1="74" y1="178" x2="112" y2="174"/>
+      <line x1="74" y1="178" x2="126" y2="190"/>
+      <line x1="88" y1="172" x2="98" y2="184"/>
+      <line x1="88" y1="172" x2="112" y2="174"/>
+      <line x1="88" y1="172" x2="126" y2="190"/>
+      <line x1="98" y1="184" x2="112" y2="174"/>
+      <line x1="98" y1="184" x2="126" y2="190"/>
+      <line x1="112" y1="174" x2="126" y2="190"/>
+      <line x1="98" y1="184" x2="118" y2="196"/>
+      <line x1="112" y1="174" x2="118" y2="196"/>
+      <line x1="88" y1="172" x2="118" y2="196"/>
+      <line x1="74" y1="178" x2="118" y2="196"/>
+      <line x1="118" y1="196" x2="126" y2="190"/>
+    </g>
+    <g fill="#5B3E7D">
+      <circle cx="74" cy="178" r="1.5"/>
+      <circle cx="88" cy="172" r="1.5"/>
+      <circle cx="98" cy="184" r="1.5"/>
+      <circle cx="112" cy="174" r="1.5"/>
+      <circle cx="118" cy="196" r="1.5"/>
+      <circle cx="126" cy="190" r="1.5"/>
+    </g>
+  </g>
+
+  <!-- ===== AUTEUR ===== -->
+  <text x="16" y="212" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="400" font-size="8pt" letter-spacing="3" fill="#0A1A2F">BA-NDOUWE STEVE</text>
+  <text x="16" y="221" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="300" font-style="italic" font-size="7pt" fill="#5A6B7A">Systems Engineer · Incident Analyst</text>
+
+  <!-- ===== SIGNATURE DAILYOPS ===== -->
+  <g transform="translate(122, 205)">
+    <rect x="0" y="0" width="9" height="9" fill="#1CB5A0" rx="1"/>
+    <text x="13" y="9" font-family="Sora, 'Space Grotesk', sans-serif"
+          font-weight="300" font-size="5.5pt" letter-spacing="1.5" fill="#5A6B7A">DAILYOPS</text>
+  </g>
+
+</svg>

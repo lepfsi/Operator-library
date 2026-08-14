@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  symbole-livre-05.svg — The Operator's Last Job : OPÉRATEUR RELAYÉ
+  Motif conceptuel du livre 5. viewBox 0 0 200 100. Fond transparent.
+  Palette : gris acier #5A6B7A, rouge brique #A83A3A, turquoise #1CB5A0.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="200" height="100" viewBox="0 0 200 100">
+
+  <!-- Base horizontale -->
+  <line x1="10" y1="72" x2="190" y2="72" stroke="#5A6B7A" stroke-width="1" opacity="0.5"/>
+
+  <!-- Silhouette 1 : pleine rouge -->
+  <g fill="#A83A3A">
+    <circle cx="35" cy="45" r="5"/>
+    <path d="M 24 68 Q 35 52 46 68 Z"/>
+  </g>
+
+  <!-- Silhouette 2 : mi-pleine -->
+  <g fill="#A83A3A" opacity="0.55">
+    <circle cx="78" cy="45" r="5"/>
+    <path d="M 67 68 Q 78 52 89 68 Z"/>
+  </g>
+
+  <!-- Silhouette 3 : contour only -->
+  <g fill="none" stroke="#5A6B7A" stroke-width="1.4">
+    <circle cx="121" cy="45" r="5"/>
+    <path d="M 110 68 Q 121 52 132 68 Z"/>
+  </g>
+
+  <!-- Silhouette 4 : contour estompé -->
+  <g fill="none" stroke="#5A6B7A" stroke-width="1" opacity="0.35">
+    <circle cx="164" cy="45" r="5"/>
+    <path d="M 153 68 Q 164 52 175 68 Z"/>
+  </g>
+
+  <!-- Seuil de relève : marqueur turquoise -->
+  <line x1="142" y1="30" x2="142" y2="78" stroke="#1CB5A0" stroke-width="1"
+        stroke-dasharray="3,3" opacity="0.7"/>
+
+  <!-- Flèche de relais -->
+  <polygon points="150,40 162,45 150,50 153,45" fill="#5A6B7A" opacity="0.6"/>
+
+  <text x="56" y="90" font-family="Sora, sans-serif" font-size="7" letter-spacing="2"
+        fill="#A83A3A" text-anchor="middle">OPERATOR</text>
+  <text x="142" y="90" font-family="Sora, sans-serif" font-size="7" letter-spacing="2"
+        fill="#5A6B7A" text-anchor="middle">HANDOVER</text>
+  <text x="185" y="90" font-family="Sora, sans-serif" font-size="7" letter-spacing="2"
+        fill="#5A6B7A" text-anchor="middle">SYSTEM</text>
+</svg>
