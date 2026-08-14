@@ -24,7 +24,7 @@ incidents_referenced:
 - [01. The seduction of the nines](#the-seduction-of-the-nines)
 - [02. Availability is defensive](#availability-is-defensive)
 - [03. Resilience is offensive](#resilience-is-offensive)
-- [04. The MTTR trap](#the-mttr-trap)
+- [04. The MTTR that hid the wrong recovery](#the-mttr-that-hid-the-wrong-recovery)
 - [05. The read-only failure](#the-read-only-failure)
 - [06. Design for recovery](#design-for-recovery)
 :::
@@ -47,7 +47,7 @@ Availability is a defensive measure. It records how often a defined service was 
 
 A ping can establish that a host responds. A health endpoint can establish that a process is running. A successful read query can establish that a database is reachable. None of these tests establish that a customer can pay, a clinician can retrieve a record, or an operator can apply a safe change.
 
-Partial failure lives in this gap. A service can be slow enough to force users to abandon it. It can return stale data that causes the next decision to be wrong. It can accept requests but drop the work before completion. If the measurement only asks whether a component responded, each of these failures can sit behind a green indicator.
+Partial failure lives in this gap. A service can be slow enough to force users to abandon it. It can return stale data that causes the next decision to be wrong. It can accept requests but drop the work before completion. If the measurement only asks whether a component responded, each of these failures can remain invisible to the availability measure.
 
 Availability is necessary. It is the floor, not the ceiling.
 
@@ -75,29 +75,37 @@ The useful question is not, “Can this component stay up?” It is, “When thi
 **Define a resilience margin.** For every critical journey, write down the minimum acceptable outcome during disturbance: complete service, delayed service, read-only access, queued work, or an explicit refusal. That margin makes degraded mode a design decision rather than an improvised apology.
 :::
 
-## The MTTR trap
+## The MTTR that hid the wrong recovery
 
-Mean Time To Recovery is important because long recovery turns a contained failure into a user event. It is not, however, a substitute for thinking.
+A retail platform reported a low mean recovery time for the quarter. The measure was accurate. It was also misleading.
 
-A low average can conceal a severe outlier. A short recovery for a non-critical component can say nothing about the recovery of checkout, identity, or data integrity. A team can also reduce an MTTR report by changing the moment at which the clock starts while users are still waiting.
+The average was built from short infrastructure recoveries: a restarted process, a rescheduled pod, an auto-scaled node. Each one resolved quickly. Each one was measured from the moment an alert fired to the moment the component reported healthy.
 
-Use recovery time with the rest of the story: the frequency of failure, the number of affected users, the integrity of the result, the quality of the degraded mode, and the recovery objective that the business can actually tolerate.
+When the payment gateway failed during a promotional event, the payment journey remained unavailable for several hours. The gateway was not included in the standard recovery metric because it was operated by a partner. The alert fired on the internal load balancer, not on the payment path. The clock started when the wrong component recovered.
 
-Two systems cannot be compared by uptime and MTTR alone. A service that fails briefly every week may be preferable to one that fails rarely but turns a whole afternoon into manual work. The comparison becomes meaningful only when both systems are measured against the same user journey and the same consequence.
+The quarterly MTTR remained low while customers could not pay.
+
+::: operating-fact
+A recovery metric that excludes the path users depend on cannot tell you whether the service recovered.
+:::
+
+MTTR is a useful pressure gauge when it is attached to a specific journey, a specific consequence, and a clock that starts when the user outcome fails. Without those conditions, it measures the speed of the recovery the team can see, not the recovery the user needed.
+
+Two services cannot be compared by MTTR alone. A service that restores a non-critical component quickly while a critical path remains broken is not performing better than a service that takes longer to restore the outcome that matters.
 
 ::: warning
-**The curse of the nines**
+**Measure recovery at the outcome, not the component.**
 
-Chasing another decimal place can consume the time that should have gone into recovery. Teams build expensive failover paths that they never exercise, then discover that the first real recovery takes hours because access, data, ownership, or decision rights were missing.
+If the recovery clock starts when an alert fires on a component and stops when that component reports healthy, the metric describes the team's response to the alert. It does not describe whether the user journey was restored.
 
-Do not trade a rehearsed recovery for an impressive percentage. A recovery path that has never run is only an assumption with a diagram.
+Define a recovery objective for each critical outcome. Start the clock when the outcome fails. Stop it when the outcome is verified.
 :::
 
 ## The read-only failure
 
 The e-commerce incident did not begin as a visible outage. A transaction log reached its limit, and the database moved into a protected read-only state.
 
-The platform still looked healthy to most of the monitoring stack. Product pages loaded. Search worked. Caches responded. The application nodes remained reachable. Every dashboard associated with infrastructure availability stayed green.
+The platform still looked healthy to most of the monitoring stack. Product pages loaded. Search worked. Caches responded. The application nodes remained reachable. The standard availability views showed no service loss.
 
 Checkout could not write an order.
 
@@ -126,11 +134,11 @@ Finally, rehearse the restoration. A runbook that exists only as prose has not y
 :::
 
 ::: operator-rule
-1. **Measure recovery at the user journey.** Define a recovery objective for each critical outcome, including the time to detect, the time to decide, and the time to acceptable service.
+1. **This week, define one recovery finish line.** For a critical outcome, write the exact evidence that proves acceptable service has returned. Start the recovery clock when the outcome fails and stop it only at that finish line.
 
-2. **Automate the repeatable repair.** When a recovery requires the same manual sequence more than once, turn the safe part into a tested script or workflow. Keep the human decision where judgement is still required.
+2. **Run one bounded recovery path.** Choose a repeatable repair, execute it against a safe condition, and retain the access, script output, and verification that prove the path can be completed by the team.
 
-3. **Design the degraded mode before the outage.** For every critical dependency, decide what remains possible when it is slow, read-only, absent, or corrupt. A dependency without a degradation plan is an unpriced single point of failure.
+3. **Choose the degraded mode before the outage.** For one critical dependency, decide what remains possible when it is slow, read-only, absent, or corrupt. Record the user message, work that may queue, and the decision owner.
 :::
 
 ::: {.memorable-phrase}
@@ -144,7 +152,7 @@ Peak sales period on a commerce platform. The primary dashboards showed every se
 
 **What We Expected**
 
-A green availability board meant customers could complete the purchase journey and revenue would continue to flow.
+A high availability figure meant customers could complete the purchase journey and revenue would continue to flow.
 
 **What Happened**
 

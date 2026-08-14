@@ -7,9 +7,10 @@ chapter_number: 5
 author: "Steve BA-NDOUWE"
 date: "2026"
 status: "draft"
-memorable_phrase: "Working is a photograph. Reliability is a trajectory."
+memorable_phrase: "Working is a photograph. Reliability is a promise that must survive the conditions in which people depend on it."
 concepts_introduced:
   - "Working vs. Reliable"
+  - "Reliability Claim"
 incidents_referenced:
   - "Streaming_Edge_Throttling"
 ---
@@ -17,165 +18,146 @@ incidents_referenced:
 ::: {.impact-opener #the-difference-between-working-and-being-reliable number="05" title="The Difference Between Working and Being Reliable"}
 :::
 
-::: {.chapter-guide}
+::: chapter-guide
 **Inside Chapter 05**
 
-- [01. The false equivalence](#the-false-equivalence)
-- [02. Working is a snapshot](#working-is-a-snapshot)
-- [03. Reliability is a pattern](#reliability-is-a-pattern)
-- [04. The dimension of time](#the-dimension-of-time)
-- [05. The user’s definition](#the-users-definition)
-- [06. Measure the outcome](#measure-the-outcome)
+- [01. A service that passed once](#a-service-that-passed-once)
+- [02. The four boundaries of a reliability claim](#the-four-boundaries-of-a-reliability-claim)
+- [03. The pattern behind the result](#the-pattern-behind-the-result)
+- [04. What a user can depend on](#what-a-user-can-depend-on)
+- [05. Review the promise every week](#review-the-promise-every-week)
 :::
 
-## The false equivalence
+## A service that passed once
 
-Operations teams often use *working* and *reliable* as if they mean the same thing. A server answers a ping, so it is working. A process is running, so the service is healthy. A status endpoint returns `200 OK`, so the system can be trusted.
+At 09:00, the streaming platform started a video quickly. At 14:00, it did the same. The release had completed, the service was accepting traffic, and the first checks after deployment showed no abnormal condition.
 
-Those statements describe a moment. They do not describe a dependable service.
+At 20:00, when viewers arrived for a live event, time to first frame became unpredictable. Some sessions started normally. Others waited long enough for viewers to abandon the stream. The service had worked all day. It had not been dependable when the condition that mattered arrived.
 
-Working is a binary state. A component answers or it does not. A port is open or closed. A process is present or absent.
+This is the difference between working and being reliable.
 
-Reliability is a pattern of outcomes. A system is reliable when it delivers the expected result, within an acceptable time, for a defined proportion of meaningful attempts, across a period that matters to the people depending on it.
+Working describes a result at one point in time. Reliable describes whether a defined result keeps occurring for the people, paths, and conditions the team has agreed to serve.
 
-One is a photograph. The other is a trajectory.
+A successful test after a deployment is useful. It is not a reliability claim. A reliability claim begins only when the team can say what success means, for whom it must happen, under which conditions, and across what period.
 
-Confusing them is not a semantic error. It changes what the team looks at, what it measures, and what it accepts as evidence. It is why many systems remain technically alive while users quietly stop trusting them.
+::: operating-fact
+A successful result proves that one attempt worked. Reliability begins when the team can explain what comparable attempts should do next.
+:::
 
-## Working is a snapshot
+## The four boundaries of a reliability claim
 
-A component is working right now. It responded to the last health check. CPU is below threshold. Memory is not exhausted. The process has not crashed.
+A useful reliability claim has four boundaries.
 
-None of that tells you whether it will work in the next minute, under the next batch, or for the specific request a user is about to make. It says nothing about correctness, freshness, completeness, or the ability to complete the transaction that gives the service its purpose.
+**Outcome.** Name the result rather than the component. “A viewer reaches first frame” is an outcome. “The media service is available” is a broad statement that needs more definition.
 
-Consider a database. It responds to `SELECT 1` in one millisecond. That is a successful health check. It may still reject every `INSERT` because the transaction log is full.
+**Population.** State whose attempts count. Does the claim cover all viewers, authenticated viewers, a region, a subscription tier, a mobile application, or a known partner integration? A claim that ignores the affected population can look healthy while excluding the people who carry the consequence.
 
-Consider a load balancer. Its status endpoint returns `200 OK`. It may still route forty percent of traffic to a backend that returns errors.
+**Conditions.** State the meaningful load, dependency state, data shape, or event that tests the promise. A service can be dependable for a normal weekday and unreliable during a live event, a month-end batch, or a regional dependency failure.
 
-Working is the lowest bar a system can clear while remaining technically alive. It is useful evidence, but it is not a reliability claim.
+**Time window.** State the period that makes the claim useful. A five-minute view can show an ordinary moment. A weekly view can hide a recurring degradation. The right window follows the rhythm of the work the service supports.
 
 ::: concept
-**WORKING VS. RELIABLE**
+**RELIABILITY CLAIM**
 
-*Working is a point-in-time component state. Reliable is an end-to-end property: the expected outcome succeeds, within an accepted tolerance, repeatedly and over a defined time window.*
+*A defined promise that an outcome will succeed for a stated population, under known conditions, across a meaningful time window.*
+
+A reliability claim is stronger than “the service works” because its limits are visible. It tells the team what evidence to collect and what degradation it must not dismiss as normal.
 :::
 
-## Reliability is a pattern
+The four boundaries prevent false confidence in both directions. They stop teams from calling one good request proof of reliability. They also stop teams from creating a universal target that ignores the conditions their users actually experience.
 
-Reliability cannot be observed from a single event. It emerges from a sequence. The latest successful request is a data point. The shape of many requests is evidence.
+## The pattern behind the result
 
-To make a reliability claim, the team needs three things.
+Reliability is visible in the shape of outcomes over time.
 
-First, define success. Does the service need to complete an order, return accurate data within 300 milliseconds, or synchronise a file without corruption? “The API is up” is not a definition of success.
+A live stream that succeeds for most viewers but repeatedly stalls for users in one region has a pattern. An order path that completes quickly except during inventory synchronisation has a pattern. A data pipeline that produces correct records except after a schema change has a pattern.
 
-Second, define the population. One successful transaction is noise. A representative stream of transactions gives the team a signal. The sample must include the paths, locations, and loads that users actually experience.
+The pattern is where operations becomes useful. It tells the team whether the degradation is random, periodic, conditional, regional, or connected to a dependency. A single average can smooth away that information.
 
-Third, define the time window. Reliable over the last five minutes is not the same claim as reliable during month-end, a peak sale, or the weekly batch job. A service can look calm in the morning and fail predictably every afternoon.
+Do not begin with a percentage because a percentage is easy to report. Begin with the failure shape that a user experiences. Then choose the measure that lets the team see that shape early enough to act.
 
-Without these definitions, *reliable* is only an encouraging adjective.
-
-## The dimension of time
-
-The working and reliable distinction becomes operationally important when conditions change.
-
-A component that works today can fail tomorrow. A service that works at 09:00 can degrade at 14:00 when the batch job starts. A queue that clears under normal traffic can become a bottleneck when retries arrive faster than consumers can process them.
-
-Reliability is therefore a disciplined prediction. When a team says a service is reliable, it is making a claim about the next request based on the behaviour of comparable requests under known conditions.
-
-That prediction must include its limits. A system may be reliable for authenticated users in one region, under normal load, with its primary dependency available. State the conditions. Otherwise the reliability claim will be mistaken for a guarantee.
+For the streaming platform, the useful measure was not whether servers remained available. It was time to first frame, separated by viewer location and the peak event window. That view revealed edge throttling that ordinary server telemetry could not explain.
 
 ::: warning
-A service can meet a monthly availability target and still fail completely during the five minutes that matter most. Averages hide tails. Users do not experience an average latency. They experience the slow request in front of them.
+**Averages can conceal the condition you promised to handle.**
+
+A result that is acceptable in aggregate can still be unacceptable for a defined population at the time the outcome matters most. Keep the slice that carries the consequence visible.
 :::
 
-## The user’s definition
+## What a user can depend on
 
-The user does not care whether the component is working. The user cares whether the outcome is dependable.
+Users do not need an abstract assurance. They need a dependable result.
 
-From the user’s perspective, working means: “I clicked the button and the thing I expected happened, in the time I expected.”
+For one service, that result may be a confirmed order. For another, it may be a record that is current enough to make a decision. For a clinical application, the outcome may be correct access to a patient record without uncertainty about freshness. The relevant detail changes. The discipline does not.
 
-If the server is up but the page takes eight seconds to load, the service is not reliable for that interaction. If the database responds but an order is corrupted, the service is not reliable. If an API returns `200 OK` but the data is stale, the service has only satisfied the wrong measure.
+The team must decide what delay, error, stale result, or partial completion a user can tolerate before the service has failed its promise. That decision cannot be copied from another company’s status target. It belongs to the consequence of this specific outcome.
 
-The user never sees the dashboard. The user sees the result.
+An SLI is useful when it measures the chosen result. An SLO is useful when it expresses a sustainable target for that result. Neither should become a decorative number. Their purpose is to trigger a decision before users absorb more cost than the organisation has agreed to accept.
 
-## Measure the outcome
+## Review the promise every week
 
-The practical move is to stop treating input metrics as the final measure of health. CPU, memory, disk, and process state are useful for diagnosis. They are not the outcome.
+Reliability does not improve because a team writes a target once. It improves when the team revisits the claim against new evidence.
 
-Start from the successful user transaction instead. For each critical service, write a short sentence that describes the happy path in observable terms.
+Choose one critical outcome and run a short weekly review. Look at the outcome by the population and condition that carry risk. Find the worst recurring slice, not only the overall average. Ask whether the user promise still matches the current product, dependency, and traffic pattern.
 
 ::: tip
-**DEFINE THE HAPPY PATH**
+**Review one reliability claim this week.**
 
-Write one success sentence for every critical service. For example: “An authenticated user submits an order with three items. The system validates stock, calculates price, records the order, and returns a receipt within two seconds.”
-
-Measure the success rate and latency of that transaction. Then decide what level of failure, delay, or stale data users can actually tolerate.
+Write one outcome, population, condition, and time window on a single page. Pull the recent evidence for that exact slice. Mark the slowest or least reliable recurring condition. Assign one verification or improvement that changes the next week’s evidence, then review the same claim again.
 :::
 
-That sentence becomes the basis for a Service Level Indicator, or SLI. The indicator measures what happened on the path that matters. A Service Level Objective, or SLO, states the level of performance the team has agreed to sustain. Neither number should be copied from another company. Both should be derived from the cost of failure for this service and its users.
-
-## The paradox of working
-
-There is a cruel irony in optimisation. A team that optimises only for components being alive can make the overall service less dependable.
-
-Longer timeouts keep a request open, but they also make users wait longer and hold resources that other requests need. Aggressive retries can hide a short failure, then amplify it into a load spike. Redundancy can keep individual nodes available while hiding a shared dependency that will eventually fail every replica at once.
-
-Reliability requires accepting that some failures must be visible. It requires fast, understandable degradation rather than a system that responds slowly and incorrectly for weeks.
-
-::: warning
-Retries without limits, timeouts without budgets, and health checks that observe only lifecycle create systems that appear alive while operating far below an acceptable standard. The component is working. The user is still suffering.
-:::
+The review is not an exercise in blame. It is how a team discovers that its promise has changed before the user discovers it through a failure.
 
 ::: operator-rule
-1. **Define one user-centred indicator.** For every critical service, identify a successful transaction and measure its success rate, latency, correctness, or freshness.
+1. **This week, write one reliability claim.** Name the outcome, the population that matters, the condition that tests the promise, and the time window that makes the evidence meaningful.
 
-2. **Choose an objective that fits the consequence.** Set the tolerated failure rate and delay from the cost to the user and business, not from a default number copied into a dashboard.
+2. **Inspect the failure shape, not only the average.** Separate the data by the region, dependency, product action, or peak period that carries the consequence.
 
-3. **Use the error budget to change behaviour.** When the agreed reliability margin is consumed, pause risky change, investigate the transaction path, and repair the outcome before adding more work.
+3. **Turn the claim into a decision.** When the chosen slice degrades, pause or adapt the change that increases risk, investigate the path, and record what must improve before the promise is trusted again.
 :::
 
-A reliability practice is not a promise that failure will disappear. It is a promise that the team will know what success means, recognise degradation early, and make decisions before users absorb the cost.
+A reliable service is not one that never varies. It is one whose expected outcome, limits, and degradation are visible enough for the team to act before trust is lost.
 
 ::: {.memorable-phrase}
-Working is a photograph. Reliability is a trajectory. One captures a moment. The other tells you whether the next request deserves trust.
+Working is a photograph. Reliability is a promise that must survive the conditions in which people depend on it.
 :::
 
 ::: field-note
 **Context**
 
-Streaming platform. Every media server reported healthy: low CPU, ample memory, and successful local checks.
+A streaming platform completed normal playback tests throughout the day. The production release appeared stable before a live event began.
 
 **What We Expected**
 
-Users could start and play content without interruption because the infrastructure looked quiet under load.
+If viewers could start a stream after the release, the service would remain dependable through the event.
 
 **What Happened**
 
-Users reported buffering every thirty seconds. Time to first frame had degraded from 800 milliseconds to 2.4 seconds. The servers were still working perfectly by their own measures.
+Time to first frame became unpredictable for viewers routed through one edge region. Some sessions began normally while others waited long enough for viewers to abandon playback. The pattern appeared only during the event window.
 
 **What We Missed**
 
-A CDN provider was throttling the edge cache. Local servers answered health checks, but retrieval from the origin was timing out. No owned component looked failed. The video outcome was failing.
+We had treated a successful early test as a reliability statement. We had not defined the affected population, the peak condition, or the time window that made the promise meaningful.
 
 **What It Taught Us**
 
-Working is local. Reliability is end-to-end. If you only monitor components you own, the most important failure may be in the dependency you do not control.
+Reliability belongs to a specific outcome under specific conditions. A single successful result is evidence of possibility, not evidence of dependable service.
 :::
 
 ::: pullquote
-“If the system is working but the user is waiting, the system is not reliable. You have defined success by the wrong measure.”
+“Users do not depend on the fact that a service worked once. They depend on the conditions under which it will work again.”
 :::
 
 ::: keytakeaways
-- A component can be alive and still fail the transaction that users need.
-- Reliability needs a defined outcome, a representative population, and a meaningful time window.
-- Averages conceal tails, and tails are often where users experience the failure.
-- The happy path is a better source of truth than a component status endpoint.
-- Reliability improves when teams expose degradation rather than keeping unhealthy behaviour technically alive.
+- Working describes one result; reliability describes a dependable pattern of results.
+- A reliability claim needs an outcome, population, conditions, and a meaningful time window.
+- Failure shape often teaches more than an average because it reveals the slice carrying the consequence.
+- SLI and SLO are useful only when they express a user promise and trigger a practical decision.
+- A weekly review keeps the promise aligned with the service users experience now.
 :::
 
 ::: {.next-chapter}
 **Availability Is Not Resilience**
 
-Reliability helps a system deliver predictable outcomes. Resilience begins when a failure still reaches the system and the organisation must recover without losing its ability to operate.
+A reliability claim defines the result a team promises to sustain. The next question is what happens when that result cannot be sustained and the service must recover to an acceptable state.
 :::
