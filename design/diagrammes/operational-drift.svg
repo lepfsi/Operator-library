@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Diagramme conceptuel — Operational Drift (Beyond the Firewall, ch. 13)
+  Design System section 7 : trait fin (1 pt), style blueprint,
+  gris acier + bleu acier (livre 1) + turquoise discret, sans ombres ni dégradés.
+  Légende : Source Serif Pro 10 pt, gris acier.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="400"
+     viewBox="0 0 800 400"
+     fill="none">
+
+  <!-- Titre du diagramme -->
+  <text x="40" y="40"
+        font-family="Sora, sans-serif"
+        font-weight="600"
+        font-size="16"
+        letter-spacing="2"
+        fill="#0A1A2F">
+    EXPECTED STATE → DRIFT → IMPACT
+  </text>
+
+  <!-- 1. Expected State : ligne droite stable -->
+  <line x1="60" y1="160" x2="280" y2="160"
+        stroke="#5A6B7A" stroke-width="2" stroke-linecap="square"/>
+  <text x="60" y="130"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="12"
+        letter-spacing="1"
+        fill="#5A6B7A">
+    EXPECTED STATE
+  </text>
+
+  <!-- 2. Drift : la ligne commence à dévier, en pointillés -->
+  <line x1="320" y1="162" x2="420" y2="185"
+        stroke="#2C5F8A" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="square"/>
+  <line x1="420" y1="185" x2="520" y2="230"
+        stroke="#2C5F8A" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="square"/>
+  <text x="320" y="110"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="12"
+        letter-spacing="1"
+        fill="#2C5F8A">
+    SILENT DRIFT
+  </text>
+
+  <!-- Amorce de divergence : petit carré turquoise -->
+  <rect x="316" y="158" width="8" height="8" fill="#1CB5A0"/>
+
+  <!-- 3. Impact : la ligne chute, point d'impact turquoise -->
+  <line x1="560" y1="242" x2="660" y2="300"
+        stroke="#2C5F8A" stroke-width="2" stroke-linecap="square"/>
+  <rect x="656" y="296" width="10" height="10" fill="#1CB5A0"/>
+  <text x="560" y="330"
+        font-family="Sora, sans-serif"
+        font-weight="600"
+        font-size="12"
+        letter-spacing="1"
+        fill="#0A1A2F">
+    IMPACT
+  </text>
+  <text x="560" y="348"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="11"
+        letter-spacing="1"
+        fill="#5A6B7A">
+    OUTAGE / INCIDENT
+  </text>
+
+  <!-- Axe du temps -->
+  <line x1="60" y1="360" x2="720" y2="360"
+        stroke="#5A6B7A" stroke-width="1" stroke-linecap="square"/>
+  <line x1="60" y1="354" x2="60" y2="366" stroke="#5A6B7A" stroke-width="1"/>
+  <line x1="720" y1="354" x2="720" y2="366" stroke="#5A6B7A" stroke-width="1"/>
+  <text x="60" y="382"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="10"
+        fill="#5A6B7A">
+    T0
+  </text>
+  <text x="690" y="382"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="10"
+        fill="#5A6B7A">
+    TIME
+  </text>
+
+  <!-- Légende -->
+  <text x="40" y="398"
+        font-family="'Source Serif Pro', serif"
+        font-size="10.5"
+        fill="#5A6B7A">
+    Fig. 13 — Operational drift: the silent gap between expected and actual state, detected only at impact.
+  </text>
+
+</svg>

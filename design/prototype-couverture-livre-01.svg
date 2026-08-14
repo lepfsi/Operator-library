@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Couverture — Beyond the Firewall (Livre 1)
+  Design System : Technical Editorial / Dark Precision
+  Format : 6" x 9" (152 mm x 229 mm) + 3 mm bleed
+  Direction : Option A — Éditoriale assumée
+  Date : 2026
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xml:lang="en"
+     width="152mm" height="229mm"
+     viewBox="0 0 152 229"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <!-- Texture papier subtile -->
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="0.08" result="light"/>
+      <feBlend in="light" in2="SourceGraphic" mode="multiply" result="blend"/>
+    </filter>
+
+    <!-- Gradient subtil pour le bandeau titre -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A1A2F"/>
+      <stop offset="100%" stop-color="#2C5F8A"/>
+    </linearGradient>
+
+    <!-- Ombre portée pour le bloc titre -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0A1A2F" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Fond : Off-white texturé -->
+  <rect x="0" y="0" width="152" height="229" fill="#F7F5F0" filter="url(#paper)"/>
+
+  <!-- ===== BANDEAU SUPÉRIEUR : Marque éditoriale ===== -->
+  <rect x="0" y="0" width="152" height="28" fill="#0A1A2F"/>
+  <text x="16" y="18"
+        font-family="Sora, sans-serif"
+        font-weight="300"
+        font-size="7pt"
+        letter-spacing="4"
+        fill="#1CB5A0"
+        text-transform="uppercase">
+    DAILYOPS
+  </text>
+  <text x="136" y="18"
+        text-anchor="end"
+        font-family="Sora, sans-serif"
+        font-weight="300"
+        font-size="6pt"
+        letter-spacing="2"
+        fill="#5A6B7A"
+        opacity="0.7">
+    THE OPERATOR'S LIBRARY — BOOK 01
+  </text>
+
+  <!-- ===== BLOC TITRE PRINCIPAL (gauche, asymétrique) ===== -->
+  <!-- Rectangle d'ancrage visuel -->
+  <rect x="16" y="52" width="120" height="96"
+        fill="#0A1A2F" rx="0" ry="0" filter="url(#shadow)"/>
+
+  <!-- BEYOND -->
+  <text x="28" y="86"
+        font-family="Sora, sans-serif"
+        font-weight="800"
+        font-size="32pt"
+        letter-spacing="2"
+        fill="#FFFFFF">
+    BEYOND
+  </text>
+
+  <!-- THE -->
+  <text x="28" y="110"
+        font-family="Sora, sans-serif"
+        font-weight="300"
+        font-size="14pt"
+        letter-spacing="8"
+        fill="#1CB5A0">
+    THE
+  </text>
+
+  <!-- FIREWALL -->
+  <text x="28" y="136"
+        font-family="Sora, sans-serif"
+        font-weight="700"
+        font-size="28pt"
+        letter-spacing="1"
+        fill="#FFFFFF">
+    FIREWALL
+  </text>
+
+  <!-- ===== SOUS-TITRE (sous le bloc, aligné gauche) ===== -->
+  <text x="28" y="164"
+        font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400"
+        font-style="italic"
+        font-size="10.5pt"
+        line-height="1.4"
+        fill="#5A6B7A">
+    <tspan x="28" dy="0">The Reality of Modern</tspan>
+    <tspan x="28" dy="14">IT Operations</tspan>
+  </text>
+
+  <!-- ===== MÉTAPHORE VISUELLE : LA FRONTIÈRE TRAVERSÉE ===== -->
+  <!-- Ligne de base : acier, traversante -->
+  <line x1="16" y1="190" x2="136" y2="190"
+        stroke="#5A6B7A" stroke-width="1.2" stroke-linecap="round"
+        stroke-dasharray="8,4"/>
+
+  <!-- Interruption nette au centre (20mm gap) -->
+  <!-- Point de rupture : losange turquoise -->
+  <g transform="translate(76, 190)">
+    <polygon points="0,-5 5,0 0,5 -5,0"
+             fill="#1CB5A0" opacity="0.95"/>
+    <!-- Pulse subtil -->
+    <circle r="8" fill="none" stroke="#1CB5A0" stroke-width="0.6" opacity="0.4"/>
+  </g>
+
+  <!-- Flèches directionnelles subtiles -->
+  <g fill="#5A6B7A" opacity="0.5">
+    <!-- Gauche : flèche vers la rupture -->
+    <polygon points="60,186 70,190 60,194 64,190"/>
+    <!-- Droite : flèche depuis la rupture -->
+    <polygon points="92,186 82,190 92,194 88,190"/>
+  </g>
+
+  <!-- ===== BLOC AUTEUR (bas gauche) ===== -->
+  <text x="16" y="210"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="8pt"
+        letter-spacing="3"
+        fill="#0A1A2F"
+        text-transform="uppercase">
+    BA-NDOUWE STEVE
+  </text>
+
+  <text x="16" y="220"
+        font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="300"
+        font-style="italic"
+        font-size="7pt"
+        fill="#5A6B7A">
+    Systems Engineer · Incident Analyst
+  </text>
+
+  <!-- ===== SIGNATURE DAILYOPS (bas droite) ===== -->
+  <g transform="translate(130, 202)">
+    <rect x="0" y="0" width="10" height="10" fill="#1CB5A0" rx="1"/>
+    <text x="14" y="10"
+          font-family="Sora, sans-serif"
+          font-weight="300"
+          font-size="5.5pt"
+          letter-spacing="1.5"
+          fill="#5A6B7A"
+          text-transform="uppercase">
+      DAILYOPS
+    </text>
+  </g>
+
+</svg>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Diagramme conceptuel — Permanent Temporary (Beyond the Firewall, ch. 2)
+  Design System section 7 : trait fin (1 pt), style blueprint,
+  gris acier + bleu acier (livre 1) + turquoise discret, sans ombres ni dégradés.
+  Légende : Source Serif Pro 10 pt, gris acier.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="400"
+     viewBox="0 0 800 400"
+     fill="none">
+
+  <!-- Titre du diagramme -->
+  <text x="40" y="40"
+        font-family="Sora, sans-serif"
+        font-weight="600"
+        font-size="16"
+        letter-spacing="2"
+        fill="#0A1A2F">
+    THE PERMANENT TEMPORARY
+  </text>
+
+  <!-- Phase 1 : exception temporaire (segment court, pointillé de fin) -->
+  <text x="60" y="110"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="12"
+        letter-spacing="1"
+        fill="#5A6B7A">
+    TEMPORARY EXCEPTION
+  </text>
+  <line x1="60" y1="150" x2="300" y2="150"
+        stroke="#5A6B7A" stroke-width="2" stroke-linecap="square"/>
+  <!-- Point d'expiration prévu (cercle creux) -->
+  <circle cx="300" cy="150" r="8" stroke="#A83A3A" stroke-width="1.5" fill="none"/>
+  <text x="300" y="178"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="10"
+        text-anchor="middle"
+        fill="#A83A3A">
+    EXPIRY LOST
+  </text>
+
+  <!-- Flèche de transition -->
+  <line x1="340" y1="150" x2="420" y2="150" stroke="#5A6B7A" stroke-width="1.5"/>
+  <polygon points="420,144 436,150 420,156" fill="#1CB5A0"/>
+
+  <!-- Phase 2 : devenu permanent (segment long continu) -->
+  <text x="460" y="110"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="12"
+        letter-spacing="1"
+        fill="#0A1A2F">
+    PERMANENT ARCHITECTURE
+  </text>
+  <line x1="460" y1="150" x2="720" y2="150"
+        stroke="#2C5F8A" stroke-width="2" stroke-linecap="square"/>
+
+  <!-- Ligne du temps -->
+  <line x1="60" y1="240" x2="720" y2="240"
+        stroke="#5A6B7A" stroke-width="1" stroke-linecap="square"/>
+
+  <text x="60" y="262"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="10"
+        fill="#5A6B7A">
+    DAY 1
+  </text>
+  <text x="430" y="262"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="10"
+        fill="#5A6B7A">
+    THE DAY WE FORGOT
+  </text>
+  <text x="650" y="262"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="10"
+        fill="#5A6B7A">
+    YEARS LATER
+  </text>
+
+  <!-- Légende -->
+  <text x="40" y="330"
+        font-family="Sora, sans-serif"
+        font-weight="400"
+        font-size="10"
+        fill="#5A6B7A">
+    The red ring is the expiration date that was never set.
+  </text>
+
+  <text x="40" y="392"
+        font-family="'Source Serif Pro', serif"
+        font-size="10.5"
+        fill="#5A6B7A">
+    Fig. 2 — A temporary exception without an expiration mechanism becomes a permanent part of the architecture.
+  </text>
+
+</svg>

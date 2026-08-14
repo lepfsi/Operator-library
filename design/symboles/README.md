@@ -1,0 +1,1 @@
+# Symboles conceptuels par livre\n\n1. Firewall (frontière traversée)\n2. Human SPOF (réseau, un nœud critique)\n3. Complexity (graphe densifiant)\n4. AI (transition humain -> agent)\n5. Last Job (opérateur relayé)

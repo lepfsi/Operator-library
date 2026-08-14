@@ -1,0 +1,459 @@
+% ============================================================
+%  template.latex — The Operator's Library
+%  Premium book template for Pandoc + XeLaTeX
+%  Direction: Technical Editorial / Dark Precision
+%  Format: A5 (148 x 210 mm) or 6" x 9" (152.4 x 228.6 mm)
+% ============================================================
+%
+%  Usage:
+%    pandoc manuscript/*.md
+%      --pdf-engine=xelatex
+%      --template=templates/render/template.latex
+%      --metadata-file=books/book-.../config/pandoc.yaml
+%
+%  Custom environments (callouts via Pandoc fenced divs):
+%    ::: field-note        ::: concept        ::: lesson
+%    ::: warning           ::: remember       ::: pullquote
+%    ::: keytakeaways      ::: diagram
+% ============================================================
+
+% ---- Document class & geometry ---------------------------------------------
+% openright (default) = chapters start on odd pages → blank verso pages.
+% openany             = chapters start on the next page, no forced blanks.
+\documentclass[11pt,twoside,openany]{book}
+
+% Choose format via metadata: bookformat = "a5" | "6x9" (default: 6x9)
+\newcommand{\bookformat}{6x9}
+\usepackage[
+  $if(bookformat-a5)$
+  papersize={148mm,210mm},
+  $else$
+  papersize={152.4mm,228.6mm},
+  $endif$
+  layoutsize={152.4mm,228.6mm},
+  layoutoffset=0pt,
+  twoside,
+  inner=22mm,
+  outer=18mm,
+  top=25mm,
+  bottom=22mm,
+  marginparwidth=30mm,
+  marginparsep=4mm,
+  headheight=12pt,
+  headsep=8mm,
+  footskip=12mm,
+  showframe=false
+]{geometry}
+
+% ---- Encoding & input ------------------------------------------------------
+\usepackage{fontspec}
+% Note: xunicode/polyglossia are intentionally omitted — fontspec handles
+% Unicode in XeLaTeX, and no language-specific commands are used in this
+% template. (polyglossia is not part of minimal TeX Live installs.)
+
+% ---- Fonts -----------------------------------------------------------------
+% Order of preference: Sora > DejaVu Sans (present in every TeX Live).
+\IfFontExistsTF{Sora}{
+  \setsansfont{Sora}[
+    UprightFont=*-Light,
+    BoldFont=*-SemiBold,
+    ItalicFont=*-LightItalic
+  ]
+}{
+  \setsansfont{DejaVu Sans}
+}
+% Body serif: Source Serif Pro > TeX Gyre Pagella (present in every TeX Live).
+\IfFontExistsTF{Source Serif Pro}{
+  \setmainfont{Source Serif Pro}[
+    UprightFont=*-Regular,
+    BoldFont=*-Semibold,
+    ItalicFont=*-RegularItalic
+  ]
+}{
+  \setmainfont{TeX Gyre Pagella}
+}
+% Monospace: IBM Plex Mono > DejaVu Sans Mono (present in every TeX Live).
+\IfFontExistsTF{IBM Plex Mono}{
+  \setmonofont{IBM Plex Mono}[
+    UprightFont=*-Regular,
+    BoldFont=*-Bold
+  ]
+}{
+  \setmonofont{DejaVu Sans Mono}
+}
+
+% Default font: serif for body (premium editorial)
+\setlength{\baselineskip}{13.5pt}
+
+% ---- Colors (charte graphique) ---------------------------------------------
+\usepackage[x11names,dvipsnames]{xcolor}
+\definecolor{deepnavy}{HTML}{0A1A2F}
+\definecolor{offwhite}{HTML}{F7F5F0}
+\definecolor{textblack}{HTML}{111111}
+\definecolor{steelgray}{HTML}{5A6B7A}
+\definecolor{turquoise}{HTML}{1CB5A0}
+\definecolor{accentfirewall}{HTML}{2C5F8A}      % Book 1
+\definecolor{accenthumansspof}{HTML}{C76B2B}    % Book 2
+\definecolor{accentcomplexity}{HTML}{5B3E7D}    % Book 3
+\definecolor{accentoperationalai}{HTML}{1F7A5A} % Book 4
+\definecolor{accentlastjob}{HTML}{A83A3A}       % Book 5
+% Default accent (override per book via metadata: bookcolor)
+\providecolor{accent}{named}{accentfirewall}
+
+% Body text color
+\color{textblack}
+
+% ---- Typography ------------------------------------------------------------
+\usepackage{microtype}
+\usepackage{setspace}
+\setstretch{1.35}  % interligne ~1.35 pour A5/6x9
+
+% ---- Layout packages -------------------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+% ---- tcolorbox for callouts (premium) -------------------------------------
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+
+% Common callout style — generous padding, editorial feel
+\newtcolorbox{calloutbase}{
+  enhanced,
+  colback=offwhite,
+  colframe=steelgray,
+  boxrule=0pt,
+  arc=2pt,
+  left=14pt, right=14pt, top=12pt, bottom=12pt,
+  before skip=18pt, after skip=18pt,
+  breakable,
+  drop fuzzy shadow=black!30
+}
+
+% =====================================================================
+% FIELD NOTE — Bandeau supérieur fin (accent) + barre gauche
+% "Note de terrain" : ancrage visuel horizontal + vertical
+% =====================================================================
+\newtcolorbox{fieldnote}{
+  enhanced,
+  colback=white,
+  colframe=accent!10,
+  boxrule=0pt,
+  arc=0pt,
+  borderline north={1.5pt}{0pt}{accent},
+  borderline west={3pt}{0pt}{accent},
+  left=16pt, right=14pt, top=10pt, bottom=14pt,
+  before skip=20pt, after skip=20pt,
+  breakable,
+  drop fuzzy shadow=black!15
+}
+
+% =====================================================================
+% DAILYOPS CONCEPT — Signature de la collection
+% Icône géométrique (carré turquoise) dans la marge + barre turquoise
+% Fond off-white distinctif
+% =====================================================================
+\newtcolorbox{dailyopsconcept}{
+  enhanced,
+  colback=offwhite,
+  colframe=turquoise!15,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={4pt}{0pt}{turquoise},
+  left=16pt, right=14pt, top=12pt, bottom=14pt,
+  before skip=22pt, after skip=22pt,
+  breakable,
+  drop fuzzy shadow=black!15,
+  underlay={
+    \node[anchor=north west, xshift=-12pt, yshift=4pt]
+      at (frame.north west) {
+        \tikz\fill[turquoise] (0,0) rectangle (6pt,6pt);
+      };
+  }
+}
+
+% =====================================================================
+% LESSON — Double barre (gauche + droite turquoise) = vérité encadrée
+% Fond blanc, symétrie visuelle forte
+% =====================================================================
+\newtcolorbox{lesson}{
+  enhanced,
+  colback=white,
+  colframe=turquoise!10,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={3pt}{0pt}{turquoise},
+  borderline east={3pt}{0pt}{turquoise},
+  left=16pt, right=16pt, top=12pt, bottom=14pt,
+  before skip=20pt, after skip=20pt,
+  breakable,
+  drop fuzzy shadow=black!15
+}
+
+% =====================================================================
+% WARNING / PITFALL — Triangle d'alerte dans la marge + fond brique
+% Forme pointue = danger, fond tinté = urgence
+% =====================================================================
+\newtcolorbox{warningpifall}{
+  enhanced,
+  colback=accentlastjob!6,
+  colframe=accentlastjob!40,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={4pt}{0pt}{accentlastjob},
+  left=16pt, right=14pt, top=12pt, bottom=14pt,
+  before skip=20pt, after skip=20pt,
+  breakable,
+  drop fuzzy shadow=black!20,
+  underlay={
+    \node[anchor=north west, xshift=-10pt, yshift=2pt]
+      at (frame.north west) {
+        \tikz[scale=0.7]\fill[accentlastjob]
+          (0,0) -- (4pt,7pt) -- (8pt,0) -- cycle;
+      };
+  }
+}
+
+% =====================================================================
+% REMEMBER — Trait de soulignement épais sous le titre + barre acier
+% "Rappel = souligné" : minimaliste, signature
+% =====================================================================
+\newtcolorbox{remember}{
+  enhanced,
+  colback=steelgray!5,
+  colframe=steelgray!20,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={3pt}{0pt}{steelgray},
+  borderline south={1.5pt}{0pt}{steelgray},
+  left=16pt, right=14pt, top=12pt, bottom=10pt,
+  before skip=20pt, after skip=20pt,
+  breakable,
+  drop fuzzy shadow=black!10
+}
+
+% =====================================================================
+% PULL QUOTE — Guillemets géométriques (coins) + règles horizontales
+% Citation = encadrement raffiné, large espace blanc
+% =====================================================================
+\newtcolorbox{pullquote}{
+  enhanced,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0pt,
+  borderline north={0.8pt}{0pt}{turquoise},
+  borderline south={0.8pt}{0pt}{turquoise},
+  left=24pt, right=24pt, top=30pt, bottom=30pt,
+  before skip=36pt, after skip=36pt,
+  breakable,
+  fontupper=\itshape\Large\color{deepnavy}\centering,
+  underlay={
+    % Guillemet ouvrant (coin sup-gauche)
+    \node[anchor=north west, xshift=8pt, yshift=-8pt]
+      at (frame.north west) {
+        \fontsize{24pt}{24pt}\selectfont\color{turquoise!40}\guillemotleft
+      };
+    % Guillemet fermant (coin inf-droit)
+    \node[anchor=south east, xshift=-8pt, yshift=8pt]
+      at (frame.south east) {
+        \fontsize{24pt}{24pt}\selectfont\color{turquoise!40}\guillemotright
+      };
+  }
+}
+
+% =====================================================================
+% KEY TAKEAWAYS — Barre accent épaisse (4pt) + liste à puces stylisée
+% Synthèse = liste + barre forte, fond off-white
+% =====================================================================
+\newtcolorbox{keytakeawaysbox}{
+  enhanced,
+  colback=offwhite,
+  colframe=steelgray!20,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={4pt}{0pt}{accent},
+  left=16pt, right=14pt, top=14pt, bottom=14pt,
+  before skip=22pt, after skip=22pt,
+  breakable,
+  drop fuzzy shadow=black!15,
+  fonttitle=\bfseries\sffamily\large\scshape\color{accent}
+}
+
+% ---- Headers & footers -----------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+% En-tête : gauche = titre du livre, droite = numéro de page
+\fancyhead[LE]{\sffamily\scriptsize\scshape\color{steelgray}$if(book-head)$$book-head$$else$BEYOND THE FIREWALL$endif$}
+\fancyhead[RO]{\sffamily\scriptsize\scshape\color{steelgray}\thepage}
+% Pied : gauche = auteur, centre = carré turquoise discret
+\fancyfoot[LE]{\sffamily\scriptsize\scshape\color{steelgray}$if(book-author)$$book-author$$else$BA-NDOUWE STEVE$endif$}
+\fancyfoot[RO]{\sffamily\scriptsize\color{turquoise}$${\blacksquare}$$}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Plain pages (part openers, chapter openers): no running heads/footers
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% ---- Sectioning styles -----------------------------------------------------
+% Part pages: numbered turquoise, title deep navy, intro phrase steel italic
+\titleclass{\part}{top}
+\titleformat{\part}[display]
+  {\centering\sffamily}
+  {\color{turquoise}\fontsize{24pt}{28pt}\selectfont\bfseries PART\ \thepart}
+  {20pt}
+  {\color{deepnavy}\fontsize{20pt}{24pt}\selectfont\bfseries\scshape}
+\titleformat{name=\part,numberless}[display]
+  {\centering\sffamily}
+  {}{0pt}
+  {\color{deepnavy}\fontsize{20pt}{24pt}\selectfont\bfseries\scshape}
+\titlespacing*{\part}{0pt}{40pt}{40pt}
+
+% Chapter: number big turquoise above, title deep navy bold, opening phrase italic gray
+\titleclass{\chapter}{top}
+\titleformat{\chapter}[display]
+  {\sffamily}
+  {\color{turquoise}\fontsize{30pt}{34pt}\selectfont\bfseries\thechapter}
+  {10pt}
+  {\color{deepnavy}\fontsize{22pt}{26pt}\selectfont\bfseries\scshape}
+\titlespacing*{\chapter}{0pt}{28pt}{24pt}
+
+% Section/subsection: sans-serif, deep navy
+\titleformat{\section}
+  {\sffamily\bfseries\large\color{deepnavy}}{\thesection}{6pt}{}
+\titleformat{\subsection}
+  {\sffamily\bfseries\normalsize\color{deepnavy}}{\thesubsection}{6pt}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+
+% Hook phrase (first paragraph of chapter): small italic gray
+\newenvironment{hook}{\par\begin{itshape}\small\color{steelgray}}{\end{itshape}\par}
+
+% ---- Pandoc fenced divs → custom environments -----------------------------
+% Pandoc maps fenced divs :::callout to custom-environment "callout"
+% We declare them via \newenvironment with the same names tcolorbox above.
+\newenvironment{field-note}{\begin{fieldnote}}{\end{fieldnote}}
+\newenvironment{field-note-title}[1]{\begin{fieldnote}\textsc{\textbf{\color{accent}#1}}\\[4pt]}{\end{fieldnote}}
+\newenvironment{concept}{\begin{dailyopsconcept}}{\end{dailyopsconcept}}
+\newenvironment{warning}{\begin{warningpifall}}{\end{warningpifall}}
+\newenvironment{pitfall}{\begin{warningpifall}}{\end{warningpifall}}
+% remember / pullquote / lesson are defined directly by tcolorbox above —
+% pandoc fenced divs of the same name map to them automatically.
+\newenvironment{keytakeaways}{\begin{keytakeawaysbox}\textsc{\large\color{accent}Key Takeaways}\\[8pt]}{\end{keytakeawaysbox}}
+
+% Hook fenced div for the opening italic phrase
+\newenvironment{hookphrase}{\begin{hook}}{\end{hook}}
+
+% ---- Hyperref (links, TOC) ------------------------------------------------
+\usepackage[hidelinks,bookmarksnumbered]{hyperref}
+\hypersetup{
+  colorlinks=false,
+  pdftitle={$if(book-pdftitle)$$book-pdftitle$$else$Beyond the Firewall$endif$},
+  pdfauthor={$if(book-author)$$book-author$$else$Ba-Ndouwe Steve$endif$},
+  pdfsubject={IT Operations, Reliability, Resilience}
+}
+
+% ---- Custom title page (override \maketitle) -------------------------------
+% Used ONLY when no SVG cover is provided. When $book-cover$ is set,
+% the cover image itself acts as the title page (no double page).
+\renewcommand{\maketitle}{
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+    \vspace*{4cm}
+    {\sffamily\scriptsize\scshape\color{steelgray}\MakeUppercase{$if(book-brand)$$book-brand$$else$DAILYOPS$endif$}}\\[1cm]
+    {\sffamily\fontsize{36pt}{40pt}\selectfont\bfseries\scshape\color{deepnavy}\MakeUppercase{$if(book-title)$$book-title$$else$Beyond the Firewall$endif$}}\\[10pt]
+    {\itshape\large\color{steelgray}$if(book-subtitle)$$book-subtitle$$else$The Reality of Modern IT Operations$endif$}\\[2cm]
+    \rule{0.6\textwidth}{0.5pt}\\[1cm]
+    {\sffamily\large\color{deepnavy}$if(book-author)$$book-author$$else$Ba-Ndouwe Steve$endif$}\\[2cm]
+    \rule{0.4\textwidth}{0.5pt}\\[6pt]
+    {\sffamily\scriptsize\scshape\color{steelgray}THE OPERATOR'S LIBRARY — BOOK $if(book-number)$$book-number$$else$1$endif$}
+    \vfill
+  \end{titlepage}
+}
+
+% ---- Copyright page helper --------------------------------------------------
+\newcommand{\copyrightpage}{%
+  \thispagestyle{empty}
+  \vspace*{\fill}
+  \noindent
+  \begin{minipage}{\textwidth}
+    \sffamily\scriptsize\color{steelgray}
+    \noindent\rule{0.2\textwidth}{0.4pt}\\[6pt]
+    © $if(book-year)$$book-year$$else$2026$endif$ $if(book-author)$$book-author$$else$Ba-Ndouwe Steve$endif$.\\
+    Published by \textsc{The Operator's Library}, a \textsc{DailyOps} brand.\\
+    All rights reserved.\\[8pt]
+    \textit{No part of this book may be reproduced in any form without
+    written permission from the publisher, except for brief quotations
+    in critical articles and reviews.}\\[10pt]
+    \textsc{The Operator's Library} — Book $if(book-number)$$book-number$$else$1$endif$
+  \end{minipage}
+  \vspace*{\fill}
+  \clearpage
+}
+
+% ---- Table of contents -----------------------------------------------------
+\renewcommand{\contentsname}{Contents}
+\titlecontents{chapter}[0pt]
+  {\addvspace{6pt}\sffamily\bfseries\color{deepnavy}}
+  {\contentslabel{2em}\thecontentslabel\enspace}
+  {}
+  {\titlerule*[8pt]{.}\contentspage}
+
+% ---- Paragraph spacing & list styles ---------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\setlist[itemize]{leftmargin=18pt, topsep=4pt, parsep=2pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=18pt, topsep=4pt, parsep=2pt, itemsep=2pt}
+
+% Bullet color: turquoise
+\renewcommand{\labelitemi}{\color{turquoise}\textbullet}
+
+% ---- Body -----------------------------------------------------------------
+\begin{document}
+
+$if(book-cover)$
+% ---- Full-bleed cover page ------------------------------------------------
+% Single image, full page, full bleed. No headers, no footers, no extra page.
+% keepaspectratio is CRITICAL: without it, an image whose native size differs
+% slightly from the paper size gets distorted; with it, the image fills
+% either the width OR the height and the other dimension overflows silently.
+% Since the SVG artboard is exactly paper-sized, we center it explicitly.
+\newgeometry{margin=0pt}
+\thispagestyle{empty}
+\vbox to \paperheight{%
+  \vfill
+  \noindent\makebox[\paperwidth]{%
+    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{$book-cover$}}
+  \vfill
+}
+\restoregeometry
+\clearpage
+$else$
+% ---- LaTeX native title page (fallback when no SVG cover) ----------------
+\maketitle
+\clearpage
+$endif$
+
+% ---- Copyright page --------------------------------------------------------
+% Editorial convention: cover → short copyright page → TOC.
+\frontmatter
+\copyrightpage
+
+% ---- Table of contents -----------------------------------------------------
+\tableofcontents
+
+% ---- Main matter -----------------------------------------------------------
+\mainmatter
+
+$body$
+
+\end{document}

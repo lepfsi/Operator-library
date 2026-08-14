@@ -1,0 +1,39 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# Generated outputs (per book)
+books/*/exports/
+exports/
+
+# Temporary build artefacts
+*.tmp
+*.bak
+*.log
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.run.xml
+
+# Pandoc intermediates
+pandoc-crossref/
+
+# Local secrets / overrides (if any)
+.env
+.env.local
+
+# Backup directories (personal)
+_backup/
+archive/

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Diagramme conceptuel — Human SPOF (Beyond the Firewall, ch. 4)
+  Design System section 7 : trait fin (1 pt), style blueprint,
+  gris acier + bleu acier (livre 1) + turquoise discret, sans ombres ni dégradés.
+  Légende : Source Serif Pro 10 pt, gris acier.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="400"
+     viewBox="0 0 800 400"
+     fill="none">
+
+  <!-- Titre du diagramme -->
+  <text x="40" y="40"
+        font-family="Sora, sans-serif"
+        font-weight="600"
+        font-size="16"
+        letter-spacing="2"
+        fill="#0A1A2F">
+    THE HUMAN SINGLE POINT OF FAILURE
+  </text>
+
+  <!-- Réseau de nœuds : une personne centrale porte tout -->
+  <!-- Nœuds périphériques (compétences) -->
+  <circle cx="140" cy="120" r="18" stroke="#5A6B7A" stroke-width="1.5" fill="#F7F5F0"/>
+  <circle cx="660" cy="120" r="18" stroke="#5A6B7A" stroke-width="1.5" fill="#F7F5F0"/>
+  <circle cx="140" cy="280" r="18" stroke="#5A6B7A" stroke-width="1.5" fill="#F7F5F0"/>
+  <circle cx="660" cy="280" r="18" stroke="#5A6B7A" stroke-width="1.5" fill="#F7F5F0"/>
+
+  <!-- Étiquettes des compétences -->
+  <text x="140" y="105" text-anchor="middle"
+        font-family="Sora, sans-serif" font-size="9" fill="#5A6B7A">DEPLOY</text>
+  <text x="660" y="105" text-anchor="middle"
+        font-family="Sora, sans-serif" font-size="9" fill="#5A6B7A">RECOVERY</text>
+  <text x="140" y="315" text-anchor="middle"
+        font-family="Sora, sans-serif" font-size="9" fill="#5A6B7A">PATCHING</text>
+  <text x="660" y="315" text-anchor="middle"
+        font-family="Sora, sans-serif" font-size="9" fill="#5A6B7A">RELEASE</text>
+
+  <!-- Lignes vers le nœud central -->
+  <line x1="158" y1="130" x2="390" y2="200" stroke="#5A6B7A" stroke-width="1.5"/>
+  <line x1="642" y1="130" x2="410" y2="200" stroke="#5A6B7A" stroke-width="1.5"/>
+  <line x1="158" y1="268" x2="390" y2="205" stroke="#5A6B7A" stroke-width="1.5"/>
+  <line x1="642" y1="268" x2="410" y2="205" stroke="#5A6B7A" stroke-width="1.5"/>
+
+  <!-- Nœud central : la personne (plein, couleur du livre) -->
+  <circle cx="400" cy="202" r="30" stroke="#2C5F8A" stroke-width="2" fill="#F7F5F0"/>
+  <text x="400" y="200" text-anchor="middle"
+        font-family="Sora, sans-serif" font-weight="700" font-size="10" fill="#0A1A2F">ONE</text>
+  <text x="400" y="212" text-anchor="middle"
+        font-family="Sora, sans-serif" font-weight="700" font-size="10" fill="#0A1A2F">PERSON</text>
+
+  <!-- Rayon de rotation / absence : cercle pointillé autour du central -->
+  <circle cx="400" cy="202" r="52" stroke="#A83A3A" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+  <text x="352" y="140"
+        font-family="Sora, sans-serif" font-size="9" fill="#A83A3A">VACATION</text>
+  <text x="470" y="292"
+        font-family="Sora, sans-serif" font-size="9" text-anchor="end" fill="#A83A3A">ILLNESS</text>
+
+  <!-- Légende -->
+  <text x="40" y="350"
+        font-family="Sora, sans-serif" font-weight="400" font-size="10" fill="#5A6B7A">
+    Knowledge that exists only in one head is not organizational knowledge.
+  </text>
+
+  <text x="40" y="392"
+        font-family="'Source Serif Pro', serif" font-size="10.5" fill="#5A6B7A">
+    Fig. 4 — The human SPOF: four competencies, one pair of hands.
+  </text>
+
+</svg>

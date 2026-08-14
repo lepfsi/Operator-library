@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  apa.csl — Citation Style Language file (APA 7th edition placeholder).
+
+  This file is a placeholder. To use a real CSL:
+
+  1. Download a CSL file from the official CSL repository
+     (citation-style-language/styles, file "apa.csl").
+  2. Replace this file with the downloaded content.
+  3. Uncomment the `csl:` line in each book's config/pandoc.yaml.
+
+  Until this file is replaced, do NOT reference it from pandoc.yaml —
+  Pandoc will fail on invalid CSL XML.
+-->
+<style xmlns="http://purl.org/net/xbiblio/csl" class="intext" version="1.0" demote-non-dropping-particle="sort-only">
+  <info>
+    <title>APA (placeholder — replace with official file</title>
+    <id>apa-placeholder</id>
+ </info>
+  <citation>
+    <layout delimiter="; ">
+      <text variable="title" suffix=" "/>
+   </layout>
+ </citation>
+  <bibliography>
+    <layout>
+      <text variable="title"/>
+   </layout>
+ </bibliography>
+</style>

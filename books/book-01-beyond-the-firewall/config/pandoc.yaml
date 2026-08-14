@@ -1,0 +1,80 @@
+---
+title: "Beyond the Firewall"
+subtitle: "The Reality of Modern IT Operations"
+author: "Ba-Ndouwe Steve"
+date: "2026"
+lang: "en-US"
+publisher: "DailyOps"
+rights: "© 2026 Ba-Ndouwe Steve. Published by The Operator's Library, a DailyOps brand."
+
+description: >
+  A book about the technical, human, and organizational realities of
+  operating modern IT systems — and the invisible factors that decide
+  whether they remain reliable, secure, and governable.
+
+subject:
+  - IT Operations
+  - Reliability
+  - Resilience
+  - Information Security
+  - Site Reliability Engineering
+
+keywords:
+  - operations
+  - reliability
+  - resilience
+  - infrastructure
+  - SRE
+  - security
+  - incident response
+  - monitoring
+
+# --- Bibliography & citations ----------------------------------------------
+# Paths are resolved relative to this config file (config/ -> book -> books -> root).
+bibliography: "../../../references/references.bib"
+# csl: "../../references/apa.csl"  # uncomment once a real CSL file is installed
+
+# --- PDF (XeLaTeX) ---------------------------------------------------------
+pdf-engine: xelatex
+documentclass: book
+classoption:
+  - 11pt
+  - twoside
+  - openright
+template: "../../../templates/render/template.latex"
+
+# Format: A5 (148x210) or 6x9 (152.4x228.6). Default: 6x9.
+bookformat-a5: false
+
+# --- Metadata consumed by template.latex (title page, headers, accents) ----
+book-title: "Beyond the Firewall"
+book-subtitle: "The Reality of Modern IT Operations"
+book-author: "Ba-Ndouwe Steve"
+book-brand: "DAILYOPS"
+book-number: 1
+book-head: "BEYOND THE FIREWALL"
+book-pdftitle: "Beyond the Firewall — The Reality of Modern IT Operations"
+
+# Accent color for this book (hex, sans #): 2C5F8A = Bleu acier (Book 1)
+book-accent: "2C5F8A"
+
+# --- EPUB -------------------------------------------------------------------
+# CSS applied by build-book.sh via --css when building EPUB.
+epub-css: "../../../templates/render/epub.css"
+epub-cover-image: "../../../design/prototype-couverture-livre-01.svg"
+
+# --- PDF cover --------------------------------------------------------------
+# First page of the PDF: full-page cover (used by template.latex).
+# The SVG is converted to PDF by build-book.sh when a converter is available.
+cover-image: "../../../design/prototype-couverture-livre-01.svg"
+
+# --- DOCX -------------------------------------------------------------------
+# Reference doc applied by build-book.sh via --reference-doc.
+reference-doc: "../../../templates/render/reference.docx"
+
+# --- Variables (legacy) ---------------------------------------------------
+variables:
+  bookTitle: "Beyond the Firewall"
+  bookSubtitle: "The Reality of Modern IT Operations"
+  bookNumber: 1
+  collectionName: "The Operator's Library"
