@@ -52,34 +52,31 @@
 % template. (polyglossia is not part of minimal TeX Live installs.)
 
 % ---- Fonts -----------------------------------------------------------------
-% Order of preference: Sora > DejaVu Sans (present in every TeX Live).
-\IfFontExistsTF{Sora}{
-  \setsansfont{Sora}[
-    UprightFont=*-Light,
-    BoldFont=*-SemiBold,
-    ItalicFont=*-LightItalic
-  ]
-}{
-  \setsansfont{DejaVu Sans}
+% Premium fonts: Sora (headings), Source Serif Pro (body), IBM Plex Mono (code).
+% Each has a TeX-Live fallback so the build always succeeds even when the
+% premium fonts are not installed. We detect availability with \IfFontExistsTF
+% BEFORE calling \setsansfont, which avoids the kpathsea "Running mktextfm"
+% noise. Named variants (UprightFont=*-Light ...) are only added when the
+% font is present, because requesting a missing variant triggers mktextfm.
+%
+% To get the premium rendering (and eliminate fallback warnings), install:
+%   Sora, Source Serif Pro, IBM Plex Mono  (Google Fonts)
+% then run: fc-cache -fv
+%
+\IfFontExistsTF{Sora}{%
+  \setsansfont{Sora}%
+}{%
+  \setsansfont{TeX Gyre Heros}% Helvetica clone, present in every TeX Live
 }
-% Body serif: Source Serif Pro > TeX Gyre Pagella (present in every TeX Live).
-\IfFontExistsTF{Source Serif Pro}{
-  \setmainfont{Source Serif Pro}[
-    UprightFont=*-Regular,
-    BoldFont=*-Semibold,
-    ItalicFont=*-RegularItalic
-  ]
-}{
-  \setmainfont{TeX Gyre Pagella}
+\IfFontExistsTF{Source Serif Pro}{%
+  \setmainfont{Source Serif Pro}%
+}{%
+  \setmainfont{TeX Gyre Pagella}% present in every TeX Live
 }
-% Monospace: IBM Plex Mono > DejaVu Sans Mono (present in every TeX Live).
-\IfFontExistsTF{IBM Plex Mono}{
-  \setmonofont{IBM Plex Mono}[
-    UprightFont=*-Regular,
-    BoldFont=*-Bold
-  ]
-}{
-  \setmonofont{DejaVu Sans Mono}
+\IfFontExistsTF{IBM Plex Mono}{%
+  \setmonofont{IBM Plex Mono}%
+}{%
+  \setmonofont{TeX Gyre Cursor}% Courier clone, present in every TeX Live
 }
 
 % Default font: serif for body (premium editorial)
@@ -439,11 +436,11 @@ $endif$
   \end{tikzpicture}%
   \vspace*{\fill}
   \begin{flushright}
-    {\sffamily\fontsize{180pt}{180pt}\selectfont\color{white!15}\bfseries \thechapter}%
+    {\sffamily\fontsize{110pt}{110pt}\selectfont\color{white!15}\bfseries \thechapter}%
   \end{flushright}
   \vfill
   \begin{flushright}
-    {\sffamily\fontsize{42pt}{48pt}\selectfont\color{white}\bfseries\MakeUppercase{\thechaptertitle}}%
+    {\sffamily\fontsize{30pt}{36pt}\selectfont\color{white}\bfseries\MakeUppercase{\thechaptertitle}}%
   \end{flushright}
   \vspace*{2cm}
 }{\clearpage}
@@ -454,7 +451,7 @@ $endif$
   \clearpage\thispagestyle{empty}%
   \vspace*{\fill}%
   \begin{center}
-    \itshape\fontsize{30pt}{40pt}\selectfont\color{deepnavy}%
+    \itshape\fontsize{22pt}{30pt}\selectfont\color{deepnavy}%
 }{%
   \end{center}
   \vspace{18pt}%

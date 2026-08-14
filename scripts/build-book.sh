@@ -113,6 +113,25 @@ echo "  Output:   $EXPORTS_DIR"
 echo "============================================================"
 echo
 
+# ---- Premium font check -----------------------------------------------------
+# Warn (not block) when Sora / Source Serif Pro / IBM Plex Mono are missing.
+# Without them, XeLaTeX falls back to wider TeX Gyre fonts and the page count
+# inflates significantly (e.g. 24 -> 120+ pages). Install with:
+#   ./scripts/install-fonts.sh
+MISSING_FONTS=0
+for f in "Sora" "Source Serif Pro" "IBM Plex Mono"; do
+    if ! fc-list 2>/dev/null | grep -qi "$f"; then
+        MISSING_FONTS=$((MISSING_FONTS + 1))
+        echo "   (warn) premium font not found: $f"
+    fi
+done
+if [[ "$MISSING_FONTS" -gt 0 ]]; then
+    echo "   (warn) $MISSING_FONTS premium font(s) missing — build will use wider fallbacks."
+    echo "          Page count and typography will differ from design. Run:"
+    echo "          ./scripts/install-fonts.sh"
+    echo
+fi
+
 # ---- Common Pandoc args -----------------------------------------------------
 LUA_FILTER="$ROOT_DIR/templates/render/callouts.lua"
 PANDOC_ARGS=(
@@ -256,11 +275,19 @@ build_docx() {
     else
         echo "   (note: no reference.docx found, using Pandoc default; see templates/render/reference-docx-guide.md)"
     fi
-    pandoc "${docx_args[@]}" \
+    if ! pandoc "${docx_args[@]}" \
         --to=docx \
         --output="$EXPORTS_DIR/book.docx" \
         --toc \
-        --toc-depth=2
+        --toc-depth=2 2>/tmp/docx-err.$$; then
+        echo "   ERROR writing book.docx:"
+        cat /tmp/docx-err.$$
+        rm -f /tmp/docx-err.$$
+        echo "   (common cause on WSL/Windows: book.docx is open in Word or"
+        echo "    locked by the OS/antivirus. Close it, then rerun this build.)"
+        return 1
+    fi
+    rm -f /tmp/docx-err.$$
     echo "   OK $EXPORTS_DIR/book.docx"
 }
 
