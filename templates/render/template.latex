@@ -63,6 +63,10 @@
 %   Sora, Source Serif Pro, IBM Plex Mono  (Google Fonts)
 % then run: fc-cache -fv
 %
+% Detect premium fonts under the names shipped by Google Fonts.
+% Sora and IBM Plex Mono keep their names; Source Serif is published by
+% Google Fonts as "Source Serif 4" (the variable font), while older
+% installs may still have it as "Source Serif Pro". We accept either.
 \IfFontExistsTF{Sora}{%
   \setsansfont{Sora}%
 }{%
@@ -71,7 +75,11 @@
 \IfFontExistsTF{Source Serif Pro}{%
   \setmainfont{Source Serif Pro}%
 }{%
-  \setmainfont{TeX Gyre Pagella}% present in every TeX Live
+  \IfFontExistsTF{Source Serif 4}{%
+    \setmainfont{Source Serif 4}%
+  }{%
+    \setmainfont{TeX Gyre Pagella}% present in every TeX Live
+  }%
 }
 \IfFontExistsTF{IBM Plex Mono}{%
   \setmonofont{IBM Plex Mono}%
@@ -292,7 +300,7 @@ $endif$
 \fancyhead[RO]{\sffamily\scriptsize\scshape\color{steelgray}\thepage}
 % Pied : gauche = auteur, centre = carré turquoise discret
 \fancyfoot[LE]{\sffamily\scriptsize\scshape\color{steelgray}$if(book-author)$$book-author$$else$BA-NDOUWE STEVE$endif$}
-\fancyfoot[RO]{\sffamily\scriptsize\color{turquoise}$${\blacksquare}$$}
+\fancyfoot[RO]{\sffamily\scriptsize\color{turquoise}\blacksquare}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -375,7 +383,7 @@ $endif$
   before skip=16pt, after skip=16pt,
   breakable,
   fontupper=\small,
-  before upper={\textcolor{steelgray}{\large\,}\,\textsc{\footnotesize\color{steelgray}Note}\par\vspace{2pt}\textcolor{steelgray!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+  before upper={\textcolor{steelgray}{\large\,\textbullet}\,\textsc{\footnotesize\color{steelgray}Note}\par\vspace{2pt}\textcolor{steelgray!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
 }
 
 % TIP — practical advice, turquoise tint (DailyOps signature)
@@ -390,7 +398,7 @@ $endif$
   before skip=16pt, after skip=16pt,
   breakable,
   fontupper=\small,
-  before upper={\textcolor{turquoise}{\large\,$\bullet$}\,\textsc{\footnotesize\color{turquoise}Tip}\par\vspace{2pt}\textcolor{turquoise!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+  before upper={\textcolor{turquoise}{\large\,\textbullet}\,\textsc{\footnotesize\color{turquoise}Tip}\par\vspace{2pt}\textcolor{turquoise!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
 }
 
 % IMPORTANT — must-not-miss, deep navy tint

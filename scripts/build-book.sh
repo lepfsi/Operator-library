@@ -119,12 +119,23 @@ echo
 # inflates significantly (e.g. 24 -> 120+ pages). Install with:
 #   ./scripts/install-fonts.sh
 MISSING_FONTS=0
-for f in "Sora" "Source Serif Pro" "IBM Plex Mono"; do
-    if ! fc-list 2>/dev/null | grep -qi "$f"; then
-        MISSING_FONTS=$((MISSING_FONTS + 1))
-        echo "   (warn) premium font not found: $f"
-    fi
-done
+# Each entry: friendly name | grep pattern(s) separated by |
+# Source Serif ships as "Source Serif 4" (Google Fonts) or "Source Serif Pro".
+check_font() {
+    local label="$1"; shift
+    local pat
+    for pat in "$@"; do
+        if fc-list 2>/dev/null | grep -qi "$pat"; then
+            return 0
+        fi
+    done
+    MISSING_FONTS=$((MISSING_FONTS + 1))
+    echo "   (warn) premium font not found: $label"
+    return 1
+}
+check_font "Sora" "Sora"
+check_font "Source Serif" "Source Serif Pro" "Source Serif 4" "SourceSerif4"
+check_font "IBM Plex Mono" "IBM Plex Mono" "IBMPlexMono"
 if [[ "$MISSING_FONTS" -gt 0 ]]; then
     echo "   (warn) $MISSING_FONTS premium font(s) missing — build will use wider fallbacks."
     echo "          Page count and typography will differ from design. Run:"
