@@ -757,3 +757,15 @@ Le contrôle de la clôture du chapitre 16, de l’EPUB et du titre courant de l
 | Enchaînement de sortie | La fermeture du chapitre reste conforme au séquençage imposé dans le manuscrit ; l’extrait visuel confirme une respiration suffisante entre note et citation. | Validé. |
 
 Le PDF de la Partie IV et du chapitre 16 est prêt. Le contrôle EPUB et le contrôle Git restent nécessaires avant publication.
+
+
+## Contrôle visuel du chapitre 17
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| Concept `Recovery Muscle` | La définition est nette, supportée par le filet Forest, puis immédiatement traduite dans une boucle de répétition lisible. | Validé. |
+| Boucle de répétition | La liste Exercise, Observe, Repair crée une structure opératoire mémorisable sans détour narratif. | Validé. |
+| Key Takeaways | Le bloc est entier, lisible et présente les cinq conclusions sans surcharge. | Validé. |
+| Transition vers le chapitre 18 | Le bloc est bien séparé des takeaways et prépare clairement la dernière discipline d’observation. | Validé. |
+
+Le chapitre 17 répond à la règle de densité du manuel, comporte deux faits opérationnels et conserve la séquence de sortie requise. L’EPUB et les contrôles Git restent à effectuer avant publication.

@@ -96,7 +96,7 @@
 ---
 
 ### FiveNines_First_Failover
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : healthcare SaaS, ~400 employees
 - **Period** : April 2023
 - **Context** : platform marketed at 99.99% availability; active-passive pair in two data centers, failover never exercised
@@ -104,7 +104,7 @@
 - **Hidden assumption** : "the redundancy is there, so the resilience is there"
 - **Consequence** : first real failover after a network partition took 6 hours — the passive node had never received a full sync, and no one had a current procedure
 - **Lesson** : Working is an event. Reliability is a property. A system that never fails has never been tested
-- **Books used in** : Beyond the Firewall — ch. 6
+- **Books used in** : Beyond the Firewall, ch. 6 and ch. 17
 
 ---
 
