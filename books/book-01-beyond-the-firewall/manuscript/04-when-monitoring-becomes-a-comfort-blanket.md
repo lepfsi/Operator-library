@@ -22,7 +22,7 @@ incidents_referenced:
 
 - [01. The report we did not believe](#the-report-we-did-not-believe)
 - [02. Familiar evidence wins by default](#familiar-evidence-wins-by-default)
-- [03. The escalation contract](#the-escalation-contract)
+- [03. The Escalation Contract](#the-escalation-contract)
 - [04. The cost of delayed recognition](#the-cost-of-delayed-recognition)
 - [05. Run a contradiction drill](#run-a-contradiction-drill)
 :::
@@ -61,11 +61,11 @@ Comfort blanket monitoring appears when a screen ends an investigation too early
 
 A comfort blanket does not have to be a dashboard. It can be a successful deployment record, a service-level report, a trusted runbook, or the assurance of the most experienced person in the room. The object changes. The habit is the same: use what is familiar to avoid the question that would change the investigation.
 
-## The escalation contract
+## The Escalation Contract
 
 A report is not useful because it is emotional. It is useful because it can describe an outcome, a boundary, and a pattern that the team has not yet explained.
 
-The response should therefore not be “the system is fine” or “the user is right.” It should be a short escalation contract.
+The response should therefore not be “the system is fine” or “the user is right.” It should be a short Escalation Contract.
 
 1. **State the reported outcome.** What did the person attempt, and where did the path stop?
 2. **State the evidence already held.** What do the familiar signals show, without extending their meaning?
@@ -105,7 +105,7 @@ The exercise exposes the habit real incidents punish: seeking certainty from evi
 ::: operator-rule
 1. **This week, define one contradiction trigger.** Choose a customer outcome, support pattern, or business signal that must open investigation even when no familiar alert has fired.
 
-2. **Write the four-line escalation contract.** Capture the reported outcome, known evidence, untested condition, and accountable verifier in the incident record.
+2. **Write the four-line Escalation Contract.** Capture the reported outcome, known evidence, untested condition, and accountable verifier in the incident record.
 
 3. **Rehearse a ten-minute contradiction drill.** Ask the team to respond to a credible user failure while the normal views appear ordinary. Review the order of decisions, not only the eventual diagnosis.
 :::
@@ -145,7 +145,7 @@ When evidence conflicts, the first job is to name the contradiction and test it.
 ::: keytakeaways
 - Familiar evidence can become overtrusted because it has made previous decisions faster.
 - A user report is operational evidence when it names an outcome, a boundary, or a repeatable pattern.
-- The escalation contract keeps contradictory evidence visible without forcing premature agreement.
+- The Escalation Contract keeps contradictory evidence visible without forcing premature agreement.
 - Delayed recognition begins when a team tries to defend its first view instead of testing what the view does not explain.
 - A contradiction drill improves the order of decisions before a real incident makes that order expensive.
 :::

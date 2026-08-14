@@ -24,7 +24,7 @@ incidents_referenced:
 - [01. Continuity is an institutional obligation](#continuity-is-an-institutional-obligation)
 - [02. Trust debt](#trust-debt)
 - [03. Institutional capability](#institutional-capability)
-- [04. The continuity review](#the-continuity-review)
+- [04. The Continuity Review](#the-continuity-review)
 - [05. Test the absence](#test-the-absence)
 :::
 
@@ -32,11 +32,9 @@ incidents_referenced:
 
 An architect left on a Friday. On Monday, a certificate needed renewal.
 
-The renewal account was tied to a personal mailbox. The tool ran on a server nobody else had used. The team had access to documents, but none of them established who could decide, which role could act, or how the current path could be verified.
+The renewal account was tied to a personal mailbox. The tool ran on a server nobody else had used. Documents existed, but none established who could decide, act, or verify the current path.
 
-The service did not fail because the team lacked intelligence. It failed because continuity had never been made an institutional obligation.
-
-A critical task is not team-owned because several people know that it exists. It is team-owned when the organisation can show that the work, authority, access, evidence, and recovery decision survive a normal absence.
+The service failed because continuity had never been made an institutional obligation. A critical task is team-owned only when its work, authority, access, evidence, and recovery decision survive a normal absence.
 
 ::: operating-fact
 A critical outcome is not institutionally owned until it can be performed and governed without one particular person being available.
@@ -46,9 +44,7 @@ Chapters 12 and 13 establish the working paths: shared capability and documentat
 
 ## Trust debt
 
-Every time a critical task is completed by one person from memory, the organisation borrows against that person’s continued availability.
-
-Every time a deployment needs “the person who knows the sequence,” the balance grows. Every time an approval lives in a private message, a credential belongs to one mailbox, or a safety decision cannot be explained by the team, the balance grows.
+Every time a critical task is completed from one person’s memory, the organisation borrows against that person’s continued availability. The balance grows when a deployment needs “the person who knows the sequence,” an approval lives in a private message, or a credential belongs to one mailbox.
 
 This is **Trust Debt**.
 
@@ -60,7 +56,7 @@ This is **Trust Debt**.
 Trust debt grows when a critical path cannot be performed or governed by the team without a particular person. It is repaid through shared roles, demonstrated capability, current operational records, and repeated proof of continuity.
 :::
 
-Trust debt is not a criticism of capable people. Teams should trust expertise. The debt appears when trust becomes a substitute for a system that can carry the work.
+Trust Debt is not a criticism of capable people. It appears when trust substitutes for a system that can carry the work.
 
 ::: warning
 **Indispensability is a governance signal.**
@@ -70,9 +66,9 @@ A heroic recovery may save the current incident. It does not prove that the orga
 
 ## Institutional capability
 
-Institutional capability is not a large documentation library or a list of backup names. It is the organisation’s demonstrated ability to continue critical work despite normal changes in people, context, and pressure.
+Institutional capability is the organisation’s demonstrated ability to continue critical work despite normal changes in people, context, and pressure.
 
-Its evidence is practical. A role, rather than a personal account, holds the required access. A second operator can lead the path. The decision boundary is known. The current operational record explains the safe outcome. A leader can see the last time the path was proved and the blocker that still prevents continuity.
+Its evidence is practical: role-based access, a second operator who can lead the path, a known decision boundary, a current operating record, and a visible last proof with its remaining blocker.
 
 ::: concept
 **INSTITUTIONAL CAPABILITY**
@@ -82,11 +78,11 @@ Its evidence is practical. A role, rather than a personal account, holds the req
 It is measured by proof of continuity, not by confidence in the person who created the system.
 :::
 
-The distinction matters. A team can have excellent documentation and still lack the authority or access to act. It can have a trained second operator and still depend on a private credential. It can have both and still fail because no one owns the decision to run the path. Capability becomes institutional only when these conditions work together.
+A team can have documentation yet lack authority or access. It can have a trained second operator yet depend on a private credential. Capability becomes institutional only when these conditions work together.
 
-## The continuity review
+## The Continuity Review
 
-Continuity should be reviewed like any other operational risk. The review is not an annual succession exercise. It is a short, current view of where a critical outcome still depends on an individual.
+A Continuity Review is a short, current view of where a critical outcome still depends on one person. It is an operating-risk review, not an annual succession exercise.
 
 ::: tip
 **Run one Continuity Review.**
@@ -98,7 +94,7 @@ Continuity should be reviewed like any other operational risk. The review is not
 5. **Current blocker:** What would prevent safe continuity now?
 6. **Accountable action:** Who owns the next control, practice, or escalation needed to reduce the exposure?
 
-The review should end with one concrete action and a date for the next proof, not with a general intention to share more knowledge.
+End with one concrete action and a date for the next proof, not a general intention to share more knowledge.
 :::
 
 ::: operating-fact
@@ -109,11 +105,9 @@ A named backup is an assumption. A second operator who has completed the path wi
 
 Do not wait for an exit interview to discover what one person carries.
 
-Run a planned absence test on one critical but safely exercisable path: a deployment, a credential rotation, a recovery procedure, a customer-impact triage, or a scheduled job handover. Ask the usual owner to be unavailable for the exercise. Assign another operator the shared systems, documents, roles, and decision boundaries.
+Run a planned absence test on one safely exercisable path. Ask the usual owner to be unavailable and assign another operator the shared systems, records, roles, and decision boundaries.
 
-Observe the blockers. Which access was missing? Which decision had no authority? Which term was unclear? Which signal could not be interpreted? Which step existed only in memory?
-
-These blockers are not evidence that the replacement failed. They are the continuity risk the organisation has not yet paid down.
+Observe the blockers: missing access, absent authority, unclear terms, unreadable signals, or steps that exist only in memory. These are the continuity risk the organisation has not yet paid down.
 
 ::: operator-rule
 1. **This week, name one continuity outcome.** Select a critical result and identify the single-person knowledge, access, authority, or manual work that could stop it.

@@ -32,6 +32,15 @@ Five operating truths carry that view forward.
 
 These truths do not make operation simple. They make its real work visible.
 
+## Four operating records to keep current
+
+The book introduces four compact records. They are not a separate bureaucracy. Keep each beside the work it supports.
+
+- **Escalation Contract:** holds contradictory evidence, the untested condition, and the person assigned to verify it.
+- **Exception Ledger:** records a long-lived exception, its owner, evidence of need, review trigger, and decision.
+- **Capability Map:** proves that a second operator has the access, context, and practice to lead a critical path.
+- **Continuity Review:** exposes where a critical outcome still depends on one person and assigns the next proof of continuity.
+
 The next useful step is not a broad transformation programme. Choose one outcome that matters. Trace the path behind it. Name the assumption currently protecting it. Test one recovery action. Ask another operator to perform a task that normally depends on you. Record what the system taught you.
 
 That is how the operating model becomes more honest.

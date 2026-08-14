@@ -23,7 +23,7 @@ incidents_referenced:
 **Inside Chapter 10**
 
 - [01. Start with the running system](#start-with-the-running-system)
-- [02. The exception ledger](#the-exception-ledger)
+- [02. The Exception Ledger](#the-exception-ledger)
 - [03. The cognitive cost of hidden structure](#the-cognitive-cost-of-hidden-structure)
 - [04. Retain, replace, or retire](#retain-replace-or-retire)
 - [05. Design for reversibility](#design-for-reversibility)
@@ -47,7 +47,7 @@ The system that constrains the next change is the system expressed in live decis
 
 Once an exception has stayed, the team must govern it as operating architecture.
 
-## The exception ledger
+## The Exception Ledger
 
 An Exception Ledger is a short record of the unusual rules, overrides, scripts, access grants, routes, feature flags, and vendor settings that materially affect a critical path. Its purpose is to decide what the organisation is actually willing to operate.
 
@@ -62,7 +62,7 @@ The ledger makes an exception visible before an incident forces the team to redi
 Keep the entry beside the infrastructure definition, change record, service ownership record, or configuration repository where the exception lives.
 
 ::: tip
-**Create one exception entry this week.**
+**Create one Exception Ledger entry this week.**
 
 1. **Exception and critical path:** Which unusual element affects which outcome?
 2. **Original problem:** What condition did it solve when it was added?
@@ -115,7 +115,7 @@ The exit may be a replacement control, a supported routing path, an owned servic
 ::: operator-rule
 1. **This week, inspect one critical path outside the diagram.** Compare the intended design with live routes, identities, configuration, scheduled work, and vendor settings.
 
-2. **Create one exception ledger entry.** Name the original problem, current owner, evidence of need, dependencies, review trigger, and planned decision.
+2. **Create one Exception Ledger entry.** Name the original problem, current owner, evidence of need, dependencies, review trigger, and planned decision.
 
 3. **Make one deliberate choice.** Retain with controls, replace with an owned mechanism, or retire with a verification plan. Do not leave a long-lived exception without a named future.
 :::
@@ -152,7 +152,7 @@ Temporary changes become operating architecture when other work depends on them.
 
 ::: keytakeaways
 - The useful audit starts from live configuration, identities, routes, and scheduled work, not only from the intended diagram.
-- An exception ledger records why an unusual path exists, who owns it, and what decision governs its future.
+- An Exception Ledger records why an unusual path exists, who owns it, and what decision governs its future.
 - Hidden structure increases the cognitive cost of every change, incident, review, and recovery.
 - A long-lived exception must be retained with controls, replaced with an owned mechanism, or retired with verification.
 - Reversibility makes the exit path explicit before an old decision becomes an emergency constraint.

@@ -44,31 +44,15 @@ This is not a failure of the person who knew the system well. It is a failure of
 
 ## The knowledge that walks out the door
 
-Every operating team relies on knowledge that is not fully written down. People learn which signal matters first, which dependency is fragile, which customer path has unusual constraints, and which fix is safe only under certain conditions.
+Every operating team relies on knowledge that is not fully written down: which signal matters first, which dependency is fragile, or which fix is safe under a particular condition. That context is valuable.
 
-That context is valuable. It is often what allows an experienced operator to see a pattern before the rest of the team sees it.
-
-The problem begins when the organisation confuses personal expertise with organisational capability. A person may know how the system works. The team does not reliably possess that knowledge until other people can find it, understand it, test it, and use it under the conditions that matter.
-
-Knowledge concentration creates a gap between a system that works while a particular person is present and a system that can be operated by the team that is supposed to own it.
-
-People leave, take leave, change roles, forget details, and cannot be on every incident call. None of this is exceptional. A resilient operating model plans for it.
+The problem begins when personal expertise is mistaken for organisational capability. The team possesses critical knowledge only when other people can find it, test it, and use it under the conditions that matter. People leave, take leave, change roles, and cannot join every incident call. A resilient operating model plans for that ordinary fact.
 
 ## The architecture in people’s heads
 
-Ask several people to explain a critical service without opening a diagram. Listen for the corrections that appear after the first explanation.
+Ask several people to explain a critical service without opening a diagram. The corrections that follow, such as a scheduled export, a special certificate renewal, or a failover condition, show where the real architecture exceeds what the team has made visible.
 
-“There is also that scheduled export.”
-
-“That certificate is renewed differently.”
-
-“The database can fail over, but only after this queue drains.”
-
-Those corrections are not embarrassing. They are evidence. They show where the real architecture exceeds the architecture the team has made visible.
-
-Some of this knowledge cannot be compressed into a single document. It comes from judgment, history, and patterns seen over time. The aim is not to pretend that every person will hold every detail. The aim is to make the critical paths, constraints, and decisions available to more than one person.
-
-A team does not need universal expertise. It needs sufficient shared capability to operate, recover, and change the services it owns without waiting for one individual to become available.
+Not every detail can fit in a document. The aim is not universal expertise. It is sufficient shared capability to operate, recover, and change the critical services without waiting for one person.
 
 ::: risk
 **The risk of concentrated capability**
@@ -96,13 +80,9 @@ Recognise the expert who makes other people capable: the one who pairs, hands ov
 
 ## The cost of concentration
 
-The cost of concentrated knowledge rarely appears as a line item. It appears as delayed maintenance, cautious changes, long bridge calls, and a team that waits for one name before moving.
+Concentrated knowledge appears as delayed maintenance, cautious changes, long bridge calls, and a team that waits for one name before moving. People avoid services they do not understand, route questions to the same expert, and lose opportunities to learn.
 
-It also changes behaviour. People avoid touching services they do not understand. They route questions to the same expert. They postpone improvements because they do not know which dependency will react. Over time, the expert becomes more overloaded and the rest of the team gets fewer opportunities to learn.
-
-This cycle creates an operating bottleneck. The organisation may still have excellent engineers, strong tooling, and good intent. But its ability to act is limited by where the knowledge happens to sit.
-
-The measure that matters is not how many pages exist in a wiki. It is whether more than one person can execute and explain the critical work without improvising under pressure.
+The measure is not how many wiki pages exist. It is whether more than one person can execute and explain critical work without improvising under pressure.
 
 ::: concept
 **Human SPOF**
@@ -114,17 +94,11 @@ It does not mean the person is a problem. It identifies a concentration risk tha
 
 ## Map and prove critical capability
 
-Knowledge transfer works best when it follows real work.
+Knowledge transfer works best when it follows real work. For one critical outcome, name the work, people, access, verification signal, and next scenario that will test a second path.
 
-First, make the capability visible. For one critical outcome, name the work the team must perform, the people who can lead it, the access it needs, the evidence that proves it worked, and the next scenario that will test the second path.
+Pair an experienced operator with a second person on a safe deployment, recovery, credential rotation, or known failure. Then reverse the roles. The second operator makes the decisions, performs the checks, and updates the record while the expert observes.
 
-Choose one critical path. Pair an experienced operator with a second person. Begin with a scenario: deploy a change, recover a service, rotate a credential, or investigate a known failure. Ask the expert to explain what they look for, which assumption could be wrong, and what evidence would make them stop.
-
-Then reverse the roles. The second person leads the activity while the expert observes. The observer corrects gaps, but the learner must make the decisions, perform the checks, and update the record.
-
-Finally, rehearse the scenario without the expert directing it. If the team can complete the work safely, explain its choices, and improve the runbook from the exercise, the knowledge has begun to become organisational.
-
-This practice should be routine, not triggered only by a resignation. The most useful time to share knowledge is while the expert is available, the service is healthy, and the team has enough space to ask basic questions without an outage watching.
+Finally, rehearse without the expert directing. If the team can complete the work safely and explain its choices, capability has begun to become organisational. Practise while the expert is available, not only when a resignation forces the issue.
 
 ::: tip
 **Create one Capability Map.** For a critical outcome, record the lead operator, second operator, required role access, preconditions, verification signal, and date of the next practice. Then have the second operator lead a safe scenario. Record the questions that blocked action and use them to improve the shared path.
