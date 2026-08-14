@@ -355,6 +355,10 @@ $endif$
 % Hook fenced div for the opening italic phrase
 \newenvironment{hookphrase}{\begin{hook}}{\end{hook}}
 
+% Diagram fenced div — a captioned figure for conceptual diagrams.
+% Renders as a centered, captioned image block (uses figure/caption).
+\newenvironment{diagram}{\par\begin{center}}{\end{center}\par}
+
 % ---- Hyperref (links, TOC) ------------------------------------------------
 \usepackage[hidelinks,bookmarksnumbered]{hyperref}
 \hypersetup{

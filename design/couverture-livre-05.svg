@@ -2,104 +2,101 @@
 <!--
   Couverture — The Operator's Last Job (Livre 5)
   Design System : Technical Editorial / Dark Precision
-  Format : 6" x 9" (152 x 229 mm), fond pleine page.
-  Symbole : OPÉRATEUR RELAYÉ — une séquence de formes humaines qui
-            s'effacent progressivement. L'humain disparaît, la fonction reste.
+  Format : 6" x 9" (152 x 229 mm). Grille en pixels (viewBox 0 0 640 960), ratio 6:9.
+  Symbole : OPÉRATEUR RELAYÉ — silhouettes qui s'effacent progressivement.
   Accent livre 5 : Rouge brique #A83A3A.
   Date : 2026
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xml:lang="en"
      width="152mm" height="229mm"
-     viewBox="0 0 152 229">
+     viewBox="0 0 640 960">
 
   <defs>
     <filter id="paper" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="noise"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise"/>
       <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
       <feComponentTransfer in="gray" result="light">
-        <feFuncA type="linear" slope="0.06"/>
+        <feFuncA type="linear" slope="0.05"/>
       </feComponentTransfer>
       <feComposite in="light" in2="SourceGraphic" operator="in" result="tex"/>
       <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="tex"/></feMerge>
     </filter>
   </defs>
 
-  <rect x="0" y="0" width="152" height="229" fill="#F7F5F0" filter="url(#paper)"/>
+  <rect x="0" y="0" width="640" height="960" fill="#F7F5F0" filter="url(#paper)"/>
 
   <!-- ===== BANDEAU SUPÉRIEUR ===== -->
-  <rect x="0" y="0" width="152" height="26" fill="#0A1A2F"/>
-  <text x="16" y="17" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="300" font-size="7pt" letter-spacing="4" fill="#1CB5A0">DAILYOPS</text>
-  <text x="136" y="17" text-anchor="end" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="300" font-size="6pt" letter-spacing="2" fill="#5A6B7A" opacity="0.75">THE OPERATOR'S LIBRARY — BOOK 05</text>
+  <rect x="0" y="0" width="640" height="110" fill="#0A1A2F"/>
+  <text x="70" y="70" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="30" letter-spacing="18" fill="#1CB5A0">DAILYOPS</text>
+  <text x="570" y="70" text-anchor="end" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="24" letter-spacing="9" fill="#5A6B7A" opacity="0.75">THE OPERATOR'S LIBRARY — BOOK 05</text>
 
   <!-- ===== BLOC TITRE ===== -->
-  <rect x="16" y="50" width="120" height="92" fill="#0A1A2F"/>
-  <rect x="16" y="50" width="120" height="2.2" fill="#1CB5A0"/>
+  <rect x="70" y="200" width="500" height="390" fill="#0A1A2F"/>
+  <rect x="70" y="200" width="500" height="9" fill="#1CB5A0"/>
 
-  <text x="28" y="84" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="800" font-size="26pt" letter-spacing="1.5" fill="#FFFFFF">THE OPERATOR'S</text>
-  <text x="28" y="122" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="800" font-size="26pt" letter-spacing="1.5" fill="#FFFFFF">LAST JOB</text>
+  <text x="120" y="330" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="48" letter-spacing="3" fill="#FFFFFF">THE OPERATOR'S</text>
+  <text x="120" y="500" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="80" letter-spacing="3" fill="#FFFFFF">LAST JOB</text>
 
   <!-- ===== SOUS-TITRE ===== -->
-  <text x="28" y="158" font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="400" font-style="italic" font-size="10.5pt" fill="#5A6B7A">Designing Systems</text>
-  <text x="28" y="170" font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="400" font-style="italic" font-size="10.5pt" fill="#5A6B7A">That Outlive Their Creators</text>
+  <text x="120" y="660" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400" font-style="italic" font-size="44" fill="#5A6B7A">Designing Systems</text>
+  <text x="120" y="710" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400" font-style="italic" font-size="44" fill="#5A6B7A">That Outlive Their Creators</text>
 
-  <!-- ===== SYMBOLE : OPÉRATEUR RELAYÉ =====
-       Séquence de silhouettes (tête + épaules) de gauche à droite :
-       pleine → estompée → contour → absente. La fonction reste, l'humain
-       s'efface. Le marqueur rouge signale le seuil de relève. -->
+  <!-- ===== SYMBOLE : OPÉRATEUR RELAYÉ (y ~760..870) =====
+       Séquence de silhouettes : pleine → estompée → contour → absente. -->
   <g id="symbole-relais">
     <!-- Base horizontale acier -->
-    <line x1="16" y1="196" x2="136" y2="196" stroke="#5A6B7A" stroke-width="1" opacity="0.5"/>
+    <line x1="70" y1="870" x2="570" y2="870" stroke="#5A6B7A" stroke-width="4" opacity="0.5"/>
 
-    <!-- Silhouette 1 : pleine rouge (l'opérateur) -->
+    <!-- Silhouette 1 : pleine rouge -->
     <g fill="#A83A3A">
-      <circle cx="30" cy="182" r="3.5"/>
-      <path d="M 23 194 Q 30 184 37 194 Z"/>
+      <circle cx="130" cy="795" r="22"/>
+      <path d="M 100 850 Q 130 770 160 850 Z"/>
     </g>
 
-    <!-- Silhouette 2 : mi-pleine (transition) -->
+    <!-- Silhouette 2 : mi-pleine -->
     <g fill="#A83A3A" opacity="0.55">
-      <circle cx="56" cy="182" r="3.5"/>
-      <path d="M 49 194 Q 56 184 63 194 Z"/>
+      <circle cx="260" cy="795" r="22"/>
+      <path d="M 230 850 Q 260 770 290 850 Z"/>
     </g>
 
-    <!-- Silhouette 3 : contour only (système autonome) -->
-    <g fill="none" stroke="#5A6B7A" stroke-width="1.2">
-      <circle cx="82" cy="182" r="3.5"/>
-      <path d="M 75 194 Q 82 184 89 194 Z"/>
+    <!-- Silhouette 3 : contour only -->
+    <g fill="none" stroke="#5A6B7A" stroke-width="6">
+      <circle cx="390" cy="795" r="22"/>
+      <path d="M 360 850 Q 390 770 420 850 Z"/>
     </g>
 
     <!-- Silhouette 4 : contour très estompé -->
-    <g fill="none" stroke="#5A6B7A" stroke-width="1" opacity="0.4">
-      <circle cx="108" cy="182" r="3.5"/>
-      <path d="M 101 194 Q 108 184 115 194 Z"/>
+    <g fill="none" stroke="#5A6B7A" stroke-width="5" opacity="0.35">
+      <circle cx="510" cy="795" r="22"/>
+      <path d="M 480 850 Q 510 770 540 850 Z"/>
     </g>
 
-    <!-- Marqueur turquoise : le seuil de relève -->
-    <line x1="94" y1="172" x2="94" y2="200" stroke="#1CB5A0" stroke-width="0.8"
-          stroke-dasharray="2,2" opacity="0.7"/>
+    <!-- Seuil de relève : marqueur turquoise -->
+    <line x1="450" y1="730" x2="450" y2="875" stroke="#1CB5A0" stroke-width="4"
+          stroke-dasharray="10,10" opacity="0.7"/>
 
-    <!-- Flèche directionnelle : le relais va vers la droite -->
-    <polygon points="118,184 126,188 118,192 120,188" fill="#5A6B7A" opacity="0.6"/>
+    <!-- Flèche de relais -->
+    <polygon points="475,780 510,795 475,810 485,795" fill="#5A6B7A" opacity="0.6"/>
   </g>
 
   <!-- ===== AUTEUR ===== -->
-  <text x="16" y="212" font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="400" font-size="8pt" letter-spacing="3" fill="#0A1A2F">BA-NDOUWE STEVE</text>
-  <text x="16" y="221" font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="300" font-style="italic" font-size="7pt" fill="#5A6B7A">Systems Engineer · Incident Analyst</text>
+  <text x="70" y="895" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="400" font-size="34" letter-spacing="13" fill="#0A1A2F">BA-NDOUWE STEVE</text>
+  <text x="70" y="930" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="300" font-style="italic" font-size="28" fill="#5A6B7A">Systems Engineer · Incident Analyst</text>
 
   <!-- ===== SIGNATURE DAILYOPS ===== -->
-  <g transform="translate(122, 205)">
-    <rect x="0" y="0" width="9" height="9" fill="#1CB5A0" rx="1"/>
-    <text x="13" y="9" font-family="Sora, 'Space Grotesk', sans-serif"
-          font-weight="300" font-size="5.5pt" letter-spacing="1.5" fill="#5A6B7A">DAILYOPS</text>
+  <g transform="translate(515, 868)">
+    <rect x="0" y="0" width="38" height="38" fill="#1CB5A0" rx="4"/>
+    <text x="55" y="38" font-family="Sora, 'Space Grotesk', sans-serif"
+          font-weight="300" font-size="22" letter-spacing="7" fill="#5A6B7A">DAILYOPS</text>
   </g>
 
 </svg>

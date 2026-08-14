@@ -1,5 +1,12 @@
 # Maquette textuelle — Page intérieure type
 
+> **Prototype visuel disponible** : `design/maquette-interieure-page.svg`
+> (double page 6" × 9" avec rendu réel : ouverture de chapitre, DAILYOPS
+> CONCEPT, FIELD NOTE, pull quote, KEY TAKEAWAYS, header/footer). Cette
+> maquette textuelle reste la spécification détaillée ; le SVG en est le
+> rendu visuel de référence.
+
+
 > **Référence pour le graphiste / la mise en page**
 > **Livre** : Beyond the Firewall (Livre 1) — **Chapitre 5** : Everything Was Green. Everything Was Broken.
 > **Format** : 6" × 9" (152 × 229 mm)

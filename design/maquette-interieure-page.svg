@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  maquette-interieure-page.svg — The Operator's Library
+  Prototype visuel d'une double page intérieure (6" x 9", ratio 6:9).
+  Remplace la maquette ASCII (maquette-page-interieure.md) par un rendu réel
+  du système intérieur : ouverture de chapitre, DAILYOPS CONCEPT, FIELD NOTE,
+  pull quote, KEY TAKEAWAYS, header/footer.
+  Direction : Technical Editorial / Dark Precision. Accent livre 1 (#2C5F8A).
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xml:lang="en"
+     width="304mm" height="229mm"
+     viewBox="0 0 1280 960">
+
+  <!-- ============================ FONDS ============================ -->
+  <rect x="0" y="0" width="1280" height="960" fill="#F7F5F0"/>
+
+  <!-- Gouttière centrale (zone de reliure) -->
+  <rect x="636" y="0" width="8" height="960" fill="#E8E5DE"/>
+
+  <!-- ============================ PAGE GAUCHE ============================ -->
+  <!-- Header : titre du livre (gauche) -->
+  <text x="60" y="48" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="16" letter-spacing="3" fill="#5A6B7A">BEYOND THE FIREWALL</text>
+  <!-- Header : numéro de page (droite) -->
+  <text x="600" y="48" text-anchor="end" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="16" letter-spacing="2" fill="#5A6B7A">47</text>
+  <line x1="60" y1="62" x2="600" y2="62" stroke="#5A6B7A" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- Numéro de chapitre (grand, turquoise) -->
+  <text x="60" y="170" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="150" letter-spacing="2" fill="#1CB5A0">05</text>
+  <line x1="62" y1="188" x2="120" y2="188" stroke="#1CB5A0" stroke-width="3"/>
+
+  <!-- Titre du chapitre -->
+  <text x="60" y="255" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="52" letter-spacing="1" fill="#0A1A2F">EVERYTHING WAS GREEN.</text>
+  <text x="60" y="305" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="52" letter-spacing="1" fill="#0A1A2F">EVERYTHING WAS BROKEN.</text>
+
+  <!-- Hook (phrase d'ouverture, italic gris) -->
+  <text x="60" y="350" font-family="'Source Serif Pro', Georgia, serif"
+        font-style="italic" font-size="22" fill="#5A6B7A">There is a difference between seeing and understanding.</text>
+
+  <!-- Texte courant (paragraphes simulés, trait gris = lignes de texte) -->
+  <g stroke="#C9CCCE" stroke-width="2">
+    <line x1="60" y1="395" x2="600" y2="395"/>
+    <line x1="60" y1="413" x2="600" y2="413"/>
+    <line x1="60" y1="431" x2="540" y2="431"/>
+    <line x1="60" y1="449" x2="600" y2="449"/>
+    <line x1="60" y1="467" x2="600" y2="467"/>
+    <line x1="60" y1="485" x2="510" y2="485"/>
+  </g>
+
+  <!-- ===== DAILYOPS CONCEPT =====
+       Barre turquoise à gauche, fond off-white distinctif, carré turquoise signature. -->
+  <rect x="60" y="520" width="540" height="150" fill="#F2EFE8"/>
+  <rect x="60" y="520" width="7" height="150" fill="#1CB5A0"/>
+  <rect x="78" y="536" width="9" height="9" fill="#1CB5A0"/>
+  <text x="96" y="545" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="13" letter-spacing="3" fill="#5A6B7A">DAILYOPS CONCEPT</text>
+  <text x="78" y="578" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="22" letter-spacing="1" fill="#0A1A2F">MONITORING ILLUSION</text>
+  <text x="78" y="610" font-family="'Source Serif Pro', Georgia, serif"
+        font-style="italic" font-size="17" fill="#111111">A false sense of control created by visibility</text>
+  <text x="78" y="633" font-family="'Source Serif Pro', Georgia, serif"
+        font-style="italic" font-size="17" fill="#111111">without sufficient context.</text>
+
+  <!-- Texte courant (suite) -->
+  <g stroke="#C9CCCE" stroke-width="2">
+    <line x1="60" y1="700" x2="600" y2="700"/>
+    <line x1="60" y1="718" x2="600" y2="718"/>
+    <line x1="60" y1="736" x2="470" y2="736"/>
+  </g>
+
+  <!-- Footer gauche : auteur -->
+  <text x="60" y="928" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="13" letter-spacing="2" fill="#5A6B7A">BA-NDOUWE STEVE</text>
+
+  <!-- ============================ PAGE DROITE ============================ -->
+  <!-- Header : titre du livre (gauche) -->
+  <text x="680" y="48" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="16" letter-spacing="3" fill="#5A6B7A">BEYOND THE FIREWALL</text>
+  <text x="1220" y="48" text-anchor="end" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="16" letter-spacing="2" fill="#5A6B7A">48</text>
+  <line x1="680" y1="62" x2="1220" y2="62" stroke="#5A6B7A" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- Texte courant (haut de page droite) -->
+  <g stroke="#C9CCCE" stroke-width="2">
+    <line x1="680" y1="100" x2="1220" y2="100"/>
+    <line x1="680" y1="118" x2="1220" y2="118"/>
+    <line x1="680" y1="136" x2="1150" y2="136"/>
+  </g>
+
+  <!-- ===== FIELD NOTE =====
+       Barre accent (bleu acier, livre 1) à gauche + bandeau supérieur fin. -->
+  <rect x="680" y="170" width="540" height="290" fill="#FFFFFF"/>
+  <rect x="680" y="170" width="540" height="6" fill="#2C5F8A"/>
+  <rect x="680" y="176" width="11" height="284" fill="#2C5F8A"/>
+  <text x="708" y="200" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="13" letter-spacing="3" fill="#2C5F8A">FIELD NOTE</text>
+
+  <!-- Champs structurés (intitulé en gras Sora, contenu en serif) -->
+  <text x="708" y="232" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="14" fill="#0A1A2F">Context:</text>
+  <text x="860" y="232" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">An e-commerce firm used a centralised</text>
+  <text x="860" y="250" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">supervision dashboard.</text>
+
+  <text x="708" y="280" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="14" fill="#0A1A2F">What We Expected:</text>
+  <text x="860" y="280" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">Green metrics meant a healthy system.</text>
+
+  <text x="708" y="310" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="14" fill="#0A1A2F">What Happened:</text>
+  <text x="860" y="310" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">Users endured slowdowns and payment</text>
+  <text x="860" y="328" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">failures for 3 days, with no alert.</text>
+
+  <text x="708" y="358" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="14" fill="#0A1A2F">Why It Happened:</text>
+  <text x="860" y="358" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">The dashboard tracked server uptime,</text>
+  <text x="860" y="376" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">not response times nor error rates.</text>
+
+  <text x="708" y="406" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="14" fill="#0A1A2F">What It Taught Us:</text>
+  <text x="860" y="406" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">Partial visibility is more dangerous</text>
+  <text x="860" y="424" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">than no visibility at all.</text>
+
+  <!-- Texte courant (entre field note et pull quote) -->
+  <g stroke="#C9CCCE" stroke-width="2">
+    <line x1="680" y1="495" x2="1220" y2="495"/>
+    <line x1="680" y1="513" x2="1220" y2="513"/>
+    <line x1="680" y1="531" x2="1180" y2="531"/>
+  </g>
+
+  <!-- ===== PULL QUOTE =====
+       Lignes turquoise au-dessus et en dessous, texte centré serif italic, guillemets. -->
+  <line x1="780" y1="585" x2="1120" y2="585" stroke="#1CB5A0" stroke-width="1.5"/>
+  <text x="720" y="635" font-family="Georgia, serif" font-size="40" fill="#1CB5A0" opacity="0.35">«</text>
+  <text x="950" y="640" text-anchor="middle" font-family="'Source Serif Pro', Georgia, serif"
+        font-style="italic" font-size="30" fill="#0A1A2F">A green dashboard is not proof</text>
+  <text x="950" y="678" text-anchor="middle" font-family="'Source Serif Pro', Georgia, serif"
+        font-style="italic" font-size="30" fill="#0A1A2F">of a healthy system.</text>
+  <text x="1190" y="690" font-family="Georgia, serif" font-size="40" fill="#1CB5A0" opacity="0.35">»</text>
+  <line x1="780" y1="710" x2="1120" y2="710" stroke="#1CB5A0" stroke-width="1.5"/>
+
+  <!-- Texte courant (entre pull quote et key takeaways) -->
+  <g stroke="#C9CCCE" stroke-width="2">
+    <line x1="680" y1="750" x2="1220" y2="750"/>
+    <line x1="680" y1="768" x2="1150" y2="768"/>
+  </g>
+
+  <!-- ===== KEY TAKEAWAYS =====
+       Barre accent à gauche, fond off-white, titre en accent, liste à puces turquoise. -->
+  <rect x="680" y="800" width="540" height="120" fill="#F2EFE8"/>
+  <rect x="680" y="800" width="11" height="120" fill="#2C5F8A"/>
+  <text x="708" y="828" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="16" letter-spacing="3" fill="#2C5F8A">KEY TAKEAWAYS</text>
+  <text x="708" y="860" font-size="13" fill="#1CB5A0" font-family="Sora, sans-serif">●</text>
+  <text x="725" y="860" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">A green dashboard is not proof of a healthy system.</text>
+  <text x="708" y="884" font-size="13" fill="#1CB5A0" font-family="Sora, sans-serif">●</text>
+  <text x="725" y="884" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">Visibility without context breeds false control.</text>
+  <text x="708" y="908" font-size="13" fill="#1CB5A0" font-family="Sora, sans-serif">●</text>
+  <text x="725" y="908" font-family="'Source Serif Pro', Georgia, serif"
+        font-size="14" fill="#111111">Measure user experience, not just component uptime.</text>
+
+  <!-- Footer droite : carré turquoise discret -->
+  <rect x="1210" y="918" width="12" height="12" fill="#1CB5A0"/>
+
+</svg>
