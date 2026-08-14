@@ -25,7 +25,8 @@ incidents_referenced:
 - [03. Why teams freeze](#why-teams-freeze)
 - [04. Cognitive load is part of the incident](#cognitive-load-is-part-of-the-incident)
 - [05. The incident decision loop](#the-incident-decision-loop)
-- [06. Train for the moment](#train-for-the-moment)
+- [06. The incident bridge](#the-incident-bridge)
+- [07. Train for the moment](#train-for-the-moment)
 :::
 
 ## The fog of war
@@ -116,8 +117,21 @@ A repeatable sequence for operating under incomplete information: observe the im
 The loop turns response from a search for certainty into a disciplined process of reducing harm and learning quickly.
 :::
 
+## The incident bridge
+
+A bridge call needs a shared picture that is shorter than the incident and stronger than a stream of private notes. The purpose is not to narrate everything the team has learned. It is to make the current decision inspectable.
+
 ::: tip
-**Run a decision drill.** During a game day, give the team an incident with incomplete and conflicting signals. Require the incident commander to name the current impact, the next reversible action, the owner, the expected observation, and the time at which the decision will be reviewed. Afterwards, review the quality of the decision process, not only whether the technical fix worked.
+**Incident Bridge format**
+
+1. **Customer impact:** Which outcome is failing, for whom, and since when?
+2. **Current decision:** What choice is the team making now?
+3. **Evidence and uncertainty:** What supports the choice, and what remains untested?
+4. **Action and owner:** Who performs the next step, and is it reversible?
+5. **Expected observation:** What result should follow if the choice helps?
+6. **Review point:** When will the team reassess or escalate the decision?
+
+Update these six lines when the decision changes. The bridge is useful when any operator joining the incident can understand the current choice without replaying the entire call.
 :::
 
 ## Train for the moment
@@ -131,13 +145,13 @@ The goal is not to make people fearless or to reward the fastest voice. The goal
 The best teams do not eliminate pressure. They build habits that keep pressure from deciding for them.
 
 ::: operator-rule
-1. **Name the decision owner early.** At the start of a material incident, identify who owns the next operational decision and who will communicate it. Expertise can be distributed; decision ownership cannot be absent.
+1. **This week, define the decision owner.** For the next material incident, name who owns the next operational decision and who communicates it. Expertise can be distributed; decision ownership cannot be absent.
 
-2. **Choose actions with an observation attached.** Before acting, state what outcome you expect and how long you will wait before reviewing it. An action without a feedback point is only movement.
+2. **Use the Incident Bridge format.** Before acting, record the current decision, owner, expected observation, and review point. An action without a feedback point is only movement.
 
 3. **Prefer proportionate, reversible steps.** When evidence is incomplete, reduce harm and learn with the smallest action that can change the situation. Escalate when the consequence of waiting exceeds the risk of action.
 
-4. **Rehearse the decision process.** Train the command, communication, and review cadence alongside the technical recovery work.
+4. **Rehearse the decision process.** Run a short drill that tests command, communication, and review cadence alongside technical recovery work.
 :::
 
 ::: {.memorable-phrase}

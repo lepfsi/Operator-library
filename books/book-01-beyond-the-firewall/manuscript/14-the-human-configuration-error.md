@@ -23,8 +23,9 @@ incidents_referenced:
 - [02. Error is inevitable; harm is not](#error-is-inevitable-harm-is-not)
 - [03. The system that set the trap](#the-system-that-set-the-trap)
 - [04. Guardrails that change the outcome](#guardrails-that-change-the-outcome)
-- [05. Review the conditions, not only the person](#review-the-conditions-not-only-the-person)
-- [06. Design the next safe action](#design-the-next-safe-action)
+- [05. Make the unsafe action difficult](#make-the-unsafe-action-difficult)
+- [06. Review the conditions, not only the person](#review-the-conditions-not-only-the-person)
+- [07. Design the next safe action](#design-the-next-safe-action)
 :::
 
 ## The change made in the wrong place
@@ -87,6 +88,24 @@ The best guardrail often changes the system so the wrong action cannot be comple
 
 These controls do not remove human judgment. They reserve judgment for the decisions that matter and prevent routine mechanics from becoming a source of avoidable harm.
 
+## Make the unsafe action difficult
+
+The strongest guardrails change the path before the operator can make the high-consequence choice by habit.
+
+**Separate identities** keep lower-environment work and production work in distinct accounts, roles, shells, or consoles. A production action should not begin from the same visual and permission context as a routine test action.
+
+**Target-aware previews** show the exact account, tenant, scope, affected objects, and intended diff before impact. A preview that names the target lets the operator discover a mismatch while the change is still reversible.
+
+**Change tokens** bind a high-impact action to an approved purpose. The token should identify the target, scope, expiry, and change record. It is not a ceremonial password. It prevents an approved action for one context from silently authorising another.
+
+**Scoped privileges** allow the smallest operation that completes the task. An identity that can modify one policy should not also be able to alter every tenant or bypass every review boundary.
+
+**Outcome verification** tests the expected user result after a change. Syntax acceptance is not proof that the intended condition now exists.
+
+::: tip
+**Choose one guardrail this week.** Take a high-impact configuration task and map its target, preview, authority, scope, and outcome check. Identify the earliest point where a slip could become customer impact. Add one control there, then ask a second operator to run the safe path and explain what stopped the unsafe one.
+:::
+
 ::: warning
 **Confirmation is not a control by itself**
 
@@ -128,13 +147,13 @@ Run the path again in a safe environment. If the new design makes the unsafe act
 :::
 
 ::: operator-rule
-1. **Make the target unmistakable.** Distinguish high-consequence environments through identities, names, permissions, interfaces, and workflow context, not colour alone.
+1. **This week, separate one high-consequence identity.** Make the production path distinct from lower environments through a dedicated role, account, console, or approval boundary.
 
-2. **Match controls to consequence.** Use previews, scoped permissions, peer review, approval boundaries, and reversal paths in proportion to the damage a wrong action could cause.
+2. **Add a target-aware preview.** Before impact, show the exact tenant, scope, affected object, and intended difference. Reject a change when the declared and observed target do not match.
 
-3. **Design for detection and recovery.** A change is not safe because it was accepted. Define the signal that proves the intended outcome and the path that contains an unintended one.
+3. **Bind authority to the change.** Use scoped permissions and a change token or approval reference when an action can alter a high-impact target.
 
-4. **Review conditions with fairness.** Investigate the system, information, controls, and incentives around an error before deciding what individual accountability means.
+4. **Verify the user outcome and review conditions fairly.** Define the signal that proves the intended result, then investigate the system, information, controls, and incentives around any error before deciding individual accountability.
 :::
 
 ::: {.memorable-phrase}
