@@ -1,0 +1,37 @@
+# Normalize line endings across operating systems.
+# Windows checkouts (WSL, Git Bash, native) often get CRLF via core.autocrlf,
+# which breaks shell shebangs ("bash\r: No such file or directory") and can
+# affect LaTeX / Lua / YAML parsing. Force LF on text source files.
+
+# Default: text files use LF on checkout, native on working copy only if
+# absolutely needed. We normalize to LF.
+* text=auto eol=lf
+
+# Shell scripts MUST stay LF (shebang breaks with CRLF).
+*.sh   text eol=lf
+*.bash text eol=lf
+
+# Build / render pipeline (CRLF can break LaTeX, Lua filters, YAML parsing).
+*.lua    text eol=lf
+*.latex  text eol=lf
+*.tex    text eol=lf
+*.css    text eol=lf
+*.yaml   text eol=lf
+*.yml    text eol=lf
+*.bib    text eol=lf
+*.csl    text eol=lf
+
+# Markdown source (manuscripts, templates) — LF for consistency.
+*.md     text eol=lf
+
+# SVG / vector assets — LF (XML parsers tolerate CRLF, but keep it consistent).
+*.svg    text eol=lf
+
+# Binary assets — never normalize.
+*.pdf    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.ase    binary
+*.docx   binary
+*.epub   binary

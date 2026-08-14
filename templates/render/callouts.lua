@@ -5,27 +5,45 @@
 --  Pandoc's default LaTeX writer does NOT emit \begin{name} for
 --  fenced divs; this filter fixes that.
 --
---  Supports the 8 callouts used in chapter-template.md:
---    field-note, concept, lesson, warning, remember,
---    pullquote, keytakeaways, diagram
---  Plus the hookphrase helper.
+--  Callouts aligned with the DailyOps.tech site style
+--  (Note / Tip / Warning / Important / Caution) plus book-specific
+--  blocks. Every class here MUST have a matching \newenvironment
+--  or \newtcolorbox in template.latex.
+--
+--  Site-style callouts (icon + label + tinted background):
+--    note, tip, important, caution, warning
+--  Book-specific blocks:
+--    field-note, concept, lesson, remember, pitfall,
+--    pullquote, keytakeaways, operator-rule, impact-quote,
+--    impact-opener, diagram
+--  Helper:
+--    hookphrase
 --
 --  Usage in build-book.sh:
 --    pandoc ... --lua-filter=templates/render/callouts.lua
 -- ============================================================
 
--- Known fenced-div classes → LaTeX environment names.
+-- Known fenced-div classes -> LaTeX environment names.
 local known_envs = {
-  ["field-note"]   = "field-note",
-  ["concept"]      = "concept",
-  ["lesson"]       = "lesson",
-  ["warning"]      = "warning",
-  ["pitfall"]      = "pitfall",
-  ["remember"]     = "remember",
-  ["pullquote"]    = "pullquote",
-  ["keytakeaways"] = "keytakeaways",
-  ["diagram"]      = "diagram",
-  ["hookphrase"]   = "hookphrase",
+  -- Site-style callouts
+  ["note"]           = "note",
+  ["tip"]            = "tip",
+  ["important"]      = "important",
+  ["caution"]        = "caution",
+  ["warning"]        = "warning",
+  -- Book-specific blocks
+  ["field-note"]     = "field-note",
+  ["concept"]        = "concept",
+  ["lesson"]         = "lesson",
+  ["pitfall"]        = "pitfall",
+  ["remember"]       = "remember",
+  ["pullquote"]      = "pullquote",
+  ["keytakeaways"]   = "keytakeaways",
+  ["operator-rule"]  = "operator-rule",
+  ["impact-quote"]   = "impact-quote",
+  ["impact-opener"]  = "impact-opener",
+  ["diagram"]        = "diagram",
+  ["hookphrase"]     = "hookphrase",
 }
 
 function Div(el)

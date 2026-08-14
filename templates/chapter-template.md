@@ -129,6 +129,47 @@ DRIFT
 :::
 ```
 
+### Callouts style site web (Note / Tip / Important / Caution)
+
+Alignés sur DailyOps.tech : label en petites capitales + filet + fond teinté.
+
+```
+::: note
+Information contextuelle utile, sans urgence.
+:::
+
+::: tip
+Conseil pratique orienté action (1-3 phrases).
+:::
+
+::: important
+À ne pas manquer : change la lecture du chapitre.
+:::
+
+::: caution
+Procéder prudemment : risque de dérive.
+:::
+```
+
+### Blocs d'impact (rythme éditorial 10 pages)
+
+```
+::: impact-opener
+:::
+
+::: impact-quote
+« Citation pleine page, sans folio. »
+:::
+
+::: operator-rule
+1.  Cartographiez les dépendances internes une fois par trimestre.
+2.  Séparez les dashboards sécurité et fiabilité.
+3.  Attribuez une date d'expiration à TOUTE exception.
+:::
+```
+
+Voir `design-system.md` §5 pour le rythme complet page par page.
+
 ---
 
 ## 1. Hook / Incident
