@@ -100,7 +100,7 @@ Rule 214 triggered a broader audit. The company believed its firewall was clean 
 
 The vendor integration linked to Rule 214 had ended months earlier. No record connected the rule to the contract. No review task existed. The engineer who created it had left the company.
 
-The firewall was doing exactly what it had been told to do. It allowed the traffic. The dashboard was green because nothing in the monitoring stack had been designed to ask whether that access was still justified.
+The firewall was doing exactly what it had been told to do. It allowed the traffic. The monitoring stack reported ordinary activity because nothing in it had been designed to ask whether that access was still justified.
 
 The team did not react with panic. They reacted with confusion. They had not deliberately accepted the risk. They had simply stopped seeing it.
 
@@ -115,7 +115,7 @@ The Permanent Temporary is therefore not a security issue alone. It is evidence 
 If you manage a firewall, an access control list, a privileged account, or any temporary resource, the rule is simple: every exception must remain accountable to the organisation that created it.
 
 ::: operator-rule
-1. **Set an expiration date.** Every exception needs a date, whether it is one week, one month, or one quarter away. When that date arrives, the exception does not renew automatically. Its continuation must be justified.
+1. **This week, review one active exception.** Set its expiration date, confirm the condition that makes removal safe, and create the review task now. When that date arrives, continuation must be justified rather than renewed automatically.
 
 2. **Assign an owner.** Every exception needs a named person who receives the reminder, understands the original reason, and can decide whether the access should remain.
 
