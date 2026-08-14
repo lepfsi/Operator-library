@@ -309,22 +309,23 @@ $endif$
 
 \newtcolorbox{memorablephrase}{%
   enhanced,unbreakable,arc=0pt,boxrule=0pt,
-  colback=paper,colframe=saffron,
-  borderline west={1.8pt}{0pt}{saffron},
-  left=14pt,right=14pt,top=6pt,bottom=6pt,before skip=20pt,after skip=20pt,
-  fontupper=\bfseries\color{ink}
+  colback=mist!55,colframe=saffron,
+  borderline north={1.1pt}{0pt}{saffron},borderline south={0.55pt}{0pt}{saffron!55},
+  left=20pt,right=20pt,top=13pt,bottom=13pt,before skip=20pt,after skip=20pt,
+  fontupper=\itshape\large\color{ink}\centering,
+  before upper={\textsc{\footnotesize\color{saffron}Memorable Phrase}\par\vspace{7pt}}
 }
 
 % Field Note is evidence from the work, not a dramatic full-bleed interruption.
 % It stays on one folio and uses an Ink rule with a quiet paper field.
 \newtcolorbox{fieldnote}{%
-  enhanced,unbreakable,arc=0pt,boxrule=0pt,
-  colback=chalk,colframe=ink,
-  borderline west={2.2pt}{0pt}{ink},
+  enhanced,unbreakable,arc=0pt,boxrule=0.65pt,
+  colback=mist!16,colframe=ink,
+  borderline north={2.6pt}{0pt}{saffron},
   left=17pt,right=16pt,top=13pt,bottom=14pt,
   before skip=24pt,after skip=24pt,
   fontupper=\small,
-  before upper={\textsc{\footnotesize\color{ink}Field Note}\par\vspace{4pt}\textcolor{ink!35}{\rule{24mm}{0.45pt}}\par\vspace{8pt}}
+  before upper={\textsc{\footnotesize\color{ink}Field Note}\hfill{\sffamily\scriptsize\color{saffron}OBSERVED EVIDENCE}\par\vspace{5pt}\textcolor{ink!38}{\rule{\linewidth}{0.45pt}}\par\vspace{8pt}}
 }
 
 % A final editorial bridge, distinct from callouts and never left to a lone italic line.

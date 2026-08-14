@@ -155,17 +155,28 @@ div.operator-rule::before { content: "Operator’s Rule"; color: var(--saffron);
 div.operator-rule ol { margin-bottom: 0; }
 div.operator-rule ol > li::marker { color: var(--action-blue); font-family: "Noto Sans", sans-serif; font-weight: 700; }
 
-/* Field Note: dark signature page. E-readers may ignore page-breaks, but the
-   contrast and the structured evidence remain intact. */
+/* Field Note: an observed-evidence sheet, framed rather than theatrical. */
 div.field-note {
-  padding: 1.15em 1.2em;
-  background: var(--chalk);
+  padding: 1.1em 1.15em;
+  background: #E8E1D5;
   color: var(--ink);
-  border: 0;
-  border-left: 2px solid var(--ink);
+  border: 1px solid var(--ink);
+  border-top: 3px solid var(--saffron);
   page-break-inside: avoid;
 }
-div.field-note::before { content: "Field Note"; color: var(--ink); }
+div.field-note::before {
+  content: "Field Note  ·  Observed Evidence";
+  display: block;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.55em;
+  color: var(--ink);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.66em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 div.field-note strong { color: var(--ink); font-family: "Noto Sans", sans-serif; font-size: 0.88em; letter-spacing: 0.03em; }
 
 div.part-map {
@@ -257,16 +268,29 @@ div.pullquote {
 }
 
 div.memorable-phrase {
-  padding: 0.5em 1.2em;
+  padding: 1em 1.35em;
   color: var(--ink);
-  border: 0;
-  border-left: 2px solid var(--saffron);
-  background: transparent;
+  border-top: 2px solid var(--saffron);
+  border-bottom: 1px solid color-mix(in srgb, var(--saffron) 55%, transparent);
+  background: #DDD5C6;
   font-family: "Noto Serif", Georgia, serif;
-  font-size: 1.05em;
+  font-size: 1.15em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.48;
+  text-align: center;
+}
+div.memorable-phrase::before {
+  content: "Memorable Phrase";
+  display: block;
+  margin-bottom: 0.65em;
+  color: var(--saffron);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.62em;
+  font-style: normal;
   font-weight: 700;
-  line-height: 1.5;
-  text-align: left;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 /* Takeaways */

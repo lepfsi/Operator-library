@@ -351,3 +351,38 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | Position | La phrase mémorable précède immédiatement le Field Note dans le flux ; un changement de page reste admis lorsque le bloc suivant ne tient pas. | Retenu |
 | `Pull Quote` | Phrase de taille courante, en italique et entre guillemets, sans fond, bordure ni label. | Retenu |
 | Hiérarchie | L’Operator’s Rule reste le point visuel majeur ; la phrase mémorable agit comme seuil et la citation comme respiration. | Retenu |
+
+## Contrôle visuel — couverture et nouveau Field Note
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 1, puis 48 à 49
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Première de couverture | La surface Ink et la frontière Saffron atteignent visuellement le bord supérieur ; la continuité n’est plus interrompue par un retrait dans le SVG intégré. | Validé |
+| Field Note | Le nouveau cadre Ink complet, la barre supérieure Saffron et la signature `Observed Evidence` créent une fiche de preuve identifiable sans fond dramatique. | Validé |
+| Pull Quote | La citation demeure une phrase en italique, entre guillemets, sans élément de carte. | Validé |
+| Point restant | Contrôler les pages spécifiques du chapitre 6, notamment son ouverture, sa phrase mémorable, son Field Note et sa transition. | À contrôler |
+
+## Contrôle visuel — chapitre 6 et raffinements finaux
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 51 à 58
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Guide du chapitre 6 | La liste cliquable reste lisible, aérée et cohérente avec les autres chapitres. | Validé |
+| Corps du chapitre 6 | La progression est plus rigoureuse que le scaffold initial : disponibilité, résilience, MTTR, panne en lecture seule, design de récupération. | Validé |
+| Memorable Phrase | Le label est revenu, la surface chaude est discrète, et l’élément ne concurrence plus l’Operator’s Rule. | Validé |
+| Field Note | Le cadre complet avec barre Saffron et mention `Observed Evidence` crée une fiche plus singulière et plus élégante. | Validé |
+| Pull Quote | La citation reste simple, en italique et entre guillemets, sans effet décoratif excessif. | Validé |
+| Transition vers le chapitre 7 | La bascule vers `Hope Is Not a Rollback Strategy` est claire et prépare correctement la Partie II. | Validé |
+| Pagination | Aucune page blanche involontaire observée dans la séquence de fin du chapitre 6. | Validé |
