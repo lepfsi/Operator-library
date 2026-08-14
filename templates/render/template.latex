@@ -471,7 +471,7 @@ $endif$
   before skip=20pt, after skip=20pt,
   breakable,
   fontupper=\small,
-  before upper={\textsc{\footnotesize\color{accent}Operator\textquotesingle s Rule}\par\vspace{3pt}\textcolor{steelgray!30}{\rule{\linewidth}{0.4pt}}\par\vspace{6pt}}
+  before upper={\textsc{\footnotesize\color{accent}Operator's Rule}\par\vspace{3pt}\textcolor{steelgray!30}{\rule{\linewidth}{0.4pt}}\par\vspace{6pt}}
 }
 
 
