@@ -63,28 +63,23 @@
 %   Sora, Source Serif Pro, IBM Plex Mono  (Google Fonts)
 % then run: fc-cache -fv
 %
-% Detect premium fonts under the names shipped by Google Fonts.
-% Sora and IBM Plex Mono keep their names; Source Serif is published by
-% Google Fonts as "Source Serif 4" (the variable font), while older
-% installs may still have it as "Source Serif Pro". We accept either.
-\IfFontExistsTF{Sora}{%
-  \setsansfont{Sora}%
-}{%
-  \setsansfont{TeX Gyre Heros}% Helvetica clone, present in every TeX Live
-}
-\IfFontExistsTF{Source Serif Pro}{%
-  \setmainfont{Source Serif Pro}%
-}{%
-  \IfFontExistsTF{Source Serif 4}{%
-    \setmainfont{Source Serif 4}%
-  }{%
-    \setmainfont{TeX Gyre Pagella}% present in every TeX Live
-  }%
-}
-\IfFontExistsTF{IBM Plex Mono}{%
-  \setmonofont{IBM Plex Mono}%
-}{%
-  \setmonofont{TeX Gyre Cursor}% Courier clone, present in every TeX Live
+Fonts: use TeX Gyre (shipped with every TeX Live) as the BASE.
+TeX Gyre Heros (sans), Pagella (serif), Cursor (mono) are metric-compatible
+with Helvetica/Palatino/Courier and embed cleanly in PDF via xdvipdfmx.
+
+Premium fonts (Sora, Source Serif Pro/4, IBM Plex Mono) from Google Fonts
+ship as VARIABLE fonts ([wght], [opsz,wght]) which xdvipdfmx cannot embed,
+causing "Invalid font: -1" errors. To use them, install STATIC (non-variable)
+TTF versions and uncomment the IfFontExistsTF blocks below.
+
+\setsansfont{TeX Gyre Heros}%  headings, callouts (Helvetica clone)
+\setmainfont{TeX Gyre Pagella}% body (Palatino clone)
+\setmonofont{TeX Gyre Cursor}% code (Courier clone)
+% --- Optional: premium fonts (uncomment after installing STATIC versions) ---
+% \IfFontExistsTF{Sora}{\setsansfont{Sora}}{\setsansfont{TeX Gyre Heros}}
+% \IfFontExistsTF{Source Serif Pro}{\setmainfont{Source Serif Pro}}{%
+%   \IfFontExistsTF{Source Serif 4}{\setmainfont{Source Serif 4}}{\setmainfont{TeX Gyre Pagella}}}
+% \IfFontExistsTF{IBM Plex Mono}{\setmonofont{IBM Plex Mono}}{\setmonofont{TeX Gyre Cursor}}
 }
 
 % Default font: serif for body (premium editorial)
@@ -383,7 +378,7 @@ $endif$
   before skip=16pt, after skip=16pt,
   breakable,
   fontupper=\small,
-  before upper={\textcolor{steelgray}{\large\,\textbullet}\,\textsc{\footnotesize\color{steelgray}Note}\par\vspace{2pt}\textcolor{steelgray!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+  before upper={\textsc{\footnotesize\color{steelgray}Note}\par\vspace{2pt}\textcolor{steelgray!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
 }
 
 % TIP — practical advice, turquoise tint (DailyOps signature)
@@ -398,7 +393,7 @@ $endif$
   before skip=16pt, after skip=16pt,
   breakable,
   fontupper=\small,
-  before upper={\textcolor{turquoise}{\large\,\textbullet}\,\textsc{\footnotesize\color{turquoise}Tip}\par\vspace{2pt}\textcolor{turquoise!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+  before upper={\textsc{\footnotesize\color{turquoise}Tip}\par\vspace{2pt}\textcolor{turquoise!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
 }
 
 % IMPORTANT — must-not-miss, deep navy tint
@@ -413,7 +408,7 @@ $endif$
   before skip=16pt, after skip=16pt,
   breakable,
   fontupper=\small,
-  before upper={\textcolor{deepnavy}{\large\,!}\,\textsc{\footnotesize\color{deepnavy}Important}\par\vspace{2pt}\textcolor{deepnavy!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+  before upper={\textsc{\footnotesize\color{deepnavy}Important}\par\vspace{2pt}\textcolor{deepnavy!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
 }
 
 % CAUTION — proceed carefully, amber tint
@@ -428,7 +423,7 @@ $endif$
   before skip=16pt, after skip=16pt,
   breakable,
   fontupper=\small,
-  before upper={\textcolor{accenthumansspof}{\large\,!}\,\textsc{\footnotesize\color{accenthumansspof}Caution}\par\vspace{2pt}\textcolor{accenthumansspof!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+  before upper={\textsc{\footnotesize\color{accenthumansspof}Caution}\par\vspace{2pt}\textcolor{accenthumansspof!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
 }
 
 % =====================================================================
@@ -478,7 +473,7 @@ $endif$
   before skip=20pt, after skip=20pt,
   breakable,
   fontupper=\small,
-  before upper={\textsc{\footnotesize\color{accent}Operator's Rule}\par\vspace{3pt}\textcolor{steelgray!30}{\rule{\linewidth}{0.4pt}}\par\vspace{6pt}}
+  before upper={\textsc{\footnotesize\color{accent}Operator\textquotesingle s Rule}\par\vspace{3pt}\textcolor{steelgray!30}{\rule{\linewidth}{0.4pt}}\par\vspace{6pt}}
 }
 
 
