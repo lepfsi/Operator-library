@@ -161,7 +161,7 @@
 ---
 
 ### Creator_Exit_System_Blackout
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : manufacturing software vendor, ~180 employees
 - **Period** : January 2023
 - **Context** : the architect who built the factory-scheduling system left; the system kept running exactly as he left it
@@ -169,7 +169,7 @@
 - **Hidden assumption** : "a working system needs no one; maintenance will be trivial"
 - **Consequence** : three weeks later a certificate expiry could not be renewed — the rotation procedure existed only in the architect's head; production scheduling stopped for a day
 - **Lesson** : The best system is the one that doesn't need you
-- **Books used in** : Beyond the Firewall — ch. 11
+- **Books used in** : Beyond the Firewall, ch. 15
 
 ---
 

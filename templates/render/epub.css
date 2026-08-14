@@ -88,7 +88,7 @@ a { color: var(--action-blue); }
 
 /* Shared callout geometry: flat, narrow, high-contrast and screen-reader safe. */
 div.note, div.tip, div.important, div.caution, div.warning, div.pitfall,
-div.concept, div.operator-rule, div.keytakeaways, div.lesson, div.remember,
+div.concept, div.operating-fact, div.operator-rule, div.keytakeaways, div.lesson, div.remember,
 div.pullquote, div.memorable-phrase, div.field-note, div.impact-quote, div.impact-opener, div.part-opener, div.part-map, div.chapter-guide, div.diagram {
   box-sizing: border-box;
   margin: 1.65em 0;
@@ -98,7 +98,7 @@ div.pullquote, div.memorable-phrase, div.field-note, div.impact-quote, div.impac
 /* Small labels */
 div.note::before, div.tip::before, div.important::before, div.caution::before,
 div.warning::before, div.pitfall::before, div.concept::before,
-div.operator-rule::before, div.keytakeaways::before, div.field-note::before {
+div.operating-fact::before, div.operator-rule::before, div.keytakeaways::before, div.field-note::before {
   display: block;
   font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.72em;
@@ -124,6 +124,16 @@ div.important { background: #EAE5DD; border-left-width: 2px; border-left-color: 
 div.important::before { content: "Key Decision"; color: var(--ink); }
 div.caution, div.warning, div.pitfall { background: #FBECE8; border-left-width: 2px; border-left-color: var(--vermilion); }
 div.caution::before, div.warning::before, div.pitfall::before { content: "Risk"; color: var(--vermilion); }
+
+/* Compact operational truth marker */
+div.operating-fact {
+  padding: 0.75em 1em 0.8em;
+  border-left: 3px solid var(--saffron);
+  border-top: 1px solid #E6C76D;
+  background: transparent;
+  font-size: 1.04em;
+}
+div.operating-fact::before { content: "Operational Fact"; color: var(--saffron); }
 
 /* Proprietary vocabulary */
 div.concept {

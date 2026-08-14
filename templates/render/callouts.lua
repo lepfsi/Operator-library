@@ -13,6 +13,7 @@ local known_envs = {
   ["front-piece"]    = "frontpiece",
   ["config-block"]    = "configblock",
   ["field-note"]     = "field-note",
+  ["operating-fact"] = "operating-fact",
   ["next-chapter"]   = "nextchapter",
   ["concept"]        = "concept",
   ["lesson"]         = "lesson",

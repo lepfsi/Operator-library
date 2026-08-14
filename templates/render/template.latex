@@ -266,6 +266,18 @@ $endif$
   before upper={\textsc{\footnotesize\color{forest}System Concept}\par\vspace{5pt}}
 }
 
+% Operational Fact is a compact truth marker: one condition the reader should carry into the work.
+\newtcolorbox{operatingfact}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=paper,colframe=saffron,
+  borderline west={3.2pt}{0pt}{saffron},
+  borderline north={0.4pt}{0pt}{saffron!45},
+  left=17pt,right=14pt,top=10pt,bottom=10pt,
+  before skip=20pt,after skip=20pt,
+  fontupper=\large\color{ink},
+  before upper={\sffamily\scriptsize\scshape\color{saffron}Operational Fact\hfill\textcolor{saffron}{\raisebox{0.12ex}{\small\textbullet}}\par\vspace{5pt}\normalfont\large\color{ink}}
+}
+
 \newtcolorbox{operatorrule}{%
   enhanced,unbreakable,arc=0pt,boxrule=0pt,
   colback=ink,colframe=ink,
@@ -381,6 +393,7 @@ $endif$
 \newenvironment{front-piece}{\begin{frontpiece}}{\end{frontpiece}}
 \newenvironment{config-block}{\begin{configblock}}{\end{configblock}}
 \newenvironment{field-note}{\begin{fieldnote}}{\end{fieldnote}}
+\newenvironment{operating-fact}{\begin{operatingfact}}{\end{operatingfact}}
 \newenvironment{next-chapter}{\begin{nextchapter}}{\end{nextchapter}}
 \newenvironment{part-map}{\begin{partmap}}{\end{partmap}}
 \newenvironment{chapterguide}{\clearpage\begin{chapterguidebox}}{\end{chapterguidebox}}

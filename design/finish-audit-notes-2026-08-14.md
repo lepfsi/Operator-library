@@ -673,3 +673,63 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | `Field Note` | Le bloc encadré reste élégant et donne une preuve terrain forte sans surcharger la page. | Validé |
 | `Pull Quote` | La citation simple en italique reste discrète et soutient le propos sans effet décoratif. | Validé |
 | Transition vers le chapitre 15 | L’ouverture vers un système qui ne dépend pas d’une seule personne est logique et bien préparée. | Validé |
+
+
+## Contrôle du chapitre 15 et du repère Operating Fact
+
+### Périmètre
+
+- Manuscrit : `15-designing-for-the-day-you-are-not-there.md`
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Composant ajouté : `operating-fact`
+
+### Contrôles éditoriaux
+
+| Contrôle | Résultat | Preuve |
+|---|---|---|
+| Séquence finale du chapitre 15 | Validé | Ordre confirmé : Memorable Phrase → Field Note → Pull Quote → Key Takeaways → Next Chapter. |
+| Tirets longs dans le chapitre 15 | Validé | Aucun tiret long ne reste dans le manuscrit. |
+| Densité de manuel opérationnel | Validé | Alternance d’incident, faits opérationnels, concept, risque, méthode, règle et note terrain. |
+| Action proposée au lecteur | Validé | L’« absence drill » est une expérimentation bornée, reproductible et vérifiable. |
+| Traçabilité du cas | Validé | `Creator_Exit_System_Blackout` est passé au statut `developed` et relié au chapitre 15. |
+
+### Première inspection visuelle
+
+| Zone | Observation | Verdict provisoire |
+|---|---|---|
+| Carte de la Partie III | La carte est lisible, cohérente avec le système Saffron / Ink / Bone et inclut désormais le chapitre 15. | Validé. |
+| Pagination | Les numéros de folio imprimés du livre ne correspondent pas directement à l’index physique du PDF. La plage d’inspection doit donc être identifiée par le contenu, pas par le numéro affiché au sommaire. | À poursuivre. |
+
+### Décision de design
+
+Le bloc `operating-fact` reste volontairement compact : filet Saffron à gauche, fond Bone calme, libellé discret et aucun effet de carte lourde. Il doit retenir une condition opérationnelle vérifiable, jamais décorer une affirmation générique. La limite éditoriale est de deux occurrences par chapitre.
+
+### Points à achever avant publication
+
+- Inspecter les pages physiques contenant l’ouverture du chapitre 15, ses deux faits opérationnels et sa séquence de clôture.
+- Compiler et contrôler l’EPUB avec le nouveau style `operating-fact`.
+- Vérifier une dernière fois les diffs et les fichiers générés avant le commit.
+
+
+### Inspection ciblée du chapitre 15, pages imprimées 132 et 134
+
+| Zone | Observation | Action |
+|---|---|---|
+| Guide de chapitre 15 | La liste numérotée est nette, espacée et aligne correctement les six jalons de lecture. | Conserver. |
+| Première page de contenu | L’incident commence sans préambule abstrait, puis le premier fait opérationnel crée une pause utile avant la section suivante. | Conserver. |
+| System Concept `Trust Debt` | Les filets Forest et la typographie créent une distinction claire sans alourdir la page. | Conserver. |
+| `operating-fact` | Le premier rendu a révélé que le contenu héritait du style petit capital et Saffron de son libellé ; le fait lui-même devenait trop discret. | Correction appliquée dans `template.latex` : réinitialisation explicite vers une police normale, large et Ink après le libellé. |
+
+La compilation PDF doit être relancée après cette correction, suivie d’une inspection des mêmes pages et de la séquence de sortie du chapitre.
+
+
+### Validation visuelle après correction, pages imprimées 134 et 139
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| `operating-fact` corrigé | Le contenu du fait est désormais en Ink, de taille de lecture normale et clairement distinct du petit libellé Saffron. Le filet latéral crée un arrêt visuel sans effet de carte lourde. | Validé. |
+| Page `Trust Debt` | Le concept Forest, le fait opérationnel Saffron et l’intertitre suivant forment une alternance claire et mémorisable. | Validé. |
+| Key Takeaways | Le bloc est entier sur une seule page, aéré et lisible ; aucune coupure de callout n’est visible. | Validé. |
+| Transition de sortie | `Part IV: Beyond Operations` est visible, séparée par un filet et suffisamment respirante. | Validé. |
+
+La séquence de clôture a été confirmée dans le manuscrit et le rendu de sortie ne présente aucun bloc coupé dans la page inspectée. Le PDF est visuellement prêt sous réserve du contrôle EPUB et des vérifications de versionnement.
