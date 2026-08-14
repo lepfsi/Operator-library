@@ -148,7 +148,7 @@
 ---
 
 ### Runbook_Rot_Blindspot
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : insurance IT services, ~250 employees
 - **Period** : September 2019
 - **Context** : a critical runbook describing the recovery of the policy engine had not been touched in 18 months
@@ -156,7 +156,7 @@
 - **Hidden assumption** : "if the runbook exists, the operation is under control"
 - **Consequence** : during a datacenter incident, the runbook pointed at a load balancer name that no longer existed; the team lost 90 minutes rediscovering the architecture
 - **Lesson** : Documentation is not a project. It's a byproduct of operation
-- **Books used in** : Beyond the Firewall — ch. 10
+- **Books used in** : Beyond the Firewall — ch. 13
 
 ---
 

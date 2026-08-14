@@ -595,3 +595,43 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | `Pull Quote` | La citation simple en italique conserve le niveau de sobriété souhaité. | Validé |
 | `Key Takeaways` | La synthèse finale est claire, utile et bien structurée. | Validé |
 | Transition vers le chapitre 13 | Le passage vers `Why Documentation Fails` est propre et logique. | Validé |
+
+## Contrôle visuel — début du chapitre 13
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 116 à 120
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Transition depuis le chapitre 12 | Le passage vers le chapitre 13 est net et cohérent avec la montée en abstraction de la Partie III. | Validé |
+| Ouverture noire | L’ouverture conserve la même force de collection et distingue bien le nouveau thème. | Validé |
+| Guide de chapitre | La navigation locale reste claire, bien espacée et conforme au système éditorial. | Validé |
+| Incident d’ouverture | Le runbook devenu trompeur rend immédiatement tangible l’idée qu’un document existant peut échouer. | Validé |
+| Développement | Le chapitre s’écarte de la critique du style d’écriture pour traiter correctement le manque d’intégration au flux opérationnel. | Validé |
+| Concept émergent | `Runbook Rot` apparaît naturellement comme une dégradation progressive, non comme une faute ponctuelle. | Validé |
+| Hiérarchie des sections | Les titres, l’air entre les blocs et le rythme de lecture restent premium et cohérents. | Validé |
+
+## Contrôle visuel — fin du chapitre 13
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 121 à 125
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| `System Concept` | `Runbook Rot` est bien défini comme une dégradation progressive de vérité opérationnelle. | Validé |
+| `Warning` | Le piège de l’archive est clair, crédible et cohérent avec la thèse du chapitre. | Validé |
+| `Field Method` | La preuve de runbook par un second opérateur est concrète et immédiatement exploitable. | Validé |
+| `Operator’s Rule` | Les règles sont fortes, sans lourdeur, et s’intègrent bien au rythme du chapitre. | Validé |
+| `Memorable Phrase` | La phrase cible est correctement restituée, discrète et bien placée avant le `Field Note`. | Validé |
+| `Field Note` | Le bloc encadré reste lisible et cohérent avec la notion de preuve opérationnelle. | Validé |
+| `Pull Quote` | La citation reste simple, naturelle et non décorative. | Validé |
+| `Key Takeaways` | La synthèse de fin est nette, utile et cohérente avec la logique du chapitre. | Validé |
+| Transition vers le chapitre 14 | Le passage vers l’erreur de configuration humaine est logique et bien préparé. | Validé |
