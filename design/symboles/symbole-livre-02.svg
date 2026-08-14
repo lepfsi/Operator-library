@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  symbole-livre-02.svg — The Human SPOF : NŒUD CRITIQUE
+  Motif conceptuel du livre 2. viewBox 0 0 200 100. Fond transparent.
+  Palette : gris acier #5A6B7A, ambre brûlé #C76B2B, turquoise #1CB5A0.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="200" height="100" viewBox="0 0 200 100">
+
+  <g stroke="#5A6B7A" stroke-width="1.2" fill="none">
+    <line x1="30" y1="25" x2="100" y2="55"/>
+    <line x1="60" y1="80" x2="100" y2="55"/>
+    <line x1="100" y1="15" x2="100" y2="55"/>
+    <line x1="140" y1="15" x2="100" y2="55"/>
+    <line x1="170" y1="25" x2="100" y2="55"/>
+    <line x1="155" y1="85" x2="100" y2="55"/>
+    <line x1="70" y1="90" x2="100" y2="55"/>
+  </g>
+
+  <!-- Nœuds périphériques -->
+  <g fill="#5A6B7A">
+    <circle cx="30" cy="25" r="3"/>
+    <circle cx="60" cy="80" r="3"/>
+    <circle cx="100" cy="15" r="3"/>
+    <circle cx="140" cy="15" r="3"/>
+    <circle cx="170" cy="25" r="3"/>
+    <circle cx="155" cy="85" r="3"/>
+    <circle cx="70" cy="90" r="3"/>
+  </g>
+
+  <!-- Nœud central critique : ambre + anneau turquoise -->
+  <circle cx="100" cy="55" r="11" fill="none" stroke="#1CB5A0" stroke-width="0.9" opacity="0.5"/>
+  <circle cx="100" cy="55" r="6" fill="#C76B2B"/>
+
+  <text x="100" y="96" font-family="Sora, sans-serif" font-size="7" letter-spacing="2"
+        fill="#5A6B7A" text-anchor="middle">SINGLE POINT OF DEPENDENCY</text>
+</svg>

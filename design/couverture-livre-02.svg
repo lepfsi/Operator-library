@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Couverture — The Human Single Point of Failure (Livre 2)
+  Design System : Technical Editorial / Dark Precision
+  Format : 6" x 9" (152 x 229 mm), fond pleine page.
+  Symbole : NŒUD CRITIQUE — un réseau de nœuds dont un devient unique point
+            de dépendance ; les autres nœuds convergent vers lui.
+  Accent livre 2 : Ambre brûlé #C76B2B.
+  Date : 2026
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xml:lang="en"
+     width="152mm" height="229mm"
+     viewBox="0 0 152 229">
+
+  <defs>
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
+      <feComponentTransfer in="gray" result="light">
+        <feFuncA type="linear" slope="0.06"/>
+      </feComponentTransfer>
+      <feComposite in="light" in2="SourceGraphic" operator="in" result="tex"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="tex"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="152" height="229" fill="#F7F5F0" filter="url(#paper)"/>
+
+  <!-- ===== BANDEAU SUPÉRIEUR ===== -->
+  <rect x="0" y="0" width="152" height="26" fill="#0A1A2F"/>
+  <text x="16" y="17" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="7pt" letter-spacing="4" fill="#1CB5A0">DAILYOPS</text>
+  <text x="136" y="17" text-anchor="end" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="6pt" letter-spacing="2" fill="#5A6B7A" opacity="0.75">THE OPERATOR'S LIBRARY — BOOK 02</text>
+
+  <!-- ===== BLOC TITRE ===== -->
+  <rect x="16" y="50" width="120" height="92" fill="#0A1A2F"/>
+  <rect x="16" y="50" width="120" height="2.2" fill="#1CB5A0"/>
+
+  <text x="28" y="80" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="22pt" letter-spacing="1" fill="#FFFFFF">THE HUMAN</text>
+  <text x="28" y="102" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="11pt" letter-spacing="6" fill="#C76B2B">SINGLE POINT</text>
+  <text x="28" y="124" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="11pt" letter-spacing="6" fill="#C76B2B">OF</text>
+  <text x="28" y="136" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="18pt" letter-spacing="1" fill="#FFFFFF">FAILURE</text>
+
+  <!-- ===== SOUS-TITRE ===== -->
+  <text x="28" y="158" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400" font-style="italic" font-size="10.5pt" fill="#5A6B7A">When Knowledge Lives</text>
+  <text x="28" y="170" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400" font-style="italic" font-size="10.5pt" fill="#5A6B7A">in One Mind</text>
+
+  <!-- ===== SYMBOLE : NŒUD CRITIQUE =====
+       Plusieurs nœuds périphériques (acier) reliés à un nœud central (ambre),
+       qui devient l'unique point de convergence. Trait fin, style blueprint. -->
+  <g id="symbole-noeud" stroke="#5A6B7A" stroke-width="1" fill="none">
+    <!-- Liaisons convergentes vers le nœud central -->
+    <line x1="32" y1="178" x2="76" y2="188"/>
+    <line x1="46" y1="198" x2="76" y2="188"/>
+    <line x1="76" y1="170" x2="76" y2="188"/>
+    <line x1="106" y1="170" x2="76" y2="188"/>
+    <line x1="120" y1="178" x2="76" y2="188"/>
+    <line x1="112" y1="200" x2="76" y2="188"/>
+    <line x1="58" y1="200" x2="76" y2="188"/>
+  </g>
+  <!-- Nœuds périphériques (acier) -->
+  <g fill="#5A6B7A">
+    <circle cx="32" cy="178" r="2.2"/>
+    <circle cx="46" cy="198" r="2.2"/>
+    <circle cx="76" cy="170" r="2.2"/>
+    <circle cx="106" cy="170" r="2.2"/>
+    <circle cx="120" cy="178" r="2.2"/>
+    <circle cx="112" cy="200" r="2.2"/>
+    <circle cx="58" cy="200" r="2.2"/>
+  </g>
+  <!-- Nœud central critique : ambre + anneau turquoise (signature) -->
+  <circle cx="76" cy="188" r="6.5" fill="none" stroke="#1CB5A0" stroke-width="0.7" opacity="0.45"/>
+  <circle cx="76" cy="188" r="4" fill="#C76B2B"/>
+
+  <!-- ===== AUTEUR ===== -->
+  <text x="16" y="212" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="400" font-size="8pt" letter-spacing="3" fill="#0A1A2F">BA-NDOUWE STEVE</text>
+  <text x="16" y="221" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="300" font-style="italic" font-size="7pt" fill="#5A6B7A">Systems Engineer · Incident Analyst</text>
+
+  <!-- ===== SIGNATURE DAILYOPS ===== -->
+  <g transform="translate(122, 205)">
+    <rect x="0" y="0" width="9" height="9" fill="#1CB5A0" rx="1"/>
+    <text x="13" y="9" font-family="Sora, 'Space Grotesk', sans-serif"
+          font-weight="300" font-size="5.5pt" letter-spacing="1.5" fill="#5A6B7A">DAILYOPS</text>
+  </g>
+
+</svg>

@@ -61,12 +61,12 @@ book-accent: "2C5F8A"
 # --- EPUB -------------------------------------------------------------------
 # CSS applied by build-book.sh via --css when building EPUB.
 epub-css: "../../../templates/render/epub.css"
-epub-cover-image: "../../../design/prototype-couverture-livre-01.svg"
+epub-cover-image: "../../../design/couverture-livre-01.svg"
 
 # --- PDF cover --------------------------------------------------------------
 # First page of the PDF: full-page cover (used by template.latex).
 # The SVG is converted to PDF by build-book.sh when a converter is available.
-cover-image: "../../../design/prototype-couverture-livre-01.svg"
+cover-image: "../../../design/couverture-livre-01.svg"
 
 # --- DOCX -------------------------------------------------------------------
 # Reference doc applied by build-book.sh via --reference-doc.
