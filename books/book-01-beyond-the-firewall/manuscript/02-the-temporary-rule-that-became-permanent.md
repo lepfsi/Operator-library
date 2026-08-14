@@ -124,6 +124,10 @@ If you manage a firewall, an access control list, a privileged account, or any t
 
 These rules do not eliminate urgent work. They make urgent work visible after the urgency has passed. They turn a silent workaround into a managed deviation.
 
+::: {.memorable-phrase}
+A temporary exception without an expiration date is a future security incident waiting for a quieter day.
+:::
+
 ::: field-note
 **Context**
 
@@ -152,12 +156,8 @@ A firewall rule reveals the boundary. It does not reveal the whole system that d
 
 The next chapter moves behind the rule and into the dependencies nobody documented: the hidden architecture that keeps work moving until one unseen connection fails.
 
-::: {.memorable-phrase}
-A temporary exception without an expiration date is a future security incident waiting for a quieter day.
-:::
-
 ::: pullquote
-Every exception is a design decision. Treating it as temporary does not stop it from becoming architecture.
+“Every exception is a design decision. Treating it as temporary does not stop it from becoming architecture.”
 :::
 
 ::: keytakeaways

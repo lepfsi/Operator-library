@@ -111,6 +111,10 @@ These actions do not replace component monitoring. They place it in the right po
 A successful synthetic transaction is not proof that every user journey works. A failed synthetic transaction is proof that at least one critical journey is broken. Treat it as early detection, not as a certificate of complete health.
 :::
 
+::: {.memorable-phrase}
+Green means the system responded. It does not mean the system worked for the person waiting at the end of the transaction.
+:::
+
 ::: field-note
 **Context**
 
@@ -135,12 +139,8 @@ If the transaction fails, the system is down. The colour of the LED does not cha
 
 The dashboard did not lie maliciously. It answered the questions it had been asked. The failure was that the organisation treated those answers as the whole truth.
 
-::: {.memorable-phrase}
-Green means the system responded. It does not mean the system worked for the person waiting at the end of the transaction.
-:::
-
 ::: pullquote
-The dashboard describes components. The incident happens between them, on the path the user is trying to complete.
+“The dashboard describes components. The incident happens between them, on the path the user is trying to complete.”
 :::
 
 ::: keytakeaways

@@ -17,7 +17,6 @@ incidents_referenced:
 ::: {.impact-opener #beyond-the-firewall number="01" title="Beyond the Firewall"}
 :::
 
-
 ::: {.chapter-guide}
 **Inside Chapter 01**
 
@@ -109,6 +108,10 @@ The point is not to distrust the firewall. The point is to stop asking it to ans
 
 These actions replace perimeter assurance with evidence. The field note below shows the practical consequence: start from the failed transaction, then follow the dependency the dashboard does not name.
 
+::: {.memorable-phrase}
+The firewall was working. The business was not. A protected perimeter is not a dependable service.
+:::
+
 ::: field-note
 **Context**
 
@@ -139,12 +142,8 @@ But by doing its job well, it made the real failure easier to overlook.
 
 The perimeter is not the system. The user transaction is.
 
-::: {.memorable-phrase}
-The firewall was working. The business was not. A protected perimeter is not a dependable service.
-:::
-
 ::: pullquote
-A control can be healthy while the system it protects is already failing somewhere beyond its view.
+“A control can be healthy while the system it protects is already failing somewhere beyond its view.”
 :::
 
 ::: keytakeaways

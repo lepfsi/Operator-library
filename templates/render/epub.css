@@ -245,41 +245,28 @@ div.lesson, div.remember {
 }
 div.remember { border-right: 0; border-left-color: var(--slate); background: #ECE6DA; }
 div.pullquote {
-  padding: 1.8em 1.4em;
+  padding: 0.2em 1em;
   color: var(--ink);
-  border-top: 1px solid var(--mist);
-  border-bottom: 1px solid var(--mist);
-  background: var(--chalk);
-  font-family: "Source Serif Pro", Georgia, serif;
-  font-size: 1.35em;
+  border: 0;
+  background: transparent;
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 1em;
   font-style: italic;
-  line-height: 1.4;
-  text-align: center;
+  line-height: 1.55;
+  text-align: left;
 }
 
 div.memorable-phrase {
-  padding: 1.15em 1.4em;
+  padding: 0.5em 1.2em;
   color: var(--ink);
-  border-top: 2px solid var(--saffron);
-  border-bottom: 1px solid var(--mist);
-  background: #ECE6DA;
+  border: 0;
+  border-left: 2px solid var(--saffron);
+  background: transparent;
   font-family: "Noto Serif", Georgia, serif;
-  font-size: 1.18em;
-  font-style: italic;
-  line-height: 1.48;
-  text-align: center;
-}
-div.memorable-phrase::before {
-  content: "Memorable Phrase";
-  display: block;
-  margin-bottom: 0.7em;
-  color: var(--saffron);
-  font-family: "Noto Sans", sans-serif;
-  font-size: 0.62em;
-  font-style: normal;
+  font-size: 1.05em;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  line-height: 1.5;
+  text-align: left;
 }
 
 /* Takeaways */

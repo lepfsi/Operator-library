@@ -114,6 +114,10 @@ The support queue is therefore not a secondary concern. It is a monitoring signa
 
 These practices do not make monitoring less valuable. They place it where it belongs: as an assistant to diagnosis, not as a guardian that replaces judgment.
 
+::: {.memorable-phrase}
+If monitoring only ever tells you things are fine, it has become a comfort blanket rather than a diagnostic tool.
+:::
+
 ::: field-note
 **Context**
 
@@ -138,12 +142,8 @@ The dashboard was incomplete, not malicious. The user queue was the first honest
 
 Green does not mean safe. It means the system answered the question it was asked. The user is often asking a different question.
 
-::: {.memorable-phrase}
-If monitoring only ever tells you things are fine, it has become a comfort blanket rather than a diagnostic tool.
-:::
-
 ::: pullquote
-The dashboard is a mirror. It shows the signals you chose to watch, not the failure you forgot to ask about.
+“The dashboard is a mirror. It shows the signals you chose to watch, not the failure you forgot to ask about.”
 :::
 
 ::: keytakeaways

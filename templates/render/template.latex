@@ -302,19 +302,17 @@ $endif$
 
 \newtcolorbox{pullquote}{%
   enhanced,unbreakable,arc=0pt,boxrule=0pt,
-  colback=chalk,colframe=mist,
-  borderline north={0.8pt}{0pt}{mist},borderline south={0.8pt}{0pt}{mist},
-  left=24pt,right=24pt,top=22pt,bottom=22pt,before skip=28pt,after skip=28pt,
-  fontupper=\itshape\Large\color{ink}\centering
+  colback=paper,colframe=paper,
+  left=12pt,right=12pt,top=4pt,bottom=4pt,before skip=18pt,after skip=18pt,
+  fontupper=\itshape\color{ink}
 }
 
 \newtcolorbox{memorablephrase}{%
   enhanced,unbreakable,arc=0pt,boxrule=0pt,
-  colback=mist!14,colframe=saffron,
-  borderline north={1.1pt}{0pt}{saffron},borderline south={0.6pt}{0pt}{saffron!55},
-  left=22pt,right=22pt,top=16pt,bottom=16pt,before skip=26pt,after skip=26pt,
-  fontupper=\itshape\large\color{ink}\centering,
-  before upper={\textsc{\footnotesize\color{saffron}Memorable Phrase}\par\vspace{8pt}}
+  colback=paper,colframe=saffron,
+  borderline west={1.8pt}{0pt}{saffron},
+  left=14pt,right=14pt,top=6pt,bottom=6pt,before skip=20pt,after skip=20pt,
+  fontupper=\bfseries\color{ink}
 }
 
 % Field Note is evidence from the work, not a dramatic full-bleed interruption.

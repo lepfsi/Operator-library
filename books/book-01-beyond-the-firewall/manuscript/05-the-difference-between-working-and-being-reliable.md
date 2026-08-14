@@ -136,6 +136,10 @@ Retries without limits, timeouts without budgets, and health checks that observe
 
 A reliability practice is not a promise that failure will disappear. It is a promise that the team will know what success means, recognise degradation early, and make decisions before users absorb the cost.
 
+::: {.memorable-phrase}
+Working is a photograph. Reliability is a trajectory. One captures a moment. The other tells you whether the next request deserves trust.
+:::
+
 ::: field-note
 **Context**
 
@@ -158,12 +162,8 @@ A CDN provider was throttling the edge cache. Local servers answered health chec
 Working is local. Reliability is end-to-end. If you only monitor components you own, the most important failure may be in the dependency you do not control.
 :::
 
-::: {.memorable-phrase}
-Working is a photograph. Reliability is a trajectory. One captures a moment. The other tells you whether the next request deserves trust.
-:::
-
 ::: pullquote
-If the system is working but the user is waiting, the system is not reliable. You have defined success by the wrong measure.
+“If the system is working but the user is waiting, the system is not reliable. You have defined success by the wrong measure.”
 :::
 
 ::: keytakeaways

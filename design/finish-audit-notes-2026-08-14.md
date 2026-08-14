@@ -325,3 +325,29 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | Pull Quote | La citation prolonge bien l’idée sans la répéter à l’identique. | Validé |
 | Key Takeaways | La synthèse de fin est claire, correctement hiérarchisée et compacte. | Validé |
 | Transition | `Availability Is Not Resilience` est visible, lisible et bien séparé du bloc précédent. | Validé |
+
+## Contrôle visuel — Memorable Phrase et Pull Quote allégées
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 14 à 15, puis 22 à 23
+
+### Constats
+
+| Chapitre | Observation | Verdict |
+|---|---|---|
+| Chapitre 1 | La `Memorable Phrase` apparaît désormais comme un repère discret, sans cartouche lourd, immédiatement avant le `Field Note`. | Validé |
+| Chapitre 1 | La `Pull Quote` est devenue une simple phrase en italique et entre guillemets, intégrée au flux après la reprise narrative. | Validé |
+| Chapitre 2 | Le même traitement reste lisible et cohérent malgré un `Field Note` plus dense. | Validé |
+| Ensemble | L’ordre `Memorable Phrase` → `Field Note` → reprise narrative → `Pull Quote` allège nettement la sortie de chapitre. | Validé |
+| Point restant | Vérifier la fin du chapitre 5 et, si l’équilibre est confirmé, publier la version corrigée. | À confirmer |
+
+### Validation finale sur le chapitre 5
+
+| Élément | Observation | Décision |
+|---|---|---|
+| `Memorable Phrase` | Filet Saffron fin, aucun fond contrasté, aucun label, texte gras de taille courante. Elle prépare le Field Note sans concurrencer l’Operator’s Rule. | Retenu |
+| Position | La phrase mémorable précède immédiatement le Field Note dans le flux ; un changement de page reste admis lorsque le bloc suivant ne tient pas. | Retenu |
+| `Pull Quote` | Phrase de taille courante, en italique et entre guillemets, sans fond, bordure ni label. | Retenu |
+| Hiérarchie | L’Operator’s Rule reste le point visuel majeur ; la phrase mémorable agit comme seuil et la citation comme respiration. | Retenu |

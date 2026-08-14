@@ -98,6 +98,10 @@ Bridge from analysis to execution in a short paragraph.
 3. **Action with an expiry, review, or test.** Explain the reversal path.
 :::
 
+::: {.memorable-phrase}
+One original sentence of 20–45 words that holds the chapter’s idea without repeating the title.
+:::
+
 ::: field-note
 **Context**
 
@@ -120,12 +124,8 @@ The dependency, assumption, or decision that the system did not expose.
 The chapter’s lesson in one reusable sentence.
 :::
 
-::: {.memorable-phrase}
-One original sentence of 20–45 words that holds the chapter’s idea without repeating the title.
-:::
-
 ::: pullquote
-One consequence or tension of 25–55 words. It should deepen the memorable phrase, not paraphrase it.
+“One consequence or tension of 25–55 words. It should deepen the memorable phrase, not paraphrase it.”
 :::
 
 ::: keytakeaways
@@ -155,9 +155,9 @@ Write a short ending that opens the next chapter. Do not summarize the chapter. 
 | `concept` | Define a stable system term. | One per chapter when a concept is introduced. |
 | `warning` | Expose a false assurance or dangerous shortcut. | One per chapter maximum. |
 | `operator-rule` | Convert the chapter into three measurable actions. | Exactly one per chapter. |
+| `memorable-phrase` | Introduce the Field Note with the chapter’s core insight. | Exactly one per complete chapter, 20–45 words, immediately before the Field Note. |
 | `field-note` | Preserve the incident as structured evidence. | Exactly one per chapter, near the end. |
-| `memorable-phrase` | Fix the chapter’s core insight in memory. | Exactly one per complete chapter, 20–45 words. |
-| `pullquote` | Extend the chapter’s consequence or tension. | Exactly one per complete chapter, 25–55 words. |
+| `pullquote` | Extend the chapter’s consequence or tension. | Exactly one per complete chapter, 25–55 words, between quotation marks and without a label. |
 | `keytakeaways` | Convert the chapter into a concise operational recall. | Exactly one per complete chapter, four or five bullets. |
 
 The renderer handles the visual presentation of these fenced divs. Do not add manual colours, HTML tables, or spacing tricks to a manuscript.
@@ -177,5 +177,5 @@ Before marking a chapter `review`, verify the following.
 | Analysis | No more than three mechanisms are used to explain persistence. |
 | Action | Each rule specifies an action and a test, frequency, owner, or expiry. |
 | Rhythm | Standard prose contains no more than one callout per page of intended composition. |
-| Closing system | Field Note, Memorable Phrase, Pull Quote, Key Takeaways, then Next Chapter all appear in that order. |
+| Closing system | Memorable Phrase, Field Note, Pull Quote, Key Takeaways, then Next Chapter all appear in that order. |
 | Transition | The final paragraph creates a need for the next chapter rather than repeating the conclusion. |
