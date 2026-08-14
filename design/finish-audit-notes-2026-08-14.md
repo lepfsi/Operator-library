@@ -769,3 +769,26 @@ Le PDF de la Partie IV et du chapitre 16 est prêt. Le contrôle EPUB et le cont
 | Transition vers le chapitre 18 | Le bloc est bien séparé des takeaways et prépare clairement la dernière discipline d’observation. | Validé. |
 
 Le chapitre 17 répond à la règle de densité du manuel, comporte deux faits opérationnels et conserve la séquence de sortie requise. L’EPUB et les contrôles Git restent à effectuer avant publication.
+
+
+## Contrôle visuel du chapitre 18 et de la clôture du livre
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| Concept `Operational Drift` | La définition est lisible et le fait opérationnel qui suit crée un arrêt utile avant le passage aux questions de décision. | Validé. |
+| Questions before commands | La succession concept, fait, intertitre et questions rend la posture de l’opérateur concrète sans glisser vers une conclusion abstraite. | Validé. |
+| Key Takeaways | Les cinq conclusions tiennent dans un bloc cohérent, sans coupure ni saturation visuelle. | Validé. |
+| Dernière transition | Le bloc `The work continues` clôt le livre sur une action durable, tout en préservant la séquence éditoriale obligatoire. | Validé. |
+
+L’inspection finale du PDF confirme une conclusion opérationnelle, visuelle et mémorisable. L’EPUB, les contrôles Git et la release versionnée doivent encore être validés.
+
+
+## Contrôle visuel de la conclusion
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| Ouverture de conclusion | Le titre a une présence éditoriale nette. Les cinq vérités du livre sont immédiatement parcourables et reliées aux chapitres précédents. | Validé. |
+| Dernière page | L’appel à l’action reste concret, suivi d’une phrase de clôture mémorisable sans artifices graphiques. | Validé. |
+| Transition finale | La conclusion se termine proprement avant la quatrième de couverture, avec une page respirante et aucun élément coupé. | Validé. |
+
+L’édition complète contient désormais les 18 chapitres, les quatre parties et la conclusion. Tous les manuscrits du livre sont actifs ; aucun scaffold ne reste dans le dossier de publication.

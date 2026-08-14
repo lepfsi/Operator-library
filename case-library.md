@@ -187,7 +187,7 @@
 ---
 
 ### Silent_Config_Drift
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : telecom operator, ~1,200 employees
 - **Period** : August 2022
 - **Context** : a network element had its timeout config changed months earlier to "fix" a cosmetic alert; the change was never called out
@@ -195,7 +195,7 @@
 - **Hidden assumption** : "the configuration we manage is the configuration that runs"
 - **Consequence** : under the next traffic spike, the drifted timeouts caused cascading failovers that the team could not explain until a deep config audit
 - **Lesson** : The operator's real job is not to run the system. It's to understand it
-- **Books used in** : Beyond the Firewall — ch. 13
+- **Books used in** : Beyond the Firewall, ch. 18
 
 ---
 
