@@ -6,7 +6,7 @@ book: "Beyond the Firewall"
 book_number: 1
 author: "Steve BA-NDOUWE"
 date: "2026"
-status: "scaffold"
+status: "draft"
 ---
 
 ::: {.part-opener number="II" title="THE SYSTEM WE DON’T SEE"}
@@ -15,7 +15,9 @@ status: "scaffold"
 ::: {.part-map}
 **Question.** Which promises become dangerous when nobody can prove that they still work?
 
-This part leaves the visible edge of the system. It examines rollback plans, backups, dependencies and exceptions after they have stopped looking temporary. The reader moves from a single untested safeguard to the architecture of accumulated assumptions.
+Part I dealt with the signals we can see: dashboards, health checks, availability, and the transactions that reveal their limits. Part II goes behind those signals. It follows the safeguards teams rely on when pressure rises: rollback plans, backups, undocumented dependencies, and temporary decisions that quietly become architecture.
+
+These are not merely technical details. They decide whether a team can return to a safe state when the visible system has already stopped telling the truth.
 
 - [Chapter 07 · Hope Is Not a Rollback Strategy](#hope-is-not-a-rollback-strategy)
 - [Chapter 08 · The Backup Nobody Tested](#the-backup-nobody-tested)

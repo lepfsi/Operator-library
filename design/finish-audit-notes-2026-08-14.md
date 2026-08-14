@@ -386,3 +386,61 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | Pull Quote | La citation reste simple, en italique et entre guillemets, sans effet décoratif excessif. | Validé |
 | Transition vers le chapitre 7 | La bascule vers `Hope Is Not a Rollback Strategy` est claire et prépare correctement la Partie II. | Validé |
 | Pagination | Aucune page blanche involontaire observée dans la séquence de fin du chapitre 6. | Validé |
+
+## Diagnostic de pleine page des couvertures
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 1 et 2 après la première correction du gabarit
+
+### Constat
+
+| Observation | Décision |
+|---|---|
+| La compensation par `\vspace*{-\topskip}` a retiré le retrait haut, mais elle a déplacé la première de couverture sur le second folio et créé un premier folio vide. | À corriger avant publication. |
+| La première de couverture rendue au second folio atteint bien le bord haut. | Conserver l’absence de centrage vertical, remplacer seulement la compensation négative par une suppression locale de `\topskip`. |
+
+### Validation finale du plein débordement des couvertures
+
+| Couverture | Observation | Verdict |
+|---|---|---|
+| Première | La couverture est revenue au premier folio, sans folio blanc préalable ; la surface Ink et la frontière Saffron arrivent au bord haut. | Validé |
+| Quatrième | La frontière Saffron et le panneau Ink arrivent également au bord haut de la dernière page, sans retrait ni page supplémentaire. | Validé |
+| Technique | Le gabarit utilise maintenant une boîte de page exacte, sans centrage vertical ni `keepaspectratio`, ce qui supprime le retrait tout en conservant la pagination. | Validé |
+
+## Contrôle visuel — Partie II et ouverture du chapitre 7
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 57 à 60
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Transition chapitre 6 → Partie II | La transition finale vers `Hope Is Not a Rollback Strategy` prépare correctement le changement de partie. | Validé |
+| Page d’ouverture de Partie II | La page noire de partie reste forte, sobre et cohérente avec le langage d’ouverture validé. | Validé |
+| Carte de Partie II | La question, le paragraphe d’orientation et les quatre chapitres sont lisibles ; la liste cliquable conserve la bonne hiérarchie. | Validé |
+| Début du chapitre 7 | L’ouverture noire et le guide du chapitre s’intègrent sans rupture de style avec les chapitres précédents. | Validé |
+| Point restant | Contrôler les pages de fin du chapitre 7, notamment `System Concept`, `Operator’s Rule`, `Memorable Phrase`, `Field Note`, `Pull Quote`, `Key Takeaways` et la transition vers le chapitre 8. | À contrôler |
+
+## Contrôle visuel — fin du chapitre 7
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 65 à 69
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| `System Concept` | Le bloc `Rehearsed Recovery` est lisible, sobre et correctement distinct du reste du flux. | Validé |
+| `Field Method` | L’exercice de retour reste compact et exploitable sans lourdeur visuelle. | Validé |
+| `Operator’s Rule` | Le bloc sombre conserve sa place de décision principale du chapitre. | Validé |
+| `Memorable Phrase` | Le label est revenu, la surface chaude reste discrète, et le composant prépare bien le `Field Note`. | Validé |
+| `Field Note` | La nouvelle fiche encadrée fonctionne bien sur un contenu plus dense et garde une forte identité sans excès. | Validé |
+| `Pull Quote` | La citation simple en italique reste élégante et non intrusive. | Validé |
+| `Key Takeaways` et transition | La synthèse et l’ouverture vers le chapitre 8 sont propres, lisibles et bien espacées. | Validé |

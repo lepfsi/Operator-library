@@ -442,9 +442,9 @@ $endif$
 \fontsize{10.3pt}{15.4pt}\selectfont
 
 $if(book-cover)$
-\newgeometry{margin=0pt}
+\newgeometry{margin=0pt,noheadfoot}
 \thispagestyle{empty}
-\vbox to \paperheight{\vfill\noindent\makebox[\paperwidth]{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{$book-cover$}}\vfill}
+\vbox to \paperheight{\offinterlineskip\hbox to \paperwidth{\includegraphics[width=\paperwidth,height=\paperheight]{$book-cover$}\hss}\vss}
 \restoregeometry
 \clearpage
 $else$
@@ -461,9 +461,9 @@ $body$
 
 $if(book-back-cover)$
 \clearpage
-\newgeometry{margin=0pt}
+\newgeometry{margin=0pt,noheadfoot}
 \thispagestyle{empty}
-\vbox to \paperheight{\vfill\noindent\makebox[\paperwidth]{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{$book-back-cover$}}\vfill}
+\vbox to \paperheight{\offinterlineskip\hbox to \paperwidth{\includegraphics[width=\paperwidth,height=\paperheight]{$book-back-cover$}\hss}\vss}
 \restoregeometry
 $endif$
 
