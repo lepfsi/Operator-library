@@ -39,6 +39,24 @@ couverture full-bleed dédiée (`design/couverture-livre-NN.svg`).
 
 ---
 
+## 1b. Maquette intérieure (prototype visuel)
+
+`design/maquette-interieure-page.svg` — double page 6" × 9" (viewBox 1280×960)
+montrant le rendu réel du système intérieur :
+
+- **Page gauche** : header (titre du livre + n° page), grand numéro de chapitre
+  turquoise + titre Deep Navy, hook italic, texte courant, encadré `DAILYOPS CONCEPT`
+  (barre turquoise + fond off-white), footer auteur.
+- **Page droite** : `FIELD NOTE` (bandeau + barre d'accent, 5 champs structurés),
+  `pull quote` (lignes turquoise + guillemets, centré serif italic),
+  `KEY TAKEAWAYS` (barre d'accent + puces turquoise).
+
+Ce prototype remplace la maquette ASCII (`maquette-page-interieure.md`) comme
+référence visuelle ; la maquette textuelle reste la spécification détaillée
+(annotations typographiques précises pour le graphiste).
+
+---
+
 ## 2. Symboles conceptuels
 
 Versions isolées et agrandies des motifs de couverture, `viewBox` 2:1

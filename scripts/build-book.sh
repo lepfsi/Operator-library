@@ -125,10 +125,13 @@ if [[ -f "$LUA_FILTER" ]]; then
 fi
 
 # Resolve per-format asset paths from pandoc.yaml (simple grep fallback).
+# NOTE: pandoc.yaml is a standalone YAML file (starts with a single "---"),
+# NOT a Markdown document with a closing "---" frontmatter delimiter. So we
+# grep the whole file directly instead of relying on a sed "/^---$/,/^---$/p"
+# range that would silently return nothing when no closing "---" exists.
 get_yaml_value() {
     local key="$1"
-    sed -n '/^---$/,/^---$/p' "$CONFIG_FILE" \
-      | grep -m1 "^${key}:" \
+    grep -m1 "^${key}:[[:space:]]*" "$CONFIG_FILE" \
       | sed "s/^${key}:[[:space:]]*//" \
       | tr -d '"' | tr -d "'"
 }
@@ -142,13 +145,21 @@ resolve_path() {
         echo ""
         return
     fi
-    local dir
-    dir=$(cd "$BOOK_DIR/config" && cd "$(dirname "$raw")" 2>/dev/null && pwd)
-    if [[ -n "$dir" ]]; then
-        echo "$dir/$(basename "$raw")"
-    else
-        echo ""
+    local dir base abs
+    base="$(basename "$raw")"
+    # Primary: change directory relatively to config/ (handles ../.. chains).
+    dir=$(cd "$BOOK_DIR/config" 2>/dev/null && cd "$(dirname "$raw")" 2>/dev/null && pwd)
+    if [[ -n "$dir" && -f "$dir/$base" ]]; then
+        echo "$dir/$base"
+        return
     fi
+    # Fallback: resolve via realpath from the config directory (portable).
+    abs=$(cd "$BOOK_DIR/config" 2>/dev/null && realpath -m "$raw" 2>/dev/null)
+    if [[ -n "$abs" && -f "$abs" ]]; then
+        echo "$abs"
+        return
+    fi
+    echo ""
 }
 
 # ---- Asset paths from pandoc.yaml -----------------------------------------

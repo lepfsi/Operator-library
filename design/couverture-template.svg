@@ -3,15 +3,14 @@
   couverture-template.svg — The Operator's Library
   Gabarit de couverture réutilisable (collection de 5 livres).
   Design System : Technical Editorial / Dark Precision
-  Format : 6" x 9" (152 x 229 mm) + fond pleine page.
+  Format : 6" x 9" (152 x 229 mm). Grille en pixels (viewBox 0 0 640 960),
+  ratio 6:9. Toutes les tailles/positions en px pour éviter tout chevauchement.
 
   Paramètres à substituer par livre :
-    ACCENT       = couleur d'accent du livre (hex sans #)
+    ACCENT       = couleur d'accent du livre (hex avec #)
     BOOK-NUM     = numéro (01..05)
-    BRAND        = "DAILYOPS" (livre 1-2) | "THE OPERATOR'S LIBRARY" (livre 3+)
     TITLE-L1/L2  = lignes du titre principal
-    SUBTITLE-L1  = ligne 1 du sous-titre
-    SUBTITLE-L2  = ligne 2 du sous-titre (optionnel)
+    SUBTITLE-L1/L2 = lignes du sous-titre
     AUTHOR       = nom de l'auteur
     AUTHOR-ROLE  = fonction / spécialité
     SYMBOLE      = groupe <g id="symbole"> à remplacer par le motif conceptuel du livre
@@ -24,15 +23,15 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      xml:lang="en"
      width="152mm" height="229mm"
-     viewBox="0 0 152 229">
+     viewBox="0 0 640 960">
 
   <defs>
     <!-- Texture papier subtile (off-white) -->
     <filter id="paper" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="noise"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise"/>
       <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
       <feComponentTransfer in="gray" result="light">
-        <feFuncA type="linear" slope="0.06"/>
+        <feFuncA type="linear" slope="0.05"/>
       </feComponentTransfer>
       <feComposite in="light" in2="SourceGraphic" operator="in" result="tex"/>
       <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="tex"/></feMerge>
@@ -40,73 +39,56 @@
   </defs>
 
   <!-- Fond : Off-white texturé -->
-  <rect x="0" y="0" width="152" height="229" fill="#F7F5F0" filter="url(#paper)"/>
+  <rect x="0" y="0" width="640" height="960" fill="#F7F5F0" filter="url(#paper)"/>
 
-  <!-- ===== BANDEAU SUPÉRIEUR : marque éditoriale ===== -->
-  <rect x="0" y="0" width="152" height="26" fill="#0A1A2F"/>
-  <text x="16" y="17"
-        font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="300" font-size="7pt" letter-spacing="4"
-        fill="#1CB5A0">DAILYOPS</text>
-  <text x="136" y="17" text-anchor="end"
-        font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="300" font-size="6pt" letter-spacing="2"
-        fill="#5A6B7A" opacity="0.75">THE OPERATOR'S LIBRARY — BOOK ##</text>
+  <!-- ===== BANDEAU SUPÉRIEUR : marque éditoriale (haut, hauteur 110px) ===== -->
+  <rect x="0" y="0" width="640" height="110" fill="#0A1A2F"/>
+  <text x="70" y="70" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="30" letter-spacing="18" fill="#1CB5A0">DAILYOPS</text>
+  <text x="570" y="70" text-anchor="end" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="300" font-size="24" letter-spacing="9" fill="#5A6B7A" opacity="0.75">THE OPERATOR'S LIBRARY — BOOK ##</text>
 
-  <!-- ===== BLOC TITRE PRINCIPAL (Deep Navy, asymétrique gauche) ===== -->
-  <rect x="16" y="50" width="120" height="92" fill="#0A1A2F"/>
-  <!-- ACCENT : ligne fine turquoise = signature de collection -->
-  <rect x="16" y="50" width="120" height="2.2" fill="#1CB5A0"/>
+  <!-- ===== BLOC TITRE PRINCIPAL (Deep Navy, asymétrique gauche) =====
+       x=70..570 (largeur 500), y=200..590 (hauteur 390) -->
+  <rect x="70" y="200" width="500" height="390" fill="#0A1A2F"/>
+  <!-- ACCENT : ligne fine turquoise en haut du bloc = signature de collection -->
+  <rect x="70" y="200" width="500" height="9" fill="#1CB5A0"/>
 
   <!-- Ligne 1 du titre -->
-  <text x="28" y="82"
-        font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="800" font-size="30pt" letter-spacing="1.5"
-        fill="#FFFFFF">TITLE-L1</text>
+  <text x="120" y="330" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="800" font-size="130" letter-spacing="6" fill="#FFFFFF">TITLE-L1</text>
   <!-- Ligne 2 du titre (optionnel) -->
-  <text x="28" y="128"
-        font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="700" font-size="26pt" letter-spacing="1"
-        fill="#FFFFFF">TITLE-L2</text>
+  <text x="120" y="520" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="700" font-size="115" letter-spacing="4" fill="#FFFFFF">TITLE-L2</text>
 
-  <!-- ===== SOUS-TITRE ===== -->
-  <text x="28" y="158"
-        font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="400" font-style="italic" font-size="10.5pt"
-        fill="#5A6B7A">SUBTITLE-L1</text>
-  <text x="28" y="170"
-        font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="400" font-style="italic" font-size="10.5pt"
-        fill="#5A6B7A">SUBTITLE-L2</text>
+  <!-- ===== SOUS-TITRE (sous le bloc) ===== -->
+  <text x="120" y="660" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400" font-style="italic" font-size="44" fill="#5A6B7A">SUBTITLE-L1</text>
+  <text x="120" y="710" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="400" font-style="italic" font-size="44" fill="#5A6B7A">SUBTITLE-L2</text>
 
   <!-- ===== SYMBOLE CONCEPTUEL =====
        Remplacer le groupe ci-dessous par le motif du livre.
-       Cadre d'emplacement : x 16–136, y 178–196 -->
+       Cadre d'emplacement : x 70..570, y 760..830 -->
   <g id="symbole">
     <!-- Ligne de base acier traversante (placeholder) -->
-    <line x1="16" y1="188" x2="136" y2="188"
-          stroke="#5A6B7A" stroke-width="1.2" stroke-linecap="round"
-          stroke-dasharray="8,4"/>
-    <circle cx="76" cy="188" r="3" fill="#1CB5A0"/>
+    <line x1="70" y1="800" x2="570" y2="800"
+          stroke="#5A6B7A" stroke-width="5" stroke-linecap="round"
+          stroke-dasharray="34,17"/>
+    <circle cx="320" cy="800" r="13" fill="#1CB5A0"/>
   </g>
 
   <!-- ===== BLOC AUTEUR (bas gauche) ===== -->
-  <text x="16" y="212"
-        font-family="Sora, 'Space Grotesk', sans-serif"
-        font-weight="400" font-size="8pt" letter-spacing="3"
-        fill="#0A1A2F">AUTHOR</text>
-  <text x="16" y="221"
-        font-family="'Source Serif Pro', Georgia, serif"
-        font-weight="300" font-style="italic" font-size="7pt"
-        fill="#5A6B7A">AUTHOR-ROLE</text>
+  <text x="70" y="895" font-family="Sora, 'Space Grotesk', sans-serif"
+        font-weight="400" font-size="34" letter-spacing="13" fill="#0A1A2F">AUTHOR</text>
+  <text x="70" y="930" font-family="'Source Serif Pro', Georgia, serif"
+        font-weight="300" font-style="italic" font-size="28" fill="#5A6B7A">AUTHOR-ROLE</text>
 
   <!-- ===== SIGNATURE DAILYOPS (bas droite) ===== -->
-  <g transform="translate(122, 205)">
-    <rect x="0" y="0" width="9" height="9" fill="#1CB5A0" rx="1"/>
-    <text x="13" y="9"
-          font-family="Sora, 'Space Grotesk', sans-serif"
-          font-weight="300" font-size="5.5pt" letter-spacing="1.5"
-          fill="#5A6B7A">DAILYOPS</text>
+  <g transform="translate(515, 868)">
+    <rect x="0" y="0" width="38" height="38" fill="#1CB5A0" rx="4"/>
+    <text x="55" y="38" font-family="Sora, 'Space Grotesk', sans-serif"
+          font-weight="300" font-size="22" letter-spacing="7" fill="#5A6B7A">DAILYOPS</text>
   </g>
 
 </svg>
