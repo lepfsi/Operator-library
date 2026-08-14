@@ -359,6 +359,124 @@ $endif$
 % Renders as a centered, captioned image block (uses figure/caption).
 \newenvironment{diagram}{\par\begin{center}}{\end{center}\par}
 
+% =====================================================================
+% SITE-STYLE CALLOUTS (aligned with DailyOps.tech)
+% Each: pictogram (Unicode symbol) + label in small caps + thin rule
+% + tinted background. Tint matches the callout's semantic color.
+% Used for: note, tip, important, caution, warning.
+% =====================================================================
+
+% NOTE — general information, light steel tint
+\newtcolorbox{note}{
+  enhanced,
+  colback=steelgray!5,
+  colframe=steelgray!30,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={3pt}{0pt}{steelgray},
+  left=14pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=16pt, after skip=16pt,
+  breakable,
+  fontupper=\small,
+  before upper={\textcolor{steelgray}{\large\,}\,\textsc{\footnotesize\color{steelgray}Note}\par\vspace{2pt}\textcolor{steelgray!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+}
+
+% TIP — practical advice, turquoise tint (DailyOps signature)
+\newtcolorbox{tip}{
+  enhanced,
+  colback=turquoise!6,
+  colframe=turquoise!30,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={3pt}{0pt}{turquoise},
+  left=14pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=16pt, after skip=16pt,
+  breakable,
+  fontupper=\small,
+  before upper={\textcolor{turquoise}{\large\,$\bullet$}\,\textsc{\footnotesize\color{turquoise}Tip}\par\vspace{2pt}\textcolor{turquoise!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+}
+
+% IMPORTANT — must-not-miss, deep navy tint
+\newtcolorbox{important}{
+  enhanced,
+  colback=deepnavy!5,
+  colframe=deepnavy!30,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={3pt}{0pt}{deepnavy},
+  left=14pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=16pt, after skip=16pt,
+  breakable,
+  fontupper=\small,
+  before upper={\textcolor{deepnavy}{\large\,!}\,\textsc{\footnotesize\color{deepnavy}Important}\par\vspace{2pt}\textcolor{deepnavy!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+}
+
+% CAUTION — proceed carefully, amber tint
+\newtcolorbox{caution}{
+  enhanced,
+  colback=accenthumansspof!6,
+  colframe=accenthumansspof!35,
+  boxrule=0pt,
+  arc=0pt,
+  borderline west={3pt}{0pt}{accenthumansspof},
+  left=14pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=16pt, after skip=16pt,
+  breakable,
+  fontupper=\small,
+  before upper={\textcolor{accenthumansspof}{\large\,!}\,\textsc{\footnotesize\color{accenthumansspof}Caution}\par\vspace{2pt}\textcolor{accenthumansspof!40}{\rule{\linewidth}{0.4pt}}\par\vspace{4pt}}
+}
+
+% =====================================================================
+% BOOK-SPECIFIC IMPACT BLOCKS (chapter rhythm)
+% =====================================================================
+
+% IMPACT OPENER — full-bleed dark page (verso): giant chapter number
+% + book title. Used as the left page of a chapter opening spread.
+\newenvironment{impact-opener}{%
+  \cleardoublepage\thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[deepnavy] (current page.south west) rectangle (current page.north east);
+  \end{tikzpicture}%
+  \vspace*{\fill}
+  \begin{flushright}
+    {\sffamily\fontsize{180pt}{180pt}\selectfont\color{white!15}\bfseries \thechapter}%
+  \end{flushright}
+  \vfill
+  \begin{flushright}
+    {\sffamily\fontsize{42pt}{48pt}\selectfont\color{white}\bfseries\MakeUppercase{\thechaptertitle}}%
+  \end{flushright}
+  \vspace*{2cm}
+}{\clearpage}
+
+% IMPACT QUOTE — full light page, centered large italic quote, no folio.
+% Used as breathing/resonance pages inside a chapter.
+\newenvironment{impact-quote}{%
+  \clearpage\thispagestyle{empty}%
+  \vspace*{\fill}%
+  \begin{center}
+    \itshape\fontsize{30pt}{40pt}\selectfont\color{deepnavy}%
+}{%
+  \end{center}
+  \vspace{18pt}%
+  \begin{center}\textcolor{steelgray!50}{\rule{30mm}{0.8pt}}\end{center}%
+  \vspace*{\fill}\clearpage
+}
+
+% OPERATOR'S RULE — numbered actionable rules, white box + accent numbers
+\newtcolorbox{operator-rule}{
+  enhanced,
+  colback=white,
+  colframe=steelgray!40,
+  boxrule=0.8pt,
+  arc=0pt,
+  left=16pt, right=14pt, top=12pt, bottom=12pt,
+  before skip=20pt, after skip=20pt,
+  breakable,
+  fontupper=\small,
+  before upper={\textsc{\footnotesize\color{accent}Operator's Rule}\par\vspace{3pt}\textcolor{steelgray!30}{\rule{\linewidth}{0.4pt}}\par\vspace{6pt}}
+}
+
+
 % ---- Hyperref (links, TOC) ------------------------------------------------
 \usepackage[hidelinks,bookmarksnumbered]{hyperref}
 \hypersetup{

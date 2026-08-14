@@ -348,6 +348,122 @@ div.diagram {
   text-align: center;
 }
 
+/* ---- Site-style callouts (Note/Tip/Important/Caution) ----------
+   Aligned with DailyOps.tech: label in small caps + thin rule + tinted bg.
+   Each callout keeps a colored left border = its semantic color. */
+div.note,
+div.tip,
+div.important,
+div.caution {
+  margin: 1.4em 0;
+  padding: 0.7em 1em;
+  background: var(--offwhite);
+  border-left: 3px solid var(--steelgray);
+  border-radius: 0;
+  page-break-inside: avoid;
+}
+div.note::before,
+div.tip::before,
+div.important::before,
+div.caution::before {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 0.75em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+  padding-bottom: 0.3em;
+  border-bottom: 0.4pt solid currentColor;
+}
+
+/* NOTE — general info, steel gray */
+div.note { background: #EEF0F2; border-left-color: var(--steelgray); }
+div.note::before { content: "Note"; color: var(--steelgray); }
+
+/* TIP — practical advice, turquoise (DailyOps signature) */
+div.tip { background: #E6F6F3; border-left-color: var(--turquoise); }
+div.tip::before { content: "Tip"; color: var(--turquoise); }
+
+/* IMPORTANT — must-not-miss, deep navy */
+div.important { background: #E8EBF1; border-left-color: var(--deepnavy); }
+div.important::before { content: "Important"; color: var(--deepnavy); }
+
+/* CAUTION — proceed carefully, amber */
+div.caution { background: #FBF0E6; border-left-color: #C76B2B; }
+div.caution::before { content: "Caution"; color: #C76B2B; }
+
+/* ---- Operator's Rule — numbered actionable rules ------------ */
+div.operator-rule {
+  margin: 1.4em 0;
+  padding: 0.8em 1em;
+  background: #FFFFFF;
+  border: 0.6pt solid var(--steelgray);
+  page-break-inside: avoid;
+}
+div.operator-rule::before {
+  content: "Operator's Rule";
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 0.75em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4em;
+  padding-bottom: 0.3em;
+  border-bottom: 0.4pt solid var(--steelgray);
+}
+
+/* ---- Impact quote — full light page, large centered italic ---- */
+div.impact-quote {
+  text-align: center;
+  font-family: "Source Serif Pro", Georgia, serif;
+  font-style: italic;
+  font-size: 1.6em;
+  color: var(--deepnavy);
+  line-height: 1.4;
+  margin: 2em 1em;
+  padding: 2em 0;
+  page-break-before: always;
+  page-break-after: always;
+}
+div.impact-quote::after {
+  content: "";
+  display: block;
+  height: 1pt;
+  width: 30%;
+  background: var(--steelgray);
+  opacity: 0.5;
+  margin: 1em auto 0;
+}
+
+/* ---- Impact opener — full dark page (chapter spread) -------- */
+div.impact-opener {
+  background: var(--deepnavy);
+  color: #FFFFFF;
+  padding: 6em 1.5em;
+  margin: 0;
+  page-break-before: always;
+  page-break-after: always;
+  text-align: right;
+}
+div.impact-opener .chapter-num {
+  font-family: "Sora", sans-serif;
+  font-weight: 800;
+  font-size: 8em;
+  color: rgba(255,255,255,0.15);
+  display: block;
+}
+div.impact-opener .book-title {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  color: #FFFFFF;
+  display: block;
+  margin-top: 0.5em;
+}
+
 /* ---- Memorable phrase standalone ---------------------------- */
 .memorable-phrase,
 p.memorable {
