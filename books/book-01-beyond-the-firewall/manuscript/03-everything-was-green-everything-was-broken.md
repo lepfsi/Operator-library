@@ -125,7 +125,7 @@ A component can respond perfectly and still be unable to complete the work that 
 ::: field-note
 **Context**
 
-A financial trading platform maintained healthy process, network, and cache checks during a period of order-execution delay.
+A financial trading platform maintained ordinary process, network, and cache responses during a period of order-execution delay.
 
 **What We Expected**
 
@@ -133,7 +133,7 @@ If the platform could accept requests and each named component answered its prob
 
 **What Happened**
 
-A cache lock remained held during a race condition. The cache still answered pings and the services still reported normal status, but traders waited up to forty-five seconds for an execution confirmation.
+A cache lock remained held during a race condition. The cache remained reachable and the pricing service continued to answer, but traders waited up to forty-five seconds for an execution confirmation.
 
 **What We Missed**
 

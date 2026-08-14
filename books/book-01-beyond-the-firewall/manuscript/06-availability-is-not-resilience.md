@@ -148,11 +148,11 @@ Availability tells you whether a system answered. Resilience tells you what the 
 ::: field-note
 **Context**
 
-Peak sales period on a commerce platform. The primary dashboards showed every service as available.
+Peak sales period on a commerce platform. Primary views showed reachable services, successful reads, and ordinary resource use.
 
 **What We Expected**
 
-A high availability figure meant customers could complete the purchase journey and revenue would continue to flow.
+The signals being tracked meant customers could complete the purchase journey and revenue would continue to flow.
 
 **What Happened**
 

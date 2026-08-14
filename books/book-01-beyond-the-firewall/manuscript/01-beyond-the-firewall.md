@@ -115,11 +115,11 @@ The firewall was working. The business was not. A protected perimeter is not a d
 ::: field-note
 **Context**
 
-Manufacturing company, March 2023. Intermittent order-processing failures. Every perimeter dashboard appeared healthy.
+Manufacturing company, March 2023. Intermittent order-processing failures. Perimeter views showed expected traffic and no blocked intrusion.
 
 **What We Expected**
 
-Green security and infrastructure metrics meant the system was healthy.
+Expected security and infrastructure activity meant the order path was intact.
 
 **What Happened**
 
