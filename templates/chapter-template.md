@@ -4,7 +4,7 @@
 > **Language** : final manuscript content is written in English.
 > **Editorial standard** : [`design/referentiel-editorial-v1.md`](../design/referentiel-editorial-v1.md), complété par [`design/chapter-rhythm-10-page.md`](../design/chapter-rhythm-10-page.md).
 
-This template does not imitate a conventional essay. It alternates a visual thesis, an incident, a named mechanism, an operational warning, a practical rule, a field note, and a transition. A long chapter may add further scene-and-analysis pairs, but it keeps one opening, one impact quote, one Operator’s Rule, and one Field Note.
+This template does not imitate a conventional essay. It alternates an opening, an incident, a named mechanism, an operational warning, a practical rule, a field note, a memorable phrase, a pull quote, key takeaways, and a transition. A long chapter may add further scene-and-analysis pairs, but it keeps one opening, one Operator’s Rule, one Field Note, one Memorable Phrase, one Pull Quote, and one Key Takeaways block.
 
 ---
 
@@ -17,7 +17,7 @@ part: "Part I — The System We See"
 book: "Beyond the Firewall"
 book_number: 1
 chapter_number: 1
-author: "Ba-Ndouwe Steve"
+author: "Steve BA-NDOUWE"
 date: "YYYY-MM-DD"
 status: "scaffold"  # scaffold | draft | review | final
 memorable_phrase: "A short, affirmative sentence of fifteen words or fewer."
@@ -38,8 +38,12 @@ Use `scaffold` only for an empty placeholder. A chapter moves from `draft` to `r
 ::: {.impact-opener number="01" title="CHAPTER TITLE"}
 :::
 
-::: impact-quote
-The thesis in one or two lines.
+::: {.chapter-guide}
+**Inside Chapter 01**
+
+- [01. The first section](#the-moment)
+- [02. The mechanism](#the-mechanism)
+- [03. The operational decision](#three-actions-for-this-week)
 :::
 
 ## The moment
@@ -82,10 +86,6 @@ visibility, ownership, incentives, time pressure, or missing reversal paths.
 Offer a second concrete diagnostic action if it advances the chapter.
 :::
 
-::: impact-quote
-A memorable line that creates a deliberate pause.
-:::
-
 ## Three actions for this week
 
 Bridge from analysis to execution in a short paragraph.
@@ -120,10 +120,27 @@ The dependency, assumption, or decision that the system did not expose.
 The chapter’s lesson in one reusable sentence.
 :::
 
-## Transition
+::: {.memorable-phrase}
+One original sentence of 20–45 words that holds the chapter’s idea without repeating the title.
+:::
 
-Write a short ending that opens the next chapter. Do not summarize the chapter.
-Use a tension, a consequence, or a new question.
+::: pullquote
+One consequence or tension of 25–55 words. It should deepen the memorable phrase, not paraphrase it.
+:::
+
+::: keytakeaways
+- First applied teaching point.
+- Second applied teaching point.
+- Third applied teaching point.
+- Fourth applied teaching point.
+- Optional fifth applied teaching point.
+:::
+
+::: {.next-chapter}
+**NEXT CHAPTER TITLE**
+
+Write a short ending that opens the next chapter. Do not summarize the chapter. Use a tension, a consequence, or a new question.
+:::
 ```
 
 ---
@@ -133,13 +150,15 @@ Use a tension, a consequence, or a new question.
 | Block | Job | Limit |
 |---|---|---|
 | `impact-opener` | Create the dark opening verso. | One per chapter; required `number` and `title` attributes. |
-| `impact-quote` | Put the thesis or a key line into visual memory. | One opening quote and one mid-chapter quote maximum. |
+| `impact-quote` | Put an indispensable thesis into visual memory. | Optional; only when it adds a genuine editorial break, never to fill a page. |
 | `tip` | Give a field-tested diagnostic action. | Two per chapter maximum. |
 | `concept` | Define a stable system term. | One per chapter when a concept is introduced. |
 | `warning` | Expose a false assurance or dangerous shortcut. | One per chapter maximum. |
 | `operator-rule` | Convert the chapter into three measurable actions. | Exactly one per chapter. |
 | `field-note` | Preserve the incident as structured evidence. | Exactly one per chapter, near the end. |
-| `keytakeaways` | Summarize a long or online version. | Optional; do not add it to the ten-page rhythm by default. |
+| `memorable-phrase` | Fix the chapter’s core insight in memory. | Exactly one per complete chapter, 20–45 words. |
+| `pullquote` | Extend the chapter’s consequence or tension. | Exactly one per complete chapter, 25–55 words. |
+| `keytakeaways` | Convert the chapter into a concise operational recall. | Exactly one per complete chapter, four or five bullets. |
 
 The renderer handles the visual presentation of these fenced divs. Do not add manual colours, HTML tables, or spacing tricks to a manuscript.
 
@@ -158,4 +177,5 @@ Before marking a chapter `review`, verify the following.
 | Analysis | No more than three mechanisms are used to explain persistence. |
 | Action | Each rule specifies an action and a test, frequency, owner, or expiry. |
 | Rhythm | Standard prose contains no more than one callout per page of intended composition. |
+| Closing system | Field Note, Memorable Phrase, Pull Quote, Key Takeaways, then Next Chapter all appear in that order. |
 | Transition | The final paragraph creates a need for the next chapter rather than repeating the conclusion. |

@@ -135,6 +135,22 @@ If the transaction fails, the system is down. The colour of the LED does not cha
 
 The dashboard did not lie maliciously. It answered the questions it had been asked. The failure was that the organisation treated those answers as the whole truth.
 
+::: {.memorable-phrase}
+Green means the system responded. It does not mean the system worked for the person waiting at the end of the transaction.
+:::
+
+::: pullquote
+The dashboard describes components. The incident happens between them, on the path the user is trying to complete.
+:::
+
+::: keytakeaways
+- A component health check proves only that the component answered a narrow question.
+- Transaction health follows the outcome that gives the service its purpose.
+- Thresholds describe normal behaviour; outages often live in exceptional behaviour and dependency gaps.
+- Synthetic transactions give early evidence of a broken critical path.
+- The transaction is the source of truth. Component signals help diagnose it.
+:::
+
 ::: {.next-chapter}
 **When Monitoring Becomes a Comfort Blanket**
 

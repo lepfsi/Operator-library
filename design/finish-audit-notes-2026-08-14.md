@@ -287,3 +287,41 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | Pagination | Aucun folio blanc supplémentaire n’est introduit. | Validé |
 | Format | La page est rendue en plein format 6 × 9 pouces, sans marge ni header. | Validé |
 | Lisibilité | Résumé, marque de collection, signature auteur et zone réservée ISBN restent lisibles. | Validé |
+
+## Contrôle visuel du chapitre 5 — ouverture et structure
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 40 à 44 du PDF final de contrôle
+
+### Constats
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| Sortie du chapitre 4 | La Pull Quote, les Key Takeaways et la transition finale sont visibles et hiérarchisés proprement. | Validé |
+| Ouverture noire du chapitre 5 | Numéro monumental et titre empilé conformes au langage de collection. | Validé |
+| Guide du chapitre 5 | Liste cliquable claire, espacement après `Inside Chapter 05` conservé, repères visuels cohérents. | Validé |
+| Début du chapitre 5 | Les premières sections sont plus rigoureuses et plus denses que le scaffold initial, sans rupture de ton. | Validé |
+| System Concept | Le bloc `WORKING VS. RELIABLE` est lisible et bien intégré au flux. | Validé |
+| Point à confirmer | Vérifier les dernières pages du chapitre 5, en particulier `Operator’s Rule`, `Field Note`, `Memorable Phrase`, `Pull Quote`, `Key Takeaways` et la transition finale. | À contrôler |
+
+## Contrôle visuel du chapitre 5 — fin de chapitre
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 45 à 49 du PDF final de contrôle
+
+### Constats
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| Suite du corps | Les sections `The user’s definition`, `Measure the outcome` et `The paradox of working` gardent une densité lisible et une progression claire. | Validé |
+| Field Method | Le bloc `DEFINE THE HAPPY PATH` est compact, utile et visuellement cohérent. | Validé |
+| Operator’s Rule | Le bloc sombre ressort fortement et joue correctement son rôle de point de décision majeur. | Validé |
+| Field Note | La preuve située est lisible et tient sur une seule page de flux. | Validé |
+| Memorable Phrase | Le nouveau composant s’insère naturellement après le Field Note, sans ressembler à un callout générique. | Validé |
+| Pull Quote | La citation prolonge bien l’idée sans la répéter à l’identique. | Validé |
+| Key Takeaways | La synthèse de fin est claire, correctement hiérarchisée et compacte. | Validé |
+| Transition | `Availability Is Not Resilience` est visible, lisible et bien séparé du bloc précédent. | Validé |

@@ -138,6 +138,22 @@ The dashboard was incomplete, not malicious. The user queue was the first honest
 
 Green does not mean safe. It means the system answered the question it was asked. The user is often asking a different question.
 
+::: {.memorable-phrase}
+If monitoring only ever tells you things are fine, it has become a comfort blanket rather than a diagnostic tool.
+:::
+
+::: pullquote
+The dashboard is a mirror. It shows the signals you chose to watch, not the failure you forgot to ask about.
+:::
+
+::: keytakeaways
+- Green lights can reduce vigilance when teams mistake reassurance for evidence.
+- A user report and a growing support queue are production signals, not interruptions to the technical investigation.
+- A dashboard-free drill exposes dependencies that familiar screens keep invisible.
+- Monitoring helps diagnosis when it raises questions rather than ending them.
+- The user outcome remains the authority when component signals and experience disagree.
+:::
+
 ::: {.next-chapter}
 **The Difference Between Working and Being Reliable**
 

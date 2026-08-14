@@ -283,7 +283,7 @@ $endif$
   borderline west={4pt}{0pt}{saffron},
   left=16pt,right=14pt,top=12pt,bottom=12pt,
   before skip=22pt,after skip=22pt,
-  before upper={\textsc{\footnotesize\color{saffron}In Brief}\par\vspace{3pt}\textcolor{mist}{\rule{\linewidth}{0.4pt}}\par\vspace{7pt}}
+  before upper={\textsc{\footnotesize\color{saffron}Key Takeaways}\par\vspace{3pt}\textcolor{mist}{\rule{\linewidth}{0.4pt}}\par\vspace{7pt}}
 }
 
 \newtcolorbox{lesson}{%
@@ -306,6 +306,15 @@ $endif$
   borderline north={0.8pt}{0pt}{mist},borderline south={0.8pt}{0pt}{mist},
   left=24pt,right=24pt,top=22pt,bottom=22pt,before skip=28pt,after skip=28pt,
   fontupper=\itshape\Large\color{ink}\centering
+}
+
+\newtcolorbox{memorablephrase}{%
+  enhanced,unbreakable,arc=0pt,boxrule=0pt,
+  colback=mist!14,colframe=saffron,
+  borderline north={1.1pt}{0pt}{saffron},borderline south={0.6pt}{0pt}{saffron!55},
+  left=22pt,right=22pt,top=16pt,bottom=16pt,before skip=26pt,after skip=26pt,
+  fontupper=\itshape\large\color{ink}\centering,
+  before upper={\textsc{\footnotesize\color{saffron}Memorable Phrase}\par\vspace{8pt}}
 }
 
 % Field Note is evidence from the work, not a dramatic full-bleed interruption.

@@ -89,7 +89,7 @@ a { color: var(--action-blue); }
 /* Shared callout geometry: flat, narrow, high-contrast and screen-reader safe. */
 div.note, div.tip, div.important, div.caution, div.warning, div.pitfall,
 div.concept, div.operator-rule, div.keytakeaways, div.lesson, div.remember,
-div.pullquote, div.field-note, div.impact-quote, div.impact-opener, div.part-opener, div.part-map, div.chapter-guide, div.diagram {
+div.pullquote, div.memorable-phrase, div.field-note, div.impact-quote, div.impact-opener, div.part-opener, div.part-map, div.chapter-guide, div.diagram {
   box-sizing: border-box;
   margin: 1.65em 0;
   page-break-inside: avoid;
@@ -257,13 +257,38 @@ div.pullquote {
   text-align: center;
 }
 
+div.memorable-phrase {
+  padding: 1.15em 1.4em;
+  color: var(--ink);
+  border-top: 2px solid var(--saffron);
+  border-bottom: 1px solid var(--mist);
+  background: #ECE6DA;
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 1.18em;
+  font-style: italic;
+  line-height: 1.48;
+  text-align: center;
+}
+div.memorable-phrase::before {
+  content: "Memorable Phrase";
+  display: block;
+  margin-bottom: 0.7em;
+  color: var(--saffron);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.62em;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 /* Takeaways */
 div.keytakeaways {
   padding: 1em 1.1em;
   background: var(--paper);
   border-left: 4px solid var(--action-blue);
 }
-div.keytakeaways::before { content: "In Brief"; color: var(--saffron); }
+div.keytakeaways::before { content: "Key Takeaways"; color: var(--saffron); }
 div.keytakeaways ul { margin-bottom: 0; }
 
 /* Full-spread equivalents for EPUB. The semantic content is preserved while

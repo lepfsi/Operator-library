@@ -100,9 +100,13 @@ Les callouts sont des marges de pensée. Ils ne sont ni des cartes d’interface
 | `System Concept` | Fond Bone et deux filets Forest horizontaux. | Un concept réutilisable, 50 à 110 mots. |
 | `Operator’s Rule` | Fond Ink, barre Saffron haute, point repère et texte Chalk. | Trois actions observables, 60 à 120 mots ; c’est la signature de décision du chapitre. |
 | `Field Note` | Fond Chalk clair, filet Ink gauche, cinq champs fixes. | Une preuve située, 110 à 180 mots. |
-| `In Brief` | Fond Bone et filet Saffron gauche. | Synthèse facultative, 60 à 120 mots. |
+| `Memorable Phrase` | Fond Mist pâle, filets Saffron haut et bas, texte serif centré. | Une formulation originale de 20 à 45 mots, capable de vivre seule sans résumer mécaniquement le chapitre. |
+| `Pull Quote` | Fond Chalk, filets Mist haut et bas, texte serif italique centré. | Une conséquence ou une tension de 25 à 55 mots ; elle amplifie l’argument, sans le répéter. |
+| `Key Takeaways` | Fond Bone et filet Saffron gauche. | Quatre à cinq enseignements actionnables, 60 à 120 mots au total. |
 
 Le Field Note n’utilise plus de page noire pleine. Il reste sur le flux de lecture, utilise un fond clair et ne commence pas automatiquement une nouvelle page. Une page courante ne contient normalement qu’un callout. Aucun callout ne répète le paragraphe adjacent : il change le mode de lecture en apportant une méthode, un risque, une définition, une règle ou une preuve.
+
+Chaque chapitre complet se termine, après le `Field Note`, par une `Memorable Phrase`, une `Pull Quote` et des `Key Takeaways`, puis par la transition `Next Chapter`. Ces trois éléments forment une sortie éditoriale : la phrase fixe l’idée, la citation ouvre sa conséquence, et les enseignements transforment la lecture en rappel utilisable. Ils ne déclenchent pas de page pleine et restent compacts.
 
 ---
 
@@ -134,6 +138,7 @@ Avant qu’un chapitre passe de `draft` à `review`, il doit satisfaire les exig
 - Les guides de chapitre utilisent exclusivement le format `NN. Section title`, sans tiret ni puce visible.
 - Aucun callout n’est coupé entre deux pages ; son texte respecte le budget associé.
 - Le Field Note demeure une preuve compacte sur fond clair.
+- Chaque chapitre complet contient une `Memorable Phrase`, une `Pull Quote` et quatre ou cinq `Key Takeaways` avant sa transition finale.
 - Le manuscrit ne contient aucun tiret long.
 - Le nom `Steve BA-NDOUWE` et la fonction `Cybersecurity Engineer` sont cohérents sur la couverture, la page de titre et les métadonnées.
 - La paire typographique retenue est évaluée dans un PDF imprimé et dans une vignette avant verrouillage définitif.

@@ -152,6 +152,22 @@ A firewall rule reveals the boundary. It does not reveal the whole system that d
 
 The next chapter moves behind the rule and into the dependencies nobody documented: the hidden architecture that keeps work moving until one unseen connection fails.
 
+::: {.memorable-phrase}
+A temporary exception without an expiration date is a future security incident waiting for a quieter day.
+:::
+
+::: pullquote
+Every exception is a design decision. Treating it as temporary does not stop it from becoming architecture.
+:::
+
+::: keytakeaways
+- An exception becomes dangerous when its reason, owner, and end date disappear.
+- “Temporary” is not a control. An enforced expiry and a review mechanism are controls.
+- Urgent access should remain visible after the urgency has passed.
+- A rule that no one can explain is an operational dependency no one can manage.
+- Removing a deviation is part of the original work, not optional cleanup.
+:::
+
 ::: {.next-chapter}
 **Everything Was Green. Everything Was Broken.**
 

@@ -139,6 +139,22 @@ But by doing its job well, it made the real failure easier to overlook.
 
 The perimeter is not the system. The user transaction is.
 
+::: {.memorable-phrase}
+The firewall was working. The business was not. A protected perimeter is not a dependable service.
+:::
+
+::: pullquote
+A control can be healthy while the system it protects is already failing somewhere beyond its view.
+:::
+
+::: keytakeaways
+- A firewall verifies a boundary, not the health of the business transaction crossing it.
+- Internal dependencies become operational risk when no current map describes them.
+- Green security metrics and reliable user outcomes answer different questions.
+- Every exception needs an owner, a review point, and an expiry date.
+- Start incident diagnosis from the failed transaction, then follow its actual dependencies.
+:::
+
 ::: {.next-chapter}
 **The Temporary Rule That Became Permanent**
 
