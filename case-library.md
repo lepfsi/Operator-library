@@ -44,7 +44,7 @@
 ---
 
 ### Phantom_Cron_Production
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : logistics scale-up, ~150 employees
 - **Period** : September 2021
 - **Context** : billing consolidation relied on a nightly cron script on the ERP server, installed years earlier by a former team member
@@ -52,7 +52,7 @@
 - **Hidden assumption** : "if it's important, somebody would have documented it"
 - **Consequence** : the cron job did not survive the rebuild; invoices went out wrong for three weeks before the drop was noticed
 - **Lesson** : The most dangerous dependency is the one you don't know exists
-- **Books used in** : Beyond the Firewall — ch. 3
+- **Books used in** : Beyond the Firewall — ch. 9
 
 ---
 

@@ -467,3 +467,27 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | `Pull Quote` | La citation simple en italique reste discrète et naturelle. | Validé |
 | `Key Takeaways` et transition | La synthèse est claire et la transition vers le chapitre 9 prépare correctement la suite de la Partie II. | Validé |
 | Point éditorial | La cohérence de Partie II est maintenue : chapitre 7 sur le rollback, chapitre 8 sur la restauration, sans chevauchement excessif de message. | Validé |
+
+## Contrôle visuel — chapitre 9
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 80 à 87
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Ouverture noire | La page d’impact du chapitre 9 reste cohérente avec les autres ouvertures de la Partie II. | Validé |
+| Guide de chapitre | La navigation locale est claire, correctement espacée et lisible. | Validé |
+| Début narratif | L’ouverture sur la dépendance invisible et le cas ERP construit une continuité crédible avec les chapitres 7 et 8. | Validé |
+| `Risk` | Le bloc reste discret et utile, sans surcharger le flux. | Validé |
+| `System Concept` | `Shadow Operations` apporte une notion distincte, bien séparée du rollback et de la restauration. | Validé |
+| `Field Method` | La méthode de dependency walk est concrète, actionnable et proportionnée. | Validé |
+| `Operator’s Rule` | Le bloc conserve son rôle de décision majeure du chapitre. | Validé |
+| `Memorable Phrase` | Le composant garde la bonne discrétion tout en préparant le `Field Note`. | Validé |
+| `Field Note` | La fiche encadrée fonctionne bien sur ce cas de dépendance cachée. | Validé |
+| `Pull Quote` | La citation simple en italique reste élégante et non envahissante. | Validé |
+| `Key Takeaways` et transition | La synthèse est claire et la transition vers le chapitre 10 prépare bien la suite. | Validé |
+| Cohérence de Partie II | Le chapitre 9 prolonge logiquement rollback et restore vers les dépendances invisibles, sans redondance excessive. | Validé |
