@@ -23,9 +23,9 @@ incidents_referenced:
 - [01. The expert who was not there](#the-expert-who-was-not-there)
 - [02. The knowledge that walks out the door](#the-knowledge-that-walks-out-the-door)
 - [03. The architecture in people’s heads](#the-architecture-in-peoples-heads)
-- [04. Why documentation alone does not solve it](#why-documentation-alone-does-not-solve-it)
+- [04. Capability is observed work](#capability-is-observed-work)
 - [05. The cost of concentration](#the-cost-of-concentration)
-- [06. Capture and prove critical knowledge](#capture-and-prove-critical-knowledge)
+- [06. Map and prove critical capability](#map-and-prove-critical-capability)
 :::
 
 ## The expert who was not there
@@ -80,28 +80,18 @@ The risk is not the person. The risk is the absence of a tested second path when
 Treat concentrated knowledge as an operational dependency: identify it, assign a plan, and verify that the team can work without it.
 :::
 
-## Why documentation alone does not solve it
+## Capability is observed work
 
-Documentation matters, but a document dump is not knowledge transfer.
+Text can support a transfer. It cannot prove that a second operator has acquired the judgment, access, and context needed to act safely.
 
-Runbooks go stale when no one uses them. Architecture diagrams become too abstract when they omit the operational constraints that shaped the system. Long pages of commands help little if a reader cannot tell when the commands are safe to use.
-
-The answer is not to document everything. It is to capture the knowledge that changes operational outcomes.
-
-Start with recurring incidents, critical deployments, recovery paths, service identities, hidden dependencies, and decisions that routinely require escalation. For each one, record the intent, the preconditions, the safe action, the evidence of success, the known failure modes, and the people who can perform or review it.
-
-Then make the knowledge executable. Ask someone other than the expert to use the runbook in a safe environment. Ask them to explain why each step exists. Let the gaps become the next documentation task.
-
-This changes documentation from an archive into a working interface between people and the system.
+The transfer happens when someone other than the expert leads a realistic operation, explains the choices, reaches the verification point, and exposes the question that no page answered. Documentation should capture that evidence. Chapter 13 addresses how the record stays current. This chapter asks a different question: can the team perform the work without waiting for the expert?
 
 ::: warning
 **The hero trap**
 
 Organisations often reward the person who resolves every difficult incident alone. That reward can unintentionally preserve the dependency.
 
-Recognise the expert who makes other people capable: the one who pairs, explains decisions, improves the runbook after an incident, and creates a second path for critical work.
-
-The goal is not to make expertise less valuable. It is to make the team less fragile because expertise is shared.
+Recognise the expert who makes other people capable: the one who pairs, hands over a real decision, observes another operator lead the path, and creates a second way to act.
 :::
 
 ## The cost of concentration
@@ -122,9 +112,11 @@ A human single point of failure exists when a critical operational outcome depen
 It does not mean the person is a problem. It identifies a concentration risk that the team must reduce through shared practice and verified capability.
 :::
 
-## Capture and prove critical knowledge
+## Map and prove critical capability
 
 Knowledge transfer works best when it follows real work.
+
+First, make the capability visible. For one critical outcome, name the work the team must perform, the people who can lead it, the access it needs, the evidence that proves it worked, and the next scenario that will test the second path.
 
 Choose one critical path. Pair an experienced operator with a second person. Begin with a scenario: deploy a change, recover a service, rotate a credential, or investigate a known failure. Ask the expert to explain what they look for, which assumption could be wrong, and what evidence would make them stop.
 
@@ -135,17 +127,17 @@ Finally, rehearse the scenario without the expert directing it. If the team can 
 This practice should be routine, not triggered only by a resignation. The most useful time to share knowledge is while the expert is available, the service is healthy, and the team has enough space to ask basic questions without an outage watching.
 
 ::: tip
-**Run a critical knowledge capture session.** Choose one expert and one critical service. Map the business outcome, the hidden constraints, the service identities, the recovery choices, and the decisions the expert makes without consulting a document. Have another operator lead the same scenario in a safe environment. Record only the material that changes how the work is performed, then use the exercise to improve the runbook and identify the next person to train.
+**Create one Capability Map.** For a critical outcome, record the lead operator, second operator, required role access, preconditions, verification signal, and date of the next practice. Then have the second operator lead a safe scenario. Record the questions that blocked action and use them to improve the shared path.
 :::
 
 ::: operator-rule
-1. **Identify capabilities, not heroes.** For each critical service, list the work that must be possible: deploy, recover, rotate, investigate, and communicate. Then identify whether at least two people can do it safely.
+1. **This week, create one Capability Map.** For a critical outcome, list the work, lead operator, second operator, access, verification signal, and next practice.
 
-2. **Transfer knowledge through practice.** Pairing, reverse shadowing, and rehearsals reveal the context that static documentation misses.
+2. **Transfer knowledge through observed practice.** Pairing, reverse shadowing, and rehearsals reveal the context that static documentation misses.
 
 3. **Verify the second path.** A named backup is not enough. Test whether the second operator can complete a critical scenario and explain the decisions involved.
 
-4. **Reward capability multiplication.** Treat improved runbooks, shared access, coaching, and successful cross-training as operational work, not as optional extra effort.
+4. **Reward capability multiplication.** Treat shared access, coaching, and successful second-path practice as operational work, not as optional extra effort.
 :::
 
 ::: {.memorable-phrase}

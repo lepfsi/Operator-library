@@ -24,7 +24,7 @@ incidents_referenced:
 - [02. Documentation can exist and still fail](#documentation-can-exist-and-still-fail)
 - [03. Runbook rot](#runbook-rot)
 - [04. The operational document](#the-operational-document)
-- [05. Update where the work happens](#update-where-the-work-happens)
+- [05. The change feedback loop](#the-change-feedback-loop)
 - [06. Prove the document works](#prove-the-document-works)
 :::
 
@@ -94,15 +94,17 @@ The gradual loss of operational truth in an instruction set when changes, incide
 A runbook is healthy when it is used, challenged, and updated as part of the operation. It is rotting when it survives only as a page that still looks complete.
 :::
 
-## Update where the work happens
+## The change feedback loop
 
-The most reliable documentation habit is simple: make the update part of the operational event.
+A document stays operational only when work changes it.
 
-A material change is not complete until the operational record changes with it. A recovery exercise is not complete until the runbook records what worked, what failed, and what the next operator needs to know. An incident is not complete until the team captures the decision, dependency, or signal that would have shortened the response next time.
+A material change closes only after the relevant operational record changes with it. A recovery exercise closes only after the runbook records what worked, what failed, and what the next operator needs. An incident closes only after the team captures the decision, dependency, or signal that would shorten the next response.
 
-This does not mean every small edit requires a large document review. It means the systems of work should make the right update visible and easy to perform. Link the runbook from the service repository. Put the owner in the on-call record. Include a documentation check in the change template. Create a follow-up task when an incident exposes a gap.
+This is a small feedback loop, not a documentation campaign. Put the operational record near the service repository or configuration it describes. Put an update check in the change template. Create a visible follow-up when an incident or rehearsal exposes a gap.
 
-The document should live close enough to the change that updating it is the natural last step, not a distant act of discipline that can always be postponed.
+::: tip
+**Close one feedback loop this week.** Select a recent change, incident, or rehearsal. Find the page an operator would use next time. Update the outcome, preconditions, safe action, verification signal, and escalation point while the evidence is still fresh. Name the trigger that will require the next review.
+:::
 
 ::: warning
 **The archive trap**
@@ -127,9 +129,9 @@ The result should be a small loop: use, observe, correct, and use again. The loo
 :::
 
 ::: operator-rule
-1. **Write documentation around use.** State the outcome, owner, preconditions, action, verification signal, and escalation point before adding deeper context.
+1. **This week, write one document around use.** State the outcome, owner, preconditions, action, verification signal, and escalation point before adding deeper context.
 
-2. **Update after the work, not after the quarter.** Treat material changes, incidents, and rehearsals as documentation triggers. If the operation changed the system, it probably changed the document.
+2. **Attach update triggers to the work.** Treat material changes, incidents, and rehearsals as documentation triggers. If the operation changed the system, it probably changed the document.
 
 3. **Prove with a second operator.** A runbook is not verified because its author can follow it. It is verified when another capable operator can use it safely.
 
