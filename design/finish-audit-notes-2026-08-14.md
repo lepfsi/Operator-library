@@ -635,3 +635,41 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | `Pull Quote` | La citation reste simple, naturelle et non décorative. | Validé |
 | `Key Takeaways` | La synthèse de fin est nette, utile et cohérente avec la logique du chapitre. | Validé |
 | Transition vers le chapitre 14 | Le passage vers l’erreur de configuration humaine est logique et bien préparé. | Validé |
+
+## Contrôle visuel — début du chapitre 14
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 122 à 125
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Ouverture noire | L’entrée de chapitre conserve la force visuelle de collection et marque bien le déplacement du regard vers la responsabilité juste. | Validé |
+| Guide de chapitre | Le guide reste lisible, sobre et cohérent avec les chapitres précédents. | Validé |
+| Incident d’ouverture | Le cas de sélection de cible en production rend immédiatement visible le lien entre geste humain et lacune de conception. | Validé |
+| Thèse | Le texte évite le registre accusatoire et déplace correctement la question de « qui a fauté ? » vers « qu’est-ce qui a rendu l’erreur plausible ? ». | Validé |
+| Développement | La distinction entre slip, mistake et design gap apporte une rigueur utile sans lourdeur académique. | Validé |
+| Rythme visuel | Les sections et l’air entre les blocs restent premium et cohérents avec la Partie III. | Validé |
+
+## Contrôle visuel — fin du chapitre 14
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 126 à 129
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| `Warning` | Le rappel sur la faiblesse des confirmations génériques est juste, opérationnel et non moralisateur. | Validé |
+| `System Concept` | La taxonomie `Human Configuration Error` s’inscrit proprement dans la famille de `Human SPOF` sans créer une couche conceptuelle inutile. | Validé |
+| `Field Method` | L’error-path review est concret, directement réutilisable et bien proportionné au sujet. | Validé |
+| `Operator’s Rule` | Les règles sont nettes, crédibles et suffisamment spécifiques pour guider une revue réelle. | Validé |
+| `Memorable Phrase` | La phrase mémorable cible est correctement restituée et bien positionnée avant le `Field Note`. | Validé |
+| `Field Note` | Le bloc encadré reste élégant et donne une preuve terrain forte sans surcharger la page. | Validé |
+| `Pull Quote` | La citation simple en italique reste discrète et soutient le propos sans effet décoratif. | Validé |
+| Transition vers le chapitre 15 | L’ouverture vers un système qui ne dépend pas d’une seule personne est logique et bien préparée. | Validé |

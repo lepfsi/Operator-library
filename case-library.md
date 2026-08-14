@@ -199,6 +199,19 @@
 
 ---
 
+### Production_Target_Mixup
+- **Status** : developed
+- **Sector / scale** : B2B SaaS operations, ~180 employees
+- **Period** : November 2022
+- **Context** : a routine access-policy change was made through one internal console serving both staging and production tenants
+- **Decision** : select the wrong production tenant from near-identical targets; no target-aware preview or approval boundary existed
+- **Hidden assumption** : "a careful operator will always notice the environment suffix"
+- **Consequence** : customer access failures began until the team identified and reverted the policy
+- **Lesson** : A human configuration error is the visible symptom of an invisible design gap
+- **Books used in** : Beyond the Firewall — ch. 14
+
+---
+
 ### _Add new incidents below using the same structure_
 
 ```
@@ -234,7 +247,7 @@
 | Beyond the Firewall | 11 | Autopilot_Restart_Disaster |
 | Beyond the Firewall | 12 | Solo_Engineer_Blackout |
 | Beyond the Firewall | 13 | Runbook_Rot_Blindspot |
-| Beyond the Firewall | 14 | (none yet — candidates: Autopilot_Restart_Disaster shared, or new incident) |
+| Beyond the Firewall | 14 | Production_Target_Mixup |
 | Beyond the Firewall | 15 | Creator_Exit_System_Blackout |
 | Beyond the Firewall | 16 | Upgraded_Part_Still_Red |
 | Beyond the Firewall | 17 | (none yet — candidates: FiveNines_First_Failover / Backup_Job_Silently_Failing shared, or new incident) |
