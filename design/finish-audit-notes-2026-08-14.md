@@ -234,3 +234,30 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | Règle 214 | Le contenu est rendu dans un bloc dédié, à chasse fixe, avec libellé `Configuration Extract`, séparé du récit et des callouts de décision. | Validé |
 | Continuité | Le bloc se place après le moment de découverte et avant l’explication, sans casser le rythme du chapitre. | Validé |
 | Pagination | Le bloc reste entier sur un seul folio et le `Risk` commence sur le folio suivant. | Validé |
+
+## Contrôle visuel initial du chapitre 4
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 29 à 33 (fin du chapitre 3 puis ouverture et premières pages du chapitre 4)
+
+### Constats
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| Transition chapitre 3 → 4 | La transition `Next Chapter` introduit correctement le chapitre 4 et reste lisible. | Validé |
+| Ouverture noire chapitre 4 | Numéro monumental et titre empilé cohérents avec les chapitres précédents. | Validé |
+| Guide du chapitre 4 | Espacement après `Inside Chapter 04` conservé ; liste cliquable propre. | Validé |
+| Hiérarchie des sections | Les intertitres Saffron sont cohérents et scannables. | Validé |
+| Blocs Risk | Les blocs visibles restent sobres et intégrés au rythme de lecture. | Validé |
+| Point à confirmer | Vérifier les dernières pages du chapitre 4, en particulier `Operator’s Rule`, `Field Note` et la transition finale. | À contrôler |
+
+### Contrôle final, chapitre 4
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| Field Method et System Concept | Palette Forest, hiérarchie et densité cohérentes avec les autres chapitres. | Validé |
+| Operator’s Rule | Bloc sombre différenciant, trois actions lisibles, aucune coupure entre folios. | Validé |
+| Field Note | Bloc clair stable, preuve terrain visible, aucune surcharge. | Validé |
+| Transition | `Next Chapter` respire correctement après la phrase mémorable et introduit le chapitre 5 sans vide excessif. | Validé |
