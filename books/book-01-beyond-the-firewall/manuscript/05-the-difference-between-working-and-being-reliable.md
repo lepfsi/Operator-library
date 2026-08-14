@@ -38,7 +38,7 @@ This is the difference between working and being reliable.
 
 Working describes a result at one point in time. Reliable describes whether a defined result keeps occurring for the people, paths, and conditions the team has agreed to serve.
 
-A successful test after a deployment is useful. It is not a reliability claim. A reliability claim begins only when the team can say what success means, for whom it must happen, under which conditions, and across what period.
+A successful test after a deployment is useful. It answers whether one named path can complete at that moment. It is not a reliability claim. A reliability claim begins only when the team can say what comparable attempts should do, for whom, under which conditions, and across what period.
 
 ::: operating-fact
 A successful result proves that one attempt worked. Reliability begins when the team can explain what comparable attempts should do next.
@@ -101,7 +101,7 @@ Reliability does not improve because a team writes a target once. It improves wh
 Choose one critical outcome and run a short weekly review. Look at the outcome by the population and condition that carry risk. Find the worst recurring slice, not only the overall average. Ask whether the user promise still matches the current product, dependency, and traffic pattern.
 
 ::: tip
-**Review one reliability claim this week.**
+**During the next reliability review, inspect one claim.**
 
 Write one outcome, population, condition, and time window on a single page. Pull the recent evidence for that exact slice. Mark the slowest or least reliable recurring condition. Assign one verification or improvement that changes the next week’s evidence, then review the same claim again.
 :::
@@ -109,7 +109,7 @@ Write one outcome, population, condition, and time window on a single page. Pull
 The review is not an exercise in blame. It is how a team discovers that its promise has changed before the user discovers it through a failure.
 
 ::: operator-rule
-1. **This week, write one reliability claim.** Name the outcome, the population that matters, the condition that tests the promise, and the time window that makes the evidence meaningful.
+1. **During the next reliability review, write one claim.** Name the outcome, the population that matters, the condition that tests the promise, and the time window that makes the evidence meaningful.
 
 2. **Inspect the failure shape, not only the average.** Separate the data by the region, dependency, product action, or peak period that carries the consequence.
 
@@ -141,7 +141,7 @@ We had treated a successful early test as a reliability statement. We had not de
 
 **What It Taught Us**
 
-Reliability belongs to a specific outcome under specific conditions. A single successful result is evidence of possibility, not evidence of dependable service.
+Reliability belongs to a specific outcome under specific conditions and across a meaningful period. A single successful result is evidence of possibility. A repeated pattern is evidence that the promise is being kept.
 :::
 
 ::: pullquote
@@ -149,7 +149,7 @@ Reliability belongs to a specific outcome under specific conditions. A single su
 :::
 
 ::: keytakeaways
-- Working describes one result; reliability describes a dependable pattern of results.
+- A transaction test establishes that one named path completed now; reliability describes the pattern comparable attempts sustain over time.
 - A reliability claim needs an outcome, population, conditions, and a meaningful time window.
 - Failure shape often teaches more than an average because it reveals the slice carrying the consequence.
 - SLI and SLO are useful only when they express a user promise and trigger a practical decision.

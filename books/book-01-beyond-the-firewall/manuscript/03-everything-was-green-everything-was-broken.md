@@ -91,7 +91,7 @@ A synthetic transaction is a controlled attempt to complete a critical path and 
 The test must be safe. It can use a dedicated account, a harmless record, a non-settling payment path, or an isolated message. Safety does not mean vagueness. The test still has to perform the same dependencies, permissions, validation, and response steps that make the real outcome meaningful.
 
 ::: tip
-**Build one transaction test this week.**
+**At the next monitoring review, build one transaction test.**
 
 Choose one outcome a customer would notice. Write its start event, completion event, acceptable completion time, test identity, frequency, and failure evidence. Run it through the production path without creating an irreversible business effect. If the test fails, alert on the named outcome before opening component graphs.
 :::
@@ -109,14 +109,14 @@ But it cannot be the first definition of success.
 Start from the outcome. Ask what the user attempted, what completion looks like, how long completion may take, and which evidence proves it occurred. Then decide which component signals help explain a failure of that outcome.
 
 ::: operator-rule
-1. **This week, name one critical outcome.** Write the exact start and completion event in a sentence that a support engineer and an operator would both recognise.
+1. **At the next monitoring review, name one critical outcome.** Write the exact start and completion event in a sentence that a support engineer and an operator would both recognise.
 
 2. **Run the smallest safe version of that outcome.** Use a dedicated identity or record, then retain the trace, identifier, and completion evidence produced by the test.
 
 3. **Alert on outcome failure first.** When the test fails, begin by confirming the broken path. Use component signals to diagnose the cause, not to overrule the failure.
 :::
 
-The target is not a perfect model of every user journey. The target is one proof that matters enough to change the way the team responds.
+The target is not a perfect model of every user journey. It is one proof that a named path can complete now, in the way the user needs. It does not promise that comparable attempts will keep succeeding across a population, a condition, and a time window. That is the separate question of reliability.
 
 ::: {.memorable-phrase}
 A component can respond perfectly and still be unable to complete the work that gives it a purpose.
@@ -141,7 +141,7 @@ Our checks proved that individual services could respond. They did not prove tha
 
 **What It Taught Us**
 
-The first useful proof of service health is a completed outcome. Component checks are the evidence that helps explain why that outcome failed.
+The first useful proof is that the named path can complete at that moment. Component checks are the evidence that helps explain why that path failed.
 :::
 
 ::: pullquote
@@ -153,7 +153,7 @@ The first useful proof of service health is a completed outcome. Component check
 - Proxy signals are useful for diagnosis but cannot certify an outcome they never test.
 - A synthetic transaction should name its start, completion, safe test identity, acceptable time, and evidence.
 - Component signals help explain an outcome failure after the failure is known.
-- A completed critical transaction is stronger evidence than a collection of reachable components.
+- A completed critical transaction proves a named path can complete now; it does not by itself make a promise about future conditions.
 :::
 
 ::: {.next-chapter}
