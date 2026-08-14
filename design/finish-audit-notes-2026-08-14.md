@@ -491,3 +491,28 @@ La paire TeX Gyre Schola / Noto Sans donne une texture plus éditoriale, plus fe
 | `Pull Quote` | La citation simple en italique reste élégante et non envahissante. | Validé |
 | `Key Takeaways` et transition | La synthèse est claire et la transition vers le chapitre 10 prépare bien la suite. | Validé |
 | Cohérence de Partie II | Le chapitre 9 prolonge logiquement rollback et restore vers les dépendances invisibles, sans redondance excessive. | Validé |
+
+## Contrôle visuel — chapitre 10 et ouverture de la Partie III
+
+### Source
+
+- PDF : `books/book-01-beyond-the-firewall/exports/book.pdf`
+- Pages revues : 89 à 97
+
+### Constats
+
+| Élément | Observation | Verdict |
+|---|---|---|
+| Ouverture noire | La page d’impact du chapitre 10 clôt proprement la Partie II et conserve le même niveau de présence que les autres ouvertures. | Validé |
+| Guide de chapitre | La navigation locale reste claire, bien espacée et cohérente avec les chapitres 7 à 9. | Validé |
+| Début narratif | L’incident de l’override d’identité rend concrète l’idée d’accumulation architecturale sans retomber dans les thèmes du rollback ou de la restauration. | Validé |
+| `System Concept` | `Architectural Accretion` synthétise correctement la logique du chapitre et sa place de conclusion de Partie II. | Validé |
+| `Risk` / raisonnement | Le chapitre remplace les chiffres arbitraires par une logique de coût organisationnel et technique plus crédible. | Validé |
+| `Field Method` | La session d’archéologie architecturale est actionnable et proportionnée à la maturité visée. | Validé |
+| `Operator’s Rule` | Le bloc conserve son rôle de règle de gouvernance forte pour les exceptions et les workarounds. | Validé |
+| `Memorable Phrase` | Le composant garde la bonne discrétion et fonctionne bien ici comme seuil avant le `Field Note`. | Validé |
+| `Field Note` | La fiche encadrée reste élégante et renforce la notion de workaround devenu dépendance. | Validé |
+| `Pull Quote` | La citation simple en italique demeure discrète et naturelle. | Validé |
+| `Key Takeaways` et transition | La synthèse clôt proprement la Partie II et prépare efficacement la bascule vers la Partie III. | Validé |
+| Page d’ouverture Partie III | `Operating Reality` s’ouvre avec une page noire forte et cohérente, sans rupture de collection. | Validé |
+| Carte de Partie III | À revoir séparément si nécessaire lors de la rédaction des chapitres 11 à 15, mais la structure actuelle est suffisante pour la transition. | Acceptable |

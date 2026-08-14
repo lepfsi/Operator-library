@@ -43,6 +43,19 @@
 
 ---
 
+### Identity_Workaround_Ghost
+- **Status** : developed
+- **Sector / scale** : mid-market digital services company, established production platform
+- **Period** : identity provider transition over two years
+- **Context** : an authentication service retained a temporary endpoint override after an external identity provider changed ownership and routing
+- **Decision** : preserve the workaround through successive releases without documenting its owner, expiry, or removal path
+- **Hidden assumption** : "the override still works, so it is not part of the architecture"
+- **Consequence** : new registration and password reset failed when the override became invalid; the core service and its health checks remained available
+- **Lesson** : A workaround left in production becomes an architectural dependency whether or not the team recognises it
+- **Books used in** : Beyond the Firewall — ch. 10
+
+---
+
 ### Phantom_Cron_Production
 - **Status** : developed
 - **Sector / scale** : logistics scale-up, ~150 employees
