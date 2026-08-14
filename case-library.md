@@ -174,7 +174,7 @@
 ---
 
 ### Upgraded_Part_Still_Red
-- **Status** : idea
+- **Status** : developed
 - **Sector / scale** : public administration IT, ~800 employees
 - **Period** : May 2022
 - **Context** : the citizen-request portal was slow; each team blamed its own neighbor's component
@@ -182,7 +182,7 @@
 - **Hidden assumption** : "fix the parts and the system heals itself"
 - **Consequence** : after three expensive upgrades, the portal remained slow; the real bottleneck was a chatty integration between two services nobody had mapped
 - **Lesson** : You can't fix a system by fixing its parts
-- **Books used in** : Beyond the Firewall — ch. 12
+- **Books used in** : Beyond the Firewall, ch. 16
 
 ---
 

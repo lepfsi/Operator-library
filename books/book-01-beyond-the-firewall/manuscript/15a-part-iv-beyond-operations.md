@@ -6,7 +6,7 @@ book: "Beyond the Firewall"
 book_number: 1
 author: "Steve BA-NDOUWE"
 date: "2026"
-status: "scaffold"
+status: "active"
 ---
 
 ::: {.part-opener number="IV" title="BEYOND OPERATIONS"}

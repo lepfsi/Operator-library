@@ -150,8 +150,8 @@ $endif$
 % ---- Impact pages ------------------------------------------------------------
 % Attributes from Markdown: ::: {.impact-opener number="01" title="BEYOND..."}
 \NewDocumentEnvironment{impact-opener}{O{\thechapter} O{$if(book-title)$$book-title$$else$BEYOND THE FIREWALL$endif$}}{%
-  \refstepcounter{chapter}\addcontentsline{toc}{chapter}{#2}\markboth{#2}{}%
-  \clearpage\thispagestyle{empty}%
+  \clearpage\refstepcounter{chapter}\addcontentsline{toc}{chapter}{#2}\markboth{#2}{}%
+  \thispagestyle{empty}%
   \begin{tikzpicture}[remember picture,overlay]
     \fill[charcoal] (current page.south west) rectangle (current page.north east);
   \end{tikzpicture}%
@@ -169,7 +169,7 @@ $endif$
 % Parts are thresholds, not oversized chapter headings. Their construction is
 % intentionally spare: a single numeral, a title, and a concise editorial cue.
 \NewDocumentEnvironment{part-opener}{O{} O{PART}}{%
-  \clearpage\phantomsection\addcontentsline{toc}{part}{Part #1: #2}\thispagestyle{empty}%
+  \clearpage\markboth{#2}{}\phantomsection\addcontentsline{toc}{part}{Part #1: #2}\thispagestyle{empty}%
   \begin{tikzpicture}[remember picture,overlay]
     \fill[charcoal] (current page.south west) rectangle (current page.north east);
     \draw[saffron,line width=1.2pt] ([xshift=18mm,yshift=-27mm]current page.north west) -- ([xshift=72mm,yshift=-27mm]current page.north west);

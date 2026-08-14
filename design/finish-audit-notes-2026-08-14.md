@@ -733,3 +733,27 @@ La compilation PDF doit être relancée après cette correction, suivie d’une 
 | Transition de sortie | `Part IV: Beyond Operations` est visible, séparée par un filet et suffisamment respirante. | Validé. |
 
 La séquence de clôture a été confirmée dans le manuscrit et le rendu de sortie ne présente aucun bloc coupé dans la page inspectée. Le PDF est visuellement prêt sous réserve du contrôle EPUB et des vérifications de versionnement.
+
+
+## Contrôle visuel de la Partie IV et du chapitre 16
+
+| Zone | Observation | Décision |
+|---|---|---|
+| Carte de la Partie IV | La question de cadrage et la liste tabulée des chapitres 16 à 18 donnent une entrée claire, calme et cohérente avec le système établi. | Conserver. |
+| Titre courant de la carte de partie | Le header affiche actuellement `From Infrastructure to Systems Thinking`, qui correspond au chapitre 16 plutôt qu’au nom de la Partie IV ou au livre. | Vérifier et corriger si le gabarit permet un repère de partie plus juste. |
+| Concept `System Boundary` | Le bloc Forest est lisible, entier et distingue utilement la définition de l’explication. | Validé. |
+| Cadence de la page | La succession contexte, concept, question directe, intertitre et paragraphe court maintient la densité de manuel recherchée. | Validé. |
+
+Le contrôle de la clôture du chapitre 16, de l’EPUB et du titre courant de la carte de Partie IV reste à effectuer avant publication.
+
+
+### Validation après correction de la navigation et de la clôture du chapitre 16
+
+| Zone | Observation | Verdict |
+|---|---|---|
+| Header de la carte de Partie IV | Le titre courant affiche désormais `Beyond Operations`. Il ne divulgue plus le chapitre 16 sur la page de carte. | Validé. |
+| Field Note du chapitre 16 | Le bloc est intégral, stable et facile à parcourir. Les cinq champs restent visibles sans coupure. | Validé. |
+| Pull Quote | La citation conserve une présence calme après la note terrain, sans encadrement inutile. | Validé. |
+| Enchaînement de sortie | La fermeture du chapitre reste conforme au séquençage imposé dans le manuscrit ; l’extrait visuel confirme une respiration suffisante entre note et citation. | Validé. |
+
+Le PDF de la Partie IV et du chapitre 16 est prêt. Le contrôle EPUB et le contrôle Git restent nécessaires avant publication.
