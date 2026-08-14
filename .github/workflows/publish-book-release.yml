@@ -1,0 +1,75 @@
+name: Publish Beyond the Firewall exports
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "books/**"
+      - "design/**"
+      - "templates/**"
+      - "scripts/**"
+      - ".github/workflows/publish-book-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-beyond-the-firewall-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-release:
+    name: Build PDF and DOCX release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the committed sources
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+        with:
+          pandoc-version: "3.1.12.1"
+
+      - name: Install PDF rendering requirements
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            librsvg2-bin \
+            texlive-xetex \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            fonts-noto-core \
+            fontconfig
+
+      - name: Build the current production edition
+        run: |
+          chmod +x scripts/build-book.sh
+          ./scripts/build-book.sh book-01-beyond-the-firewall pdf
+          ./scripts/build-book.sh book-01-beyond-the-firewall docx
+
+      - name: Prepare versioned assets
+        id: version
+        env:
+          RUN_NUMBER: ${{ github.run_number }}
+        run: |
+          VERSION="v0.1.${RUN_NUMBER}"
+          mkdir -p release-assets
+          cp books/book-01-beyond-the-firewall/exports/book.pdf \
+            "release-assets/beyond-the-firewall-${VERSION}.pdf"
+          cp books/book-01-beyond-the-firewall/exports/book.docx \
+            "release-assets/beyond-the-firewall-${VERSION}.docx"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish the versioned PDF and DOCX
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          gh release create "$VERSION" \
+            --target "$GITHUB_SHA" \
+            --title "Beyond the Firewall ${VERSION}" \
+            --generate-notes \
+            release-assets/*
