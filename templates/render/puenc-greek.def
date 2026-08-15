@@ -1,0 +1,5 @@
+% Dummy puenc-greek.def to avoid missing file error in xunicode
+\ProvidesFile{puenc-greek.def}[2024/01/01 dummy]
+\DeclareFontEncoding{PU}{}{}
+\DeclareFontSubstitution{PU}{lmr}{m}{n}
+\endinput

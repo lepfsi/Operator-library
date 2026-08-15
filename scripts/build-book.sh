@@ -145,6 +145,10 @@ fi
 
 # ---- Common Pandoc args -----------------------------------------------------
 LUA_FILTER="$ROOT_DIR/templates/render/callouts.lua"
+BOOK_LUA_FILTER="$BOOK_DIR/config/callouts.lua"
+if [[ -f "$BOOK_LUA_FILTER" ]]; then
+    LUA_FILTER="$BOOK_LUA_FILTER"
+fi
 PANDOC_ARGS=(
     "${ALL_CHAPTERS[@]}"
     --metadata-file="$CONFIG_FILE"

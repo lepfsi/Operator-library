@@ -1,0 +1,87 @@
+---
+title: "The Operator's Last Job"
+subtitle: "Humans, AI and the Future of IT Operations"
+author: "Steve BA-NDOUWE"
+date: "2026"
+lang: "en-US"
+publisher: "The Operator's Library"
+rights: "© 2026 Steve BA-NDOUWE. Published by The Operator's Library."
+
+description: >
+  A book about the technical, human, and organizational realities of
+  operating modern IT systems and the invisible factors that decide
+  whether they remain reliable, secure, and governable.
+
+subject:
+  - IT Operations
+  - Reliability
+  - Resilience
+  - Information Security
+  - Site Reliability Engineering
+
+keywords:
+  - operations
+  - reliability
+  - resilience
+  - infrastructure
+  - SRE
+  - security
+  - incident response
+  - monitoring
+
+# --- Bibliography & citations ----------------------------------------------
+# Paths are resolved relative to this config file (config/ -> book -> books -> root).
+bibliography: "../../../references/references.bib"
+# csl: "../../references/apa.csl"  # uncomment once a real CSL file is installed
+
+# --- PDF (XeLaTeX) ---------------------------------------------------------
+pdf-engine: xelatex
+documentclass: book
+classoption:
+  - 11pt
+  - twoside
+  - openany
+template: "template.latex"
+
+# Format: A5 (148x210) or 6x9 (152.4x228.6). Default: 6x9.
+bookformat-a5: false
+book-year: "2026"
+
+# --- Metadata consumed by template.latex (title page, headers, accents) ----
+book-title: "The Operator's Last Job"
+book-subtitle: "Humans, AI and the Future of IT Operations"
+book-author: "Steve BA-NDOUWE"
+book-author-role: "Cybersecurity Engineer"
+book-brand: "THE OPERATOR'S LIBRARY"
+book-number: 1
+book-head: "BEYOND THE FIREWALL"
+book-pdftitle: "The Operator's Last Job: Humans, AI and the Future of IT Operations"
+
+# Operational action colour used by the interior system (hex, without #).
+book-accent: "F2A900"
+# Sommaire de collection : seulement les chapitres et éléments liminaires, pas les sections.
+toc-depth: 1
+
+# --- EPUB -------------------------------------------------------------------
+# CSS applied by build-book.sh via --css when building EPUB.
+epub-css: "../../../templates/render/epub.css"
+epub-cover-image: "../design/couverture-premiere.png"
+
+# --- PDF cover --------------------------------------------------------------
+# First page of the PDF: full-page cover (used by template.latex).
+# The SVG is converted to PDF by build-book.sh when a converter is available.
+cover-image: "../design/couverture-premiere.png"
+# Last page of the PDF: full-page back cover generated from vector source.
+
+# --- DOCX -------------------------------------------------------------------
+# Reference doc applied by build-book.sh via --reference-doc.
+reference-doc: "../../../templates/render/reference.docx"
+
+# --- Variables (legacy) ---------------------------------------------------
+variables:
+  bookTitle: "The Operator's Last Job"
+  bookSubtitle: "Humans, AI and the Future of IT Operations"
+  bookNumber: 5
+  bookAuthor: "Steve BA-NDOUWE"
+  collectionName: "The Operator's Library"
+back-cover-image: "../design/couverture-quatrieme.png"
