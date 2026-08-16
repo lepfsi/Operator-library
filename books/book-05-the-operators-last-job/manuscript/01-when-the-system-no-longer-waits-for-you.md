@@ -3,7 +3,7 @@ title: "When the System No Longer Waits for You"
 chapter: "01"
 part: "Part I: The Operator"
 status: "draft"
-memorable_phrase: "The first thing automation takes is not a job. It is the time in which a person could still matter."
+memorable_phrase: "A system can make a decision before anyone has had time to know what it costs."
 concept_introduced: "The Vanishing Point"
 case_reference: "Autopilot_Restart_Disaster"
 ---
@@ -203,7 +203,7 @@ The system has not replaced the operator. It has simply stopped waiting for them
 The question is what, exactly, the operator had been doing before the system learned to move on.
 
 ::: {.memorable-phrase}
-The first thing automation takes is not a job. It is the time in which a person could still matter.
+A system can make a decision before anyone has had time to know what it costs.
 :::
 
 ::: {.next-chapter}

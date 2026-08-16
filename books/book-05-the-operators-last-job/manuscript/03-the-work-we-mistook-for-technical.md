@@ -3,7 +3,7 @@ title: "The Work We Thought Was Technical"
 chapter: "03"
 part: "Part I: The Operator"
 status: "draft"
-memorable_phrase: "A metric can describe a system without describing the people the system has failed."
+memorable_phrase: "A green dashboard can still mark a boundary around the people it has lost."
 concept_introduced: "Operational Significance"
 case_reference: "Green Dashboard Verification Exclusion"
 ---
@@ -60,6 +60,11 @@ The incident record does not look dramatic. There is no cascading infrastructure
 And yet the service is failing.
 
 Not universally. Not in a way that the aggregate can easily express. It is failing for people whose devices, connection patterns, and available time fall outside the path the release has treated as ordinary.
+
+::: {.case-signal}
+**Green status, live exclusion**  
+The platform is available by the measure it chose. The people who need another measure are still unable to complete the service.
+:::
 
 The important decision was not whether an engineer could find a bug. The team had already found the behaviour. The decision was whether the behaviour counted as an operational failure, who had authority to name it as one, and what could be made worse by the technical remedy.
 
@@ -133,6 +138,10 @@ But execution without translation does not remove the underlying choice. It make
 
 The technical artefact is not the entire decision. It is the place where the decision becomes enforceable.
 
+::: {.operator-note}
+The engineer is not the person standing outside the system to slow it down. They are the person who turns an excluded experience into evidence the system is required to answer.
+:::
+
 \phantomsection\label{section-04-wrong-truth}
 
 ## The system that optimises the wrong truth
@@ -157,9 +166,18 @@ That contest can be designed. The team can create a segmented completion signal 
 
 None of these measures makes the system perfectly fair or perfectly informed. They do something more useful. They make the boundary visible enough to be challenged while the outcome can still change.
 
+::: {.the-shift}
+**FROM DETECTION TO PERMISSION**  
+A better signal changes nothing unless it is allowed to alter the state of the service, the scope of a release, or the authority of the people watching it.
+:::
+
 This is also where organisations often make an expensive mistake. They treat the incident as evidence that observability needs one more dashboard, one more model, or one more alert. Those additions may help. But an alert is only useful if someone has already agreed what it is permitted to interrupt. A segmented metric that nobody owns is another piece of instrumentation. A support signal that cannot alter an incident’s severity is another channel in which people can describe a failure without changing it.
 
 The design problem is therefore not simply detection. It is the path from detection to authority. Who may say that the new evidence changes the service’s state? Who must be informed before a fallback is enabled? Who can accept the residual security risk, and how long does that acceptance last? These are operational questions expressed through technical machinery. If they are left unanswered, automation will not resolve the ambiguity. It will execute whatever answer was quietly embedded in the default.
+
+::: {.the-question}
+*When new evidence challenges a green state, who is allowed to say that the service is no longer healthy?*
+:::
 
 \phantomsection\label{section-05-parallel}
 
@@ -190,7 +208,7 @@ The answer should not always be the most senior person, the loudest customer, or
 That is not work beside technology. It is work inside technology, at the point where an abstract measure becomes a live boundary around people, promises, and acceptable loss.
 
 ::: {.memorable-phrase}
-A metric can describe a system without describing the people the system has failed.
+A green dashboard can still mark a boundary around the people it has lost.
 :::
 
 ::: {.next-chapter}

@@ -24,6 +24,7 @@ local known_envs = {
   ["traceback"]        = "tracebackbox",
   ["dissent-record"]   = "dissentrecord",
   ["handoff-note"]     = "handoffnote",
+  ["routine-map"]      = "routinemap",
 }
 
 local function latex_escape(value)

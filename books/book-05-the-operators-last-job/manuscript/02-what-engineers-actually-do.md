@@ -3,7 +3,7 @@ title: "What Engineers Actually Do"
 chapter: "02"
 part: "Part I: The Operator"
 status: "draft"
-memorable_phrase: "The command is the visible residue of a decision that began somewhere else."
+memorable_phrase: "Engineering begins where the command stops explaining the decision."
 concept_introduced: "Operational Translation"
 case_reference: "Settlement Reconciliation Hold"
 ---
@@ -55,7 +55,7 @@ But categories are not decisions. A category only tells you which past situation
 
 At \livetime{09:06}, the payments team replied: \humanvoice{“Replay was paused, but only in one region. Don’t run the repair yet. It’s still moving.”} The missing records were not missing. They were moving through a sequence the dashboard was too impatient to show. The script would have created a second version of work that was already on its way.
 
-Mara closed nothing. She changed the status to *awaiting settlement completion*, attached the relevant identifiers, and wrote one sentence for the finance team: **No customer action required. Do not correct these transactions manually.**
+Mara closed nothing. She changed the status to \systemartifact{awaiting settlement completion}, attached the relevant identifiers, and wrote one sentence for the finance team: **No customer action required. Do not correct these transactions manually.**
 
 The final technical action took less than a minute. The work had taken twenty-three.
 
@@ -86,7 +86,7 @@ The processor said: \systemvoice{this authorisation has a state.} The ledger sai
 
 Each statement was valid within its own boundary. None was enough by itself.
 
-This is the part of engineering that is routinely hidden by the command line. An engineer compares times that were recorded in different time zones. They recognise that a status called *complete* in one system means *queued for posting* in another. They ask whether an exception is a defect, a tolerated delay, a promise made to a customer, or a risk being quietly handed to someone who will discover it later. They know when to wait for a missing fact and when waiting will itself become the error.
+This is the part of engineering that is routinely hidden by the command line. An engineer compares times that were recorded in different time zones. They recognise that a status called \processstate{complete} in one system means \processstate{queued for posting} in another. They ask whether an exception is a defect, a tolerated delay, a promise made to a customer, or a risk being quietly handed to someone who will discover it later. They know when to wait for a missing fact and when waiting will itself become the error.
 
 They also decide who must be present before the technical work becomes irreversible.
 
@@ -207,7 +207,7 @@ The command still matters. Systems need people who can understand them, change t
 The more of the visible work becomes executable, the more important it becomes to name the work that does not.
 
 ::: {.memorable-phrase}
-The command is the visible residue of a decision that began somewhere else.
+Engineering begins where the command stops explaining the decision.
 :::
 
 ::: {.next-chapter}

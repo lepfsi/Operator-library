@@ -553,3 +553,60 @@
 \newcommand{\systemvoice}[1]{\begingroup\setlength\fboxsep{2.4pt}\colorbox{systemwash}{\textcolor{systemink}{\ttfamily\footnotesize #1}}\endgroup}
 \newcommand{\systemartifact}[1]{\textcolor{systemink}{\ttfamily\footnotesize\textsc{#1}}}
 % -----------------------------------------------------------------------------
+
+% ---- Inline voice correction -------------------------------------------------
+% System statements stay mono but must wrap with the paragraph; no boxed inline fragments.
+\renewcommand{\systemvoice}[1]{{\textcolor{systemink}{\ttfamily\footnotesize #1}}}
+% Decision questions are quiet, upright and professional: no purple emphasis or generic italics.
+\renewcommand{\operationalquestion}[1]{{\textcolor{noteblue}{\sffamily\footnotesize #1}}}
+% -----------------------------------------------------------------------------
+
+% ---- Running navigation ------------------------------------------------------
+% Each reading page exposes the book, the current part and the current chapter.
+\newcommand{\runningcollection}{\textsc{The Operator's Library}}
+\newcommand{\runningpart}{\textsc{Part I \enspace The Operator}}
+\fancypagestyle{thresholdledger}{%
+  \fancyhf{}
+  \fancyhead[LE]{\sffamily\scriptsize\color{slate}\runningcollection}
+  \fancyhead[RE]{\sffamily\scriptsize\color{systemblue}\nouppercase{\leftmark}}
+  \fancyhead[LO]{\sffamily\scriptsize\color{systemblue}\nouppercase{\leftmark}}
+  \fancyhead[RO]{\sffamily\scriptsize\color{slate}\runningcollection}
+  \fancyfoot[LE,RO]{\sffamily\scriptsize\color{slate}\thepage}
+  \fancyfoot[LO,RE]{\ttfamily\scriptsize\color{slate}\runningpart}
+  \renewcommand{\headrulewidth}{0.35pt}
+  \renewcommand{\headrule}{\hbox to\headwidth{\color{teal!55}\leaders\hrule height \headrulewidth\hfill}}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{thresholdledger}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[LE,RO]{\sffamily\scriptsize\color{slate}\thepage}
+  \fancyfoot[LO,RE]{\ttfamily\scriptsize\color{slate}\runningpart}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\renewcommand{\chaptermark}[1]{\markboth{Chapter \thechapter\enspace #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+% -----------------------------------------------------------------------------
+
+% ---- Process-state grammar ---------------------------------------------------
+% Short operational states may carry a light background. Long system propositions never do.
+\definecolor{timewash}{HTML}{F0F4F6}
+\renewcommand{\livetime}[1]{\begingroup\setlength\fboxsep{1.4pt}\colorbox{timewash}{\textcolor{timeink}{\sffamily\bfseries\footnotesize\textsc{#1}}}\endgroup}
+\newcommand{\processstate}[1]{\begingroup\setlength\fboxsep{1.7pt}\colorbox{systemwash}{\textcolor{systemink}{\ttfamily\footnotesize #1}}\endgroup}
+% -----------------------------------------------------------------------------
+
+% ---- Routine Map ------------------------------------------------------------
+\definecolor{routinecopper}{HTML}{96643A}
+\definecolor{routinewash}{HTML}{FAF2E9}
+\newtcolorbox{routinemap}{
+  enhanced,breakable,boxrule=0.60pt,arc=9pt,
+  colframe=routinecopper,colback=routinewash,coltext=ink,
+  left=12pt,right=12pt,top=16pt,bottom=12pt,boxsep=0pt,
+  before skip=15pt,after skip=17pt,
+  title={\calloutmono\color{paper}\textsc{Routine Map}},coltitle=paper,colbacktitle=routinecopper,
+  attach boxed title to top left={xshift=12pt,yshift*=-\tcboxedtitleheight/2},
+  boxed title style={boxrule=0pt,arc=4pt,left=8pt,right=8pt,top=4pt,bottom=4pt},
+  fontupper=\calloutcode
+}
+% -----------------------------------------------------------------------------
