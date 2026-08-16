@@ -33,7 +33,7 @@ The alert was familiar. The first step in the runbook was familiar too: restart 
 
 ## The moment before an action becomes irreversible
 
-At 2:17 in the morning, the incident looked ordinary.
+At \livetime{02:17} in the morning, the incident looked ordinary.
 
 The core banking API of a mid-sized bank subsidiary had begun to fail under load. Requests that should have completed in fractions of a second were slowing, then timing out. The dashboard showed rising latency, a growing queue, and a scatter of errors with the useful appearance of being related. The on-call engineer opened the alert, found the runbook, and saw the first instruction.
 
@@ -92,7 +92,7 @@ The operator is carrying a provisional model of the situation. Some of it comes 
 The visible action is often the final centimetre of the work.
 :::
 
-The work has a temporal dimension as well. A person does not simply ask, *Can this service be restarted?* They ask, *Can it be restarted now?* A restart at 2:17 may be tolerable. The same restart during a payroll run, a settlement window, or a recovery effort elsewhere in the system may be something else entirely.
+The work has a temporal dimension as well. A person does not simply ask, \operationalquestion{Can this service be restarted?} They ask, \operationalquestion{Can it be restarted now?} A restart at \livetime{02:17} may be tolerable. The same restart during a payroll run, a settlement window, or a recovery effort elsewhere in the system may be something else entirely.
 
 Experienced operators can look slow to outsiders. They are not gathering more information because more information is beautiful. They are buying the smallest amount of time necessary to avoid treating an ambiguous signal as a settled fact.
 

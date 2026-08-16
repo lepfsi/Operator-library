@@ -35,11 +35,11 @@ A discrepancy can be small enough to disappear in a dashboard and large enough t
 
 ## The ticket that would not close
 
-At 8:43 on a Monday morning, the settlement reconciliation queue showed a variance of 0.18 per cent.
+At \livetime{08:43} on a Monday morning, the settlement reconciliation queue showed a variance of 0.18 per cent.
 
 That number did not look dramatic. Overnight card payments had been accepted, authorisations had been captured, and the ledger had received almost every expected record. The variance represented a narrow set of transactions whose final status did not line up across two systems. Some appeared completed at the payment processor but were absent from the internal ledger. Others appeared in the ledger with a status the processor had not yet confirmed.
 
-The ticket had a familiar title: *Reconciliation mismatch after weekend release.*
+The ticket had a familiar title: \systemartifact{Reconciliation mismatch after weekend release}.
 
 Mara, the engineer assigned to the incident, read it while standing beside the kitchen table, a cup of coffee cooling near her laptop. The customer-facing application was healthy. No alert page had fired. The finance team had not yet opened its morning dashboard. On a normal day, the mismatch would resolve when a delayed batch arrived. On an abnormal day, a correction applied too early would duplicate a transaction, reverse an authorised charge, or create a customer message that nobody could later explain.
 
@@ -53,7 +53,7 @@ To anyone watching the ticket, this could have looked like delay. The discrepanc
 
 But categories are not decisions. A category only tells you which past situations have been made to resemble the current one. It does not tell you whether the resemblance is strong enough to carry the cost of acting.
 
-At 9:06, the payments team replied. The replay job had been paused, but only for one processing region. The missing records were not missing. They were moving through a sequence the dashboard was too impatient to show. The script would have created a second version of work that was already on its way.
+At \livetime{09:06}, the payments team replied: \humanvoice{“Replay was paused, but only in one region. Don’t run the repair yet. It’s still moving.”} The missing records were not missing. They were moving through a sequence the dashboard was too impatient to show. The script would have created a second version of work that was already on its way.
 
 Mara closed nothing. She changed the status to *awaiting settlement completion*, attached the relevant identifiers, and wrote one sentence for the finance team: **No customer action required. Do not correct these transactions manually.**
 
@@ -82,7 +82,7 @@ When organisations describe engineering work, they usually name the objects an e
 
 Mara was not merely inspecting a queue. She was translating between incompatible accounts of reality.
 
-The processor said: *this authorisation has a state.* The ledger said: *this money has a record.* The release calendar said: *this system changed last night.* Finance said: *we must be able to account for this before the next reporting boundary.* Customer support, if it became involved, would need to say: *this is what happened to your payment.*
+The processor said: \systemvoice{this authorisation has a state.} The ledger said: \systemvoice{this money has a record.} The release calendar said: \systemvoice{this system changed last night.} Finance said: \humanvoice{“We still need to account for it before the next reporting boundary.”} Customer support, if it became involved, would need to say: \humanvoice{“This is what happened to your payment.”}
 
 Each statement was valid within its own boundary. None was enough by itself.
 

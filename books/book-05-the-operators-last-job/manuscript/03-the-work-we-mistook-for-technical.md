@@ -37,22 +37,22 @@ Both lines were true. Only one of them described the service that people were tr
 
 ## The green dashboard
 
-**14:02**  
+\livetime{14:02}  
 The new identity-verification flow is enabled for all applicants. The deployment is uneventful. Error rate remains below the alert threshold. Median completion time improves by 1.8 seconds.
 
-**14:07**  
+\livetime{14:07}  
 The on-call dashboard remains green. The service-level objective for successful verification is met.
 
-**14:11**  
+\livetime{14:11}  
 A support lead posts in the incident channel. Forty-seven applicants have contacted the help desk. They reach the final verification screen, then return to the beginning of the process without an explicit error. Most are using older mobile devices or unstable connections. Several are applying before a closing deadline later that afternoon.
 
-**14:14**  
-The first response in the channel is technically reasonable: *No service incident. Aggregate verification success is healthy. Investigating user-specific reports.*
+\livetime{14:14}  
+The first response in the channel is technically reasonable: \humanvoice{“Not seeing a service incident from my side. Aggregate success is healthy. I’m checking the reports now.”}
 
-**14:18**  
-A product manager asks whether the new flow can be paused. A security engineer replies that the previous flow had a known weakness the release was intended to address. Rolling back the routing rule would restore an older control boundary. Leaving it in place might exclude people whose applications could not be completed again before the deadline.
+\livetime{14:18}  
+A product manager asks: \humanvoice{“Can we pause the new flow for new sessions?”} A security engineer replies: \humanvoice{“We can, but that puts the old gap back in play. I wouldn’t leave it open.”} The previous flow had a known weakness the release was intended to address. Rolling back the routing rule would restore an older control boundary. Leaving it in place might exclude people whose applications could not be completed again before the deadline.
 
-**14:23**  
+\livetime{14:23}  
 The dashboard is still green.
 
 The incident record does not look dramatic. There is no cascading infrastructure failure, no corrupted database, no alert storm, no visible collapse of the service. The platform is responsive. Most sessions complete. The metric that the team built to tell them whether verification was working reports that verification is working.
@@ -76,7 +76,7 @@ A rollback could reopen a security concern. A patch could take hours to test. A 
 \end{tabular}
 :::
 
-At 14:31, the team takes neither of the first two options. They add a temporary alternate verification route for the affected device class, place a limited hold on the new routing rule for new sessions, and ask the application owner to approve a deadline extension for the people already caught in the loop. The dashboard changes very little. The service-level objective remains green.
+At \livetime{14:31}, the team takes neither of the first two options. They add a temporary alternate verification route for the affected device class, place a limited hold on the new routing rule for new sessions, and ask the application owner to approve a deadline extension for the people already caught in the loop. The dashboard changes very little. The service-level objective remains green.
 
 The work is not visible in the metric because the work is about the meaning of the metric.
 
@@ -92,7 +92,7 @@ The verification dashboard had been designed to answer a legitimate question: ar
 
 But the metric also made a decision before the incident began. It decided that the experience of the forty-seven applicants could be diluted by the experience of everyone else.
 
-That decision may be defensible. It may even be the right default. The problem is not that aggregation is dishonest. The problem is that aggregation can become a quiet delegation of significance. The dashboard is allowed to say, in effect: *this amount of failure does not yet alter the status of the service.*
+That decision may be defensible. It may even be the right default. The problem is not that aggregation is dishonest. The problem is that aggregation can become a quiet delegation of significance. The dashboard is allowed to say, in effect: \systemvoice{this amount of failure does not yet alter the status of the service.}
 
 No dashboard can avoid making such judgments. The question is whether anyone remembers that it has made them.
 

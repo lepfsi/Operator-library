@@ -996,6 +996,20 @@ $endif$
   boxed title style={frame hidden,sharp corners},attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
 }
 % -----------------------------------------------------------------------------
+
+% ---- Narrative voice grammar -------------------------------------------------
+% These are inline scene markers, not callouts. They clarify agency without cluttering prose.
+\definecolor{timeink}{HTML}{405B70}
+\definecolor{humanink}{HTML}{365E78}
+\definecolor{questionink}{HTML}{70505D}
+\definecolor{systemink}{HTML}{526875}
+\definecolor{systemwash}{HTML}{EDF2F4}
+\newcommand{\livetime}[1]{\textcolor{timeink}{\sffamily\bfseries\footnotesize\textsc{#1}}}
+\newcommand{\humanvoice}[1]{\textcolor{humanink}{\sffamily\small #1}}
+\newcommand{\operationalquestion}[1]{\textcolor{questionink}{\sffamily\small\bfseries #1}}
+\newcommand{\systemvoice}[1]{\begingroup\setlength\fboxsep{2.4pt}\colorbox{systemwash}{\textcolor{systemink}{\ttfamily\footnotesize #1}}\endgroup}
+\newcommand{\systemartifact}[1]{\textcolor{systemink}{\ttfamily\footnotesize\textsc{#1}}}
+% -----------------------------------------------------------------------------
 \begin{document}
 \fontsize{10.3pt}{15.4pt}\selectfont
 
