@@ -10,7 +10,7 @@ status: "draft"
 ::: {.front-piece label="INTRODUCTION"}
 **The Cheapness of Action**
 
-By the time the incident channel is opened, its most consequential decision has already been made. A system has compared a new alert with a recent change, traced the failure through a dependency map, recognised a familiar pattern, and proposed a remedy. It has isolated a workload, restored a previous configuration, checked the signal, and closed the incident.
+At 2:17 in the morning, an alert arrives. A system compares it with a recent change, traces the failure through a dependency map, recognises a familiar pattern, and proposes a remedy. It isolates a workload, restores a previous configuration, checks the signal, and closes the incident.
 
 At 2:19, no engineer has touched it.
 

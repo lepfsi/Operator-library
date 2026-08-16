@@ -1,14 +1,12 @@
 ---
 title: "When the System No Longer Waits for You"
 chapter: "01"
-part: "Part I: The Operator"
+part: "Part I — The Operator"
 status: "draft"
 memorable_phrase: "The first thing automation takes is not a job. It is the time in which a person could still matter."
 concept_introduced: "The Vanishing Point"
 case_reference: "Autopilot_Restart_Disaster"
 ---
-
-\phantomsection\label{chapter-01}
 
 # When the System No Longer Waits for You
 
@@ -16,20 +14,17 @@ case_reference: "Autopilot_Restart_Disaster"
 The first thing automation takes is not a job. It is the time in which a person could still matter.
 :::
 
-::: {.chapter-guide}
-1. [The moment before an action becomes irreversible](#section-01-moment)
-2. [What the operator was actually carrying](#section-02-carrying)
-3. [Why permission is not capability](#section-03-permission)
-4. [The four questions every autonomous action leaves behind](#section-04-four-questions)
-5. [The question the system leaves behind](#section-05-question)
-:::
+## In This Chapter
+
+- The moment before an action becomes irreversible
+- What the operator was actually carrying
+- Why permission is not capability
+- The four questions every autonomous action leaves behind
 
 ::: {.field-note}
-`02:17 :: core-banking-api :: runbook/restart-service`  
-The alert was familiar. The first step in the runbook was familiar too: restart the service.
+**FIELD NOTE — 02:17**  
+A core banking API began to fail under load. The alert was familiar. The first step in the runbook was familiar too: restart the service.
 :::
-
-\phantomsection\label{section-01-moment}
 
 ## The moment before an action becomes irreversible
 
@@ -60,15 +55,13 @@ A command has a timestamp. A restart has an audit trail. A connection pool can b
 The system that comes next will not inherit that hesitation by accident. It will inherit the alert, the runbook, the prior incidents, the recovery time, the dependency map, and the authority to act. When it sees a similar pattern at 2:17 in the morning, it may do what every organisation says it wants an operational system to do: it may not wait.
 
 ::: {.case-signal}
-**Autopilot Restart Disaster**  
+**CASE SIGNAL — AUTOPILOT RESTART DISASTER**  
 The initial response was technically familiar and operationally authorised. The restart was not absurd. It was simply applied before the team had established whether the familiar pattern was present.
 :::
 
 ::: {.the-shift}
 The cost was not a failed command. The cost was the loss of time to understand what the command had changed.
 :::
-
-\phantomsection\label{section-02-carrying}
 
 ## What the operator was actually carrying
 
@@ -89,6 +82,7 @@ None of this is mystical. It is not a plea for an indefinable human intuition. I
 The operator is carrying a provisional model of the situation. Some of it comes from telemetry. Some comes from history. Some comes from relationships. Some comes from the uncomfortable knowledge that a technically available action can be socially, commercially, or legally unacceptable. The model is incomplete. That is precisely why the operator is not merely executing a command.
 
 ::: {.operator-note}
+**OPERATOR’S NOTE**  
 The visible action is often the final centimetre of the work.
 :::
 
@@ -101,21 +95,18 @@ That time can keep customers waiting. It can leave an incident open. It can feel
 It can also be the last remaining space in which a different decision is possible.
 
 ::: {.decision-ledger}
-\renewcommand{\arraystretch}{1.58}
-\begin{tabular}{@{}>{\centering\arraybackslash}m{27mm}|>{\centering\arraybackslash}m{62mm}@{}}
-{\ttfamily\scriptsize\color{systemblue}\textsc{Action}} & {\rmfamily\small Restart the core banking API service.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Authority}} & {\rmfamily\small The on-call engineer, under a predefined recovery runbook.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Assumption}} & {\rmfamily\small A familiar signature means a familiar remedy.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{System blind spot}} & {\rmfamily\small An unannounced deployment, a live customer commitment, or an exception held outside the interface.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Cost of error}} & {\rmfamily\small A latency problem becomes a multi-hour outage through repeated connection-pool loss.}
-\end{tabular}
+| Decision Ledger | |
+|---|---|
+| **Action** | Restart the core banking API service. |
+| **Authority** | The on-call engineer, under a predefined recovery runbook. |
+| **Hidden assumption** | The first step in the runbook is the right step for this incident. |
+| **What the system could not see** | The unannounced deployment, the live customer commitment, or the exception held outside its interface. |
+| **Cost of being wrong** | A latency problem becomes a multi-hour outage through repeated connection-pool loss. |
 :::
 
 The ledger is not an accusation. It does not say that the engineer should have known everything. Its purpose is to make the invisible decision legible. The restart looked like an action. It was also a claim: that this failure belonged to a known category, that the old remedy still applied, and that the cost of acting was lower than the cost of waiting.
 
 Every runbook contains claims like this. Most of the time, they remain quiet. The procedure works. The page closes. Nobody has to discover how much judgment was compressed into a single line of text.
-
-\phantomsection\label{section-03-permission}
 
 ## The layer the machine can take
 
@@ -156,16 +147,18 @@ Permission is not capability. A system can be capable of restarting a service wi
 
 The point is not that humans possess context and machines never will. Context can be represented, surfaced, and partially operationalised. The point is that context has to be designed as something the system can ask for, preserve, or defer to. If it is absent, speed does not make an action wiser. It only makes the absence more efficient.
 
-\phantomsection\label{section-04-four-questions}
-
 ::: {.four-questions}
-\renewcommand{\arraystretch}{1.42}
-\begin{tabular}{@{}>{\centering\arraybackslash}m{7mm}|>{\centering\arraybackslash}m{27mm}|>{\centering\arraybackslash}m{55mm}@{}}
-{\ttfamily\scriptsize\color{signalorange}01} & {\sffamily\scriptsize\bfseries EXECUTION} & {\rmfamily\small\itshape Can the action be performed?} \\ \hline
-{\ttfamily\scriptsize\color{signalorange}02} & {\sffamily\scriptsize\bfseries JUDGMENT} & {\rmfamily\small\itshape Should the action be performed here?} \\ \hline
-{\ttfamily\scriptsize\color{signalorange}03} & {\sffamily\scriptsize\bfseries AUTHORITY} & {\rmfamily\small\itshape Who is entitled to decide?} \\ \hline
-{\ttfamily\scriptsize\color{signalorange}04} & {\sffamily\scriptsize\bfseries ACCOUNTABILITY} & {\rmfamily\small\itshape Who answers when the decision is wrong?}
-\end{tabular}
+**EXECUTION**  
+Can the action be performed?
+
+**JUDGMENT**  
+Should the action be performed here?
+
+**AUTHORITY**  
+Who is entitled to decide?
+
+**ACCOUNTABILITY**  
+Who answers when the decision is wrong?
 :::
 
 The old runbook concealed these distinctions because it was executed by a person. The person was assumed to supply the missing context. The new system exposes them because it forces an organisation to declare what it is willing to let happen without that person.
@@ -173,6 +166,7 @@ The old runbook concealed these distinctions because it was executed by a person
 This is not a case for restoring unnecessary friction. No one should have to wake at 2:17 to perform work a system can perform safely and well. The question is whether the organisation has replaced the old friction with a boundary that is more deliberate.
 
 ::: {.operator-note}
+**OPERATOR’S NOTE**  
 The important question is not whether the system can execute the action. It is whether someone can still explain why the action was permitted.
 :::
 
@@ -184,9 +178,7 @@ This is why the human role cannot be saved by placing a name beside a button mar
 
 The operator will not always make the better decision. The system will not always make the worse one. The difficult work is refusing the comfort of that comparison. An organisation has to decide, before the incident, which decisions it is willing to turn into thresholds, which exceptions must stop the machine, and which consequences require a person who can answer for the choice. That work is less visible than a command at 2:17. It is also harder to perform by accident.
 
-For now, one fact is enough: automation does not remove authority. It redistributes it: into thresholds, permissions, exceptions, and systems that may act before a person has learned what is happening.
-
-\phantomsection\label{section-05-question}
+For now, one fact is enough: automation does not remove authority. It redistributes it—into thresholds, permissions, exceptions, and systems that may act before a person has learned what is happening.
 
 ## The question the system leaves behind
 
@@ -207,6 +199,5 @@ The first thing automation takes is not a job. It is the time in which a person 
 :::
 
 ::: {.next-chapter}
-**What Engineers Actually Do**  
 Before we can ask what machines will take next, we have to recover what operators were doing all along. Not the commands they typed. The work that made a command safe enough to type.
 :::

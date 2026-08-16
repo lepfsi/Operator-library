@@ -1,7 +1,7 @@
 ---
 title: "Chapter title"
 chapter: 0
-part: "Part I — The Operator"
+part: "Part I : The Operator"
 status: "scaffold"
 incident: "Case_Library_Incident"
 vanishing_point: "The capability that no longer requires the operator"
@@ -12,7 +12,7 @@ A one-sentence tension statement. No definition. No lesson.
 :::
 
 ::: {.field-note}
-**FIELD NOTE — 02:17**  
+**FIELD NOTE : 02:17** 
 A short operational fact: the system observed, inferred, acted, or verified.
 :::
 
@@ -21,7 +21,7 @@ A short operational fact: the system observed, inferred, acted, or verified.
 Start inside the incident, at the point where a decision is about to become irreversible. Give the reader a time, a signal, an affected person or obligation, and one uncertain action.
 
 ::: {.case-signal}
-**CASE SIGNAL — [Incident name]**  
+**CASE SIGNAL : [Incident name]** 
 Three to five sentences from the incident. Show the event before interpreting it.
 :::
 
@@ -43,7 +43,7 @@ Show the work beneath the task: interpreting, waiting, comparing, calling, negot
 Show exactly what has become executable without the operator. Explain the mechanism with enough technical precision to earn the reader’s trust.
 
 ::: {.proposition}
-**The Vanishing Point**  
+**The Vanishing Point** 
 *This used to require a person. It does not anymore.*
 :::
 
@@ -52,13 +52,13 @@ Show exactly what has become executable without the operator. Explain the mechan
 Name the missing context: an obligation, relationship, history, exception, irreversibility, or right of refusal. Do not say the machine is stupid. Make it capable and still insufficient for this decision.
 
 ::: {.distinction}
-**EXECUTION**  
+**EXECUTION** 
 Can the action be performed?
 
-**JUDGMENT**  
+**JUDGMENT** 
 Should the action be performed here?
 
-**AUTHORITY**  
+**AUTHORITY** 
 Who is entitled to decide?
 :::
 
@@ -75,7 +75,7 @@ State the chapter’s two-sentence difficulty. Examples:
 Only now introduce the governing principle of the chapter. Specify whether the system may act, must ask, must explain, must wait, or must not act.
 
 ::: {.operator-note}
-**OPERATOR NOTE**  
+**OPERATOR NOTE** 
 The important question is not whether the system can execute the action. It is whether someone can still explain why the action was permitted.
 :::
 

@@ -1,0 +1,166 @@
+% ============================================================================
+% The Threshold Ledger — Book 05 identity layer
+% Applied after the common compilation template. This file intentionally
+% redefines only book-local visual decisions; compilation dependencies remain
+% shared with the collection.
+% ============================================================================
+
+% ---- Palette -----------------------------------------------------------------
+\definecolor{ink}{HTML}{111820}
+\definecolor{paper}{HTML}{F4F1EA}
+\definecolor{systemblue}{HTML}{3E6278}
+\definecolor{signalorange}{HTML}{D96B27}
+\definecolor{consequencered}{HTML}{8E3B32}
+\definecolor{quietgrey}{HTML}{E7E9E7}
+\definecolor{mist}{HTML}{D6D9D4}
+\definecolor{slate}{HTML}{5C6A72}
+\colorlet{saffron}{signalorange}
+\colorlet{vermilion}{consequencered}
+\colorlet{actionblue}{signalorange}
+\colorlet{warningcoral}{consequencered}
+\colorlet{bookaccent}{signalorange}
+
+% ---- Typography --------------------------------------------------------------
+\IfFontExistsTF{Source Serif 4}{\setmainfont{Source Serif 4}}{\setmainfont{TeX Gyre Schola}}
+\IfFontExistsTF{IBM Plex Sans}{\setsansfont{IBM Plex Sans}}{\setsansfont{TeX Gyre Heros}}
+\IfFontExistsTF{IBM Plex Mono}{\setmonofont{IBM Plex Mono}}{\setmonofont{TeX Gyre Cursor}}
+\renewcommand{\familydefault}{\sfdefault}
+\AtBeginDocument{\color{ink}}
+
+% ---- Running matter ----------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\sffamily\scriptsize\color{systemblue}\textsc{The Threshold Ledger}}
+\fancyhead[RO]{\sffamily\scriptsize\color{systemblue}\nouppercase{\leftmark}}
+\fancyfoot[LE,RO]{\sffamily\scriptsize\color{slate}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+% ---- Part and chapter openings ----------------------------------------------
+\titleformat{\part}[display]
+  {\thispagestyle{plain}\raggedright}
+  {\ttfamily\footnotesize\color{signalorange}\textsc{Threshold}\enspace\thepart}
+  {18pt}
+  {\rmfamily\color{ink}\fontsize{30pt}{35pt}\selectfont\bfseries}
+\titlespacing*{\part}{0pt}{52pt}{38pt}
+
+\titleformat{\chapter}[display]
+  {\thispagestyle{plain}\raggedright}
+  {\ttfamily\footnotesize\color{systemblue}\textsc{Chapter}\enspace\thechapter}
+  {12pt}
+  {\rmfamily\color{ink}\fontsize{27pt}{32pt}\selectfont\bfseries}
+\titlespacing*{\chapter}{0pt}{48pt}{30pt}
+
+\titleformat{name=\chapter,numberless}[display]
+  {\thispagestyle{plain}\raggedright}
+  {}
+  {0pt}
+  {\rmfamily\color{ink}\fontsize{25pt}{30pt}\selectfont\bfseries}
+\titlespacing*{name=\chapter,numberless}{0pt}{48pt}{26pt}
+
+\titleformat{\section}
+  {\sffamily\bfseries\color{systemblue}\fontsize{13.5pt}{17pt}\selectfont}
+  {}{0pt}{}
+\titleformat{\subsection}
+  {\sffamily\bfseries\color{ink}\fontsize{10.5pt}{14pt}\selectfont}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{29pt}{10pt}
+\titlespacing*{\subsection}{0pt}{19pt}{6pt}
+
+% ---- Callout language --------------------------------------------------------
+\renewtcolorbox{fieldnote}{
+  enhanced,breakable,frame hidden,boxrule=0pt,
+  colback=paper,coltext=systemblue,
+  borderline west={1.4pt}{0pt}{signalorange},
+  left=13pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=12pt,after skip=14pt,
+  fontupper=\ttfamily\footnotesize
+}
+
+\newtcolorbox{casesignal}{
+  enhanced,breakable,frame hidden,boxrule=0pt,
+  colback=quietgrey,coltext=ink,
+  borderline west={1.6pt}{0pt}{systemblue},
+  left=14pt,right=12pt,top=10pt,bottom=10pt,
+  before skip=15pt,after skip=16pt,
+  fontupper=\sffamily\small
+}
+
+\newtcolorbox{propositionbox}{
+  enhanced,breakable,frame hidden,boxrule=0pt,
+  colback=paper,coltext=ink,
+  borderline west={2pt}{0pt}{signalorange},
+  left=16pt,right=11pt,top=8pt,bottom=8pt,
+  before skip=18pt,after skip=18pt,
+  fontupper=\rmfamily\large\itshape
+}
+
+\newtcolorbox{operatornote}{
+  enhanced,breakable,frame hidden,boxrule=0pt,
+  colback=quietgrey,coltext=ink,
+  borderline west={1.3pt}{0pt}{consequencered},
+  left=14pt,right=12pt,top=11pt,bottom=11pt,
+  before skip=16pt,after skip=18pt,
+  fontupper=\sffamily\small
+}
+
+\newtcolorbox{distinctionbox}{
+  enhanced,breakable,frame hidden,boxrule=0pt,
+  colback=paper,coltext=ink,
+  borderline west={1pt}{0pt}{systemblue},
+  left=15pt,right=10pt,top=8pt,bottom=8pt,
+  before skip=17pt,after skip=17pt,
+  fontupper=\sffamily\small
+}
+
+\newenvironment{decisionledger}{%
+  \par\vspace{13pt}\noindent\textcolor{signalorange}{\rule{28mm}{1.2pt}}\par\vspace{5pt}%
+  {\sffamily\footnotesize\bfseries\color{systemblue}\textsc{Decision Ledger}}\par\vspace{6pt}%
+  \small\sffamily
+}{\par\vspace{15pt}}
+
+\newenvironment{impactopener}{%
+  \par\vspace{4pt}\noindent\textcolor{signalorange}{\rule{34mm}{1.4pt}}\par\vspace{9pt}%
+  \rmfamily\large\itshape\color{ink}
+}{\par\vspace{20pt}}
+
+% ---- Editorial breathing spaces ----------------------------------------------
+\newenvironment{thequestion}{%
+  \par\vspace{25pt}\noindent\textcolor{signalorange}{\rule{18mm}{1.2pt}}\par\vspace{8pt}%
+  {\ttfamily\footnotesize\bfseries\color{systemblue}\textsc{The Question}}\par\vspace{5pt}%
+  \rmfamily\Large\itshape\color{ink}\noindent
+}{\par\vspace{26pt}}
+
+\newenvironment{theshift}{%
+  \par\vspace{22pt}\noindent\textcolor{systemblue}{\rule{18mm}{1pt}}\par\vspace{8pt}%
+  {\ttfamily\footnotesize\bfseries\color{systemblue}\textsc{The Shift}}\par\vspace{5pt}%
+  \rmfamily\large\itshape\color{ink}\noindent
+}{\par\vspace{23pt}}
+
+\newenvironment{fourquestions}{%
+  \par\vspace{24pt}\noindent\textcolor{signalorange}{\rule{28mm}{1.4pt}}\par\vspace{9pt}%
+  {\sffamily\small\color{ink}\setlength{\parskip}{9pt}\noindent}
+}{\par\vspace{24pt}}
+
+\renewtcolorbox{memorablephrase}{
+  enhanced,breakable,frame hidden,boxrule=0pt,
+  colback=paper,coltext=ink,
+  borderline west={2pt}{0pt}{consequencered},
+  left=16pt,right=10pt,top=8pt,bottom=8pt,
+  before skip=19pt,after skip=19pt,
+  fontupper=\rmfamily\large\itshape
+}
+
+\renewtcolorbox{nextchapter}{
+  enhanced,breakable,frame hidden,boxrule=0pt,
+  colback=quietgrey,coltext=ink,
+  borderline west={1.4pt}{0pt}{signalorange},
+  left=14pt,right=12pt,top=10pt,bottom=10pt,
+  before skip=15pt,after skip=18pt,
+  fontupper=\sffamily\small
+}
+
+% ---- Tables and diagrams -----------------------------------------------------
+\renewcommand{\arraystretch}{1.28}
+\AtBeginEnvironment{longtable}{\sffamily\small\color{ink}}

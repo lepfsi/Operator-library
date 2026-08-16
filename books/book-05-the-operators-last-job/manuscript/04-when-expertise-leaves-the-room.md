@@ -1,7 +1,7 @@
 ---
 title: "When Expertise Leaves the Room"
 chapter: "04"
-part: "Part I — The Operator"
+part: "Part I : The Operator"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

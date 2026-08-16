@@ -108,7 +108,14 @@ fi
 echo "============================================================"
 echo "  Building: $BOOK"
 echo "  Format:   $FORMAT"
-echo "  Chapters: ${#ALL_CHAPTERS[@]} (included) + $SKIPPED (skipped: scaffold)"
+DRAFTED_CHAPTER_COUNT=0
+for chapter_path in "${ALL_CHAPTERS[@]}"; do
+    chapter_name="$(basename "$chapter_path")"
+    if [[ "$chapter_name" =~ ^(0[1-9]|1[0-8])- ]]; then
+        DRAFTED_CHAPTER_COUNT=$((DRAFTED_CHAPTER_COUNT + 1))
+    fi
+done
+echo "  Draft chapters: $DRAFTED_CHAPTER_COUNT | Supporting pages: $((${#ALL_CHAPTERS[@]} - DRAFTED_CHAPTER_COUNT)) | Scaffold files: $SKIPPED"
 echo "  Output:   $EXPORTS_DIR"
 echo "============================================================"
 echo

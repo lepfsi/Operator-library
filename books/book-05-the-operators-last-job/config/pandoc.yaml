@@ -86,8 +86,8 @@ variables:
   collectionName: "The Operator's Library"
 back-cover-image: "../design/couverture-quatrieme-threshold-ledger.png"
 
-book-cover: books/book-05-the-operators-last-job/design/couverture-premiere-threshold-ledger.jpg
-book-back-cover: books/book-05-the-operators-last-job/design/couverture-quatrieme-threshold-ledger.jpg
+book-cover: "books/book-05-the-operators-last-job/design/couverture-premiere-threshold-ledger.jpg"
+book-back-cover: "books/book-05-the-operators-last-job/design/couverture-quatrieme-threshold-ledger.jpg"
 
 pdf-engine-opt:
   - "-interaction=nonstopmode"

@@ -1,7 +1,7 @@
 ---
 title: "Judgment Is Not a Prediction"
 chapter: "09"
-part: "Part III — What Remains Human"
+part: "Part III : What Remains Human"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

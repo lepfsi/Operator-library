@@ -1,7 +1,7 @@
 ---
 title: "Then We Let Machines Act"
 chapter: "07"
-part: "Part II — The Automation Curve"
+part: "Part II : The Automation Curve"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

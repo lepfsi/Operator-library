@@ -1,7 +1,7 @@
 ---
 title: "Systems That Remember Why They Acted"
 chapter: "17"
-part: "Part IV — The New Engineer"
+part: "Part IV : The New Engineer"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

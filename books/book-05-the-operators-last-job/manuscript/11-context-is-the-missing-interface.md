@@ -1,7 +1,7 @@
 ---
 title: "Context Is the Missing Interface"
 chapter: "11"
-part: "Part III — What Remains Human"
+part: "Part III : What Remains Human"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

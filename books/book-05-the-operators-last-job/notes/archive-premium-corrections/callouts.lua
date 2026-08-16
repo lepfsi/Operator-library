@@ -14,7 +14,6 @@ local known_envs = {
   ["memorable-phrase"] = "memorablephrase",
   ["next-chapter"]     = "nextchapter",
   ["part-map"]         = "partmap",
-  ["part-page"]        = "partpage",
   ["chapter-guide"]    = "chapterguide",
   ["the-question"]     = "thequestion",
   ["the-shift"]        = "theshift",

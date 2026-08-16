@@ -5,25 +5,33 @@ title: "The Operator"
 status: "draft"
 ---
 
-# PART I
+\begin{partpage}
 
-## THE OPERATOR
+{\ttfamily\small\color{signalorange}\textsc{Part I}\par}
+\vspace{13mm}
 
-*Before the system acts on its own*
+{\rmfamily\fontsize{34pt}{39pt}\selectfont\bfseries The Operator\par}
+\vspace{7mm}
 
-Before a system can take work, we have to see the work it was never asked to name.
+{\rmfamily\large\color{slate}Before the system acts on its own.\par}
+\vspace{13mm}
 
-This part does not defend the operator by nostalgia. It follows the work beneath the visible gesture: the hesitation before an irreversible action, the exception no dashboard carries, the memory that makes a familiar command unsafe in this particular incident.
+{\rmfamily\large\itshape\color{ink}Before a system can take work, we have to see the work it was never asked to name.\par}
 
-::: {.part-map}
-**In this part**
+\vspace{15mm}
+{\sffamily\footnotesize\bfseries\color{systemblue}\textsc{In This Part}\par}
+\vspace{3mm}
+{\color{systemblue}\rule{34mm}{0.8pt}\par}
 
-- **01 — When the System No Longer Waits for You**: the action that arrives before a person can matter.
-- **02 — What Engineers Actually Do**: the work beneath commands, tickets, and dashboards.
-- **03 — The Work We Mistook for Technical**: why interpretation was hiding inside the technical role.
-- **04 — When Expertise Leaves the Room**: what an organisation loses before it knows that it has lost it.
-:::
+\begin{partlist}
+01 & \hyperref[chapter-01]{When the System No Longer Waits for You} \\[12pt]
+02 & What Engineers Actually Do \\[12pt]
+03 & The Work We Mistook for Technical \\[12pt]
+04 & When Expertise Leaves the Room
+\end{partlist}
 
-> The operator was never only the person who acted. The operator was the interval in which an action could still be questioned.
+\vfill
 
-The next four chapters make that interval visible.
+{\sffamily\small\color{slate}The work disappears from view before it disappears from the organisation.\par}
+
+\end{partpage}

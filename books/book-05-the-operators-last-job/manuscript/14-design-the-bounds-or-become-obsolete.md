@@ -1,7 +1,7 @@
 ---
 title: "Design the Bounds or Become Obsolete"
 chapter: "14"
-part: "Part IV — The New Engineer"
+part: "Part IV : The New Engineer"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

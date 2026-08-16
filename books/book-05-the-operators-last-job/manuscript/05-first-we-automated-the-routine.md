@@ -1,7 +1,7 @@
 ---
 title: "First We Automated the Routine"
 chapter: "05"
-part: "Part II — The Automation Curve"
+part: "Part II : The Automation Curve"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

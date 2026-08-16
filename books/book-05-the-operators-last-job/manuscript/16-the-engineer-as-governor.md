@@ -1,7 +1,7 @@
 ---
 title: "The Engineer as Governor"
 chapter: "15"
-part: "Part IV — The New Engineer"
+part: "Part IV : The New Engineer"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

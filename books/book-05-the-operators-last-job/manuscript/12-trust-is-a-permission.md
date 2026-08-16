@@ -1,7 +1,7 @@
 ---
 title: "Trust Is a Permission"
 chapter: "12"
-part: "Part III — What Remains Human"
+part: "Part III : What Remains Human"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

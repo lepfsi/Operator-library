@@ -1,7 +1,7 @@
 ---
 title: "When the Runbook Learned to Decide"
 chapter: "08"
-part: "Part II — The Automation Curve"
+part: "Part II : The Automation Curve"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""

@@ -1,7 +1,7 @@
 ---
 title: "Responsibility Has a Name"
 chapter: "10"
-part: "Part III — What Remains Human"
+part: "Part III : What Remains Human"
 status: "scaffold"
 memorable_phrase: ""
 concept_introduced: ""
