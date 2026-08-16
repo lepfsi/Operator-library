@@ -803,8 +803,9 @@ $endif$
 }
 % -----------------------------------------------------------------------------
 
-% ---- Final navigation polish -------------------------------------------------
-\providecommand{\chapterguideentry}[3]{%
+% ---- Final polish: chapter navigation and handoff ---------------------------
+% The guide has a soft panel and explicit vertical rhythm, not a compressed paragraph.
+\newcommand{\chapterguideentry}[3]{%
   \noindent\hyperref[#3]{%
     \makebox[11mm][l]{\calloutmono\color{teal}#1.}%
     \textcolor{teal!75}{\raisebox{0.12ex}{\normalsize\textbullet}}\hspace{6pt}%
@@ -818,12 +819,181 @@ $endif$
   before skip=18pt,after skip=24pt,fontupper=\sffamily\small,
   before upper={\noindent\calloutmono\color{teal}\textsc{In This Chapter}\par\vspace{5pt}\textcolor{teal!60}{\rule{34mm}{0.55pt}}\par\vspace{10pt}}
 }
+% The handoff is intentionally quieter than a callout: a soft tinted strip and a single rule.
 \renewtcolorbox{nextchapter}{
   enhanced,breakable,boxrule=0.5pt,arc=6pt,colframe=teal!34,
   colback=mint!62,coltext=ink,
   left=15pt,right=15pt,top=12pt,bottom=10pt,
   before skip=18pt,after skip=18pt,fontupper=\rmfamily\small\itshape,
   before upper={\noindent\calloutmono\color{teal}\textsc{Next Chapter}\par\vspace{4pt}\textcolor{teal!55}{\rule{22mm}{0.45pt}}\par\vspace{8pt}}
+}
+% -----------------------------------------------------------------------------
+
+% ---- Semantic callout overhaul -----------------------------------------------
+% Visual meaning must be recognisable before the label is read.
+\definecolor{fieldsteel}{HTML}{4F6F7F}
+\definecolor{fieldwash}{HTML}{E7F0F3}
+\definecolor{ledgerindigo}{HTML}{3F526D}
+\definecolor{ledgerwash}{HTML}{EEF1F7}
+\definecolor{noteblue}{HTML}{4E7091}
+\definecolor{notewash}{HTML}{EAF1F7}
+\definecolor{shiftforest}{HTML}{476A59}
+\definecolor{shiftwash}{HTML}{EAF2EC}
+\definecolor{questionochre}{HTML}{8A692D}
+\definecolor{questionwash}{HTML}{FBF4E7}
+\definecolor{compassgold}{HTML}{8B6E35}
+\definecolor{compasswash}{HTML}{F7F1E3}
+\definecolor{assumptiongraphite}{HTML}{59626A}
+\definecolor{assumptionwash}{HTML}{F0F2F2}
+\definecolor{boundaryolive}{HTML}{667252}
+\definecolor{boundarywash}{HTML}{EFF2E9}
+\definecolor{exceptionamber}{HTML}{A76A2B}
+\definecolor{exceptionwash}{HTML}{FBF1E2}
+\definecolor{tracecobalt}{HTML}{456A8B}
+\definecolor{tracewash}{HTML}{EDF3F8}
+\definecolor{dissentaubergine}{HTML}{765564}
+\definecolor{dissentwash}{HTML}{F6EEF2}
+\definecolor{handoffslate}{HTML}{687782}
+\definecolor{handoffwash}{HTML}{F0F3F4}
+
+% Evidence uses a contemporary mono face; reflective prose remains comfortably readable.
+\newcommand{\calloutcode}{\ttfamily\fontsize{8.9pt}{13.1pt}\selectfont}
+\newcommand{\calloutsans}{\sffamily\fontsize{9.2pt}{13.5pt}\selectfont}
+\newcommand{\ledgerlabel}[1]{{\calloutmono\color{ledgerindigo}\textsc{#1}}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}m}
+
+% Raw evidence: steel, square-cornered and deliberately code-like.
+\renewtcolorbox{fieldnote}{
+  enhanced,breakable,boxrule=0.65pt,arc=3pt,colframe=fieldsteel,
+  colback=fieldwash,coltext=ink,
+  borderline west={2.6pt}{0pt}{fieldsteel},
+  left=13pt,right=13pt,top=13pt,bottom=11pt,
+  before skip=18pt,after skip=22pt,fontupper=\calloutcode,
+  title={\calloutmono\color{paper}\textsc{Field Note}},
+  coltitle=paper,colbacktitle=fieldsteel,boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+
+% Consequence: the existing brick family stays the book's unmistakable alert signal.
+\renewtcolorbox{casesignal}{
+  enhanced,breakable,boxrule=0.9pt,arc=7pt,colframe=brick,
+  colback=roseash,coltext=ink,
+  left=13pt,right=13pt,top=12pt,bottom=11pt,
+  before skip=22pt,after skip=22pt,fontupper=\calloutsans,
+  title={\calloutmono\color{paper}\textsc{Case Signal}},
+  coltitle=paper,colbacktitle=brick,boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+
+% Transfer: forest and sage distinguish the change of ownership from evidence or warning.
+\renewtcolorbox{theshift}{
+  enhanced,breakable,boxrule=0.55pt,arc=5pt,colframe=shiftforest,
+  colback=shiftwash,coltext=ink,
+  borderline north={2.1pt}{0pt}{shiftforest},
+  left=13pt,right=13pt,top=13pt,bottom=11pt,
+  before skip=22pt,after skip=22pt,fontupper=\calloutsans,
+  title={\calloutmono\color{paper}\textsc{The Shift}},
+  coltitle=paper,colbacktitle=shiftforest,boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+
+% Professional interpretation: blue margin note, visually different from a full warning card.
+\renewtcolorbox{operatornote}{
+  enhanced,breakable,boxrule=0.55pt,arc=10pt,colframe=noteblue,
+  colback=notewash,coltext=ink,
+  borderline west={3pt}{0pt}{noteblue},
+  left=15pt,right=14pt,top=13pt,bottom=12pt,
+  before skip=22pt,after skip=22pt,fontupper=\calloutsans,
+  title={\calloutmono\color{paper}\textsc{Operator's Note}},
+  coltitle=paper,colbacktitle=noteblue,boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=10pt,yshift*=-\tcboxedtitleheight/2}
+}
+
+% Interruption: warm parchment and centred question, never confused with an operational record.
+\renewtcolorbox{thequestion}{
+  enhanced,breakable,boxrule=0.8pt,arc=11pt,colframe=questionochre,
+  colback=questionwash,coltext=ink,
+  left=17pt,right=17pt,top=15pt,bottom=14pt,
+  before skip=25pt,after skip=25pt,fontupper=\rmfamily\small\itshape\centering,
+  title={\calloutmono\color{paper}\textsc{The Question}},
+  coltitle=paper,colbacktitle=questionochre,boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=10pt,yshift*=-\tcboxedtitleheight/2}
+}
+
+% Decision record: indigo dossier with readable, left-aligned evidence.
+\renewtcolorbox{decisionledger}{
+  enhanced,breakable,boxrule=0.85pt,arc=4pt,colframe=ledgerindigo,
+  colback=ledgerwash,coltext=ink,
+  borderline west={2.4pt}{0pt}{ledgerindigo},
+  left=12pt,right=12pt,top=15pt,bottom=13pt,
+  before skip=28pt,after skip=28pt,fontupper=\calloutcode,
+  title={\calloutmono\color{paper}\textsc{Decision Ledger}},
+  coltitle=paper,colbacktitle=ledgerindigo,boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+
+% Formal decision compass: gold, not teal, so it reads as a different instrument.
+\renewtcolorbox{fourquestions}{
+  enhanced,breakable,boxrule=0.8pt,arc=6pt,colframe=compassgold,
+  colback=compasswash,coltext=ink,
+  left=12pt,right=12pt,top=14pt,bottom=13pt,
+  before skip=27pt,after skip=27pt,fontupper=\calloutsans,
+  title={\calloutmono\color{paper}\textsc{The Four Questions}},
+  coltitle=paper,colbacktitle=compassgold,boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+
+% Retention line: plum stays reserved for a phrase the reader should carry onward.
+\renewtcolorbox{memorablephrase}{
+  enhanced,breakable,boxrule=0.8pt,arc=8pt,colframe=plum,
+  colback=lilacash,coltext=ink,
+  left=15pt,right=15pt,top=14pt,bottom=13pt,
+  before skip=25pt,after skip=18pt,fontupper=\rmfamily\normalsize\itshape\centering,
+  title={\calloutmono\color{paper}\textsc{Memorable Phrase}},
+  coltitle=paper,colbacktitle=plum,boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+
+% Reserve components: each represents a distinct reading action and stays sparse in use.
+\newtcolorbox{assumptioncheck}{
+  enhanced,breakable,boxrule=0.55pt,arc=4pt,colframe=assumptiongraphite,colback=assumptionwash,coltext=ink,
+  borderline west={2pt}{0pt}{assumptiongraphite},left=13pt,right=13pt,top=12pt,bottom=11pt,
+  before skip=22pt,after skip=22pt,fontupper=\calloutsans,
+  title={\calloutmono\color{paper}\textsc{Assumption Check}},coltitle=paper,colbacktitle=assumptiongraphite,
+  boxed title style={frame hidden,sharp corners},attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+\newtcolorbox{boundarycondition}{
+  enhanced,breakable,boxrule=0.6pt,arc=5pt,colframe=boundaryolive,colback=boundarywash,coltext=ink,
+  borderline west={1.2pt}{0pt}{boundaryolive},borderline east={1.2pt}{0pt}{boundaryolive},left=13pt,right=13pt,top=12pt,bottom=11pt,
+  before skip=22pt,after skip=22pt,fontupper=\calloutsans,
+  title={\calloutmono\color{paper}\textsc{Boundary Condition}},coltitle=paper,colbacktitle=boundaryolive,
+  boxed title style={frame hidden,sharp corners},attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+\newtcolorbox{exceptionregister}{
+  enhanced,breakable,boxrule=0.65pt,arc=3pt,colframe=exceptionamber,colback=exceptionwash,coltext=ink,
+  left=13pt,right=13pt,top=13pt,bottom=11pt,before skip=22pt,after skip=22pt,fontupper=\calloutcode,
+  title={\calloutmono\color{paper}\textsc{Exception Register}},coltitle=paper,colbacktitle=exceptionamber,
+  boxed title style={frame hidden,sharp corners},attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+\newtcolorbox{tracebackbox}{
+  enhanced,breakable,boxrule=0.5pt,arc=2pt,colframe=tracecobalt,colback=tracewash,coltext=ink,
+  borderline west={3pt}{0pt}{tracecobalt},left=14pt,right=13pt,top=12pt,bottom=11pt,
+  before skip=22pt,after skip=22pt,fontupper=\calloutcode,
+  title={\calloutmono\color{paper}\textsc{Traceback}},coltitle=paper,colbacktitle=tracecobalt,
+  boxed title style={frame hidden,sharp corners},attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+\newtcolorbox{dissentrecord}{
+  enhanced,breakable,boxrule=0.55pt,arc=9pt,colframe=dissentaubergine,colback=dissentwash,coltext=ink,
+  left=15pt,right=14pt,top=13pt,bottom=12pt,before skip=22pt,after skip=22pt,fontupper=\calloutsans,
+  title={\calloutmono\color{paper}\textsc{Dissent Record}},coltitle=paper,colbacktitle=dissentaubergine,
+  boxed title style={frame hidden,sharp corners},attach boxed title to top left={xshift=10pt,yshift*=-\tcboxedtitleheight/2}
+}
+\newtcolorbox{handoffnote}{
+  enhanced,breakable,boxrule=0.55pt,arc=4pt,colframe=handoffslate,colback=handoffwash,coltext=ink,
+  borderline north={1.7pt}{0pt}{handoffslate},left=13pt,right=13pt,top=13pt,bottom=11pt,
+  before skip=22pt,after skip=22pt,fontupper=\calloutcode,
+  title={\calloutmono\color{paper}\textsc{Handoff Note}},coltitle=paper,colbacktitle=handoffslate,
+  boxed title style={frame hidden,sharp corners},attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
 }
 % -----------------------------------------------------------------------------
 \begin{document}

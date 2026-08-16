@@ -17,11 +17,11 @@ The first thing automation takes is not a job. It is the time in which a person 
 :::
 
 ::: {.chapter-guide}
-1. [The moment before an action becomes irreversible](#section-01-moment)
-2. [What the operator was actually carrying](#section-02-carrying)
-3. [Why permission is not capability](#section-03-permission)
-4. [The four questions every autonomous action leaves behind](#section-04-four-questions)
-5. [The question the system leaves behind](#section-05-question)
+\chapterguideentry{01}{The moment before an action becomes irreversible}{section-01-moment}
+\chapterguideentry{02}{What the operator was actually carrying}{section-02-carrying}
+\chapterguideentry{03}{Why permission is not capability}{section-03-permission}
+\chapterguideentry{04}{The four questions every autonomous action leaves behind}{section-04-four-questions}
+\chapterguideentry{05}{The question the system leaves behind}{section-05-question}
 :::
 
 ::: {.field-note}
@@ -102,12 +102,12 @@ It can also be the last remaining space in which a different decision is possibl
 
 ::: {.decision-ledger}
 \renewcommand{\arraystretch}{1.58}
-\begin{tabular}{@{}>{\centering\arraybackslash}m{27mm}|>{\centering\arraybackslash}m{62mm}@{}}
-{\ttfamily\scriptsize\color{systemblue}\textsc{Action}} & {\rmfamily\small Restart the core banking API service.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Authority}} & {\rmfamily\small The on-call engineer, under a predefined recovery runbook.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Assumption}} & {\rmfamily\small A familiar signature means a familiar remedy.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{System blind spot}} & {\rmfamily\small An unannounced deployment, a live customer commitment, or an exception held outside the interface.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Cost of error}} & {\rmfamily\small A latency problem becomes a multi-hour outage through repeated connection-pool loss.}
+\begin{tabular}{@{}>{\centering\arraybackslash}m{27mm}|>{\raggedright\arraybackslash}m{62mm}@{}}
+{\ttfamily\scriptsize\color{systemblue}\textsc{Action}} & {\calloutcode Restart the core banking API service.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Authority}} & {\calloutcode The on-call engineer, under a predefined recovery runbook.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Assumption}} & {\calloutcode A familiar signature means a familiar remedy.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{System blind spot}} & {\calloutcode An unannounced deployment, a live customer commitment, or an exception held outside the interface.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Cost of error}} & {\calloutcode A latency problem becomes a multi-hour outage through repeated connection-pool loss.}
 \end{tabular}
 :::
 
@@ -160,7 +160,7 @@ The point is not that humans possess context and machines never will. Context ca
 
 ::: {.four-questions}
 \renewcommand{\arraystretch}{1.42}
-\begin{tabular}{@{}>{\centering\arraybackslash}m{7mm}|>{\centering\arraybackslash}m{27mm}|>{\centering\arraybackslash}m{55mm}@{}}
+\begin{tabular}{@{}>{\centering\arraybackslash}m{7mm}|>{\raggedright\arraybackslash}m{27mm}|>{\raggedright\arraybackslash}m{55mm}@{}}
 {\ttfamily\scriptsize\color{signalorange}01} & {\sffamily\scriptsize\bfseries EXECUTION} & {\rmfamily\small\itshape Can the action be performed?} \\ \hline
 {\ttfamily\scriptsize\color{signalorange}02} & {\sffamily\scriptsize\bfseries JUDGMENT} & {\rmfamily\small\itshape Should the action be performed here?} \\ \hline
 {\ttfamily\scriptsize\color{signalorange}03} & {\sffamily\scriptsize\bfseries AUTHORITY} & {\rmfamily\small\itshape Who is entitled to decide?} \\ \hline

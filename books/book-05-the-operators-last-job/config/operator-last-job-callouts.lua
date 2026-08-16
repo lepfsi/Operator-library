@@ -15,6 +15,15 @@ local known_envs = {
   ["next-chapter"]     = "nextchapter",
   ["part-map"]         = "partmap",
   ["chapter-guide"]    = "chapterguide",
+  ["the-question"]     = "thequestion",
+  ["the-shift"]        = "theshift",
+  ["four-questions"]   = "fourquestions",
+  ["assumption-check"] = "assumptioncheck",
+  ["boundary-condition"] = "boundarycondition",
+  ["exception-register"] = "exceptionregister",
+  ["traceback"]        = "tracebackbox",
+  ["dissent-record"]   = "dissentrecord",
+  ["handoff-note"]     = "handoffnote",
 }
 
 local function latex_escape(value)

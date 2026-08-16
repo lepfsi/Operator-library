@@ -61,12 +61,12 @@ The final technical action took less than a minute. The work had taken twenty-th
 
 ::: {.decision-ledger}
 \renewcommand{\arraystretch}{1.56}
-\begin{tabular}{@{}>{\centering\arraybackslash}m{27mm}|>{\centering\arraybackslash}m{62mm}@{}}
-{\ttfamily\scriptsize\color{systemblue}\textsc{Visible action}} & {\rmfamily\small Run the reconciliation repair and close the exception set.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Authority}} & {\rmfamily\small The on-call payments engineer under an approved operational runbook.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Hidden question}} & {\rmfamily\small Is this an incomplete settlement, a delayed replay, or a genuine accounting defect?} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Evidence outside the ticket}} & {\rmfamily\small Release timing, regional processing state, the processor cut-off, and a finance obligation not represented in the alert.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Cost of error}} & {\rmfamily\small A correction could create duplicate ledger activity and force customers to explain an error they did not cause.}
+\begin{tabular}{@{}>{\centering\arraybackslash}m{27mm}|>{\raggedright\arraybackslash}m{62mm}@{}}
+{\ttfamily\scriptsize\color{systemblue}\textsc{Visible action}} & {\calloutcode Run the reconciliation repair and close the exception set.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Authority}} & {\calloutcode The on-call payments engineer under an approved operational runbook.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Hidden question}} & {\calloutcode Is this an incomplete settlement, a delayed replay, or a genuine accounting defect?} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Evidence outside the ticket}} & {\calloutcode Release timing, regional processing state, the processor cut-off, and a finance obligation not represented in the alert.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Cost of error}} & {\calloutcode A correction could create duplicate ledger activity and force customers to explain an error they did not cause.}
 \end{tabular}
 :::
 

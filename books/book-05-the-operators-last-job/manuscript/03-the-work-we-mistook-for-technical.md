@@ -67,12 +67,12 @@ A rollback could reopen a security concern. A patch could take hours to test. A 
 
 ::: {.decision-ledger}
 \renewcommand{\arraystretch}{1.55}
-\begin{tabular}{@{}>{\centering\arraybackslash}m{27mm}|>{\centering\arraybackslash}m{62mm}@{}}
-{\ttfamily\scriptsize\color{systemblue}\textsc{Visible question}} & {\rmfamily\small Should the team roll back the identity-verification routing rule?} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Technical evidence}} & {\rmfamily\small Aggregate completion remains within the service-level objective; the new flow improves median performance.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Hidden condition}} & {\rmfamily\small A narrow group is trapped in a retry loop that the aggregate success metric does not distinguish.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Authority conflict}} & {\rmfamily\small Security owns the control boundary; product owns the deadline; operations owns the live service; support hears the people omitted from the dashboard.} \\ \hline
-{\ttfamily\scriptsize\color{systemblue}\textsc{Cost of error}} & {\rmfamily\small Preserve a stronger technical control while excluding eligible people, or restore a weaker flow while a safer remedy is prepared.}
+\begin{tabular}{@{}>{\centering\arraybackslash}m{27mm}|>{\raggedright\arraybackslash}m{62mm}@{}}
+{\ttfamily\scriptsize\color{systemblue}\textsc{Visible question}} & {\calloutcode Should the team roll back the identity-verification routing rule?} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Technical evidence}} & {\calloutcode Aggregate completion remains within the service-level objective; the new flow improves median performance.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Hidden condition}} & {\calloutcode A narrow group is trapped in a retry loop that the aggregate success metric does not distinguish.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Authority conflict}} & {\calloutcode Security owns the control boundary; product owns the deadline; operations owns the live service; support hears the people omitted from the dashboard.} \\ \hline
+{\ttfamily\scriptsize\color{systemblue}\textsc{Cost of error}} & {\calloutcode Preserve a stronger technical control while excluding eligible people, or restore a weaker flow while a safer remedy is prepared.}
 \end{tabular}
 :::
 
@@ -100,9 +100,9 @@ Technical work often begins with definitions that have already compressed a real
 
 Those definitions live in configuration files, dashboards, policies, data models, and service-level objectives. They look technical because they are expressed in technical artefacts. Their consequences are not technical in the narrow sense. They are decisions about exposure.
 
-::: {.case-signal}
-**Green Dashboard Verification Exclusion**  
-The service did what the metric said it should do. The metric did not represent the people for whom completing the service was most consequential.
+::: {.assumption-check}
+**Default premise:** aggregate completion is sufficient evidence that the service is healthy.  
+**What the incident exposed:** the metric can be accurate while omitting the group for whom failure is most consequential.
 :::
 
 A team can respond to this by adding more dimensions. It can segment completion by device class, region, connection quality, accessibility setting, customer type, or deadline proximity. This is often necessary. It is also not the whole answer.
@@ -127,10 +127,6 @@ They are asking questions that no single tool has been assigned to answer. Does 
 
 The questions can sound organisational because they do not end in a command. But their answers determine the command. They set the scope of the rollback, the duration of the exception, the alert that will be added, the records that must be kept, and the people who must be told.
 
-::: {.operator-note}
-Engineers are often asked to make systems reliable. In practice, they also make the system’s definition of reliability answerable to the people it serves.
-:::
-
 This work is easy to undervalue because it looks like coordination. In a hurried organisation, coordination is often treated as the non-technical delay surrounding the real solution. The engineer who asks for clarification can appear to be slowing a response that a stronger technical person would simply execute.
 
 But execution without translation does not remove the underlying choice. It makes the choice invisible. The routing rule still privileges one risk over another. The deadline still creates exposure. The alternate path still shifts a security boundary. The only difference is whether anyone is able to name what has been shifted and who will answer for it.
@@ -150,11 +146,6 @@ If the organisation has already declared the relevant boundary, this is excellen
 But if the automation inherits the aggregate objective as its only account of success, it becomes better at protecting the wrong truth.
 
 It can close the support tickets faster. It can classify the retries as user abandonment. It can suppress the anomaly because the overall service-level objective remains intact. It can recommend against a rollback because the deployment improved the median outcome. Each action can be coherent. Together they can make the excluded group harder to see.
-
-::: {.the-shift}
-**THE OPTIMISED BLIND SPOT**  
-Automation does not invent every missing category. It can make an existing omission faster, more consistent, and more difficult to challenge.
-:::
 
 This is why the case is not an argument against autonomous operations. It is an argument against treating the technical objective as if it had settled the operational obligation. The system should be allowed to observe, correlate, recommend, and act within boundaries that are explicit. It should not be given the quiet authority to decide that a population is too small to matter simply because the organisation has not designed another way for that population to become visible.
 
@@ -193,10 +184,6 @@ Engineers do this when they argue that a green dashboard is not enough. When the
 This is why the language of technical work can be misleading. It makes a role look like a collection of actions performed on machines. Build the dashboard. Set the threshold. Deploy the rule. Roll back the release. Those actions matter. They are also the surface of a deeper activity: deciding which reality the machine will be allowed to recognise.
 
 The decision is never perfectly comfortable. A system cannot treat every variation as a failure. A team cannot pause every release because a small group experiences friction. Technical operations requires thresholds, aggregation, and bounded risk. The professional task is not to abolish those things. It is to make them contestable before they harden into unexamined authority.
-
-::: {.the-question}
-*When the dashboard says healthy, who is allowed to say that the service is still failing?*
-:::
 
 The answer should not always be the most senior person, the loudest customer, or the engineer with the deepest access. It should be designed into the operating model: what evidence can challenge a green state, who can declare an exception operationally significant, how a temporary safeguard is governed, and how the reason for it survives long enough to inform the next automated decision.
 
