@@ -29,9 +29,9 @@ Automation does not arrive as a replacement. It arrives as relief.
 
 ## The queue after the queue
 
-At \livetime{08:02} on a Monday, the service desk queue contains forty-one open requests.
+On a Monday morning, the service desk queue contains forty-one open requests.
 
-By \livetime{08:19}, it contains twenty-six.
+Before the first stand-up, it contains twenty-six.
 
 No person has closed the missing fifteen. A workflow has. It has reset passwords for people who had locked themselves out after the weekend. It has granted a standard project-space permission after checking the employee record and manager approval. It has routed two laptop-enrolment requests to the correct fulfillment queue. It has matched four familiar VPN errors to a known client configuration and applied the approved repair. It has closed three duplicate alerts created by the same monitoring event.
 
@@ -58,6 +58,8 @@ Nora sees something else. The four requests the workflow resolved used the same 
 She writes in the internal channel: \humanvoice{“Can someone hold the auto-close on the VPN profile fix for a bit? I’m seeing the same client build in the ones that didn’t clear.”}
 
 The workflow has done exactly what it was approved to do. It has applied a known repair to known symptoms. It has not failed. The question is whether the category it has been resolving is still the category the organisation believes it to be.
+
+Fifteen requests disappear from the visible queue. Six requests share a client version. The reduction in work is real; the reduction in evidence may not be.
 
 ::: {.case-signal}
 **Lower queue, weaker signal**  
@@ -88,7 +90,7 @@ This is not a defence of making people perform needless work for educational rea
 \end{tabular}
 :::
 
-The phrase *human in the loop* can hide this problem. It suggests that a person remains available somewhere above the automated task, ready to intervene if the machine reaches a limit. But the useful human contribution is not always an intervention after failure. It can be the slow accumulation of contact with routine evidence before anyone knows an intervention will be needed.
+The phrase \systemartifact{human in the loop} can hide this problem. It suggests that a person remains available somewhere above the automated task, ready to intervene if the machine reaches a limit. But the useful human contribution is not always an intervention after failure. It can be the slow accumulation of contact with routine evidence before anyone knows an intervention will be needed.
 
 When routine is removed from the queue, that contact does not automatically survive. The workflow may retain every ticket, every field, every repair, and every timestamp. The data may be more complete than the human memory it replaces. Yet the daily experience of seeing the cases arrive, comparing their phrasing, and sensing their drift can vanish from the working life of the team.
 
@@ -109,14 +111,14 @@ The category had not become wrong overnight. It had split.
 There was still a routine VPN client problem. There was also a new certificate-chain failure appearing through the vocabulary of the routine problem. The difference could not be read from one ticket. It became visible only when several tickets were held in view long enough to reveal their shared shape.
 
 ::: {.boundary-condition}
-**Return to human review when:** the same approved repair reopens within one session; an issue appears across a single client build; or the request language changes from *cannot connect* to \systemartifact{connects, then drops after authentication}.
+**Return to human review when:** the same approved repair reopens within one session; an issue appears across a single client build; or the request language changes from \texttt{cannot connect} to \texttt{connects, then drops after authentication}.
 :::
 
 A boundary condition is not a vote of no confidence in automation. It is part of its operating model. The workflow should handle the routine case quickly. It should also know when a success pattern has become too narrow to describe the work safely.
 
 This is a more demanding requirement than a simple confidence threshold. The system needs signals about recurrence, cohort, time since resolution, language drift, and changes in the infrastructure around the routine. It needs a way to hold a class of tickets open before the people opening them have learned the technical vocabulary of the failure.
 
-The distinction matters because users rarely report systems in the language systems use to describe themselves. They report what happened to their work. *It keeps dropping.* *It worked at first.* *I can get in, then I’m kicked out.* Those sentences are not weak evidence. They are operational evidence that has not yet been translated.
+The distinction matters because users rarely report systems in the language systems use to describe themselves. They report what happened to their work: \humanvoice{“It keeps dropping. It worked at first. I can get in, then I’m kicked out.”} Those sentences are not weak evidence. They are operational evidence that has not yet been translated.
 
 \phantomsection\label{section-04-evidence}
 
@@ -147,49 +149,51 @@ The first workflow removes steps from a queue. The next design decision determin
 
 ## The return path
 
-The return path is the route by which automated routine work becomes visible again before it becomes expensive.
+The return path is the route by which automated routine work becomes visible again before it becomes expensive. It is not a dashboard that watches everything. It is a deliberate route back from completion to attention.
 
-For the VPN workflow, the return path has four parts. First, the system groups closures by client build, gateway path, and time since repair. Second, it keeps a short review window for repairs that reconnect successfully but are followed by another contact. Third, it sends a daily pattern summary to the service desk rather than reporting only the count of closed tickets. Fourth, it gives a named analyst the authority to suspend the auto-close rule for one category while the underlying condition is examined.
+For the VPN workflow, that route starts when a repair behaves too well to be trusted. The system groups closures by client build, gateway path, and time since repair. It holds a short review window for repairs that reconnect successfully and then generate another contact. It sends a pattern summary to the service desk instead of reporting only the number of tickets it has closed. And it gives a named analyst the authority to suspend auto-close for one category while the condition beneath it is tested.
 
-None of this requires a person to approve every password reset or every VPN profile repair. The purpose is narrower and more practical. It preserves a way for the team to see the moment at which a routine class becomes an operational question.
+No one has to approve every password reset or every profile repair. The return path does something narrower. It preserves the moment when a routine class becomes an operational question, before the evidence is dispersed into a hundred successful-looking transactions.
 
 The same principle appears outside IT, though the IT case remains the centre of the chapter. A hospital scheduling system can fill cancellations efficiently until the pattern of who is repeatedly rescheduled becomes an access problem. A logistics platform can route ordinary deliveries efficiently until the same route begins to fail under a new weather pattern. In each case, automation removes individual transactions from human attention. The organisation must decide what collective signal returns.
 
 For IT operations, this is an observability design question. Which automated outcomes are stored only as completed work, and which are aggregated into evidence that can alter a service’s state? Which workflow metrics measure speed, and which measure the possibility that speed is hiding a category fracture? Who receives the summary, and what are they allowed to interrupt when it changes?
 
-The answer is not a surveillance dashboard for every automated ticket. More telemetry can simply create another pile of numbers nobody is expected to interpret. The return path works only when it is narrow enough to be meaningful. For the VPN workflow, the team does not need a review of every successful repair. It needs a review when success is short-lived, when the same client build appears across a distinct population, when a repair follows a gateway change, or when the language of the request starts to describe a different experience.
+The answer is not a surveillance dashboard for every automated ticket. More telemetry can simply create another pile of numbers nobody is expected to interpret. The return path works only when it is narrow enough to be meaningful. For the VPN workflow, the team does not review every successful repair. It reviews a success that expires quickly, a client build that begins to recur, a repair that follows a gateway change, or request language that suddenly describes a different experience.
 
-Those conditions create a practical distinction between completion and closure. A workflow can complete its steps: match the symptom, apply the profile repair, record a reconnect, notify the user. Closure is a stronger claim. It says the case no longer has operational significance. The first claim belongs naturally to automation. The second may need to remain provisional when the surrounding category is changing.
+Those conditions separate completion from closure. A workflow can complete its steps: match the symptom, apply the profile repair, record a reconnect, notify the user. Closure is the stronger claim that the case no longer has operational significance. Automation can own the first claim. The second must remain provisional when the category around it is changing.
 
-This is where teams can become more precise about the word routine. A task is routine when its steps recur. A case is routine only while the evidence around those steps remains stable. The steps may be identical even as the case becomes different. The automation should not need to become hesitant about every known action. It should need to become observable when its known action begins to meet a different world.
+A task is routine because its steps recur. A case is routine only while the evidence around those steps remains stable. The steps may stay identical while the case becomes different. Automation does not need to hesitate before every known action. It needs to become observable at the moment its known action begins to meet a different world.
 
-The practical design question is therefore not, *should a human approve this repair?* It is, *what evidence would make the repair cease to be routine, and where does that evidence go?* A system that can answer the second question will often require fewer human interventions, not more. It will reserve attention for the point at which attention has become useful.
-
-::: {.the-question}
-*When routine cases are resolved before anyone sees them together, who notices the moment they become one new incident?*
+::: {.design-question}
+The practical design question is not “Should a human approve this repair?” It is: “What evidence would make the repair cease to be routine, and where does that evidence go?”
 :::
+
+A system that can answer the second question will often require fewer human interventions, not more. It will reserve attention for the point at which attention has become useful.
+
+The question remains: when routine cases are resolved before anyone sees them together, who notices the moment they become one new incident?
 
 \phantomsection\label{section-06-delegation}
 
 ## The first delegation
 
-Routine is the first territory automation takes because routine is where organisations can count the benefit most easily. Fewer tickets. Shorter wait times. Lower cost per request. Less interruption. Those gains matter. They can make work less punishing for employees and more reliable for the people who need help.
+Routine is the first territory automation takes because routine is where an organisation can count the relief. At the end of a quarter, the report is persuasive: fewer tickets, shorter waits, lower cost per request, less interruption. Those gains are real. They make work less punishing for employees and more reliable for people who need help.
 
-The mistake is to treat those gains as evidence that the human role has simply shrunk by the number of tasks removed.
+The mistake begins when a lower queue is read as proof that the human role has shrunk by the same number of tasks. That reading travels quickly. It becomes a staffing slide, then a budget assumption, then an operating model built around escalations alone.
 
-That mistake can become a staffing decision. A team sees its queue fall and concludes that it needs fewer people who understand the queue. It removes the analysts who used to notice recurring language, product-specific exceptions, or the odd request that arrived just before an incident had a name. The remaining team becomes more efficient at managing escalations while becoming less exposed to the conditions that create them. Its dashboard shows less work. Its operational field of vision becomes narrower.
+A team sees its queue fall and concludes that it needs fewer people who understand the queue. The analysts who used to notice recurring language, product-specific exceptions, and the odd request that arrived just before an incident had a name are removed from the loop. The remaining team becomes faster at managing escalations while becoming less exposed to the conditions that create them. The dashboard shows less work. The operational field of vision narrows.
 
-The loss is especially easy to miss when automation reports only completion. A weekly report may show that 89 per cent of requests were resolved without human intervention. That number can be good news. It says nothing about whether the remaining 11 per cent now contain a new kind of work, whether the resolved cases are clustering around a new deployment, or whether an apparent success has shifted effort into employee workarounds that never return to the service desk.
+The loss is easiest to miss when automation reports only completion. A weekly report may show that 89 per cent of requests were resolved without human intervention. That can be good news. It says nothing about whether the remaining 11 per cent now contain a new kind of work, whether resolved cases are clustering around a new deployment, or whether apparent success has shifted effort into employee workarounds that never return to the service desk.
 
-Mature automation programmes therefore measure two things at once. They measure relief: how much repetitive effort has been removed, how quickly people regain access, how consistently a known repair is applied. They also measure visibility: what patterns are retained after the task disappears, what conditions reopen a category, and whether a person with authority still sees the summary when the pattern begins to change.
+A mature automation programme therefore measures two things at once. It measures relief: repetitive effort removed, time restored, known repairs applied consistently. It also measures visibility: which patterns remain after the task disappears, which conditions reopen a category, and whether a person with authority still receives the summary when the pattern begins to change.
 
-This does not make the analyst a ceremonial observer of machine work. It gives the role a sharper operational purpose. The analyst becomes a designer and guardian of the boundary between a repeatable action and a changing case. They decide which routine can pass through untouched, which must leave an audit trail, and which needs an escape route back into collective attention.
+This does not make the analyst a ceremonial observer of machine work. It gives the role a sharper operational purpose. The analyst designs and guards the boundary between a repeatable action and a changing case. They decide which routine can pass through untouched, which must leave an audit trail, and which needs an escape route back into collective attention.
 
-The role has changed. The operator’s work moves toward defining the return path, reading the pattern that no longer appears in the visible queue, and deciding which forms of apparent success need to remain contestable. This is not a mysterious human remainder. It is an operational responsibility that can be designed, measured, and assigned.
+The role has changed. The operator defines the return path, reads the pattern that no longer appears in the visible queue, and decides which forms of apparent success must remain contestable. This is not a mysterious human remainder. It is an operational responsibility that can be designed, measured, and assigned.
 
-As automation becomes better at routine, it will make the remaining work look less like a queue and more like a set of exceptions, patterns, and delegated boundaries. That can be an improvement. It can also create a dangerous illusion: that the work left behind is small because the visible work has become small.
+But the responsibility has already been moved. The analyst no longer spends the day inside the population of ordinary cases. They receive the residue: the requests the workflow could not settle, the pattern the closure report cannot explain, the consequence that has become visible only after the familiar work has disappeared. That can be better work. It can also be work performed with less evidence, later in the sequence, and under more pressure to make sense of what remains.
 
-The first delegation is never only a delegation of steps. It is a delegation of attention.
+The first delegation is never only a delegation of steps. It is a delegation of attention. Once the organization accepts that the queue has become quieter, it starts to ask a second question: if the system sees the remaining pattern before the analyst does, why should it not name the cause as well?
 
 ::: {.memorable-phrase}
 The first routine we automate is often the first signal we stop learning from.
@@ -197,5 +201,5 @@ The first routine we automate is often the first signal we stop learning from.
 
 ::: {.next-chapter}
 **Then We Automated the Diagnosis**  
-Once a system can resolve the familiar case, the next temptation is to let it decide what the unfamiliar case means.
+The queue no longer teaches the team what the unfamiliar case looks like. The next delegation will promise to explain the residue before a person has time to assemble it.
 :::

@@ -25,6 +25,9 @@ local known_envs = {
   ["dissent-record"]   = "dissentrecord",
   ["handoff-note"]     = "handoffnote",
   ["routine-map"]      = "routinemap",
+  ["system-statement"] = "systemstatement",
+  ["human-exchange"]   = "humanexchange",
+  ["design-question"]  = "designquestion",
 }
 
 local function latex_escape(value)

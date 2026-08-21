@@ -1,0 +1,21 @@
+ M books/book-05-the-operators-last-job/config/operator-last-job-theme.tex
+ M books/book-05-the-operators-last-job/config/operator-last-job.latex
+ M books/book-05-the-operators-last-job/manuscript-files.txt
+ M books/book-05-the-operators-last-job/manuscript/00c-part-i-the-operator.md
+ M books/book-05-the-operators-last-job/manuscript/04a-part-ii-the-automation-curve.md
+ M books/book-05-the-operators-last-job/manuscript/06-then-we-automated-the-diagnosis.md
+ M books/book-05-the-operators-last-job/manuscript/08a-part-iii-what-remains-human.md
+ M books/book-05-the-operators-last-job/manuscript/13a-part-iv-the-new-engineer.md
+ M templates/render/callouts.lua
+?? audit-local-changes.txt
+?? books/book-05-the-operators-last-job/CHARTE-EDITORIALE-PREMIUM.before-bibliography.bak.md
+?? books/book-05-the-operators-last-job/CHARTE-EDITORIALE-PREMIUM.before-sobriety.bak.md
+?? books/book-05-the-operators-last-job/CHARTE-EDITORIALE-PREMIUM.md
+?? books/book-05-the-operators-last-job/SYSTEME-SCENES-CALLOUTS-ET-TRANSCRIPTIONS.md
+?? books/book-05-the-operators-last-job/manuscript/06-then-we-automated-the-diagnosis.before-notes.bak.md
+?? books/book-05-the-operators-last-job/manuscript/06-then-we-automated-the-diagnosis.premium-v1.bak.md
+?? books/book-05-the-operators-last-job/manuscript/06-then-we-automated-the-diagnosis.premium-v2.bak.md
+?? books/book-05-the-operators-last-job/manuscript/06-then-we-automated-the-diagnosis.scaffold.bak.md
+?? books/book-05-the-operators-last-job/manuscript/06-then-we-automated-the-diagnosis.v1.bak.md
+?? books/book-05-the-operators-last-job/manuscript/19-selected-bibliography.md
+?? templates/render/patch_callouts_lua.py

@@ -14,11 +14,20 @@ local known_envs = {
   ["memorable-phrase"] = "memorablephrase",
   ["next-chapter"]     = "nextchapter",
   ["part-map"]         = "partmap",
-  ["part-page"]        = "partpage",
   ["chapter-guide"]    = "chapterguide",
   ["the-question"]     = "thequestion",
   ["the-shift"]        = "theshift",
   ["four-questions"]   = "fourquestions",
+  ["assumption-check"] = "assumptioncheck",
+  ["boundary-condition"] = "boundarycondition",
+  ["exception-register"] = "exceptionregister",
+  ["traceback"]        = "tracebackbox",
+  ["dissent-record"]   = "dissentrecord",
+  ["handoff-note"]     = "handoffnote",
+  ["routine-map"]      = "routinemap",
+  ["system-statement"] = "systemstatement",
+  ["human-exchange"]   = "humanexchange",
+  ["design-question"]  = "designquestion",
 }
 
 local function latex_escape(value)

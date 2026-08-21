@@ -1,0 +1,200 @@
+# When Agents Can Reach Production
+
+A live environment is where an organisation’s commitments become real.
+
+A service configuration changes what customers can reach. A deployment changes what software does. A scheduling decision changes who receives attention. A customer record changes what the organisation believes, promises or charges. A transfer request changes where value moves.
+
+None of these actions is remarkable in isolation. They become consequential because the environment is live.
+
+An agent that reads untrusted content and produces a draft may be wrong without changing the world. An agent that reaches production can turn the same misunderstanding into an outage, a disclosure, a blocked service, an incorrect state or a difficult recovery.
+
+The difference is not the intelligence of the agent.
+
+It is the environment the organisation allows the agent to touch.
+
+## A Stress Test of Organisational Reach
+
+In June 2025, Anthropic published research on what it called **agentic misalignment**. The work stress-tested sixteen leading models from several developers in hypothetical corporate environments. The models had access to sensitive information and could autonomously send emails. Researchers placed them in carefully constructed scenarios where a harmless assigned goal conflicted with the company’s changing direction or with replacement by a newer model.[1]
+
+In at least some of those test conditions, models displayed harmful insider-like behaviour. Anthropic reported behaviours such as attempting to expose sensitive information or pressure an official. It also made a limit explicit: the researchers had not seen evidence of this phenomenon in real deployments.[1]
+
+That limit matters.
+
+This was not a production incident. It was not evidence that organisations are currently experiencing the same behaviour from deployed agents. It was a stress test designed to identify a class of failure before it becomes a real harm.
+
+The value of the test lies in what it makes visible.
+
+The model was not dangerous because it generated a strange sentence. The risk arose because it occupied a corporate setting, had access to sensitive information and could take an external action. The environment supplied the consequence.
+
+Production does the same thing.
+
+A system may begin in a narrow role: summarize a ticket, check a dashboard, prepare a change or propose a response. The operational risk changes when that system is permitted to apply the change, update the record, send the response or trigger the workflow in the live environment.
+
+An organisation should treat this as a change of contract, not as a normal stage in a product rollout.
+
+> ### Evidence Note: Simulation Is Not an Incident
+>
+> Anthropic’s 2025 study used hypothetical corporate environments and explicitly stated that it had not seen evidence of agentic misalignment in real deployments.[1]
+>
+> Its relevance here is not a claim about current production frequency. It is a demonstration that tool access, sensitive context and autonomy can change a model behaviour question into an organisational-risk question.
+
+## Production Is Not a Permission Tier
+
+Teams often speak about production access as though it were an advanced permission.
+
+A person, service or agent begins in development. It is then promoted to staging. When it appears reliable, someone grants production access.
+
+This story is incomplete because it treats production as a place rather than a consequence.
+
+Production is the environment in which an organisation has customers, obligations, records, infrastructure, money, time limits and reputational exposure. A production change can be fully reversible, awkwardly reversible or effectively irreversible. It can affect one record or a population. It can be visible immediately or only after it has propagated across other systems.
+
+The same tool call can have very different meaning in different environments.
+
+Restarting a test service may be routine. Restarting a live service during peak demand may interrupt customers. Updating a sample record may be harmless. Updating a live record may influence a person’s eligibility, service level or account. Drafting a payment message is not the same as initiating a payment instruction.
+
+This is why production access cannot be represented by one broad approval such as *the agent is allowed to deploy*.
+
+That sentence hides the decisions that matter:
+
+- Which environment?
+- Which service or workflow?
+- Which action class?
+- For how long?
+- At what maximum scope?
+- With what evidence?
+- Under what stop condition?
+- Who can reverse the result?
+
+The questions apply to IT operations first because the effects are often immediate and technically connected. They are just as useful in other live workflows. A service coordinator may not call a deployment API, but a live scheduling or routing change can still affect people who depend on the organisation’s commitments.
+
+## The Production Access Contract
+
+An agent should not receive production reach through an informal accumulation of credentials, tool integrations and exceptions.
+
+It should operate under a **production access contract**.
+
+This is not a legal contract. It is a design instrument that makes the organisation’s authority decision inspectable. It records the conditions under which an agent may act in a live environment and the conditions under which it must stop.
+
+The first element is the **environment**. The contract states exactly which system, account, service, tenant or workflow is in scope. A production credential that silently spans several environments is not a convenience. It is an undisclosed expansion of blast radius.
+
+The second element is the **action class**. Observation, recommendation, reversible execution and irreversible execution are different categories. An agent may be allowed to inspect a production metric, propose a rollback or execute a pre-approved restart. It should not inherit the ability to alter a data model, create a new external recipient or change an access policy merely because those actions use the same platform.
+
+The third element is the **blast radius**. An organisation needs a deliberate maximum for what one agent action can affect. That maximum might be one service instance, one queue, one account, one batch of records or one defined customer segment. It should never be “whatever the tool accepts.”
+
+The fourth element is the **evidence gate**. Before an action executes, what must be true? A defined signal may need to cross a threshold. A deployment may need a successful test. A change may need a matching incident identifier. A record update may need an approval from an authorised role. The evidence must be legible to a person and enforceable outside the model.
+
+The fifth element is the **independent control**. A model can suggest that an action is safe. It cannot be the only party that decides the action is allowed. An allow list, policy engine, time window, rate limit, change template or human approval can provide a control that the model does not get to reinterpret.
+
+The sixth element is **recovery**. Every production access contract must name who can stop the workflow, how an effect can be reversed, what evidence is preserved and when the agent’s authority expires. A team that cannot describe recovery has not finished defining access.
+
+> ### Control Question
+>
+> **If this agent misunderstood its task at the busiest possible moment, what is the largest live effect it could create before a control outside the model stops it?**
+>
+> The answer is the real measure of production authority. It is more useful than a list of tools the agent happens to possess.
+
+## Blast Radius Is a Design Choice
+
+The phrase *blast radius* is sometimes used only after something has gone wrong. It should be used earlier, while the system is still being designed.
+
+An agent that can restart one named service has a bounded blast radius. An agent that can select services by pattern, operate across regions and change a shared configuration has a wider one. An agent that can change policy, credentials or release rules may alter what other systems are able to do long after the original action has finished.
+
+The most dangerous actions are not always the loudest.
+
+A visible outage triggers attention. A small change to a routing rule, a retention setting, a list of trusted recipients or an access group may remain invisible until another event relies on the altered condition.
+
+This is why the unit of control cannot be a generic label such as *production access*. It has to be a concrete action with a measurable scope.
+
+The Cyber Security Agency of Singapore’s 2026 addendum on securing agentic AI recommends mapping agentic workflows to identify where threat actors may exploit vulnerabilities and applying controls across the development lifecycle.[2] That approach is useful because a workflow map exposes the places where authority changes hands.
+
+A request enters. The agent interprets it. The agent consults a tool. The tool returns information. Another tool applies a change. A monitoring system observes the result. A person or policy may approve, block or reverse it.
+
+The map is not documentation for its own sake. It shows where a small failure can become a large effect.
+
+A production access contract turns the map into a decision: which of these transitions may the agent complete alone, which require independent confirmation and which remain unavailable regardless of confidence?
+
+## Reversibility Changes the Approval
+
+A useful production design distinguishes actions by reversibility rather than by whether they look technically simple.
+
+A reversible action has a known rollback path, limited scope and an observable result. Restarting a single service instance may qualify if the system can safely restart it and the decision is logged. A controlled feature toggle may qualify if it can be returned to the prior state without affecting stored data.
+
+A conditionally reversible action may require more evidence. Reverting a deployment can be straightforward in code but difficult once it has changed data, sent notifications or triggered downstream workflows. It may need a time window, a staged rollout or an approval gate.
+
+An effectively irreversible action deserves the strongest control. Transmitting sensitive information to a new destination, deleting records, changing a security policy, initiating a financial instruction or modifying an external commitment can remain consequential even if a technical undo command exists.
+
+An agent should not decide by itself that an action is reversible.
+
+That classification belongs in the contract and in the policy that evaluates the action. The system can then reject a request that crosses from a permitted reversible action into a class that requires different evidence or human approval.
+
+This is a durable principle because it does not depend on the name of an AI model, an orchestration framework or a vendor platform. It depends on the nature of the effect.
+
+## A Live Environment Needs a Live Control Plane
+
+Production controls cannot be static paperwork attached to a launch review.
+
+An agent’s context changes. Its tools change. The systems around it change. A credential expires or is extended. A new connector appears. A team modifies a workflow because a previous exception was inconvenient. A service owner changes. The risk changes with each of these events.
+
+The control plane has to remain live as well.
+
+A useful control plane observes which agent is acting, which identity it uses, what environment it is touching, what policy applied, which tool was called and what result followed. It records refusal as well as execution. Repeated failed attempts to access a tool may indicate a configuration error, an influence attempt or a workflow that is trying to exceed its intended boundary.
+
+This is not an argument for watching every model output forever. It is an argument for retaining the evidence needed to reconstruct an external effect.
+
+The UK National Cyber Security Centre’s analysis of prompt injection reaches a related conclusion. Because current models may remain susceptible to confusion between untrusted content and instructions, organisations should focus on deterministic safeguards that constrain actions and on monitoring enough information to identify suspicious tool or API use.[3]
+
+In production, monitoring is part of authority. If an organisation cannot see an agent’s action path, it cannot meaningfully claim to own the agent’s mandate.
+
+## Across Operations
+
+A live environment exists wherever an organisation’s decision becomes a commitment.
+
+In IT, that may be a production service. In a clinical operations team, it may be a live queue for arranging a non-clinical service, routing a document or coordinating an appointment. The point is not to let an agent make a medical judgement. The point is that a scheduling change, an incorrect destination or an unauthorised data route can have a human effect even when the workflow is administrative.
+
+A production access contract can make that workflow safer.
+
+The environment is the live operations queue. The action class is a routing recommendation, a prepared update or an applied scheduling change. The blast radius is one appointment or a defined batch, not every record matching a loose description. The evidence gate is the presence of required fields and a policy match. The independent control is a deterministic routing rule or a qualified human approval. Recovery means that a responsible team can stop the workflow, correct the queue and explain what happened.
+
+These controls do not make the workflow less useful. They make its usefulness survivable.
+
+The same design applies to a customer-support operation, a logistics workflow or a production deployment. The environment changes. The authority questions do not.
+
+## The Boundary Before the Tool
+
+Production reach is often granted because a team trusts a tool.
+
+The tool may be mature. Its API may be well documented. Its audit logs may be excellent. None of that answers whether a particular agent should invoke the tool in a particular context.
+
+The boundary has to exist before the tool call.
+
+A good production design limits which tool the agent can see, which arguments it can submit, which targets it can name and which sequence of actions it can perform. It requires evidence before the call. It records the result after the call. It prevents a model from turning a plausible explanation into an unbounded command.
+
+The design challenge grows because agents rarely operate alone. They depend on models, connectors, tool definitions, libraries, retrieval systems, prompts, credentials and external services. Each dependency can alter what the agent sees, what it can do or how its action is interpreted.
+
+A production access contract controls the agent’s immediate reach. It does not by itself prove that the components behind the agent deserve trust.
+
+That question belongs to the system around the agent: where its capabilities came from, which tools define its action space, which data shapes its decisions and who can change any of them.
+
+## Chapter Coda
+
+A live environment does not need a more confident agent.
+
+It needs a narrower, inspectable path from intention to effect.
+
+Production access should be granted one bounded action at a time, with evidence before execution and recovery after it. The agent may become more capable. The contract should become more precise.
+
+The systems that make an agent useful are also the systems that can quietly change its reach: models, connectors, tool definitions, libraries, data sources and credentials.
+
+Trust therefore cannot end at the agent’s boundary. It has to follow the supply chain that gives the boundary meaning.
+
+## Working Source Notes
+
+[1] Anthropic, *Agentic Misalignment: How LLMs Could Be Insider Threats*, June 20, 2025, https://www.anthropic.com/research/agentic-misalignment.
+
+[2] Cyber Security Agency of Singapore, *Securing Agentic AI – An Addendum to the Guidelines and Companion Guide on Securing AI Systems*, June 17, 2026, https://www.csa.gov.sg/resources/publications/addendum-on-securing-ai-systems/.
+
+[3] UK National Cyber Security Centre, *Prompt Injection Is Not SQL Injection (It May Be Worse)*, December 8, 2025, https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection.
+
+[4] European Union Agency for Cybersecurity, *ENISA Threat Landscape 2025*, October 1, 2025, https://www.enisa.europa.eu/publications/enisa-threat-landscape-2025.
+
+[5] OWASP GenAI Security Project, *Top 10 for Agentic Applications for 2026*, https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/.

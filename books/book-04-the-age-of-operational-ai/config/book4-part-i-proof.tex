@@ -1,0 +1,252 @@
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=6in,paperheight=9in,top=0.82in,bottom=0.78in,inner=0.84in,outer=0.68in,headsep=17pt,footskip=28pt]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Tiempos Text}{\setmainfont{Tiempos Text}}{\setmainfont{TeX Gyre Pagella}}
+\IfFontExistsTF{Söhne}{\setsansfont{Söhne}}{\setsansfont{Latin Modern Sans}}
+\usepackage{xcolor}
+\definecolor{NaturalPaper}{HTML}{FAF8F3}
+\definecolor{Carbon}{HTML}{202124}
+\definecolor{WarmGrey}{HTML}{6C6A66}
+\definecolor{StoneRule}{HTML}{B7B0A6}
+\definecolor{QuietUmber}{HTML}{7B4B3A}
+\definecolor{NotePaper}{HTML}{F2EEE8}
+\pagecolor{NaturalPaper}
+\color{Carbon}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\hypersetup{colorlinks=true,linkcolor=Carbon,urlcolor=Carbon,citecolor=Carbon,pdftitle={The Age of Operational AI — Editorial Specimen v2},pdfauthor={Steve BA-NDOUWE}}
+\setlength{\parindent}{4.5mm}
+\setlength{\parskip}{0pt}
+\linespread{1.18}\selectfont
+\emergencystretch=1.2em
+\frenchspacing
+\titleformat{\section}{\sffamily\bfseries\large\color{Carbon}}{\thesection}{0.65em}{}
+\titlespacing*{\section}{0pt}{18pt}{7pt}
+\titleformat{\subsection}{\sffamily\bfseries\normalsize\color{Carbon}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{15pt}{5pt}
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{1}
+\newcommand{\CurrentRunningHead}{}
+\newtcolorbox{evidencebox}[1][]{enhanced,breakable,colback=NotePaper,colframe=NotePaper,boxrule=0pt,left=11pt,right=11pt,top=8pt,bottom=8pt,borderline west={1.3pt}{0pt}{QuietUmber},fonttitle=\sffamily\bfseries\footnotesize\color{QuietUmber},title={#1},coltitle=QuietUmber}
+\renewenvironment{quote}{\begin{evidencebox}}{\end{evidencebox}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}THE AGE OF OPERATIONAL AI}
+\fancyhead[RO]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}\CurrentRunningHead}
+\fancyfoot[LE,RO]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StoneRule}\leaders\hrule height \headrulewidth\hfill}}
+\newcommand{\coverpage}{%
+\clearpage\thispagestyle{empty}%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=center,inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{../assets/book4-front-cover-print-light.jpg}};
+\end{tikzpicture}\mbox{}\clearpage}
+\newcommand{\halfTitle}{%
+\clearpage\thispagestyle{empty}\vspace*{0.35\textheight}
+{\sffamily\fontsize{24}{28}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE OPERATOR'S LIBRARY · BOOK 04}\clearpage}
+\newcommand{\titlePage}{%
+\clearpage\thispagestyle{empty}\vspace*{0.23\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}THE OPERATOR'S LIBRARY · BOOK 04}\par\vspace{19pt}
+{\sffamily\fontsize{29}{33}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vspace{16pt}
+{\itshape\large How AI Agents Will Change the Way\\ We Build, Operate and Secure Technology}\par\vfill
+{\sffamily\fontsize{9}{11}\selectfont STEVE BA-NDOUWE}\clearpage}
+\newcommand{\copyrightPage}{%
+\clearpage\thispagestyle{empty}\vspace*{0.65\textheight}
+{\footnotesize © 2026 Steve BA-NDOUWE. All rights reserved.\\
+First editorial specimen, prepared for design and reading review.\\
+The final edition will include verified source notes and publication data.}\clearpage}
+\newcommand{\introductionOpener}{%
+\phantomsection\addcontentsline{toc}{section}{Introduction: The Terms of Delegation}
+\renewcommand{\CurrentRunningHead}{INTRODUCTION}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}INTRODUCTION}\par\vspace{18pt}
+{\sffamily\fontsize{31}{35}\selectfont\bfseries THE TERMS OF\\ DELEGATION}\par\vspace{20pt}
+{\itshape\large Before an organisation gives a system the right to act, it must decide what it is delegating, what it will retain, and how it will know the difference.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE OPERATOR'S LIBRARY}\clearpage}
+\newcommand{\partOpener}{%
+\phantomsection\addcontentsline{toc}{part}{Part I. The Shift}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{10}{12}\selectfont\color{QuietUmber}PART I}\par\vspace{18pt}
+{\sffamily\fontsize{34}{38}\selectfont\bfseries THE SHIFT}\par\vspace{18pt}
+{\itshape\large The transition from systems that follow instructions to systems that interpret objectives and act within them.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}WHAT CHANGES WHEN SOFTWARE HAS DISCRETION}\clearpage}
+\newcommand{\chapterOneOpener}{%
+\phantomsection\addcontentsline{toc}{section}{1. The Age of Operational AI}
+\renewcommand{\CurrentRunningHead}{THE AGE OF OPERATIONAL AI}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER 1}\par\vspace{18pt}
+{\sffamily\fontsize{30}{34}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vspace{19pt}
+{\itshape\large The moment an answer leaves the screen and becomes an action in the world.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}PART I · THE SHIFT}\clearpage}
+\newcommand{\chapterCoda}{%
+\clearpage\thispagestyle{empty}\vspace*{0.22\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER CODA}\par\vspace{18pt}
+{\sffamily\fontsize{23}{28}\selectfont\bfseries WHAT REMAINS}\par\vspace{18pt}
+{\large An answer is information. An action creates an effect.\\[7pt]
+Capability is not permission.\\[7pt]
+Human approval matters only when it changes the decision.}\par\vspace{30pt}
+\noindent\rule{0.25\textwidth}{0.5pt}\par\vspace{12pt}
+{\itshape\large Once software can choose an action within a goal, the question is no longer whether it is automated. It is who is operating.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}NEXT · OWNERSHIP, EXCEPTIONS AND THE RIGHT TO REVOKE AUTHORITY}\clearpage}
+\newcommand{\chapterTwoOpener}{%
+\phantomsection\addcontentsline{toc}{section}{2. From Software to Agents}
+\renewcommand{\CurrentRunningHead}{FROM SOFTWARE TO AGENTS}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER 2}\par\vspace{18pt}
+{\sffamily\fontsize{30}{34}\selectfont\bfseries FROM SOFTWARE\\ TO AGENTS}\par\vspace{19pt}
+{\itshape\large The moment a model is embedded in a system that gives its interpretations a path to action.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}PART I · THE SHIFT}\clearpage}
+\newcommand{\chapterTwoCoda}{%
+\clearpage\thispagestyle{empty}\vspace*{0.22\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER CODA}\par\vspace{18pt}
+{\sffamily\fontsize{23}{28}\selectfont\bfseries WHAT REMAINS}\par\vspace{18pt}
+{\large A model is not an agent by itself.\\[7pt]
+Context, tools and authority create the path to action.\\[7pt]
+The boundary must sit outside the reasoning loop.}\par\vspace{30pt}
+\noindent\rule{0.25\textwidth}{0.5pt}\par\vspace{12pt}
+{\itshape\large An agent can select a path. Only an organisation can accept responsibility for making that path available.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}NEXT · THE OPERATOR, THE COPILOT AND THE SHIFT IN HUMAN WORK}\clearpage}
+\newcommand{\chapterThreeOpener}{%
+\phantomsection\addcontentsline{toc}{section}{3. The Operator Gets a Copilot}
+\renewcommand{\CurrentRunningHead}{THE OPERATOR GETS A COPILOT}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER 3}\par\vspace{18pt}
+{\sffamily\fontsize{30}{34}\selectfont\bfseries THE OPERATOR GETS\\ A COPILOT}\par\vspace{19pt}
+{\itshape\large What changes when a system can prepare much of the work but must not own its result.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}PART I · THE SHIFT}\clearpage}
+\newcommand{\chapterThreeCoda}{%
+\clearpage\thispagestyle{empty}\vspace*{0.22\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER CODA}\par\vspace{18pt}
+{\sffamily\fontsize{23}{28}\selectfont\bfseries WHAT REMAINS}\par\vspace{18pt}
+{\large A copilot can prepare work.\\[7pt]
+The operator still owns the evidence and the decision.\\[7pt]
+The organisation must retain the boundary.}\par\vspace{30pt}
+\noindent\rule{0.25\textwidth}{0.5pt}\par\vspace{12pt}
+{\itshape\large Assistance becomes a different operational relationship when the system is permitted to carry its recommendation into action.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}NEXT · THE MOMENT A HELPFUL SYSTEM BEGINS TO ACT}\clearpage}
+\newcommand{\chapterFourOpener}{%
+\phantomsection\addcontentsline{toc}{section}{4. When AI Starts Taking Actions}
+\renewcommand{\CurrentRunningHead}{WHEN AI STARTS TAKING ACTIONS}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER 4}\par\vspace{18pt}
+{\sffamily\fontsize{30}{34}\selectfont\bfseries WHEN AI STARTS\\ TAKING ACTIONS}\par\vspace{19pt}
+{\itshape\large The moment a helpful system crosses from recommendation into consequence.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}PART I · THE SHIFT}\clearpage}
+\newcommand{\chapterFourCoda}{%
+\clearpage\thispagestyle{empty}\vspace*{0.22\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER CODA}\par\vspace{18pt}
+{\sffamily\fontsize{23}{28}\selectfont\bfseries WHAT REMAINS}\par\vspace{18pt}
+{\large Capability is not authority.\\[7pt]
+An action envelope turns delegation into a visible decision.\\[7pt]
+The boundary must be enforceable outside the agent.}\par\vspace{30pt}
+\noindent\rule{0.25\textwidth}{0.5pt}\par\vspace{12pt}
+{\itshape\large If authority expands through convenience rather than design, the organisation has delegated blind.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}NEXT · THE END OF MANUAL OPERATIONS?}\clearpage}
+\newcommand{\chapterFiveOpener}{%
+\phantomsection\addcontentsline{toc}{section}{5. The End of Manual Operations?}
+\renewcommand{\CurrentRunningHead}{THE END OF MANUAL OPERATIONS?}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER 5}\par\vspace{18pt}
+{\sffamily\fontsize{30}{34}\selectfont\bfseries THE END OF\\ MANUAL OPERATIONS?}\par\vspace{19pt}
+{\itshape\large Automation can remove manual steps. It cannot remove the organisation’s responsibility for the outcome.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}PART I · THE SHIFT}\clearpage}
+\newcommand{\chapterFiveCoda}{%
+\clearpage\thispagestyle{empty}\vspace*{0.22\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER CODA}\par\vspace{18pt}
+{\sffamily\fontsize{23}{28}\selectfont\bfseries WHAT REMAINS}\par\vspace{18pt}
+{\large Manual steps can disappear.\\[7pt]
+Ownership, exceptions and recovery cannot.\\[7pt]
+Automation changes where responsibility lives.}\par\vspace{30pt}
+\noindent\rule{0.25\textwidth}{0.5pt}\par\vspace{12pt}
+{\itshape\large The real question is not whether people leave operations. It is where their judgment must remain.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}NEXT · THE AI HAS CREDENTIALS}\clearpage}
+\newcommand{\sourceNotesOpener}{%
+\clearpage\thispagestyle{empty}\vspace*{0.2\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}SOURCE NOTES}\par\vspace{18pt}
+{\sffamily\fontsize{27}{31}\selectfont\bfseries EVIDENCE, NOT\\ DECORATION}\par\vspace{18pt}
+{\itshape\large Sources are placed here so the argument can move, while every consequential claim remains open to inspection.}\clearpage}
+\begin{document}
+\coverpage
+\halfTitle
+\titlePage
+\copyrightPage
+\renewcommand{\CurrentRunningHead}{CONTENTS}
+\tableofcontents
+\introductionOpener
+\input{../introduction-body.tex}
+\partOpener
+\chapterOneOpener
+\setcounter{section}{0}
+\input{../chapter-01-body-v2.tex}
+\chapterCoda
+\chapterTwoOpener
+\setcounter{section}{0}
+\input{../chapter-02-body-v2.tex}
+\chapterTwoCoda
+\chapterThreeOpener
+\setcounter{section}{0}
+\input{../chapter-03-body-v2.tex}
+\chapterThreeCoda
+\chapterFourOpener
+\setcounter{section}{0}
+\input{../chapter-04-body-v2.tex}
+\chapterFourCoda
+\chapterFiveOpener
+\setcounter{section}{0}
+\input{../chapter-05-body-v2.tex}
+\chapterFiveCoda
+\sourceNotesOpener
+{\sffamily\bfseries\large Chapter 1}\par\vspace{10pt}
+\begin{enumerate}\itemsep=8pt
+\item AI Incident Database, \emph{Incident 1152: Replit Agent Deletes Production Database}, accessed August 2026.
+\item Jason Lemkin, public post concerning the Replit incident, July 2025.
+\item NIST, \emph{Artificial Intelligence Risk Management Framework}, and \emph{Generative AI Profile}.
+\end{enumerate}
+\vspace{18pt}
+{\sffamily\bfseries\large Chapter 2}\par\vspace{10pt}
+\begin{enumerate}\itemsep=8pt
+\item UK AI Security Institute, \emph{Incident report: unsanctioned agent behaviour during cyber testing}, August 4, 2026.
+\item Center for AI Standards and Innovation, ``Request for Information Regarding Security Considerations for Artificial Intelligence Agents,'' \emph{Federal Register} 91, no. 4 (January 8, 2026): 698--701.
+\item NIST, \emph{AI Agent Standards Initiative}, updated August 14, 2026.
+\item OWASP GenAI Security Project, \emph{Top 10 for Agentic Applications 2026}.
+\item MIT Sloan, ``Agentic AI, explained,'' February 18, 2026.
+\end{enumerate}
+\vspace{18pt}
+{\sffamily\bfseries\large Chapter 3}\par\vspace{10pt}
+\begin{enumerate}\itemsep=8pt
+\item K. Z. Cui et al., ``The Productivity Effects of Generative AI: Evidence from a Field Experiment with GitHub Copilot,'' 2024.
+\item Mihaela Vorvoreanu et al., \emph{New employee Copilot usage: Insights into productivity and socialization}, Microsoft Technical Report MSR-TR-2025-24, 2025.
+\item ``Check the box! How to deal with automation bias in AI-based personnel selection,'' \emph{Frontiers in Psychology}, 2023.
+\end{enumerate}
+\vspace{18pt}
+{\sffamily\bfseries\large Chapter 4}\par\vspace{10pt}
+\begin{enumerate}\itemsep=8pt
+\item Jer Crane, public account of the PocketOS incident, April 2026.
+\item The New Stack, \emph{How a Cursor AI agent wiped PocketOS’s production database in under 10 seconds}, May 2026.
+\item AI Incident Database, \emph{Incident 1469: PocketOS Production Database Was Reportedly Deleted}, accessed August 2026.
+\item METR, \emph{Documented AI Agent Incidents}, May 2026.
+\item MIT Sloan, \emph{Agentic AI, explained}, February 2026.
+\end{enumerate}
+\vspace{18pt}
+{\sffamily\bfseries\large Chapter 5}\par\vspace{10pt}
+\begin{enumerate}\itemsep=8pt
+\item \emph{Moffatt v. Air Canada}, 2024 BCCRT 149, British Columbia Civil Resolution Tribunal, February 14, 2024.
+\item National Institute of Standards and Technology, \emph{AI Risk Management Framework}.
+\item AI Incident Database, \emph{Incident 639: Air Canada Chatbot Reportedly Provides Inaccurate Information}, accessed August 2026.
+\end{enumerate}
+\vspace{20pt}
+{\sffamily\bfseries\large Further Reading}\par\vspace{10pt}
+NIST. \emph{AI Agent Standards Initiative}.\\
+OWASP. \emph{Top 10 for Agentic Applications 2026}.\\
+The Chicago Manual of Style. \emph{Notes and Bibliography}.\\
+\end{document}

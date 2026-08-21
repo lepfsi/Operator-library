@@ -62,6 +62,8 @@ The question was whether clean was safe.
 
 A former engineer’s name in a repository is not expertise. It is a sign that expertise once passed through the file. The team had the command. It had the configuration. It had a ticket number. What it did not have was the part of the earlier decision that made the comment worth obeying.
 
+The tempting premise was that an old compatibility override became obsolete when its original owner left. The incident exposed the opposite: ownership had disappeared; the dependency, the partner route, and the cost of removal had not.
+
 ::: {.assumption-check}
 **Default premise:** an old compatibility override is obsolete if its original owner is gone.  
 **What the incident exposed:** ownership had disappeared; the dependency, the partner route, and the cost of removal had not.
@@ -155,7 +157,7 @@ An operational agent could have helped the team substantially.
 
 It could search the configuration repository, the old ticket, previous incident channels, deployment records, certificate logs, partner contact lists, and financial reconciliation notes in seconds. It could construct a timeline of the exception. It could identify the former engineer’s changes, compare the legacy cipher with current policy, list the partners that still used the gateway, and flag the absence of evidence for the migration condition.
 
-It could have done this better than a tired engineer opening six systems at 22:30.
+It could have done this better than a tired engineer opening six systems at \livetime{22:30}.
 
 It might also have surfaced a buried message in which Leon wrote that the partner had two endpoints, one of which carried only the settlement-file route. It might have connected that detail to the finance analyst’s concern before the team had to rediscover it through conversation. It might have suggested a safer test path and generated the change record with the right dependencies named.
 
@@ -186,7 +188,7 @@ None held the condition that made the exception safe to retire.
 
 The missing condition was not hidden because anyone had been careless. It was distributed across a relationship with a partner, a delayed migration, a reporting process, a previous incident, and an engineer’s sense of what had to be checked before a clean technical change became an operational mistake. This is how much expertise lives in organisations. Not in a secret memory palace, but in the links between facts that systems store separately.
 
-An industrial operator taking over a shift may receive the same kind of incomplete record. A setting is marked *leave unchanged*. The log contains the last adjustment. The reason is absent. The next operator can follow the instruction, remove it, or search for evidence. What they cannot do is assume that the absence of an explanation has made the explanation unnecessary.
+An industrial operator taking over a shift may receive the same kind of incomplete record. A setting is marked \processstate{leave unchanged}. The log contains the last adjustment. The reason is absent. The next operator can follow the instruction, remove it, or search for evidence. What they cannot do is assume that the absence of an explanation has made the explanation unnecessary.
 
 The comparison matters because it reveals a general structure without moving the book away from IT. The gateway configuration is not unusual. IT operations is simply one of the clearest places to see how a decision is compressed into a small artefact, then detached from the people and conditions that once made it intelligible.
 

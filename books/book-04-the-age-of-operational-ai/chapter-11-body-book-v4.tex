@@ -1,0 +1,361 @@
+\section{Chapter 11}\label{chapter-11}
+
+\subsection{Can We Trust an Autonomous
+Operator?}\label{can-we-trust-an-autonomous-operator}
+
+An authority chain inventory can show what has been assembled around a
+system. It can show which model, connector, credential, service and
+policy shape an action. It cannot answer the harder question:
+\textbf{should this arrangement be allowed to act at all?}
+
+That question is where trust begins.
+
+The wrong way to ask it is personal. \emph{Can we trust the agent?}
+sounds natural because people know how to trust a colleague. A colleague
+can explain a choice, revise a view, accept a duty and answer for a
+mistake. An agentic system does none of those things. It produces
+outputs and effects through a model, context, tools, policies, services
+and data supplied by an organisation.
+
+The useful question is therefore narrower and more demanding:
+
+\begin{quote}
+\textbf{Can this organisation defend allowing this system to exercise
+this class of autonomy in this context?}
+\end{quote}
+
+That is not a question of personality. It is a question of design.
+
+\subsection{Trust Is Not a Feeling About a
+System}\label{trust-is-not-a-feeling-about-a-system}
+
+In January 2026, Singapore's Ministry of Digital Development and
+Information published a Model AI Governance Framework for Agentic AI.
+The framework did not propose that organisations should decide whether
+to ``trust AI'' in the abstract. It described conditions for responsible
+deployment: bound risks, meaningful human accountability, controls
+across the lifecycle and informed end users.{[}1{]}
+
+The distinction matters.
+
+A system may perform reliably in one setting and still be indefensible
+in another. A customer-service workflow might accurately classify a
+request yet have no authority to alter an account. A hospital operations
+workflow might efficiently prepare a staffing proposal yet have no
+authority to override clinical escalation rules. An infrastructure
+workflow might accurately identify a configuration change yet have no
+authority to apply it to a live environment.
+
+Performance is evidence about a system's behaviour under certain
+conditions. Trust is a judgment about whether the whole arrangement may
+be allowed to produce an effect.
+
+Those are not the same question.
+
+A high-performing model can sit inside a weak arrangement. It may
+receive a permanent credential, accept untrusted instructions, invoke an
+unreviewed connector and leave no usable record of what changed. A
+cautious model can sit inside a strong arrangement. It may act only
+inside a narrow mandate, through a temporary authority, with observable
+evidence and a recovery path.
+
+The first arrangement may look impressive. The second is more
+trustworthy.
+
+\subsubsection{Evidence Note: A Framework Is Not a
+Certificate}\label{evidence-note-a-framework-is-not-a-certificate}
+
+A published framework can identify useful conditions. It does not
+certify a particular system as safe, reliable or trustworthy. The
+relevant question remains local: \textbf{can an organisation demonstrate
+that its own autonomy arrangement meets the conditions it claims to
+meet?}
+
+\subsection{The Defensible Trust
+Proposition}\label{the-defensible-trust-proposition}
+
+An organisation needs a sentence it can test.
+
+For example:
+
+\begin{quote}
+\textbf{The invoice-reconciliation workflow may match approved purchase
+orders to received invoices and prepare payment exceptions for review.
+It may not release funds, create vendors, change payment instructions or
+use credentials outside the finance environment. Its actions expire at
+the end of the reconciliation window and are reconstructable from the
+case record.}
+\end{quote}
+
+This is not a slogan. It is a \textbf{defensible trust proposition}.
+
+A defensible trust proposition identifies an action class, a context, an
+authority boundary, a source of evidence and a recovery condition. It
+can be challenged before an incident, not merely narrated after one.
+
+The proposition has five parts.
+
+\subsubsection{1. Mandate}\label{mandate}
+
+The mandate names what the system is allowed to pursue. It should be
+expressed as an outcome or a bounded action class, not as a vague
+aspiration such as ``help the team'' or ``improve operations.''
+
+``Reconcile approved invoices'' is a mandate. ``Assist finance'' is not.
+
+``Prepare a deployment plan from approved changes'' is a mandate.
+``Operate production'' is not.
+
+A mandate provides the first answer to the question of purpose. Without
+it, a system's apparent usefulness can expand into a collection of
+unexamined tasks. An organisation then discovers its actual policy only
+after an effect has occurred.
+
+\subsubsection{2. Authority}\label{authority}
+
+Authority names the route through which the system can act. It includes
+the identity it uses, the tools and data it can reach, the environment
+in which those tools operate and the scope that limits each call.
+
+A mandate without authority is only a request. Authority without a
+mandate is an open-ended risk.
+
+This distinction remains durable even as model capabilities change. A
+model may become more able to plan, retrieve, write code or coordinate
+tools. None of those improvements tell an organisation what the system
+is entitled to alter. The entitlement must be designed elsewhere.
+
+The NIST AI Agent Standards Initiative, announced in 2026, reflects the
+same shift from a model-only view toward secure, interoperable systems
+that can take autonomous actions.{[}2{]} The important implication is
+not that a standard can solve trust. It is that trust has to be
+expressed across the components that give an action its reach.
+
+\subsubsection{3. Evidence}\label{evidence}
+
+Evidence is what allows the organisation to distinguish a claim from a
+reconstruction.
+
+A useful record does more than state that an action happened. It should
+connect a mandate, a policy version, the relevant state, the identity
+used, the tool invoked, the action produced, the result observed and the
+recovery decision where one was needed.
+
+This does not require an organisation to record every internal model
+token or to pretend that every output has a simple explanation. It
+requires enough evidence to answer a practical question: \textbf{what
+would a reasonable reviewer need to see in order to decide whether the
+system acted within its arrangement?}
+
+That question applies outside technology teams. A claims workflow needs
+to show which policy and documents supported a recommendation. A
+customer-service workflow needs to show which account scope and
+communication channel it used. A laboratory operations workflow needs to
+show which dataset, procedure and escalation rule shaped an action. The
+mechanism changes. The burden of explanation does not.
+
+\subsubsection{4. Recovery}\label{recovery}
+
+No arrangement is trustworthy because it claims it will never fail.
+
+A trustworthy arrangement expects that a tool can change, a data source
+can be wrong, a connector can behave unexpectedly or an action can reach
+farther than intended. Recovery therefore belongs in the trust
+proposition from the beginning.
+
+Recovery has at least four questions. What stops the action? What can be
+reversed? What must be contained? Who decides that the arrangement may
+resume?
+
+The answer may be technical, such as a scoped rollback or a credential
+revocation. It may be operational, such as pausing a workflow and moving
+work to a review queue. It may be organisational, such as escalating a
+material exception to a named owner. The form is less important than the
+fact that the path exists before the pressure of an incident.
+
+\subsubsection{5. Accountability}\label{accountability}
+
+Accountability is not the final name written at the bottom of a diagram.
+It is the ability to change the arrangement and answer for its effects.
+
+A person who can receive an alert but cannot narrow scope, suspend a
+connector, change a policy or stop a workflow is not meaningfully
+accountable. They are a spectator with a notification.
+
+Meaningful accountability requires a decision right. The accountable
+owner must be able to alter the mandate, authority, evidence requirement
+or recovery condition when the arrangement no longer deserves its
+autonomy.
+
+This is why a system must not be described as a digital employee. It
+cannot hold a decision right, accept public responsibility or revise the
+organisation's purpose. It can execute within an arrangement that people
+and institutions remain responsible for designing.
+
+\subsection{Control Question}\label{control-question}
+
+\begin{quote}
+\textbf{If this system produced an unacceptable effect tomorrow, could
+the organisation show its mandate, authority, evidence, recovery path
+and accountable owner without constructing the answer after the fact?}
+
+If the answer is no, the organisation has not yet built a trust
+arrangement. It has built a hope arrangement.
+\end{quote}
+
+\subsection{Trust Has a Scope and an
+Expiry}\label{trust-has-a-scope-and-an-expiry}
+
+Trust becomes misleading when it is spoken of as a permanent property.
+
+An organisation may be able to defend a system's autonomy for one action
+class and not another. It may defend it in a test environment and not in
+production. It may defend it while a policy, tool version and data
+source remain unchanged, but not after a connector is replaced or a
+credential is broadened.
+
+A trust proposition should therefore have a scope and an expiry
+condition.
+
+The scope identifies where the proposition holds. The expiry condition
+identifies what change requires the proposition to be reviewed. A new
+model release, a new tool, an expanded data source, a different
+environment or a changed owner can all invalidate an earlier assurance
+claim.
+
+This does not make autonomy impractical. It makes it honest.
+
+The safest systems are not the systems that never change. They are the
+systems whose changes force an organisation to decide whether the
+autonomy arrangement still deserves to exist.
+
+\subsection{From Control Lists to Trust
+Architecture}\label{from-control-lists-to-trust-architecture}
+
+Many organisations begin with a list: use role-based access, keep logs,
+require review, test the model, train users. Each item can be sensible.
+None is enough alone.
+
+A list treats trust as the sum of controls. A trust architecture treats
+it as a relationship among conditions.
+
+An access control is meaningful only when it enforces a mandate. A log
+is meaningful only when it can establish whether an action stayed inside
+its authority. A review is meaningful only when it can change an
+outcome. A test is meaningful only when it informs a decision about
+scope or deployment. Training is meaningful only when users know when
+and how to challenge the system's apparent confidence.
+
+The architecture is what makes the components mutually intelligible.
+
+Singapore's 2026 framework is useful because it pairs bounds on agent
+powers with meaningful human accountability, lifecycle controls and user
+responsibility.{[}1{]} It does not reduce trust to a single dashboard or
+a single approval point. It treats deployment as an organisational
+arrangement that must remain governable over time.
+
+The details of the framework may evolve. The underlying idea will not:
+autonomy becomes defensible when an organisation can explain why a
+system may act, what constrains it, how it is observed, how it is
+stopped and who can change those conditions.
+
+\subsection{Assurance Is a Practice, Not a
+Verdict}\label{assurance-is-a-practice-not-a-verdict}
+
+A trust proposition is not completed when a system is deployed. It has
+to remain open to challenge.
+
+This is where assurance differs from a launch review. A launch review
+asks whether the arrangement appears ready at a moment in time.
+Assurance asks whether the organisation can continue to justify its
+claim as the environment changes. The distinction becomes important the
+first time a policy is edited, a connector is upgraded, an owner changes
+teams or an apparently minor workflow is reused for a more consequential
+task.
+
+A system may still work after such a change. That is not enough. The
+organisation must decide whether the proposition under which it was
+allowed to act still holds.
+
+NIST's risk-management work is useful here not because it supplies a
+permanent score for trust, but because it treats management as a
+continuing practice of governing, mapping, measuring and managing
+risk.{[}3{]} An autonomous workflow needs an equivalent rhythm. It
+should be reviewed when its authority changes, when evidence no longer
+supports the claim, or when a failure reveals that recovery was less
+available than the design assumed.
+
+This makes trust inconvenient in a productive way. It prevents an
+organisation from turning a successful pilot into a silent entitlement.
+
+\subsubsection{A Trust Proposition Can Fail Without a
+Failure}\label{a-trust-proposition-can-fail-without-a-failure}
+
+A system does not need to produce harm before its trust proposition
+becomes invalid.
+
+Suppose a workflow has been allowed to reconcile invoices inside one
+business unit. Its mandate is clear, its authority is bounded and its
+outputs are reviewed. A later change gives the workflow access to a
+shared vendor directory. No invoice has been paid incorrectly. No alert
+has fired. Yet the authority condition has changed. The original claim
+was about a workflow operating within a limited environment. The revised
+arrangement may require a new claim, a new review and possibly a
+narrower scope.
+
+The same pattern appears in clinical administration, public services and
+customer operations. A scheduling system can begin by proposing
+appointments, then gain access to a patient communication channel, then
+be connected to an exception queue. Each connection may seem useful on
+its own. Together they change what the arrangement can cause. The
+relevant question is not whether the system has become more intelligent.
+It is whether the organisation has expanded autonomy without renewing
+its justification.
+
+This is the practical meaning of trust with an expiry condition. The
+arrangement does not lose trust because it changed. It loses the right
+to rely on an old trust claim after it changed.
+
+\subsubsection{The Difference Between Monitoring and Meaningful
+Review}\label{the-difference-between-monitoring-and-meaningful-review}
+
+Monitoring reports what a system is doing. Meaningful review tests
+whether the organisation should still permit it.
+
+A dashboard can show a high completion rate while hiding an authority
+problem. A low error rate can show that a workflow is operating
+consistently, but not whether it is operating within a legitimate
+purpose. An alert can identify an unusual tool call, but not determine
+whether the mandate itself was too broad.
+
+Meaningful review has to include someone with the power to question the
+proposition, not merely the power to observe it. The reviewer needs to
+ask whether the action class is still appropriate, whether the evidence
+is still sufficient, whether the recovery path still works and whether
+the accountable owner can still act.
+
+That role need not be a committee in every case. A low-impact internal
+workflow may require a lightweight operational review. A system that can
+alter customer records, make payments, affect a safety-sensitive process
+or change production infrastructure may require a more formal challenge.
+The principle is stable: \textbf{the strength of review should follow
+the consequence of autonomy, not the novelty of the technology.}
+
+\subsection{The Human Remainder}\label{the-human-remainder}
+
+The human remainder is not the work left over after automation.
+
+It is the authority an organisation must keep because it cannot be
+transferred without changing the organisation's own responsibility.
+People define the purpose of a workflow. They decide which harms are
+acceptable or unacceptable. They choose when a recovery threshold has
+been crossed. They decide whether evidence is sufficient to resume a
+suspended system.
+
+These are not gaps in current technology. They are organisational
+duties.
+
+A system may calculate a route, rank a queue, prepare a response, match
+a document or execute a bounded change. It cannot determine what an
+organisation is entitled to optimise at the expense of whom. That is a
+question of purpose and legitimacy, not of inference.

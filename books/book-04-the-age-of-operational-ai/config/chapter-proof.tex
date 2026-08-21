@@ -1,0 +1,92 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=6in,paperheight=9in,top=0.78in,bottom=0.72in,left=0.78in,right=0.78in,headsep=13pt,footskip=25pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{Latin Modern Sans}
+\usepackage{xcolor}
+\definecolor{CloudSlate}{HTML}{F2F4F7}
+\definecolor{InkBlue}{HTML}{17212B}
+\definecolor{SignalIndigo}{HTML}{5360DE}
+\definecolor{NavigationBlue}{HTML}{3247A7}
+\definecolor{SteelMist}{HTML}{E7EBF3}
+\definecolor{DeepNavy}{HTML}{17212B}
+\definecolor{QuietGrey}{HTML}{536176}
+\definecolor{Milk}{HTML}{F7F8FA}
+\pagecolor{CloudSlate}
+\color{InkBlue}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=NavigationBlue,urlcolor=NavigationBlue,citecolor=NavigationBlue,pdftitle={The Age of Operational AI — Chapter 1 Editorial Proof},pdfauthor={Steve BA-NDOUWE}}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\linespread{1.06}\selectfont
+\titleformat{\section}{\sffamily\bfseries\Large\color{InkBlue}}{\thesection}{0.65em}{}
+\titlespacing*{\section}{0pt}{20pt}{8pt}
+\renewcommand{\thesection}{\arabic{section}}
+\newtcolorbox{calloutbox}[1][]{enhanced,breakable,colback=SteelMist,colframe=SignalIndigo,boxrule=0pt,left=10pt,right=10pt,top=8pt,bottom=8pt,borderline west={2.2pt}{0pt}{SignalIndigo},fonttitle=\sffamily\bfseries\small\color{NavigationBlue},title={#1},coltitle=NavigationBlue}
+\AtBeginEnvironment{quote}{\begin{calloutbox}[Operational Note]}
+\AtEndEnvironment{quote}{\end{calloutbox}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\sffamily\fontsize{7}{8}\selectfont\color{QuietGrey}THE OPERATOR'S LIBRARY}
+\fancyfoot[R]{\sffamily\fontsize{7}{8}\selectfont\color{QuietGrey}THE AGE OF OPERATIONAL AI \quad \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\coverpage}{%
+\clearpage\thispagestyle{empty}%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=center,inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{../assets/book4-front-cover-print-light.jpg}};
+\end{tikzpicture}\mbox{}\clearpage}
+\newcommand{\proofpage}{%
+\thispagestyle{empty}\vspace*{0.12\textheight}
+{\sffamily\fontsize{7}{9}\selectfont\color{NavigationBlue}THE OPERATOR'S LIBRARY · BOOK 04}\par\vspace{20pt}
+{\sffamily\fontsize{7}{9}\selectfont\color{NavigationBlue}EDITORIAL CHAPTER PROOF · PART I: THE SHIFT}\par\vspace{10pt}
+{\sffamily\bfseries\fontsize{25}{28}\selectfont THE AGE OF\\ OPERATIONAL AI}\par\vspace{12pt}
+{\itshape\large How AI Agents Will Change the Way We Build, Operate and Secure Technology}\par\vspace{28pt}
+\noindent\colorbox{Milk}{\rule{0pt}{14pt}\hspace{0.54\textwidth}}\kern-1pt\colorbox{SignalIndigo}{\rule{0pt}{14pt}\hspace{0.26\textwidth}}\par\vspace{26pt}
+\begin{calloutbox}[Reader’s note]This is an editorial proof of Chapter 1. The final book will add the Introduction, full part openers, all chapters, end matter and the final source registry as they are written and verified.\end{calloutbox}
+\vfill {\sffamily\fontsize{7}{9}\selectfont\color{QuietGrey}REVIEW EDITION}\clearpage}
+\newcommand{\readingmap}{%
+\thispagestyle{empty}\vspace*{0.12\textheight}
+{\sffamily\fontsize{7}{9}\selectfont\color{NavigationBlue}THE OPERATOR'S LIBRARY · BOOK 04}\par\vspace{30pt}
+{\sffamily\fontsize{8}{10}\selectfont\color{NavigationBlue}READING MAP}\par\vspace{12pt}
+\renewcommand{\arraystretch}{1.85}\begin{tabular}{p{0.65\textwidth}r}
+\hline Introduction & Forthcoming\\ \hline Part I · The Shift & Begins here\\ \hline \textbf{01 · The Age of Operational AI} & \textbf{Proof}\\ \hline 02 · Ownership and accountability & Forthcoming\\ \hline\end{tabular}\par\vfill
+{\small Prepared for editorial review. Source notes remain attached to the proof so claims can be checked before the chapter is locked.}\clearpage}
+\newcommand{\chapteropener}{%
+\clearpage\thispagestyle{empty}\pagecolor{DeepNavy}\color{Milk}\vspace*{0.17\textheight}
+{\color{SignalIndigo}\rule{0.35\textwidth}{1.8pt}}\par\vspace{25pt}
+{\sffamily\fontsize{8}{10}\selectfont\color{SteelMist}PART I · THE SHIFT · CHAPTER 01}\par\vspace{24pt}
+{\sffamily\bfseries\fontsize{31}{34}\selectfont THE AGE OF\\ OPERATIONAL AI}\par\vspace{25pt}
+{\itshape\large\color{SteelMist}The chapter that separates an answer from an action, and asks who remains responsible when a system can make the change.}\par\vfill
+{\sffamily\bfseries\fontsize{54}{54}\selectfont\color{SignalIndigo}\hfill 01}\par\clearpage\pagecolor{CloudSlate}\color{InkBlue}}
+\newcommand{\retentionpage}{%
+\clearpage\thispagestyle{empty}\vspace*{0.1\textheight}
+{\sffamily\fontsize{7}{9}\selectfont\color{NavigationBlue}CHAPTER 01 · TAKE IT FORWARD}\par\vspace{15pt}
+{\sffamily\bfseries\fontsize{21}{25}\selectfont WHAT TO RETAIN}\par\vspace{18pt}
+\begin{calloutbox}[An answer is information. An action creates an effect.]The operational threshold is crossed when a system can convert an interpreted objective into a consequential change.\end{calloutbox}
+\begin{calloutbox}[Capability is not permission.]The fact that an agent can call a tool or reach a system does not establish that it should be allowed to do so for the task at hand.\end{calloutbox}
+\begin{calloutbox}[Human approval is not a ceremonial click.]Approval matters only when a reviewer can see the objective, scope, downside and available evidence.\end{calloutbox}
+\begin{calloutbox}[Operational AI begins with four questions.]Who authorised the action? What was allowed? What happened? Who remains responsible?\end{calloutbox}
+\vspace{16pt}\begin{tcolorbox}[enhanced,colback=DeepNavy,colframe=DeepNavy,boxrule=0pt,left=12pt,right=12pt,top=10pt,bottom=10pt]
+{\sffamily\fontsize{7}{9}\selectfont\color{SteelMist}MEMORABLE PHRASE}\par\vspace{7pt}
+{\itshape\large\color{Milk}“Once software can choose an action within a goal, the question is no longer whether it is automated. It is who is operating.”}
+\end{tcolorbox}
+\vspace{18pt}{\sffamily\fontsize{7}{9}\selectfont\color{NavigationBlue}NEXT CHAPTER}\par\vspace{5pt}
+{\small Chapter 2 turns from the threshold of action to the question the threshold creates: when a system acts within an organisation, who owns the outcome, the exception and the right to revoke its authority?}\clearpage}
+\begin{document}
+\coverpage
+\proofpage
+\readingmap
+\chapteropener
+\setcounter{section}{0}
+\input{../chapter-01-body.tex}
+\retentionpage
+\end{document}

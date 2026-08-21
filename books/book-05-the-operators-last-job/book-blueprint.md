@@ -49,7 +49,7 @@ La prose est claire, précise et sans jargon de fournisseur. Elle ne traite ni l
 |---:|---|---|
 | 1 | **When the System No Longer Waits for You** | Une action autonome ouvre le livre : la machine n’attend déjà plus l’opérateur. |
 | 2 | **What Engineers Actually Do** | Le métier réel consiste à réduire l’incertitude, pas à taper des commandes. |
-| 3 | **The Work We Mistook for Technical** | Une action technique est aussi contextuelle, relationnelle, politique et temporelle. |
+| 3 | **The Work We Thought Was Technical** | Une action technique est aussi contextuelle, relationnelle, politique et temporelle. |
 | 4 | **When Expertise Leaves the Room** | Capturer une réponse ne capture pas la raison de cette réponse. |
 
 ### Part II — *The Automation Curve*
@@ -61,7 +61,7 @@ La prose est claire, précise et sans jargon de fournisseur. Elle ne traite ni l
 | 5 | **First We Automated the Routine** | Éliminer le toil est légitime ; il ne faut pas le confondre avec déléguer le jugement. |
 | 6 | **Then We Automated the Diagnosis** | Un système qui corrèle des signaux produit une hypothèse, pas une compréhension complète. |
 | 7 | **Then We Let Machines Act** | Dès qu’un système agit, il engage l’organisation et demande une frontière d’autorité. |
-| 8 | **When the Runbook Learned to Decide** | **The Last Mile of Automation** : le runbook rend progressivement l’intervention humaine moins nécessaire. |
+| 8 | **The Day the Runbook Became an Agent** | **The Last Mile of Automation** : le runbook rend progressivement l’intervention humaine moins nécessaire. |
 
 ### Part III — *What Remains Human*
 
@@ -69,11 +69,11 @@ La prose est claire, précise et sans jargon de fournisseur. Elle ne traite ni l
 
 | # | Chapitre | Idée directrice |
 |---:|---|---|
-| 9 | **Judgment Is Not a Prediction** | Le jugement pondère l’irréversibilité, le moment, l’inconnu et les personnes affectées. |
-| 10 | **Responsibility Has a Name** | Une action automatisée n’efface pas la chaîne de responsabilité. |
-| 11 | **Context Is the Missing Interface** | Le contexte n’est pas une intuition ; c’est une interface qu’il faut concevoir. |
-| 12 | **Trust Is a Permission** | La confiance est un droit d’agir limité, observable et révocable. |
-| 13 | **The Courage to Do Nothing** | La retenue est parfois l’acte d’ingénierie le plus responsable. |
+| 9 | **Judgment** | Le jugement pondère l’irréversibilité, le moment, l’inconnu et les personnes affectées. |
+| 10 | **Responsibility** | Une action automatisée n’efface pas la chaîne de responsabilité. |
+| 11 | **Context** | Le contexte n’est pas une intuition ; c’est une interface qu’il faut concevoir. |
+| 12 | **Trust** | La confiance est un droit d’agir limité, observable et révocable. |
+| 13 | **Knowing When Not to Act** | La retenue est parfois l’acte d’ingénierie le plus responsable. |
 
 ### Part IV — *The New Engineer*
 
@@ -81,11 +81,11 @@ La prose est claire, précise et sans jargon de fournisseur. Elle ne traite ni l
 
 | # | Chapitre | Idée directrice |
 |---:|---|---|
-| 14 | **Design the Bounds or Become Obsolete** | Le métier se déplace de l’exécution vers la conception de frontières de décision. |
-| 15 | **The Human in the Loop Is Not Enough** | Un humain sans contexte, temps ni droit de refus n’est pas un contrôle. |
-| 16 | **The Engineer as Governor** | Gouverner, c’est rendre les pouvoirs, seuils, exceptions et réversibilités explicites. |
-| 17 | **Systems That Remember Why They Acted** | **Incident Amnesia** : une autonomie sans mémoire ne peut pas devenir digne de confiance. |
-| 18 | **The Last Job Was Never About Typing Commands** | Le dernier travail consiste à décider quelle autonomie une organisation peut défendre. |
+| 14 | **From Operator to System Designer** | Le métier se déplace de l’exécution vers la conception de frontières de décision. |
+| 15 | **The Engineer as Governor** | Gouverner, c’est rendre les pouvoirs, seuils, exceptions et réversibilités explicites. |
+| 16 | **The Human in the Loop Is Not Enough** | Un humain sans contexte, temps ni droit de refus n’est pas un contrôle. |
+| 17 | **Building Systems Worth Trusting** | **Incident Amnesia** : une autonomie sans mémoire ne peut pas devenir digne de confiance. |
+| 18 | **The Work That Survives** | Le dernier travail consiste à décider quelle autonomie une organisation peut défendre. |
 
 ## 5. La mécanique émotionnelle du livre
 
@@ -132,9 +132,9 @@ Aucun chapitre ne doit promettre une survie professionnelle facile. Aucun chapit
 
 ## 8. Architecture de chapitre
 
-Chaque chapitre suit la structure retenue dans `notes/03-structure-de-chapitre.md` : une scène au point de décision, un **Decision Ledger**, ce que le système pouvait voir, ce qu’il ne pouvait pas voir, une frontière de décision, une répétition ou mise à l’épreuve, une phrase mémorable et une dernière question difficile.
+Chaque chapitre part d’une scène au point de décision, mais ne suit pas un gabarit mécanique. Il combine une ouverture narrative ou un **Field Note**, quatre à six intertitres, cinq à sept respirations éditoriales à fonctions distinctes, un artefact opérationnel seulement lorsqu’il clarifie la scène, une phrase mémorable non redondante et une fin qui rend implicitement le chapitre suivant nécessaire.
 
-Cette structure sert la tension du livre : le lecteur ne reçoit pas seulement une idée ; il ressent comment une partie du métier devient exécutable sans lui, puis découvre où sa responsabilité doit se déplacer.
+Cette grammaire sert la tension du livre : le lecteur ne reçoit pas seulement une idée ; il ressent comment une partie du métier devient exécutable sans lui, puis découvre où sa responsabilité doit se déplacer.
 
 ## 9. Garde-fous éditoriaux
 
@@ -142,7 +142,8 @@ Cette structure sert la tension du livre : le lecteur ne reçoit pas seulement u
 - Aucun chapitre ne se conclut par une checklist générique de transformation numérique.
 - Aucun cas réel n’est exploité comme spectacle ; il doit éclairer une décision et ses conséquences.
 - La peur du lecteur doit provenir de l’observation de ce qui disparaît, jamais d’une promesse sensationnaliste.
-- La conclusion ne dit pas « devenez ingénieur de gouvernance » ; elle montre pourquoi la gouvernance des systèmes devient une responsabilité de l’ingénierie.
+- Le dernier chapitre, **The Work That Survives**, ne dit pas « devenez ingénieur de gouvernance » ; il montre pourquoi la gouvernance des systèmes devient une responsabilité de l’ingénierie.
+- Le chapitre 18 est la conclusion du livre. Aucun épilogue de synthèse séparé ne doit le répéter.
 
 ## 10. Condition de démarrage de la rédaction
 

@@ -57,15 +57,13 @@ The engineer had the runbook, the alert, and the authority to restart the servic
 
 A command has a timestamp. A restart has an audit trail. A connection pool can be counted before and after. The short hesitation before a person accepts a familiar explanation leaves almost no data behind. Yet it is often the part of operations that prevents a known response from becoming a new failure.
 
-The system that comes next will not inherit that hesitation by accident. It will inherit the alert, the runbook, the prior incidents, the recovery time, the dependency map, and the authority to act. When it sees a similar pattern at 2:17 in the morning, it may do what every organisation says it wants an operational system to do: it may not wait.
+The system that comes next will not inherit that hesitation by accident. It will inherit the alert, the runbook, the prior incidents, the recovery time, the dependency map, and the authority to act. When it sees a similar pattern at \livetime{02:17} in the morning, it may do what every organisation says it wants an operational system to do: it may not wait.
+
+The initial response was technically familiar and operationally authorised. The restart was not absurd. It was simply applied before the team had established whether the familiar pattern was present. The cost was not a failed command. It was the loss of time to understand what the command had changed.
 
 ::: {.case-signal}
 **Autopilot Restart Disaster**  
 The initial response was technically familiar and operationally authorised. The restart was not absurd. It was simply applied before the team had established whether the familiar pattern was present.
-:::
-
-::: {.the-shift}
-The cost was not a failed command. The cost was the loss of time to understand what the command had changed.
 :::
 
 \phantomsection\label{section-02-carrying}
@@ -129,14 +127,11 @@ The system does not need to become a general intelligence to be useful here. It 
 
 For a long time, automation stopped before that point. A human decided; a machine performed. That boundary is becoming less clear because a response can be decomposed into signals, thresholds, exclusions, prior outcomes, confidence scores, permissions, and fallbacks. Once the pieces are represented, the response becomes easier to delegate.
 
-The result can be genuinely better. A machine does not forget the runbook at 2:17. It does not confuse one similar alert with another because it is exhausted. It can inspect more signals than a person can hold in working memory. It can act with a speed that makes some incidents smaller, cheaper, and less consequential.
+The result can be genuinely better. A machine does not forget the runbook at \livetime{02:17}. It does not confuse one similar alert with another because it is exhausted. It can inspect more signals than a person can hold in working memory. It can act with a speed that makes some incidents smaller, cheaper, and less consequential.
 
 This is why the story cannot be told as a warning against automation. The automation may be right. It may recover the service faster than the human who would otherwise have needed ten minutes simply to locate the relevant information.
 
-::: {.the-shift}
-**THE VANISHING POINT**  
-The system no longer waits for a person to recognise the first familiar pattern.
-:::
+This is the vanishing point: the system no longer waits for a person to recognise the first familiar pattern.
 
 The vanishing point is not the disappearance of the operator’s job. That is too crude, and usually too soon. It is the disappearance of one reason for the operator to be called.
 
@@ -170,19 +165,17 @@ The point is not that humans possess context and machines never will. Context ca
 
 The old runbook concealed these distinctions because it was executed by a person. The person was assumed to supply the missing context. The new system exposes them because it forces an organisation to declare what it is willing to let happen without that person.
 
-This is not a case for restoring unnecessary friction. No one should have to wake at 2:17 to perform work a system can perform safely and well. The question is whether the organisation has replaced the old friction with a boundary that is more deliberate.
+This is not a case for restoring unnecessary friction. No one should have to wake at \livetime{02:17} to perform work a system can perform safely and well. The question is whether the organisation has replaced the old friction with a boundary that is more deliberate.
 
-::: {.operator-note}
 The important question is not whether the system can execute the action. It is whether someone can still explain why the action was permitted.
-:::
 
 The larger architecture of those boundaries belongs to later chapters. But the first boundary is already visible in this incident. It is the difference between an action the system may suggest and an action it may take. It is the difference between a confidence score and a permission. It is the difference between a person who can be notified and a person whose intervention can still change the outcome.
 
 That difference is easy to erase when every individual intervention is small. A restart. A retry. A rollback. A workload moved to another node. Each may be sensible in isolation. Each may make an incident shorter. But a system that performs a hundred sensible interventions has also made a hundred decisions about what risks are acceptable, what evidence is sufficient, and whose commitments are allowed to be interrupted. The efficiency is real. So is the transfer.
 
-This is why the human role cannot be saved by placing a name beside a button marked *approve*. An approval that arrives after the relevant action has occurred is not authority. A review that cannot alter the conditions of the next action is not oversight. A human in the loop matters only when the loop still contains time, context, and the right to say that a familiar response does not belong here.
+This is why the human role cannot be saved by placing a name beside a button marked \processstate{approve}. An approval that arrives after the relevant action has occurred is not authority. A review that cannot alter the conditions of the next action is not oversight. A human in the loop matters only when the loop still contains time, context, and the right to say that a familiar response does not belong here.
 
-The operator will not always make the better decision. The system will not always make the worse one. The difficult work is refusing the comfort of that comparison. An organisation has to decide, before the incident, which decisions it is willing to turn into thresholds, which exceptions must stop the machine, and which consequences require a person who can answer for the choice. That work is less visible than a command at 2:17. It is also harder to perform by accident.
+The operator will not always make the better decision. The system will not always make the worse one. The difficult work is refusing the comfort of that comparison. An organisation has to decide, before the incident, which decisions it is willing to turn into thresholds, which exceptions must stop the machine, and which consequences require a person who can answer for the choice. That work is less visible than a command at \livetime{02:17}. It is also harder to perform by accident.
 
 For now, one fact is enough: automation does not remove authority. It redistributes it: into thresholds, permissions, exceptions, and systems that may act before a person has learned what is happening.
 

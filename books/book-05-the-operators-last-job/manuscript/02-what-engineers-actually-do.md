@@ -72,6 +72,11 @@ The final technical action took less than a minute. The work had taken twenty-th
 
 The ticket was not difficult because the systems were obscure. It was difficult because the systems described different slices of the same event, at different times, for different purposes. The payment processor recorded an external obligation. The ledger recorded an internal one. The release calendar recorded an intention. The replay job recorded a temporary operational choice. The customer record contained the consequence of getting the relationship between those things wrong.
 
+::: {.case-signal}
+**Settlement Reconciliation Hold**  
+The repair procedure was correct for a completed failure. The case was not a completed failure. It was an incomplete process presented through an impatient dashboard.
+:::
+
 None of the tools could quite say what should happen next. That sentence had to be assembled.
 
 \phantomsection\label{section-02-between-tools}
@@ -147,10 +152,7 @@ The result can look like better onboarding. It may be better onboarding in the s
 
 But expertise is not built only by receiving answers. It is built by discovering why an answer had to be earned.
 
-::: {.case-signal}
-**Settlement Reconciliation Hold**  
 The repair procedure was correct for a completed failure. The case was not a completed failure. It was an incomplete process presented through an impatient dashboard.
-:::
 
 When the system performs the discovery work, it can also remove the encounters through which a person learns the limits of a neat explanation. The junior engineer sees the recommendation and the result. They do not see the false trails, the unspoken constraint, or the person whose answer made the action safe. The work becomes legible only after it has been compressed.
 

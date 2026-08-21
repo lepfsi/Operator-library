@@ -2,19 +2,7 @@
 role: "part-opener"
 part: "Part III"
 title: "What Remains Human"
-status: "scaffold"
+status: "final"
 ---
 
-# Part III: What Remains Human
-
-*Not a residue of tasks, but a burden of consequence*
-
-The human role is not whatever the system cannot yet do. It is what someone must still answer for.
-
-## Chapters in this part
-
-9. **Judgment Is Not a Prediction**
-10. **Responsibility Has a Name**
-11. **Context Is the Missing Interface**
-12. **Trust Is a Permission**
-13. **The Courage to Do Nothing**
+\partopening{III}{What Remains Human}{The remaining work is not a vague human residue. It is judgment, responsibility, context, trust, and the disciplined refusal to act too soon.}{teal}{The work that cannot be delegated by default}

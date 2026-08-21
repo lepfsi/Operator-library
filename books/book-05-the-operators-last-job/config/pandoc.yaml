@@ -65,12 +65,12 @@ toc-depth: 1
 # --- EPUB -------------------------------------------------------------------
 # CSS applied by build-book.sh via --css when building EPUB.
 epub-css: "../../../templates/render/epub.css"
-epub-cover-image: "../design/couverture-premiere-threshold-ledger.png"
+epub-cover-image: "../design/couverture-premiere-threshold-ledger.jpg"
 
 # --- PDF cover --------------------------------------------------------------
 # First page of the PDF: full-page cover (used by template.latex).
 # The SVG is converted to PDF by build-book.sh when a converter is available.
-cover-image: "../design/couverture-premiere-threshold-ledger.png"
+cover-image: "../design/couverture-premiere-threshold-ledger.jpg"
 # Last page of the PDF: full-page back cover generated from vector source.
 
 # --- DOCX -------------------------------------------------------------------

@@ -26,7 +26,7 @@
 \IfFontExistsTF{IBM Plex Sans}{\setsansfont{IBM Plex Sans}}{\setsansfont{TeX Gyre Heros}}
 \IfFontExistsTF{JetBrains Mono}{\setmonofont{JetBrains Mono}}{\IfFontExistsTF{IBM Plex Mono}{\setmonofont{IBM Plex Mono}}{\setmonofont{TeX Gyre Cursor}}}
 \renewcommand{\familydefault}{\sfdefault}
-\AtBeginDocument{\color{ink}}
+\AtBeginDocument{\pagecolor{paper}\color{ink}}
 \hypersetup{colorlinks=true,linkcolor=systemblue,urlcolor=systemblue,citecolor=systemblue}
 
 % The cover occupies page one. Front matter must begin on page two, not on a forced right-hand page.
@@ -352,7 +352,7 @@
   \noindent\hyperref[#3]{%
     \makebox[11mm][l]{\calloutmono\color{teal}#1.}%
     \textcolor{teal!75}{\raisebox{0.12ex}{\normalsize\textbullet}}\hspace{6pt}%
-    {\sffamily\small\color{ink}#2}%
+    {\ttfamily\small\color{ink}#2}%
   }\par\vspace{9pt}%
 }
 \renewtcolorbox{chapterguide}{
@@ -403,7 +403,7 @@
 \newcommand{\calloutcode}{\ttfamily\fontsize{8.9pt}{13.1pt}\selectfont}
 \newcommand{\calloutsans}{\sffamily\fontsize{9.2pt}{13.5pt}\selectfont}
 \newcommand{\ledgerlabel}[1]{{\calloutmono\color{ledgerindigo}\textsc{#1}}}
-\newcolumntype{Y}{>{\raggedright\arraybackslash}m}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 % Raw evidence: steel, square-cornered and deliberately code-like.
 \renewtcolorbox{fieldnote}{
@@ -519,7 +519,7 @@
   boxed title style={frame hidden,sharp corners},attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
 }
 \newtcolorbox{tracebackbox}{
-  enhanced,breakable,boxrule=0.5pt,arc=2pt,colframe=tracecobalt,colback=tracewash,coltext=ink,
+  enhanced,unbreakable,boxrule=0.5pt,arc=2pt,colframe=tracecobalt,colback=tracewash,coltext=ink,
   borderline west={3pt}{0pt}{tracecobalt},left=14pt,right=13pt,top=12pt,bottom=11pt,
   before skip=22pt,after skip=22pt,fontupper=\calloutcode,
   title={\calloutmono\color{paper}\textsc{Traceback}},coltitle=paper,colbacktitle=tracecobalt,
@@ -608,5 +608,102 @@
   attach boxed title to top left={xshift=12pt,yshift*=-\tcboxedtitleheight/2},
   boxed title style={boxrule=0pt,arc=4pt,left=8pt,right=8pt,top=4pt,bottom=4pt},
   fontupper=\calloutcode
+}
+% -----------------------------------------------------------------------------
+
+% ---- Part-opening identity --------------------------------------------------
+\newcommand{\partopening}[5]{%
+  \clearpage
+  \thispagestyle{empty}%
+  \gdef\runningpart{\textsc{Part #1\enspace #2}}%
+  \phantomsection
+  \pdfbookmark[0]{Part #1: #2}{part-#1}%
+  \addcontentsline{toc}{part}{Part #1: #2}%
+  \markboth{Part #1\enspace #2}{}%
+  \vspace*{25mm}%
+  {\color{#4}\rule{\textwidth}{1.1pt}}\par\vspace{12pt}%
+  {\ttfamily\footnotesize\color{#4}\textsc{Part #1 \enspace / \enspace New operating question}}\par\vspace{18pt}%
+  {\rmfamily\bfseries\color{ink}\fontsize{33pt}{38pt}\selectfont #2\par}%
+  \vspace{17pt}%
+  {\color{#4}\rule{38mm}{3.1pt}}\par\vspace{20pt}%
+  {\rmfamily\color{ink}\fontsize{15pt}{21pt}\selectfont #3\par}%
+  \vfill
+  {\ttfamily\scriptsize\color{#4}\textsc{#5}}\par
+  \vspace*{18mm}%
+  \clearpage
+}
+% -----------------------------------------------------------------------------
+
+% ---- Live dialogue and system-statement refinement -------------------------
+% Human speech needs a visible but quiet editorial cue; it is neither code nor body prose.
+\renewcommand{\humanvoice}[1]{%
+  \par\smallskip\noindent
+  {\color{humanink}\rule{1.15pt}{2.35ex}}\hspace{7pt}%
+  {\sffamily\small\color{humanink}#1}\par\smallskip
+}
+% Long diagnostic output is a block-level artefact so it wraps inside the text measure.
+\newtcolorbox{systemstatement}{%
+  enhanced,breakable,boxrule=0.55pt,arc=4pt,colframe=systemink!72,colback=systemwash,coltext=ink,
+  borderline west={2.2pt}{0pt}{systemink},
+  left=13pt,right=13pt,top=12pt,bottom=11pt,
+  before skip=18pt,after skip=20pt,fontupper=\calloutcode,
+  title={\calloutmono\color{paper}\textsc{System Statement}},
+  coltitle=paper,colbacktitle=systemink,
+  boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=9pt,yshift*=-\tcboxedtitleheight/2}
+}
+% -----------------------------------------------------------------------------
+
+% ---- Process output and human exchange: final editorial registers ------------
+% Process evidence is code-like, structured and deliberately compact.
+\newcommand{\processmono}{\ttfamily\fontsize{8.35pt}{13.15pt}\selectfont\color{systemink}}
+\renewtcolorbox{systemstatement}{%
+  enhanced,breakable,boxrule=0.45pt,arc=3pt,colframe=systemink!58,colback=systemwash,
+  left=14pt,right=14pt,top=13pt,bottom=12pt,
+  before skip=19pt,after skip=21pt,fontupper=\processmono,
+  title={\ttfamily\scriptsize\color{paper}\textsc{Process Output}},
+  fonttitle=\ttfamily\scriptsize\bfseries,
+  coltitle=paper,colbacktitle=systemink,
+  boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=10pt,yshift*=-\tcboxedtitleheight/2}
+}
+% Human speech is not code and not an AI-style quote card: it is a calm, indented interruption.
+\newtcolorbox{humanexchange}{%
+  enhanced,breakable,frame hidden,colback=paper,boxrule=0pt,
+  left=30pt,right=13pt,top=8pt,bottom=9pt,
+  before skip=17pt,after skip=18pt,
+  fontupper=\sffamily\fontsize{10.1pt}{15.1pt}\selectfont\color{humanink},
+  overlay={\node[anchor=north west,text=humanink!58] at ([xshift=7pt,yshift=-4pt]frame.north west) {\fontsize{23pt}{23pt}\selectfont\textquotedblleft};}
+}
+% -----------------------------------------------------------------------------
+
+% ---- Design question: a reasoning pivot, not dialogue or system output ------
+\newtcolorbox{designquestion}{%
+  enhanced,breakable,frame hidden,colback=paper,boxrule=0pt,
+  borderline north={0.55pt}{0pt}{systemblue!72},
+  borderline south={0.55pt}{0pt}{systemblue!72},
+  left=0pt,right=4pt,top=12pt,bottom=13pt,
+  before skip=24pt,after skip=25pt,
+  before upper={\ttfamily\scriptsize\color{systemblue}\textsc{Operational Question}\par\vspace{8pt}},
+  fontupper=\rmfamily\itshape\fontsize{13.1pt}{18.6pt}\selectfont\color{ink}
+}
+% -----------------------------------------------------------------------------
+
+% ---- Light registers: prose stays primary -----------------------------------
+% Short human quotations need a dedicated voice, not a card or a vertical rule.
+\renewcommand{\humanvoice}[1]{{\sffamily\itshape\fontsize{9.65pt}{13.6pt}\selectfont\color{humanink}#1}}
+% Process Output is evidence, not a second narrative voice. It remains mono, titled,
+% and visibly bounded while \,sloppy permits long operational terms to wrap safely.
+\renewtcolorbox{systemstatement}{%
+  enhanced,breakable,boxrule=0.45pt,arc=3pt,colframe=systemink!58,colback=systemwash,
+  left=12pt,right=12pt,top=12pt,bottom=10pt,
+  before skip=18pt,after skip=20pt,
+  before upper={\raggedright\sloppy\setlength{\emergencystretch}{1.8em}},
+  fontupper=\ttfamily\fontsize{8.35pt}{13.2pt}\selectfont\color{systemink},
+  title={\ttfamily\scriptsize\color{paper}\textsc{Process Output}},
+  fonttitle=\ttfamily\scriptsize\bfseries,
+  coltitle=paper,colbacktitle=systemink,
+  boxed title style={frame hidden,sharp corners},
+  attach boxed title to top left={xshift=10pt,yshift*=-\tcboxedtitleheight/2}
 }
 % -----------------------------------------------------------------------------

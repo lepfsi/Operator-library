@@ -1,0 +1,123 @@
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=6in,paperheight=9in,top=0.82in,bottom=0.78in,inner=0.84in,outer=0.68in,headsep=17pt,footskip=28pt]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Tiempos Text}{\setmainfont{Tiempos Text}}{\setmainfont{TeX Gyre Pagella}}
+\IfFontExistsTF{Söhne}{\setsansfont{Söhne}}{\setsansfont{Latin Modern Sans}}
+\usepackage{xcolor}
+\definecolor{NaturalPaper}{HTML}{FAF8F3}
+\definecolor{Carbon}{HTML}{202124}
+\definecolor{WarmGrey}{HTML}{6C6A66}
+\definecolor{StoneRule}{HTML}{B7B0A6}
+\definecolor{QuietUmber}{HTML}{7B4B3A}
+\definecolor{NotePaper}{HTML}{F2EEE8}
+\pagecolor{NaturalPaper}
+\color{Carbon}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{colorlinks=true,linkcolor=Carbon,urlcolor=Carbon,citecolor=Carbon,pdftitle={The Age of Operational AI — Complete Editorial Proof through Chapter 10},pdfauthor={Steve BA-NDOUWE}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt}
+\linespread{1.18}\selectfont
+\emergencystretch=1.2em
+\frenchspacing
+\titleformat{\section}{\sffamily\bfseries\large\color{Carbon}}{\thesection}{0.65em}{}
+\titlespacing*{\section}{0pt}{18pt}{7pt}
+\titleformat{\subsection}{\sffamily\bfseries\normalsize\color{Carbon}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{15pt}{5pt}
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{1}
+\newcommand{\CurrentRunningHead}{}
+\newtcolorbox{evidencebox}[1][]{enhanced,breakable,colback=NotePaper,colframe=NotePaper,boxrule=0pt,left=11pt,right=11pt,top=8pt,bottom=8pt,borderline west={1.3pt}{0pt}{QuietUmber},fonttitle=\sffamily\bfseries\footnotesize\color{QuietUmber},title={#1},coltitle=QuietUmber}
+\renewenvironment{quote}{\begin{evidencebox}}{\end{evidencebox}}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{18pt}
+\fancyhead[LE]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}THE AGE OF OPERATIONAL AI}
+\fancyhead[RO]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}\CurrentRunningHead}
+\fancyfoot[LE,RO]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StoneRule}\leaders\hrule height \headrulewidth\hfill}}
+
+\newcommand{\coverpage}{\clearpage\thispagestyle{empty}\begin{tikzpicture}[remember picture,overlay]\node[anchor=center,inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{../assets/book4-front-cover-print-light.jpg}};\end{tikzpicture}\mbox{}\clearpage}
+\newcommand{\halfTitle}{\clearpage\thispagestyle{empty}\vspace*{0.35\textheight}{\sffamily\fontsize{24}{28}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vfill{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE OPERATOR'S LIBRARY · BOOK 04}\clearpage}
+\newcommand{\titlePage}{\clearpage\thispagestyle{empty}\vspace*{0.23\textheight}{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}THE OPERATOR'S LIBRARY · BOOK 04}\par\vspace{19pt}{\sffamily\fontsize{29}{33}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vspace{16pt}{\itshape\large How AI Agents Will Change the Way\\ We Build, Operate and Secure Technology}\par\vfill{\sffamily\fontsize{9}{11}\selectfont STEVE BA-NDOUWE}\clearpage}
+\newcommand{\copyrightPage}{\clearpage\thispagestyle{empty}\vspace*{0.65\textheight}{\footnotesize © 2026 Steve BA-NDOUWE. All rights reserved.\\Complete editorial proof through Chapter 10.\\The final edition will include verified source notes and publication data.}\clearpage}
+\newcommand{\partOpener}[3]{\phantomsection\addcontentsline{toc}{part}{#1}\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}{\sffamily\fontsize{10}{12}\selectfont\color{QuietUmber}#1}\par\vspace{18pt}{\sffamily\fontsize{34}{38}\selectfont\bfseries #2}\par\vspace{18pt}{\itshape\large #3}\par\vfill{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE AGE OF OPERATIONAL AI}\clearpage}
+\newcommand{\chapterOpener}[3]{\phantomsection\addcontentsline{toc}{section}{#1}\renewcommand{\CurrentRunningHead}{#2}\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}#1}\par\vspace{18pt}{\sffamily\fontsize{29}{33}\selectfont\bfseries #2}\par\vspace{19pt}{\itshape\large #3}\par\vfill{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE OPERATOR'S LIBRARY}\clearpage}
+\newcommand{\chapterCoda}[2]{\clearpage\thispagestyle{empty}\vspace*{0.22\textheight}{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER CODA}\par\vspace{18pt}{\sffamily\fontsize{23}{28}\selectfont\bfseries WHAT REMAINS}\par\vspace{18pt}{\large #1}\par\vspace{30pt}\noindent\rule{0.25\textwidth}{0.5pt}\par\vspace{12pt}{\itshape\large #2}\par\vfill{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE AGE OF OPERATIONAL AI}\clearpage}
+\newcommand{\sourceNotesOpener}{\clearpage\thispagestyle{empty}\vspace*{0.2\textheight}{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}SOURCE NOTES}\par\vspace{18pt}{\sffamily\fontsize{27}{31}\selectfont\bfseries EVIDENCE, NOT\\ DECORATION}\par\vspace{18pt}{\itshape\large Sources are placed here so the argument can move, while every consequential claim remains open to inspection.}\clearpage}
+\begin{document}
+\coverpage\halfTitle\titlePage\copyrightPage
+\renewcommand{\CurrentRunningHead}{CONTENTS}\tableofcontents
+\chapterOpener{Introduction}{THE TERMS OF\\ DELEGATION}{Before an organisation gives a system the right to act, it must decide what it is delegating, what it will retain, and how it will know the difference.}
+\input{../introduction-body.tex}
+\partOpener{PART I}{THE SHIFT}{The change from software that executes instructions to systems that interpret objectives and act.}
+\chapterOpener{1. The Age of Operational AI}{THE AGE OF\\ OPERATIONAL AI}{The operational threshold is crossed when a system can cause an external effect.}
+\setcounter{section}{0}\input{../chapter-01-body-v2.tex}
+\chapterCoda{An action without accountable conditions is not operational trust.}{A system that acts must first become an actor the organisation can govern.}
+\chapterOpener{2. From Software to Agents}{FROM SOFTWARE\\ TO AGENTS}{An agent is a system of model, context, tools, policy and action.}
+\setcounter{section}{0}\input{../chapter-02-body-v2.tex}
+\chapterCoda{The model is only one part of an agent. The whole system creates the risk.}{The operator does not disappear when an agent arrives. The relationship changes.}
+\chapterOpener{3. The Operator Gets a Copilot}{THE OPERATOR GETS\\ A COPILOT}{A copilot can prepare work without inheriting the right to decide its consequences.}
+\setcounter{section}{0}\input{../chapter-03-body-v2.tex}
+\chapterCoda{Useful assistance does not require silent authority.}{The boundary changes again when a system starts taking action.}
+\chapterOpener{4. When AI Starts Taking Actions}{WHEN AI STARTS\\ TAKING ACTIONS}{Capability is not authority. An action envelope makes the difference visible.}
+\setcounter{section}{0}\input{../chapter-04-body-v2.tex}
+\chapterCoda{Trust boundary erosion begins where exceptions quietly widen authority.}{Manual work may shrink, but judgment and recovery remain.}
+\chapterOpener{5. The End of Manual Operations?}{THE END OF MANUAL\\ OPERATIONS?}{Automation changes where responsibility lives; it does not dissolve it.}
+\setcounter{section}{0}\input{../chapter-05-body-v2.tex}
+\chapterCoda{The manual is not merely slow work. It is often a control of judgment and recovery.}{Once agents act, the next attack surface is the authority they receive.}
+\partOpener{PART II}{THE NEW ATTACK\\ SURFACE}{The risks that emerge when systems can hold identities, use tools and act across the environments that matter.}
+\chapterOpener{6. The AI Has Credentials}{THE AI HAS\\ CREDENTIALS}{A system becomes operationally powerful when another system accepts its identity.}
+\setcounter{section}{0}\input{../chapter-06-body-v3.tex}
+\chapterCoda{A credential is not a configuration detail. It is an authority decision another system will enforce.}{Once an agent has a credential, the next question is who owns the actor that acts.}
+\chapterOpener{7. Who Owns an AI Agent?}{WHO OWNS AN\\ AI AGENT?}{An agent is owned only when someone can change its mandate and answer for its effect.}
+\setcounter{section}{0}\input{../chapter-07-body-v3.tex}
+\chapterCoda{Ownership is the power to define, stop and explain an agent’s mandate.}{An owner can still be bypassed when untrusted content influences the system.}
+\chapterOpener{8. Prompt Injection Is Not the Whole Problem}{PROMPT INJECTION\\ IS NOT THE WHOLE PROBLEM}{The question is not only whether an agent can be influenced, but what it can still reach after it is.}
+\setcounter{section}{0}\input{../chapter-08-body-v3.tex}
+\chapterCoda{A prompt is one route of influence. The larger risk is an influenced agent reaching a consequential action.}{A live environment turns influence into consequence when an agent can reach it.}
+\chapterOpener{9. When Agents Can Reach Production}{WHEN AGENTS CAN\\ REACH PRODUCTION}{Live access is not a promotion for a capable agent. It is a contract for consequential action.}
+\setcounter{section}{0}\input{../chapter-09-body-book-v4.tex}
+\chapterCoda{Production access needs a narrower, inspectable path from intention to effect.}{Trust must follow the supply chain that gives an agent’s tools, data and credentials meaning.}
+\chapterOpener{10. The AI Supply Chain}{THE AI\ SUPPLY CHAIN}{An agent’s authority is assembled through the components that shape what it sees, decides and can reach.}
+\setcounter{section}{0}\input{../chapter-10-body-book-v4.tex}
+\chapterCoda{Authority is assembled through models, tools, connectors, data and credentials. A trusted name cannot substitute for an inspectable chain.}{Trust needs evidence of what has been assembled, what has changed and what can be revoked.}
+\sourceNotesOpener
+{\sffamily\bfseries\large Notes}\par\vspace{8pt}
+{\sffamily\bfseries Chapter 1 — The Age of Operational AI}\par Replit production incident and independent reporting on the limits of autonomous code execution.\\[9pt]
+{\sffamily\bfseries Chapter 2 — From Software to Agents}\par UK AI Security Institute evaluation of unsanctioned agent behaviour during cyber testing; NIST and OWASP materials on tools, memory and action.\\[9pt]
+{\sffamily\bfseries Chapter 3 — The Operator Gets a Copilot}\par Empirical research on human-copilot collaboration, automation bias and the conditions of effective oversight.\\[9pt]
+{\sffamily\bfseries Chapter 4 — When AI Starts Taking Actions}\par Publicly reported PocketOS incident, with attribution limits retained in the chapter notes; control sources on authority and access boundaries.\\[9pt]
+{\sffamily\bfseries Chapter 5 — The End of Manual Operations?}\par \emph{Moffatt v. Air Canada}, 2024 BCCRT 149, and current operational-governance sources.\\[9pt]
+{\sffamily\bfseries Chapter 6 — The AI Has Credentials}\par Vercel, \emph{April 2026 Security Incident}; NIST AI Agent Standards Initiative; OWASP GenAI Security Project.\\[9pt]
+{\sffamily\bfseries Chapter 7 — Who Owns an AI Agent?}\par Federal Trade Commission, \emph{FTC Launches Inquiry into AI Chatbots Acting as Companions}, 2025; NIST and OWASP materials on accountability and authorisation.\\[9pt]
+{\sffamily\bfseries Chapter 8 — Prompt Injection Is Not the Whole Problem}\par NIST CAISI, UK National Cyber Security Centre, Cyber Security Agency of Singapore, OpenAI and OWASP sources.\\[9pt]
+{\sffamily\bfseries Chapter 9 — When Agents Can Reach Production}\par Anthropic, \emph{Agentic Misalignment}; Cyber Security Agency of Singapore, \emph{Securing Agentic AI}; UK NCSC; ENISA; OWASP.\\[9pt]
+{\sffamily\bfseries Chapter 10 — The AI Supply Chain}\par Snyk report on the `postmark-mcp` package, with attribution limits retained; CISA and G7 AI SBOM guidance; NIST, Cloud Security Alliance and OWASP materials on agent components and supply-chain controls.\\[18pt]
+{\sffamily\bfseries\large Selected Bibliography}\par\vspace{8pt}
+Anthropic. \emph{Agentic Misalignment: How LLMs Could Be Insider Threats}. 2025.\\
+Cyber Security Agency of Singapore. \emph{Securing Agentic AI}. 2026.\\
+European Union Agency for Cybersecurity. \emph{ENISA Threat Landscape 2025}. 2025.\\
+Federal Trade Commission. \emph{FTC Launches Inquiry into AI Chatbots Acting as Companions}. 2025.\\
+National Institute of Standards and Technology. \emph{AI Agent Standards Initiative} and \emph{Strengthening AI Agent Hijacking Evaluations}. 2025–2026.\\
+OWASP GenAI Security Project. \emph{Top 10 for Agentic Applications for 2026}. 2026.\\
+UK National Cyber Security Centre. \emph{Prompt Injection Is Not SQL Injection (It May Be Worse)}. 2025.\\
+Vercel. \emph{April 2026 Security Incident}. 2026.\\
+Cybersecurity and Infrastructure Security Agency and G7 partners. \emph{Software Bill of Materials for AI -- Minimum Elements}. 2026.\\
+Snyk. \emph{Malicious MCP Server on npm postmark-mcp Harvests Emails}. 2025.\\
+Cloud Security Alliance. \emph{MCP Security Crisis: Systemic Design Flaws in AI Agent Ecosystems}. 2026.\\[18pt]
+{\sffamily\bfseries\large Further Reading by Theme}\par\vspace{8pt}
+{\sffamily\bfseries Identity and authority}\par NIST AI Agent Standards Initiative; OWASP GenAI Security Project.\\[6pt]
+{\sffamily\bfseries Agent security, production and supply-chain controls}\par Cyber Security Agency of Singapore; UK National Cyber Security Centre; ENISA; CISA and G7 AI SBOM guidance; Cloud Security Alliance.\\[6pt]
+{\sffamily\bfseries Human oversight and operational responsibility}\par The Chicago Manual of Style, \emph{Notes and Bibliography}; selected empirical research cited in Chapter 3.\\
+\end{document}

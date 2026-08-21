@@ -91,7 +91,7 @@
 - **Hidden assumption** : "green status = working for our users"
 - **Consequence** : silent degradation of authentication for ~6 hours, undetected by ops, flagged by customers
 - **Lesson** : Monitoring must measure what matters, not what is easy
-- **Books used in** : Beyond the Firewall — ch. 5
+- **Books used in** : Beyond the Firewall — ch. 5; The Operator’s Last Job — ch. 6
 
 ---
 

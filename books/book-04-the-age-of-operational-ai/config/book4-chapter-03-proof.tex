@@ -1,0 +1,132 @@
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=6in,paperheight=9in,top=0.82in,bottom=0.78in,inner=0.84in,outer=0.68in,headsep=17pt,footskip=28pt]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Tiempos Text}{\setmainfont{Tiempos Text}}{\setmainfont{TeX Gyre Pagella}}
+\IfFontExistsTF{Söhne}{\setsansfont{Söhne}}{\setsansfont{Latin Modern Sans}}
+\usepackage{xcolor}
+\definecolor{NaturalPaper}{HTML}{FAF8F3}
+\definecolor{Carbon}{HTML}{202124}
+\definecolor{WarmGrey}{HTML}{6C6A66}
+\definecolor{StoneRule}{HTML}{B7B0A6}
+\definecolor{QuietUmber}{HTML}{7B4B3A}
+\definecolor{NotePaper}{HTML}{F2EEE8}
+\pagecolor{NaturalPaper}
+\color{Carbon}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\hypersetup{colorlinks=true,linkcolor=Carbon,urlcolor=Carbon,citecolor=Carbon,pdftitle={The Age of Operational AI — Editorial Specimen v2},pdfauthor={Steve BA-NDOUWE}}
+\setlength{\parindent}{4.5mm}
+\setlength{\parskip}{0pt}
+\linespread{1.18}\selectfont
+\emergencystretch=1.2em
+\frenchspacing
+\titleformat{\section}{\sffamily\bfseries\large\color{Carbon}}{\thesection}{0.65em}{}
+\titlespacing*{\section}{0pt}{18pt}{7pt}
+\titleformat{\subsection}{\sffamily\bfseries\normalsize\color{Carbon}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{15pt}{5pt}
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{1}
+\newcommand{\CurrentRunningHead}{}
+\newtcolorbox{evidencebox}[1][]{enhanced,breakable,colback=NotePaper,colframe=NotePaper,boxrule=0pt,left=11pt,right=11pt,top=8pt,bottom=8pt,borderline west={1.3pt}{0pt}{QuietUmber},fonttitle=\sffamily\bfseries\footnotesize\color{QuietUmber},title={#1},coltitle=QuietUmber}
+\renewenvironment{quote}{\begin{evidencebox}}{\end{evidencebox}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}THE AGE OF OPERATIONAL AI}
+\fancyhead[RO]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}\CurrentRunningHead}
+\fancyfoot[LE,RO]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StoneRule}\leaders\hrule height \headrulewidth\hfill}}
+\newcommand{\coverpage}{%
+\clearpage\thispagestyle{empty}%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=center,inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{../assets/book4-front-cover-print-light.jpg}};
+\end{tikzpicture}\mbox{}\clearpage}
+\newcommand{\halfTitle}{%
+\clearpage\thispagestyle{empty}\vspace*{0.35\textheight}
+{\sffamily\fontsize{24}{28}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE OPERATOR'S LIBRARY · BOOK 04}\clearpage}
+\newcommand{\titlePage}{%
+\clearpage\thispagestyle{empty}\vspace*{0.23\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}THE OPERATOR'S LIBRARY · BOOK 04}\par\vspace{19pt}
+{\sffamily\fontsize{29}{33}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vspace{16pt}
+{\itshape\large How AI Agents Will Change the Way\\ We Build, Operate and Secure Technology}\par\vfill
+{\sffamily\fontsize{9}{11}\selectfont STEVE BA-NDOUWE}\clearpage}
+\newcommand{\copyrightPage}{%
+\clearpage\thispagestyle{empty}\vspace*{0.65\textheight}
+{\footnotesize © 2026 Steve BA-NDOUWE. All rights reserved.\\
+First editorial specimen, prepared for design and reading review.\\
+The final edition will include verified source notes and publication data.}\clearpage}
+\newcommand{\introductionOpener}{%
+\phantomsection\addcontentsline{toc}{section}{Introduction: The Terms of Delegation}
+\renewcommand{\CurrentRunningHead}{INTRODUCTION}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}INTRODUCTION}\par\vspace{18pt}
+{\sffamily\fontsize{31}{35}\selectfont\bfseries THE TERMS OF\\ DELEGATION}\par\vspace{20pt}
+{\itshape\large Before an organisation gives a system the right to act, it must decide what it is delegating, what it will retain, and how it will know the difference.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE OPERATOR'S LIBRARY}\clearpage}
+\newcommand{\partOpener}{%
+\phantomsection\addcontentsline{toc}{part}{Part I. The Shift}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{10}{12}\selectfont\color{QuietUmber}PART I}\par\vspace{18pt}
+{\sffamily\fontsize{34}{38}\selectfont\bfseries THE SHIFT}\par\vspace{18pt}
+{\itshape\large The transition from systems that follow instructions to systems that interpret objectives and act within them.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}WHAT CHANGES WHEN SOFTWARE HAS DISCRETION}\clearpage}
+\newcommand{\chapterThreeOpener}{%
+\phantomsection\addcontentsline{toc}{section}{3. The Operator Gets a Copilot}
+\renewcommand{\CurrentRunningHead}{THE OPERATOR GETS A COPILOT}
+\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER 3}\par\vspace{18pt}
+{\sffamily\fontsize{30}{34}\selectfont\bfseries THE OPERATOR GETS\\ A COPILOT}\par\vspace{19pt}
+{\itshape\large What changes when a system can prepare much of the work but must not own its result.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}PART I · THE SHIFT}\clearpage}
+\newcommand{\chapterCoda}{%
+\clearpage\thispagestyle{empty}\vspace*{0.22\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER CODA}\par\vspace{18pt}
+{\sffamily\fontsize{23}{28}\selectfont\bfseries WHAT REMAINS}\par\vspace{18pt}
+{\large A copilot can prepare work.\\[7pt]
+The operator still owns the evidence and the decision.\\[7pt]
+The organisation must retain the boundary.}\par\vspace{30pt}
+\noindent\rule{0.25\textwidth}{0.5pt}\par\vspace{12pt}
+{\itshape\large Assistance becomes a different operational relationship when the system is permitted to carry its recommendation into action.}\par\vfill
+{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}NEXT · THE MOMENT A HELPFUL SYSTEM BEGINS TO ACT}\clearpage}
+\newcommand{\sourceNotesOpener}{%
+\clearpage\thispagestyle{empty}\vspace*{0.2\textheight}
+{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}SOURCE NOTES}\par\vspace{18pt}
+{\sffamily\fontsize{27}{31}\selectfont\bfseries EVIDENCE, NOT\\ DECORATION}\par\vspace{18pt}
+{\itshape\large Sources are placed here so the argument can move, while every consequential claim remains open to inspection.}\clearpage}
+\begin{document}
+\coverpage
+\halfTitle
+\titlePage
+\copyrightPage
+\renewcommand{\CurrentRunningHead}{CONTENTS}
+\tableofcontents
+\introductionOpener
+\input{../introduction-body.tex}
+\partOpener
+\chapterThreeOpener
+\setcounter{section}{0}
+\input{../chapter-03-body-v2.tex}
+\chapterCoda
+\sourceNotesOpener
+{\sffamily\bfseries\large Chapter 3}\par\vspace{10pt}
+\begin{enumerate}\itemsep=8pt
+\item K. Z. Cui et al., ``The Productivity Effects of Generative AI: Evidence from a Field Experiment with GitHub Copilot,'' 2024.
+\item Mihaela Vorvoreanu et al., \emph{New employee Copilot usage: Insights into productivity and socialization}, Microsoft Technical Report MSR-TR-2025-24, 2025.
+\item ``Check the box! How to deal with automation bias in AI-based personnel selection,'' \emph{Frontiers in Psychology}, 2023.
+\end{enumerate}
+\vspace{20pt}
+{\sffamily\bfseries\large Further Reading}\par\vspace{10pt}
+Cui et al. \emph{The Productivity Effects of Generative AI}.\\
+Microsoft Research. \emph{New employee Copilot usage}.\\
+The Chicago Manual of Style. \emph{Notes and Bibliography}.\\
+\end{document}

@@ -2,18 +2,7 @@
 role: "part-opener"
 part: "Part II"
 title: "The Automation Curve"
-status: "scaffold"
+status: "final"
 ---
 
-# Part II: The Automation Curve
-
-*The handover feels reasonable, one step at a time*
-
-No one decides to remove the operator. The system is simply allowed to do one more thing.
-
-## Chapters in this part
-
-5. **First We Automated the Routine**
-6. **Then We Automated the Diagnosis**
-7. **Then We Let Machines Act**
-8. **When the Runbook Learned to Decide**
+\partopening{II}{The Automation Curve}{Every handover removes a delay and moves a decision somewhere less visible. First the routine. Then the diagnosis. Then the authority to act.}{teal}{What disappears as execution becomes cheap}

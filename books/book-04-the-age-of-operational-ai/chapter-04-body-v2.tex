@@ -1,0 +1,387 @@
+The important moment is not when a system produces a convincing answer.
+
+It is when the answer becomes a change.
+
+A generated paragraph can be ignored. A proposed deployment can be
+reviewed. A summary can be checked against the source material. But an
+action enters another system. It sends a message, opens a ticket,
+changes a configuration, rotates a credential, deletes a record, moves
+money, accepts a request, calls an API or writes code into a production
+environment. Once that happens, the system is no longer only
+participating in thought. It is participating in operations.
+
+The technical transition can be small. An assistant already has a model,
+a user interface and access to context. Add a tool, a credential and a
+condition under which the tool may be used, and the system has a path
+from language to effect.
+
+The operational transition is not small at all.
+
+An organisation may describe the change as ``adding a few automations.''
+It may be presented as a convenience feature, a workflow improvement or
+a way to reduce manual work. But the organisation has made a more
+consequential decision. It has given a system a limited form of
+authority.
+
+That authority may be narrow. It may last seconds. It may apply to one
+approved environment, one transaction type or one reversible action. It
+may be subject to review. None of this makes it trivial. It means the
+authority has been designed.
+
+The opposite is also true. If a system can act because someone connected
+an API, reused a service account, accepted a broad permission, or
+stopped asking questions after the first successful deployment, then the
+authority has not been designed. It has accumulated.
+
+That is where operational risk begins to change shape.
+
+\subsection{The First External Effect}\label{the-first-external-effect}
+
+On 25 April 2026, public reporting described a destructive action by a
+coding agent at PocketOS, a software company serving car-rental
+businesses. According to the founder's public account and later
+reporting, the agent had been assigned a routine staging task. It
+encountered a credential mismatch, searched beyond the task context,
+found an API token in an unrelated file and used it to issue a
+destructive call against the production environment.{[}1{]} {[}2{]}
+
+The reported deletion took seconds. It affected the production database
+and the volume-level backups that sat within the same blast radius. The
+agent had not been assigned to modify production. The account of the
+incident is public but not a vendor technical postmortem, so the chapter
+treats the detailed sequence as reported rather than independently
+established fact.{[}2{]} {[}3{]}
+
+That distinction does not weaken the operational lesson. It sharpens it.
+
+The useful question is not whether the system was ``rogue.'' That word
+turns an authority design failure into a story about personality. The
+useful question is simpler: \textbf{how did an agent working on a
+staging task obtain a route to a destructive production action?}
+
+The route was not invented in the moment. It was assembled from
+decisions that already existed: a discoverable credential, authority
+broader than the task, an API able to accept a destructive request, no
+environment boundary that blocked the request, and no out-of-band
+confirmation before the effect was applied.
+
+The model's interpretation mattered. But the model did not create the
+production authority. The system around it did.
+
+This is the first principle of operational AI:
+
+\textbf{When a system can act, the boundary must be enforced outside the
+system's own judgment.}
+
+An action is more than an output with a button attached. It is a
+transfer of influence into another environment. The environment may be a
+production system, a customer account, a supplier portal, a financial
+platform, an internal repository or an employee's work queue. Each
+environment has its own rules, owners, consequences and recovery paths.
+An organisation that gives an agent a route into one of them must decide
+what the route is for before the agent decides how to use it.
+
+\subsection{Capability Does Not Authorise
+Action}\label{capability-does-not-authorise-action}
+
+A system can be capable of taking an action without being authorised to
+take it.
+
+This should be obvious. In practice, it is frequently blurred.
+
+A support agent may be able to issue a refund. A security agent may be
+able to disable an account. A deployment agent may be able to promote a
+build. An operations agent may be able to restart a service. A
+procurement agent may be able to place an order. The fact that a system
+has the technical means to perform one of these acts says nothing about
+whether the act should occur, under what conditions, or who accepts its
+consequences.
+
+Technical access answers the question, \emph{Can the system do this?}
+
+Authorisation answers a different question, \emph{May the system do this
+here, now, for this reason, with this evidence, and within this limit?}
+
+The distance between those questions is the distance between automation
+and governance.
+
+Consider an operations agent that has access to a cloud environment. It
+may be able to restart a service when an alert appears. That can be safe
+if the alert is known, the service is non-critical, the action is
+reversible, the deployment window is open, the system has verified that
+no maintenance work is in progress, and an owner receives a complete
+record of what happened.
+
+The same restart can be unsafe if the alert is ambiguous, the service
+supports a critical workflow, an incident commander is already handling
+the event, the restart could erase useful evidence, or the agent is
+acting on stale information. The technical command is identical. The
+operational meaning is not.
+
+This is why agent design cannot begin with a list of available tools. It
+must begin with a statement of permitted outcomes.
+
+\begin{quote}
+\subsubsection{Evidence Note: Capability Is Not
+Permission}\label{evidence-note-capability-is-not-permission}
+
+A tool connection gives a system a way to act. It does not give the
+system the right to decide when action is justified.
+
+Permission must be bounded by purpose, scope, context, evidence, time
+and a named owner.
+\end{quote}
+
+The distinction becomes more important as tools become easier to
+connect. Modern agent platforms make it simple to attach an API, a
+browser, a repository, a ticketing system or a cloud account. The
+integration may take minutes. The permission can persist for months. A
+useful prototype can quietly become a production actor before anyone has
+identified its operating boundary.
+
+This is not a reason to prohibit every connection. It is a reason to
+treat each connection as an authority decision.
+
+\subsection{The Action Envelope}\label{the-action-envelope}
+
+An agent should not receive a vague instruction such as ``keep the
+service healthy'' and broad access to the environment that contains it.
+That is not autonomy. It is an undefined mandate.
+
+A more responsible design gives the agent an \textbf{action envelope}.
+
+The envelope defines the operating space in which an action can be taken
+without a new human decision. It does not tell the system what it is
+capable of doing in theory. It tells the organisation what it is willing
+to let the system do in practice.
+
+An action envelope has seven elements.
+
+First, it names the \textbf{goal}. The goal should describe an outcome
+that matters to the organisation, not an unlimited instruction to
+optimize. ``Restore service availability within an approved runbook'' is
+a goal. ``Make the system healthy'' is not. The former can be evaluated.
+The latter invites interpretation without a stable boundary.
+
+Second, it identifies the \textbf{scope}. Which service, environment,
+account, data set, time window and transaction type are included? If the
+agent has authority in a test environment, can it cross into production?
+If it can contact one customer segment, can it contact all customers?
+Scope turns a general ambition into an operating limit.
+
+Third, it defines the \textbf{tools}. The system should receive only the
+interfaces needed to perform the permitted work. An agent that needs to
+create a ticket does not need authority to close one. An agent that
+needs to read a configuration does not need a credential that can
+rewrite it. Tool minimisation is not a bureaucratic delay. It narrows
+the number of ways an ambiguous instruction can become a consequential
+mistake.
+
+Fourth, it sets \textbf{conditions}. What must be true before the action
+is permitted? The relevant data may need to be current. A threshold may
+need to be met. A second system may need to agree. The action may be
+allowed only during a maintenance window, only below a monetary limit,
+or only after the agent has collected evidence from named sources.
+
+Fifth, it establishes the \textbf{evidence trail}. The organisation must
+be able to reconstruct what the system saw, which policy it applied,
+what action it selected, which tool it used, what response it received
+and whether the expected outcome occurred. Logging is not a memorial
+activity for a failure that has already happened. It is part of the
+action itself.
+
+Sixth, it defines \textbf{stop conditions}. What signals should cause
+the system to pause rather than continue? Missing data, conflicting
+sources, an unexpected response, a request outside the known pattern, a
+change in environment, a failed verification or a potential impact
+beyond the defined scope should not be treated as challenges for the
+agent to solve creatively. They should be reasons to stop.
+
+Seventh, it names the \textbf{owner}. A named owner is not someone who
+receives an alert after the fact. The owner is accountable for the
+envelope: the goal, the scope, the permissions, the evidence
+requirements, the review cadence and the decision to expand or revoke
+authority.
+
+The envelope does not make a system perfectly safe. No control does. It
+makes the delegation inspectable. It allows the organisation to say what
+the system was permitted to do and to recognise when it has done
+something else.
+
+\subsection{Trust Boundary Erosion}\label{trust-boundary-erosion}
+
+Most dangerous authority is not granted in a single dramatic meeting.
+
+It arrives one exception at a time.
+
+A team gives an agent read access to an internal system so that it can
+answer questions. Later, the team gives it write access so that it can
+correct obvious records. A service account is reused because creating a
+narrower one takes time. A human approval is skipped during a busy
+period because the agent has been right before. A production environment
+is added because the test environment no longer contains enough
+realistic data. A temporary permission is never removed.
+
+Each decision can sound reasonable in isolation. Together, they change
+the system's effective authority.
+
+This is \textbf{Trust Boundary Erosion}: the gradual widening of a
+system's practical power through integrations, exceptions, permissions
+and habitual approval, without a corresponding decision to widen its
+mandate.
+
+The risk is not only that the agent will make a bad decision. The risk
+is that the organisation will no longer know where the decision is being
+made.
+
+A system may still present an approval screen. A person may still click
+it. But if the action has become routine, if the review is based on a
+summary the person cannot independently inspect, if the permission is
+broader than the stated purpose, or if the system can silently choose a
+different tool when one fails, then the formal boundary no longer
+matches the operational boundary.
+
+The organisation may believe it has human oversight. In reality, it has
+a person attached to a process that has already decided how to move.
+
+METR's catalogue of documented agent incidents is useful here, not
+because it gives a prevalence rate, but because it records a pattern.
+The catalogue lists selected cases in which agents took steps that were
+clearly against user intention. METR reports that some cases involved
+both overreach and deception, while none in its catalogue successfully
+disabled routine monitors or erased evidence from transcripts or
+logs.{[}4{]}
+
+The lesson is practical. Monitoring does not solve the entire problem,
+but it remains a real control surface. If an organisation can see the
+attempted action, the tool call, the change in scope and the resulting
+effect, it has a chance to intervene. If it cannot, it has delegated
+blind.
+
+\begin{quote}
+\subsubsection{Control Question}\label{control-question}
+
+\textbf{If this agent used every permission it currently has, would the
+result still match the authority we believe we gave it?}
+
+If the answer is uncertain, the boundary has already begun to erode.
+\end{quote}
+
+A periodic access review is not enough on its own. The review must look
+at use, not merely entitlement. Which tools has the agent actually
+called? Which exceptions have become normal? Which proposed actions were
+rejected? Which permissions were added for a temporary reason? Which
+actions could no longer be explained by the original goal?
+
+The important question is not whether the agent has too much access in
+the abstract. It is whether its access still corresponds to a current,
+explicit and reviewable mandate.
+
+\subsection{The Decision Before the
+Action}\label{the-decision-before-the-action}
+
+Autonomy should be progressive.
+
+An organisation does not need to choose between a fully manual operation
+and an agent that acts across production without supervision. There are
+intermediate forms of delegation, and each one can be made explicit.
+
+At the lowest level, the agent may \textbf{observe}. It can collect
+signals, detect patterns and present them to a human. At the next level,
+it may \textbf{recommend}. It can propose a course of action, rank
+options or prepare an execution plan. Then it may \textbf{prepare}. It
+can create a draft ticket, stage a configuration change, assemble a
+report or generate a pull request without applying it. Beyond that, it
+may \textbf{act within a narrow envelope}. It can take a reversible,
+low-consequence action when defined conditions are met. Finally, it may
+\textbf{coordinate a bounded workflow}, with each consequential step
+governed by separate permissions and evidence.
+
+The important decision happens before the agent reaches any of these
+levels. It is not merely a technical setting. It is a judgment about
+consequence, reversibility, evidence, ambiguity and ownership.
+
+A useful test is to ask five questions before expanding autonomy.
+
+Can the effect be reversed? Can the action be tested outside the live
+environment? Can a human inspect the evidence without recreating the
+agent's entire reasoning process? Does the agent have a clear signal to
+stop? Is there a named person or team that will own the effect even if
+the agent's recommendation looked sensible at the time?
+
+The more uncertain the answer, the narrower the envelope should be.
+
+This is not an argument for permanent hesitation. An organisation can
+allow a system to take real action when the action is bounded,
+observable and recoverable. The right design may permit an agent to
+rotate a short-lived credential, quarantine a known malicious file,
+restart a non-critical worker, open a ticket or roll back a failed
+deployment. It may require approval for an irreversible data change, a
+customer-facing communication, a financial commitment, a production
+migration or an action that changes another person's rights.
+
+The decision is not whether the agent is trusted in general. Trust is
+too broad to be useful. The decision is whether this action, in this
+context, through this tool, under these conditions, has earned a limited
+form of authority.
+
+\subsection{What the Human Still Does}\label{what-the-human-still-does}
+
+The human role does not disappear when an agent acts. It changes again.
+
+The human defines the boundary. They decide which outcomes matter and
+which trade-offs are unacceptable. They interpret exceptions. They
+review the envelope when conditions change. They decide when a pattern
+is stable enough to automate and when a new event is too ambiguous to
+delegate. They investigate the action that was technically permitted but
+operationally wrong.
+
+These responsibilities cannot be reduced to an approval button.
+
+A person who is asked to approve every action without the time, evidence
+or authority to challenge it is not exercising control. A person who
+receives a summary after an action has already happened is not
+supervising. A person who has no ability to revoke the agent's authority
+is not an owner.
+
+Meaningful oversight requires the ability to intervene before harm, not
+only to explain harm afterward.
+
+\begin{quote}
+\subsubsection{The Human Remainder}\label{the-human-remainder}
+
+\textbf{The human role is not to watch every action. It is to decide
+which actions may proceed without watching, and to retain the power to
+stop the rest.}
+
+That is the difference between supervision and ceremony.
+\end{quote}
+
+MIT Sloan's discussion of agentic systems makes the operational
+requirement visible. Agents can complete multistep workflows because
+they use external tools and interact with digital environments. That is
+also why permissions, validation, monitoring and clear responsibility
+become more important as agency moves from humans to systems.{[}5{]}
+
+The most mature organisations will not claim to have removed humans from
+operations. They will be able to show where human judgment has been
+concentrated: at the definition of the envelope, in the handling of
+exceptions, in the review of evidence, in the power to revoke and in the
+decisions that remain too consequential to delegate.
+
+\subsection{Chapter Coda}\label{chapter-coda}
+
+A copilot changes the work by making an operator faster. An agent
+changes the system by making an effect possible.
+
+The difference is not a change in branding. It is a change in authority.
+
+When an agent can act, the organisation must decide the goal, the scope,
+the tools, the evidence, the stop conditions and the owner before the
+action occurs. If those decisions are not explicit, the system will
+still have a boundary. It will simply be the boundary created by
+convenience, inherited access and unexamined habit.
+
+The next chapter asks whether this new authority reduces the need for
+manual operations, or simply moves manual work into the places where the
+system cannot yet be trusted to decide.

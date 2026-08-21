@@ -1,0 +1,93 @@
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=6in,paperheight=9in,top=0.82in,bottom=0.78in,inner=0.84in,outer=0.68in,headsep=17pt,footskip=28pt]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Tiempos Text}{\setmainfont{Tiempos Text}}{\setmainfont{TeX Gyre Pagella}}
+\IfFontExistsTF{Söhne}{\setsansfont{Söhne}}{\setsansfont{Latin Modern Sans}}
+\usepackage{xcolor}
+\definecolor{NaturalPaper}{HTML}{FAF8F3}
+\definecolor{Carbon}{HTML}{202124}
+\definecolor{WarmGrey}{HTML}{6C6A66}
+\definecolor{StoneRule}{HTML}{B7B0A6}
+\definecolor{QuietUmber}{HTML}{7B4B3A}
+\definecolor{NotePaper}{HTML}{F2EEE8}
+\pagecolor{NaturalPaper}
+\color{Carbon}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=Carbon,urlcolor=Carbon,citecolor=Carbon,pdftitle={The Age of Operational AI — Complete Editorial Proof through Chapter 08},pdfauthor={Steve BA-NDOUWE}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt}
+\linespread{1.18}\selectfont
+\emergencystretch=1.2em
+\frenchspacing
+\titleformat{\section}{\sffamily\bfseries\large\color{Carbon}}{\thesection}{0.65em}{}
+\titlespacing*{\section}{0pt}{18pt}{7pt}
+\titleformat{\subsection}{\sffamily\bfseries\normalsize\color{Carbon}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{15pt}{5pt}
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{1}
+\newcommand{\CurrentRunningHead}{}
+\newtcolorbox{evidencebox}[1][]{enhanced,breakable,colback=NotePaper,colframe=NotePaper,boxrule=0pt,left=11pt,right=11pt,top=8pt,bottom=8pt,borderline west={1.3pt}{0pt}{QuietUmber},fonttitle=\sffamily\bfseries\footnotesize\color{QuietUmber},title={#1},coltitle=QuietUmber}
+\renewenvironment{quote}{\begin{evidencebox}}{\end{evidencebox}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}THE AGE OF OPERATIONAL AI}
+\fancyhead[RO]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}\CurrentRunningHead}
+\fancyfoot[LE,RO]{\sffamily\fontsize{7}{8}\selectfont\color{WarmGrey}\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StoneRule}\leaders\hrule height \headrulewidth\hfill}}
+
+\newcommand{\coverpage}{\clearpage\thispagestyle{empty}\begin{tikzpicture}[remember picture,overlay]\node[anchor=center,inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{../assets/book4-front-cover-print-light.jpg}};\end{tikzpicture}\mbox{}\clearpage}
+\newcommand{\halfTitle}{\clearpage\thispagestyle{empty}\vspace*{0.35\textheight}{\sffamily\fontsize{24}{28}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vfill{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE OPERATOR'S LIBRARY · BOOK 04}\clearpage}
+\newcommand{\titlePage}{\clearpage\thispagestyle{empty}\vspace*{0.23\textheight}{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}THE OPERATOR'S LIBRARY · BOOK 04}\par\vspace{19pt}{\sffamily\fontsize{29}{33}\selectfont\bfseries THE AGE OF\\ OPERATIONAL AI}\par\vspace{16pt}{\itshape\large How AI Agents Will Change the Way\\ We Build, Operate and Secure Technology}\par\vfill{\sffamily\fontsize{9}{11}\selectfont STEVE BA-NDOUWE}\clearpage}
+\newcommand{\copyrightPage}{\clearpage\thispagestyle{empty}\vspace*{0.65\textheight}{\footnotesize © 2026 Steve BA-NDOUWE. All rights reserved.\\Complete editorial proof through Chapter 08.\\The final edition will include verified source notes and publication data.}\clearpage}
+\newcommand{\partOpener}[3]{\phantomsection\addcontentsline{toc}{part}{#1}\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}{\sffamily\fontsize{10}{12}\selectfont\color{QuietUmber}#1}\par\vspace{18pt}{\sffamily\fontsize{34}{38}\selectfont\bfseries #2}\par\vspace{18pt}{\itshape\large #3}\par\vfill{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE AGE OF OPERATIONAL AI}\clearpage}
+\newcommand{\chapterOpener}[3]{\phantomsection\addcontentsline{toc}{section}{#1}\renewcommand{\CurrentRunningHead}{#2}\clearpage\thispagestyle{empty}\vspace*{0.18\textheight}{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}#1}\par\vspace{18pt}{\sffamily\fontsize{30}{34}\selectfont\bfseries #2}\par\vspace{19pt}{\itshape\large #3}\par\vfill{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE OPERATOR'S LIBRARY}\clearpage}
+\newcommand{\chapterCoda}[2]{\clearpage\thispagestyle{empty}\vspace*{0.22\textheight}{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}CHAPTER CODA}\par\vspace{18pt}{\sffamily\fontsize{23}{28}\selectfont\bfseries WHAT REMAINS}\par\vspace{18pt}{\large #1}\par\vspace{30pt}\noindent\rule{0.25\textwidth}{0.5pt}\par\vspace{12pt}{\itshape\large #2}\par\vfill{\sffamily\fontsize{7}{9}\selectfont\color{WarmGrey}THE AGE OF OPERATIONAL AI}\clearpage}
+\newcommand{\sourceNotesOpener}{\clearpage\thispagestyle{empty}\vspace*{0.2\textheight}{\sffamily\fontsize{8}{10}\selectfont\color{QuietUmber}SOURCE NOTES}\par\vspace{18pt}{\sffamily\fontsize{27}{31}\selectfont\bfseries EVIDENCE, NOT\\ DECORATION}\par\vspace{18pt}{\itshape\large Sources are placed here so the argument can move, while every consequential claim remains open to inspection.}\clearpage}
+\begin{document}
+\coverpage\halfTitle\titlePage\copyrightPage
+\renewcommand{\CurrentRunningHead}{CONTENTS}\tableofcontents
+\chapterOpener{Introduction}{THE TERMS OF\\ DELEGATION}{Before an organisation gives a system the right to act, it must decide what it is delegating, what it will retain, and how it will know the difference.}
+\input{../introduction-body.tex}
+\partOpener{PART I}{THE SHIFT}{The change from software that executes instructions to systems that interpret objectives and act.}
+\chapterOpener{1. The Age of Operational AI}{THE AGE OF\\ OPERATIONAL AI}{The operational threshold is crossed when a system can cause an external effect.}
+\setcounter{section}{0}\input{../chapter-01-body-v2.tex}
+\chapterCoda{An action without accountable conditions is not operational trust.}{A system that acts must first become an actor the organisation can govern.}
+\chapterOpener{2. From Software to Agents}{FROM SOFTWARE\\ TO AGENTS}{An agent is a system of model, context, tools, policy and action.}
+\setcounter{section}{0}\input{../chapter-02-body-v2.tex}
+\chapterCoda{The model is only one part of an agent. The whole system creates the risk.}{The operator does not disappear when an agent arrives. The relationship changes.}
+\chapterOpener{3. The Operator Gets a Copilot}{THE OPERATOR GETS\\ A COPILOT}{A copilot can prepare work without inheriting the right to decide its consequences.}
+\setcounter{section}{0}\input{../chapter-03-body-v2.tex}
+\chapterCoda{Useful assistance does not require silent authority.}{The boundary changes again when a system starts taking action.}
+\chapterOpener{4. When AI Starts Taking Actions}{WHEN AI STARTS\\ TAKING ACTIONS}{Capability is not authority. An action envelope makes the difference visible.}
+\setcounter{section}{0}\input{../chapter-04-body-v2.tex}
+\chapterCoda{Trust boundary erosion begins where exceptions quietly widen authority.}{Manual work may shrink, but judgment and recovery remain.}
+\chapterOpener{5. The End of Manual Operations?}{THE END OF MANUAL\\ OPERATIONS?}{Automation changes where responsibility lives; it does not dissolve it.}
+\setcounter{section}{0}\input{../chapter-05-body-v2.tex}
+\chapterCoda{The manual is not merely slow work. It is often a control of judgment and recovery.}{Once agents act, the next attack surface is the authority they receive.}
+\partOpener{PART II}{THE NEW ATTACK\\ SURFACE}{The risks that emerge when systems can hold identities, use tools and act across the environments that matter.}
+\chapterOpener{6. The AI Has Credentials}{THE AI HAS\\ CREDENTIALS}{A system becomes operationally powerful when another system accepts its identity.}
+\setcounter{section}{0}\input{../chapter-06-body-v3.tex}
+\chapterCoda{A credential is not a configuration detail. It is an authority decision another system will enforce.}{Once an agent has a credential, the next question is who owns the actor that acts.}
+\chapterOpener{7. Who Owns an AI Agent?}{WHO OWNS AN\\ AI AGENT?}{An agent is owned only when someone can change its mandate and answer for its effect.}
+\setcounter{section}{0}\input{../chapter-07-body-v3.tex}
+\chapterCoda{Ownership is the power to define, stop and explain an agent’s mandate.}{An owner can still be bypassed when untrusted content influences the system.}
+\chapterOpener{8. Prompt Injection Is Not the Whole Problem}{PROMPT INJECTION\\ IS NOT THE WHOLE PROBLEM}{The question is not only whether an agent can be influenced, but what it can still reach after it is.}
+\setcounter{section}{0}\input{../chapter-08-body-v3.tex}
+\chapterCoda{A prompt is one route of influence. The larger risk is an influenced agent reaching a consequential action.}{When an agent can reach production, a confusing input can become a live operational event.}
+\sourceNotesOpener
+{\sffamily\bfseries\large Chapters 1–5}\par\vspace{8pt}Replit production incident; UK AI Security Institute evaluation; empirical research on human-copilot collaboration; publicly reported PocketOS incident; \emph{Moffatt v. Air Canada}.\\[14pt]
+{\sffamily\bfseries\large Chapter 6}\par\vspace{8pt}Vercel, \emph{April 2026 security incident}; NIST, \emph{AI Agent Standards Initiative}; OWASP GenAI Security Project.\\[14pt]
+{\sffamily\bfseries\large Chapter 7}\par\vspace{8pt}Federal Trade Commission, \emph{FTC Launches Inquiry into AI Chatbots Acting as Companions}, 2025; NIST and OWASP sources.\\[14pt]
+{\sffamily\bfseries\large Chapter 8}\par\vspace{8pt}NIST CAISI, \emph{Strengthening AI Agent Hijacking Evaluations}, 2025; UK National Cyber Security Centre, \emph{Prompt Injection Is Not SQL Injection}, 2025; Cyber Security Agency of Singapore, \emph{Securing Agentic AI}, 2026; OpenAI and OWASP sources.\\[18pt]
+{\sffamily\bfseries\large Further Reading}\par\vspace{8pt}NIST, UK NCSC, Cyber Security Agency of Singapore, ENISA, OWASP GenAI Security Project and the Chicago Manual of Style.
+\end{document}
